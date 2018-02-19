@@ -2,45 +2,26 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: Arrays</title>
+    <title>Go за Прикладами: Масиви (Arrays)</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
+    if (window.location.host == "gobyexample.com") {}
   </script>
   <body>
     <div class="example" id="arrays">
-      <h2><a href="./">Go by Example</a>: Arrays</h2>
+      <h2><a href="./">Go by Example</a>: Масиви (Arrays)</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go, an <em>array</em> is a numbered sequence of elements of a
-specific length.</p>
+            <p>В Go, <em>массив</em> це послідовність елементів визначеної
+довжини.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/l-A8eBnwio"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/8-oQ7RlMX8V"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -73,10 +54,10 @@ specific length.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we create an array <code>a</code> that will hold exactly
-5 <code>int</code>s. The type of elements and length are both
-part of the array&rsquo;s type. By default an array is
-zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
+            <p>Тут ми створюємо масив <code>a</code> що буде міститити рівно
+5 цілих чисел (тип <code>int</code>). Тип елементів та довжина є частиною
+типу масиву. Не ініціалізовані заначення масиву приймають нульове
+значення базового типу елемента масиву (наприклад 0 для <code>int</code>)</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +71,9 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set a value at an index using the
-<code>array[index] = value</code> syntax, and get a value with
-<code>array[index]</code>.</p>
+            <p>Значення елементів масиву можна встановлювати та повертати за
+допомогою індексу (порядкового номера елемента в масиві)
+використовуючи наступний синтаксис</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +88,7 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>The builtin <code>len</code> returns the length of an array.</p>
+            <p>Вбудована фукнція <code>len</code> повертає довжину масиву.</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +101,8 @@ zero-valued, which for <code>int</code>s means <code>0</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Use this syntax to declare and initialize an array
-in one line.</p>
+            <p>Для декларацій та ініціалізації масиву в одну строку
+використовують наступний синтаксис</p>
 
           </td>
           <td class="code leading">
@@ -135,9 +116,25 @@ in one line.</p>
         
         <tr>
           <td class="docs">
-            <p>Array types are one-dimensional, but you can
-compose types to build multi-dimensional data
-structures.</p>
+            <p>Окрім цього доволяється заміняти довжину масиву знаком elipsis
+<code>...</code> при однорядковій декларації, це призведе до визначення довжини
+масиву під час компіляції. Окрім того, дозволяється вказувати
+індекс елемента масиву.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">c</span> <span class="o">:=</span> <span class="p">[</span><span class="o">...</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;elipsis:&quot;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Ви можете компонувати одномірні масиви в багатомірні компонуючи їх,
+Тут наприклад ми створюємо масив з базовим типом елемента <code>масив цілих чисел</code> (<code>array of int</code>s) - тобто масив масивів цілих чисел.</p>
 
           </td>
           <td class="code">
@@ -161,8 +158,8 @@ structures.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that arrays appear in the form <code>[v1 v2 v3 ...]</code>
-when printed with <code>fmt.Println</code>.</p>
+            <p>Зауважте, масив що надруковано за допомогою
+<code>fmt.Println</code> буде виведено у вигляді <code>[v1 v2 v3 ...]</code></p>
 
           </td>
           <td class="code leading">
@@ -173,6 +170,7 @@ when printed with <code>fmt.Println</code>.</p>
 <span class="go">get: 100</span>
 <span class="go">len: 5</span>
 <span class="go">dcl: [1 2 3 4 5]</span>
+<span class="go">elipsis: [0 1 2 4 8 16]</span>
 <span class="go">2d:  [[0 1 2] [1 2 3]]</span>
 </pre></div>
 
@@ -181,8 +179,8 @@ when printed with <code>fmt.Println</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>You&rsquo;ll see <em>slices</em> much more often than arrays in
-typical Go. We&rsquo;ll look at slices next.</p>
+            <p>В Go частіше використовуватимуться <em>зрізи</em> (<em>slices</em>)
+З ними ми познамомимось в насутпному прикладі.</p>
 
           </td>
           <td class="code empty">
@@ -195,11 +193,11 @@ typical Go. We&rsquo;ll look at slices next.</p>
       
       
       <p class="next">
-        Next example: <a href="slices">Slices</a>.
+        Наступний приклад: <a href="slices">Slices</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/arrays">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/arrays">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>

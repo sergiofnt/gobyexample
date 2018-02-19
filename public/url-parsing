@@ -2,20 +2,11 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go by Example: URL Parsing</title>
+    <title>Go за Прикладами: URL Parsing</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-34996217-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    }
+    if (window.location.host == "gobyexample.com") {}
   </script>
   <body>
     <div class="example" id="url-parsing">
@@ -222,11 +213,11 @@ pieces that we extracted.</p>
       
       
       <p class="next">
-        Next example: <a href="sha1-hashes">SHA1 Hashes</a>.
+        Наступний приклад: <a href="sha1-hashes">SHA1 Hashes</a>.
       </p>
       
       <p class="footer">
-        by <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | <a href="mailto:mmcgrana@gmail.com">feedback</a> | <a href="https://github.com/mmcgrana/gobyexample/blob/master/examples/url-parsing">source</a> | <a href="https://github.com/mmcgrana/gobyexample#license">license</a>
+        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/url-parsing">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>
