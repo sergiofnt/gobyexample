@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Hello World</title>
+    <title>Go за Прикладами: Привіт Світе</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,18 +10,17 @@
   </script>
   <body>
     <div class="example" id="hello-world">
-      <h2><a href="./">Go by Example</a>: Hello World</h2>
+      <h2><a href="./">Go by Example</a>: Привіт Світе</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Our first program will print the classic &ldquo;hello world&rdquo;
-message. Here&rsquo;s the full source code.</p>
+            <p>Наш перший приклад друкує класне повідомлення &ldquo;<a href="https://uk.wikipedia.org/wiki/Hello_world!">привіт світе</a>&ldquo;</p>
 
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/2C7wwJ6nxG"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/QboJVAAMchv"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -60,8 +59,8 @@ message. Here&rsquo;s the full source code.</p>
         
         <tr>
           <td class="docs">
-            <p>To run the program, put the code in <code>hello-world.go</code> and
-use <code>go run</code>.</p>
+            <p>Задля запуску программи, збережіть її код до файлу
+<code>hello-world.go</code> та використайте команду <code>go run</code>.</p>
 
           </td>
           <td class="code leading">
@@ -75,8 +74,9 @@ use <code>go run</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to build our programs into
-binaries. We can do this using <code>go build</code>.</p>
+            <p>Інколи, ми можемо забажати скомпілювати нашу программу
+у вигляді двійкового файлу. Це можливо за допомогою
+команди <code>go build</code>.</p>
 
           </td>
           <td class="code leading">
@@ -91,7 +91,7 @@ binaries. We can do this using <code>go build</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can then execute the built binary directly.</p>
+            <p>Тепер запустіть скомпільований файл напряму.</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +105,9 @@ binaries. We can do this using <code>go build</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Now that we can run and build basic Go programs, let&rsquo;s
-learn more about the language.</p>
+            <p>Після того, як ми опанували запуск та компіляцію
+базових Go программи, давайте дізнаємось більше про
+саму мову.</p>
 
           </td>
           <td class="code empty">

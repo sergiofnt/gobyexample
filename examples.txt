@@ -1,4 +1,4 @@
-Hello World
+Привіт Світе|Hello World
 Values
 Variables
 Constants

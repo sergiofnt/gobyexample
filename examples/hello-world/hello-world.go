@@ -1,5 +1,4 @@
-// Our first program will print the classic "hello world"
-// message. Here's the full source code.
+// Наш перший приклад друкує класне повідомлення "[привіт світе](https://uk.wikipedia.org/wiki/Hello_world!)"
 package main
 
 import "fmt"
