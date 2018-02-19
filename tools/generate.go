@@ -3,7 +3,6 @@ package main
 import (
 	"crypto/sha1"
 	"fmt"
-	"github.com/russross/blackfriday"
 	"io/ioutil"
 	"net/http"
 	"os"
@@ -12,6 +11,8 @@ import (
 	"regexp"
 	"strings"
 	"text/template"
+
+	"github.com/russross/blackfriday"
 )
 
 var cacheDir = "/tmp/gobyexample-cache"
@@ -220,13 +221,23 @@ func parseExamples() []*Example {
 	examples := make([]*Example, 0)
 	for _, exampleName := range exampleNames {
 		if (exampleName != "") && !strings.HasPrefix(exampleName, "#") {
+
+			exampleID := exampleName
+
+			if strings.Contains(exampleName, "|") {
+				parts := strings.Split(exampleName, "|")
+				exampleName, exampleID = parts[0], parts[1]
+			}
+
 			example := Example{Name: exampleName}
-			exampleID := strings.ToLower(exampleName)
+
+			exampleID = strings.ToLower(exampleID)
 			exampleID = strings.Replace(exampleID, " ", "-", -1)
 			exampleID = strings.Replace(exampleID, "/", "-", -1)
 			exampleID = strings.Replace(exampleID, "'", "", -1)
 			exampleID = dashPat.ReplaceAllString(exampleID, "-")
 			example.ID = exampleID
+
 			example.Segs = make([][]*Seg, 0)
 			sourcePaths := mustGlob("examples/" + exampleID + "/*")
 			for _, sourcePath := range sourcePaths {
