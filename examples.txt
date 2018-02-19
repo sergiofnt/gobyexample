@@ -1,5 +1,5 @@
 Привіт Світе|Hello World
-Values
+Значення|Values
 Variables
 Constants
 For
