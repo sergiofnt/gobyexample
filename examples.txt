@@ -5,7 +5,7 @@ Constants
 For
 If/Else
 Switch
-Arrays
+Масиви (Arrays)|Arrays
 Slices
 Maps
 Range
