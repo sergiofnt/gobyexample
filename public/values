@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Values</title>
+    <title>Go за Прикладом: Значення</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,29 +10,19 @@
   </script>
   <body>
     <div class="example" id="values">
-      <h2><a href="./">Go by Example</a>: Values</h2>
+      <h2><a href="./">Go за Прикладом</a>: Значення</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has various value types including strings,
-integers, floats, booleans, etc. Here are a few
-basic examples.</p>
+            <p>Go має різні типи значень включаючи рядки (strings),
+ціли числа (int), числа з рухомою комою (float),
+логічні (bool) абощо. Ось кілька базових прикладів.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/fgGVOyuZdu"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/4fnegc1XgnJ"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,7 +55,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Strings, which can be added together with <code>+</code>.</p>
+            <p>Рядки можуть бути обєднані поміж собою за допомогою <code>+</code>.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +68,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Integers and floats.</p>
+            <p>Цілі числа та числа з рухомою комою</p>
 
           </td>
           <td class="code leading">
@@ -92,7 +82,8 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Booleans, with boolean operators as you&rsquo;d expect.</p>
+            <p>Логічний тип з логічними операторами,
+<nobr>як ви могли б очікувати<nobr>.</p>
 
           </td>
           <td class="code">

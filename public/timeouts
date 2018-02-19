@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Timeouts</title>
+    <title>Go за Прикладом: Timeouts</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="timeouts">
-      <h2><a href="./">Go by Example</a>: Timeouts</h2>
+      <h2><a href="./">Go за Прикладом</a>: Timeouts</h2>
       
       <table>
         

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Привіт Світе</title>
+    <title>Go за Прикладом: Привіт Світе</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="hello-world">
-      <h2><a href="./">Go by Example</a>: Привіт Світе</h2>
+      <h2><a href="./">Go за Прикладом</a>: Привіт Світе</h2>
       
       <table>
         
@@ -120,7 +120,7 @@
       
       
       <p class="next">
-        Наступний приклад: <a href="values">Values</a>.
+        Наступний приклад: <a href="values">Значення</a>.
       </p>
       
       <p class="footer">

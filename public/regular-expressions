@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Regular Expressions</title>
+    <title>Go за Прикладом: Regular Expressions</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="regular-expressions">
-      <h2><a href="./">Go by Example</a>: Regular Expressions</h2>
+      <h2><a href="./">Go за Прикладом</a>: Regular Expressions</h2>
       
       <table>
         

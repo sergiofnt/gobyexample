@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Non-Blocking Channel Operations</title>
+    <title>Go за Прикладом: Non-Blocking Channel Operations</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="non-blocking-channel-operations">
-      <h2><a href="./">Go by Example</a>: Non-Blocking Channel Operations</h2>
+      <h2><a href="./">Go за Прикладом</a>: Non-Blocking Channel Operations</h2>
       
       <table>
         

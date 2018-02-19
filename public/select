@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладами: Select</title>
+    <title>Go за Прикладом: Select</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="select">
-      <h2><a href="./">Go by Example</a>: Select</h2>
+      <h2><a href="./">Go за Прикладом</a>: Select</h2>
       
       <table>
         
