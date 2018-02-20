@@ -1,6 +1,6 @@
 Привіт Світе|Hello World
 Значення|Values
-Variables
+Змінні|Variables
 Constants
 For
 If/Else

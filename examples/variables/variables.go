@@ -1,34 +1,32 @@
-// In Go, _variables_ are explicitly declared and used by
-// the compiler to e.g. check type-correctness of function
-// calls.
-
+// В Go, _змінні_ декларуються явно і використовуються
+// компілятором, наприклад для перевірки коректності типу
+// у викликах функцій
 package main
 
 import "fmt"
 
 func main() {
 
-    // `var` declares 1 or more variables.
+    // `var` декларує 1 або більше змінних.
     var a = "initial"
     fmt.Println(a)
 
-    // You can declare multiple variables at once.
+    // Дозволяється декларувати більш ніж одну змінну водночас.
     var b, c int = 1, 2
     fmt.Println(b, c)
 
-    // Go will infer the type of initialized variables.
+    // Go припустить тип змінної опираючись на її значеня.
     var d = true
     fmt.Println(d)
 
-    // Variables declared without a corresponding
-    // initialization are _zero-valued_. For example, the
-    // zero value for an `int` is `0`.
+    // Змінні декларовані без супровідної ініціалізації
+    // мають _нульове значення_. Наприклад, нульовим
+    // значенням для цілих чисел (`int`) є 0 (нуль).
     var e int
     fmt.Println(e)
 
-    // The `:=` syntax is shorthand for declaring and
-    // initializing a variable, e.g. for
-    // `var f string = "short"` in this case.
+    // Синтаксис `:=` це скорочення для декларації та ініціалізації
+    // змінної, наприклад для <nobr>`var f string = "short"`</nobr> в нашому випадку.
     f := "short"
     fmt.Println(f)
 }

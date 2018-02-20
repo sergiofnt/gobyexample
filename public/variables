@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Variables</title>
+    <title>Go за Прикладом: Змінні</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,29 +10,19 @@
   </script>
   <body>
     <div class="example" id="variables">
-      <h2><a href="./">Go за Прикладом</a>: Variables</h2>
+      <h2><a href="./">Go за Прикладом</a>: Змінні</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>В Go, <em>змінні</em> декларуються явно і використовуються
+компілятором, наприклад для перевірки коректності типу
+у викликах функцій</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/1FnG0dJfxs8"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/lbqiVuB4YYM"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,7 +55,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p><code>var</code> declares 1 or more variables.</p>
+            <p><code>var</code> декларує 1 або більше змінних.</p>
 
           </td>
           <td class="code leading">
@@ -79,7 +69,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>You can declare multiple variables at once.</p>
+            <p>Дозволяється декларувати більш ніж одну змінну водночас.</p>
 
           </td>
           <td class="code leading">
@@ -93,7 +83,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Go припустить тип змінної опираючись на її значеня.</p>
 
           </td>
           <td class="code leading">
@@ -107,9 +97,9 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+            <p>Змінні декларовані без супровідної ініціалізації
+мають <em>нульове значення</em>. Наприклад, нульовим
+значенням для цілих чисел (<code>int</code>) є 0 (нуль).</p>
 
           </td>
           <td class="code leading">
@@ -123,9 +113,8 @@ zero value for an <code>int</code> is <code>0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;short&quot;</code> in this case.</p>
+            <p>Синтаксис <code>:=</code> це скорочення для декларації та ініціалізації
+змінної, наприклад для <nobr><code>var f string = &quot;short&quot;</code></nobr> в нашому випадку.</p>
 
           </td>
           <td class="code">
