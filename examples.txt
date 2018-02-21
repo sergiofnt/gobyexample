@@ -1,8 +1,8 @@
 Привіт Світе|Hello World
 Значення|Values
 Змінні|Variables
-Constants
-For
+Константи|Constants
+Цикл For|For
 If/Else
 Switch
 Масиви (Arrays)|Arrays

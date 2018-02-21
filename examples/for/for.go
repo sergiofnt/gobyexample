@@ -1,5 +1,5 @@
-// `for` is Go's only looping construct. Here are
-// three basic types of `for` loops.
+// `for` це єдина конструкція циклу в Go. Нижче наведено
+// три базові типи для циклів `for`.
 
 package main
 
@@ -7,28 +7,30 @@ import "fmt"
 
 func main() {
 
-    // The most basic type, with a single condition.
+    // Найбільш базовий тип, з єдиною інструкцією.
     i := 1
     for i <= 3 {
         fmt.Println(i)
         i = i + 1
     }
 
-    // A classic initial/condition/after `for` loop.
+    // Класичний ініціалізація/умова/післяумова `for` цикл,
+    // також відомий як С-style `for` цикл.
     for j := 7; j <= 9; j++ {
         fmt.Println(j)
     }
 
-    // `for` without a condition will loop repeatedly
-    // until you `break` out of the loop or `return` from
-    // the enclosing function.
+    // `for` без умови буде видбуватись постійно
+    // допоки программи не перерве його за допомогою
+    // ключових слів `break` (що перериває цикл) або
+    // `return` (що повертає значення з заключаючої функції).
     for {
         fmt.Println("loop")
         break
     }
 
-    // You can also `continue` to the next iteration of
-    // the loop.
+    // Ви також можете використати ключове слово `continue`
+    // для переходу до наступної ітерації циклу.
     for n := 0; n <= 5; n++ {
         if n%2 == 0 {
             continue

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Constants</title>
+    <title>Go за Прикладом: Константи</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,28 +10,19 @@
   </script>
   <body>
     <div class="example" id="constants">
-      <h2><a href="./">Go за Прикладом</a>: Constants</h2>
+      <h2><a href="./">Go за Прикладом</a>: Константи</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>constants</em> of character, string, boolean,
-and numeric values.</p>
+            <p>Go підтримує створення констант зі значеннями типу
+рядок (string), число (int або float), а також
+логічного типу (bool).</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/T5sj0eINnp"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/8Y127jY4uok"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,7 +44,8 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p><code>const</code> declares a constant value.</p>
+            <p>Декларація константи проходить за допомогою ключового
+слова <code>const</code>.</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +71,8 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>const</code> statement can appear anywhere a <code>var</code>
-statement can.</p>
+            <p>Ключове слово <code>const</code> може з’являтись будь де,
+де може з’являтись ключове слово <code>var</code> (яким декларуються <em><a href="./variables">змінні</a></em>).</p>
 
           </td>
           <td class="code leading">
@@ -93,8 +85,8 @@ statement can.</p>
         
         <tr>
           <td class="docs">
-            <p>Constant expressions perform arithmetic with
-arbitrary precision.</p>
+            <p>Вирази констант обчислюються за допомогою
+<a href="https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%B2%D0%B3%D0%B0_%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D0%BA%D0%B0">арфиметики з довільною точністю</a>.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +100,9 @@ arbitrary precision.</p>
         
         <tr>
           <td class="docs">
-            <p>A numeric constant has no type until it&rsquo;s given
-one, such as by an explicit cast.</p>
+            <p>Числові константи можуть не мати типу допоки
+їм не присвоять його, як у нашому прикладі з
+явним перетворення.</p>
 
           </td>
           <td class="code leading">
@@ -122,10 +115,10 @@ one, such as by an explicit cast.</p>
         
         <tr>
           <td class="docs">
-            <p>A number can be given a type by using it in a
-context that requires one, such as a variable
-assignment or function call. For example, here
-<code>math.Sin</code> expects a <code>float64</code>.</p>
+            <p>Числовій константі може бути надано тип шляхом використання
+її у контексті що потребує тип, наприклад у присвоєнні або
+виклицу функції. Нижче подано примірник де <code>math.Sin</code> очікує
+значення типу <code>float64</code>.</p>
 
           </td>
           <td class="code">
@@ -147,7 +140,7 @@ assignment or function call. For example, here
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run constant.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run constant.go
 <span class="go">constant</span>
 <span class="go">6e+11</span>
 <span class="go">600000000000</span>
@@ -161,7 +154,7 @@ assignment or function call. For example, here
       
       
       <p class="next">
-        Наступний приклад: <a href="for">For</a>.
+        Наступний приклад: <a href="for">Цикл For</a>.
       </p>
       
       <p class="footer">

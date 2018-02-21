@@ -7,7 +7,7 @@ import "fmt"
 
 func main() {
 
-    // `var` декларує 1 або більше змінних.
+    // Ключове слово `var` декларує 1 або більше змінних.
     var a = "initial"
     fmt.Println(a)
 

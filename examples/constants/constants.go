@@ -1,33 +1,35 @@
-// Go supports _constants_ of character, string, boolean,
-// and numeric values.
-
+// Go підтримує створення констант зі значеннями типу
+// рядок (string), число (int або float), а також
+// логічного типу (bool).
 package main
 
 import "fmt"
 import "math"
 
-// `const` declares a constant value.
+// Декларація константи проходить за допомогою ключового
+// слова `const`.
 const s string = "constant"
 
 func main() {
     fmt.Println(s)
 
-    // A `const` statement can appear anywhere a `var`
-    // statement can.
+    // Ключове слово `const` може з’являтись будь де,
+    // де може з’являтись ключове слово `var` (яким декларуються _[змінні](./variables)_).
     const n = 500000000
 
-    // Constant expressions perform arithmetic with
-    // arbitrary precision.
+    // Вирази констант обчислюються за допомогою
+    // [арфиметики з довільною точністю](https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%B2%D0%B3%D0%B0_%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D0%BA%D0%B0).
     const d = 3e20 / n
     fmt.Println(d)
 
-    // A numeric constant has no type until it's given
-    // one, such as by an explicit cast.
+    // Числові константи можуть не мати типу допоки
+    // їм не присвоять його, як у нашому прикладі з
+    // явним перетворення.
     fmt.Println(int64(d))
 
-    // A number can be given a type by using it in a
-    // context that requires one, such as a variable
-    // assignment or function call. For example, here
-    // `math.Sin` expects a `float64`.
+    // Числовій константі може бути надано тип шляхом використання
+    // її у контексті що потребує тип, наприклад у присвоєнні або
+    // виклицу функції. Нижче подано примірник де `math.Sin` очікує
+    // значення типу `float64`.
     fmt.Println(math.Sin(n))
 }

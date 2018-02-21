@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: For</title>
+    <title>Go за Прикладом: Цикл For</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,14 +10,14 @@
   </script>
   <body>
     <div class="example" id="for">
-      <h2><a href="./">Go за Прикладом</a>: For</h2>
+      <h2><a href="./">Go за Прикладом</a>: Цикл For</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><code>for</code> is Go&rsquo;s only looping construct. Here are
-three basic types of <code>for</code> loops.</p>
+            <p><code>for</code> це єдина конструкція циклу в Go. Нижче наведено
+три базові типи для циклів <code>for</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ three basic types of <code>for</code> loops.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/KNLLSX4Io_"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/QrwSYDKkIrh"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,7 +64,7 @@ three basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>The most basic type, with a single condition.</p>
+            <p>Найбільш базовий тип, з єдиною інструкцією.</p>
 
           </td>
           <td class="code leading">
@@ -81,7 +81,8 @@ three basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p>A classic initial/condition/after <code>for</code> loop.</p>
+            <p>Класичний ініціалізація/умова/післяумова <code>for</code> цикл,
+також відомий як С-style <code>for</code> цикл.</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +97,10 @@ three basic types of <code>for</code> loops.</p>
         
         <tr>
           <td class="docs">
-            <p><code>for</code> without a condition will loop repeatedly
-until you <code>break</code> out of the loop or <code>return</code> from
-the enclosing function.</p>
+            <p><code>for</code> без умови буде видбуватись постійно
+допоки программи не перерве його за допомогою
+ключових слів <code>break</code> (що перериває цикл) або
+<code>return</code> (що повертає значення з заключаючої функції).</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +116,8 @@ the enclosing function.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also <code>continue</code> to the next iteration of
-the loop.</p>
+            <p>Ви також можете використати ключове слово <code>continue</code>
+для переходу до наступної ітерації циклу.</p>
 
           </td>
           <td class="code">
@@ -160,9 +162,9 @@ the loop.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll see some other <code>for</code> forms later when we look at
-<code>range</code> statements, channels, and other data
-structures.</p>
+            <p>Ми ще побачимо інші форми <code>for</code> пізніше
+коли ми будемо працювати з твердженями <code>range</code>,
+каналами та іншими структурами данних.</p>
 
           </td>
           <td class="code empty">
