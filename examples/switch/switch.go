@@ -1,6 +1,4 @@
-// _Switch statements_ express conditionals across many
-// branches.
-
+// Твердежння `switch` виражають умовності на кілька гілок.
 package main
 
 import "fmt"
@@ -8,54 +6,55 @@ import "time"
 
 func main() {
 
-    // Here's a basic `switch`.
+    // Ось базовий `switch`.
     i := 2
-    fmt.Print("Write ", i, " as ")
+    fmt.Print("Напиши ", i, " як ")
     switch i {
     case 1:
-        fmt.Println("one")
+        fmt.Println("один")
     case 2:
-        fmt.Println("two")
+        fmt.Println("два")
     case 3:
-        fmt.Println("three")
+        fmt.Println("три")
     }
 
-    // You can use commas to separate multiple expressions
-    // in the same `case` statement. We use the optional
-    // `default` case in this example as well.
+    // Ви можете використовувати коми - задля розподілу
+    // кількох умов в одній гілці твердженням `case`.
+    // Ми також використовуємо необов’язкове твердження `default`,
+    // для розгалуження умови, що відображатиме стандартно-задану дію.
     switch time.Now().Weekday() {
     case time.Saturday, time.Sunday:
-        fmt.Println("It's the weekend")
+        fmt.Println("Це вихідні")
     default:
-        fmt.Println("It's a weekday")
+        fmt.Println("Це робочий день")
     }
 
-    // `switch` without an expression is an alternate way
-    // to express if/else logic. Here we also show how the
-    // `case` expressions can be non-constants.
+    // `switch` без виразу - являє собою альтернативний спосіб
+    // виразити `if/else` логіку. Приклад також демонструє,
+    // що гілки `case` можуть містити не тільки константи.
     t := time.Now()
     switch {
     case t.Hour() < 12:
-        fmt.Println("It's before noon")
+        fmt.Println("Над полудень")
     default:
-        fmt.Println("It's after noon")
+        fmt.Println("По полудні")
     }
 
-    // A type `switch` compares types instead of values.  You
-    // can use this to discover the type of an interface
-    // value.  In this example, the variable `t` will have the
-    // type corresponding to its clause.
+    // Тип `switch` що порівнює типи замість значень. Ви можете
+    // використати це для визначення типу значення інтерфейса.
+    // В цьому прикладі `switch` видасть повідомлення базуючись на
+    // значенні типу змінної `t` якщо йому про це буде відомо.
     whatAmI := func(i interface{}) {
         switch t := i.(type) {
         case bool:
-            fmt.Println("I'm a bool")
+            fmt.Println("Я логічна змінна")
         case int:
-            fmt.Println("I'm an int")
+            fmt.Println("Я ціле число")
         default:
-            fmt.Printf("Don't know type %T\n", t)
+            fmt.Printf("Незнаю нічого про тип %T\n", t)
         }
     }
     whatAmI(true)
     whatAmI(1)
-    whatAmI("hey")
+    whatAmI("Гей!")
 }

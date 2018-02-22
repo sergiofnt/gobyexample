@@ -3,8 +3,8 @@
 Змінні|Variables
 Константи|Constants
 Цикл For|For
-If/Else
-Switch
+Умовний розгалужувач - Якщо/Інакше (If/Else)|If/Else
+Умовний розгалужувач - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
 Slices
 Maps

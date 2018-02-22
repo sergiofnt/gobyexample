@@ -1,7 +1,7 @@
-$ go run switch.go 
-Write 2 as two
-It's a weekday
-It's after noon
-I'm a bool
-I'm an int
-Don't know type string
+$ go run switch.go
+Напиши 2 як два
+Це робочий день
+Над полудень
+Я логічна змінна
+Я ціле число
+Незнаю нічого про тип string

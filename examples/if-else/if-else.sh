@@ -1,8 +1,8 @@
-$ go run if-else.go 
-7 is odd
-8 is divisible by 4
-9 has 1 digit
+$ go run if-else.go
+7 не парне
+8 ділиться на 4
+9 має одну цифру
 
-# There is no [ternary if](http://en.wikipedia.org/wiki/%3F:)
-# in Go, so you'll need to use a full `if` statement even
-# for basic conditions.
+# В Go не існує [тенарного if](https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B0_%D1%83%D0%BC%D0%BE%D0%B2%D0%BD%D0%B0_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F),
+# отож, вам потрібно використовувати
+# повний блок `if` в такому випадку.

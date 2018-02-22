@@ -1,35 +1,32 @@
-// Branching with `if` and `else` in Go is
-// straight-forward.
-
+// Розгалуження з `if` та `else` в Go дуже прості.
 package main
 
 import "fmt"
 
 func main() {
 
-    // Here's a basic example.
+    // Ось базовий приклад.
     if 7%2 == 0 {
-        fmt.Println("7 is even")
+        fmt.Println("7 парне")
     } else {
-        fmt.Println("7 is odd")
+        fmt.Println("7 не парне")
     }
 
-    // You can have an `if` statement without an else.
+    // Дозволяється мати твердження `if` без `else`
     if 8%4 == 0 {
-        fmt.Println("8 is divisible by 4")
+        fmt.Println("8 ділиться на 4")
     }
 
-    // A statement can precede conditionals; any variables
-    // declared in this statement are available in all
-    // branches.
+    // Твердження може передувати умовам, будь яка змінна декларована
+    // в такому твердженні доступна в усіх розгалуженнях.
     if num := 9; num < 0 {
-        fmt.Println(num, "is negative")
+        fmt.Println(num, "є негативним числом")
     } else if num < 10 {
-        fmt.Println(num, "has 1 digit")
+        fmt.Println(num, "має одну цифру")
     } else {
-        fmt.Println(num, "has multiple digits")
+        fmt.Println(num, "має багато цифр")
     }
 }
 
-// Note that you don't need parentheses around conditions
-// in Go, but that the braces are required.
+// Увага, вам не потрібні круглі дужки навколо умов в Go,
+// вимагається лише фігурні дужки.
