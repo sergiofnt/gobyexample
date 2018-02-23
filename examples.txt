@@ -6,7 +6,7 @@
 Умовний розгалужувач - Якщо/Інакше (If/Else)|If/Else
 Умовний розгалужувач - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
-Slices
+Зрізи (Slices)|Slices
 Maps
 Range
 Functions

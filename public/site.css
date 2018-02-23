@@ -27,7 +27,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style: none;
+	list-style:none;
 }
 blockquote, q {
 	quotes: none;
@@ -134,8 +134,16 @@ td.code.empty {
 }
 pre, code {
     font-size: 14px; line-height: 18px;
-    font-family: 'Menlo', 'Monaco', 'Consolas', 'Lucida Console', monospace;
+	font-family: 'Menlo', 'Monaco', 'Consolas', 'Lucida Console', monospace;
 }
+
+td.docs code {
+	display: inline;
+	background:#f5f1f1;
+	border-radius:3px;
+	padding:1px 2px;
+}
+
 img.run {
   height: 16px;
   width: 16px;
