@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Slices</title>
+    <title>Go за Прикладом: Зрізи (Slices)</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,28 +10,19 @@
   </script>
   <body>
     <div class="example" id="slices">
-      <h2><a href="./">Go за Прикладом</a>: Slices</h2>
+      <h2><a href="./">Go за Прикладом</a>: Зрізи (Slices)</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Slices</em> are a key data type in Go, giving a more
-powerful interface to sequences than arrays.</p>
+            <p><code>Slices</code> або <em>зрізи</em> це ключовий тип данних у Go,
+що представля собою більш потужний інтерфейс до
+послідовностей, аніж <a href="./arrays">масиви</a>.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Z3_U32sn8RF"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/XGm8dOCS0cj"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,11 +55,13 @@ powerful interface to sequences than arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Unlike arrays, slices are typed only by the
-elements they contain (not the number of elements).
-To create an empty slice with non-zero length, use
-the builtin <code>make</code>. Here we make a slice of
-<code>string</code>s of length <code>3</code> (initially zero-valued).</p>
+            <p>Навідміну від масивів, зрізи обмежені лише типом
+елементів які вони зобов’язуються зберігати
+(масиви ж, надодачу, обмежені в кількості елементів).
+Створити пустий зріз не нульової довжини можна
+за допомоогою вбудованої функції <code>make</code>. Це приклад
+створення зрізу рядків довжиною в 3 елементи (усі строки
+ініціалізовані з нульовим значенням).</p>
 
           </td>
           <td class="code leading">
@@ -82,7 +75,8 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p>We can set and get just like with arrays.</p>
+            <p>Ми встановнлюємо та звертаємось до значень так само,
+як і в масивах.</p>
 
           </td>
           <td class="code leading">
@@ -99,7 +93,7 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p><code>len</code> returns the length of the slice as expected.</p>
+            <p><code>len</code> повертає довжину зрізу.</p>
 
           </td>
           <td class="code leading">
@@ -112,12 +106,13 @@ the builtin <code>make</code>. Here we make a slice of
         
         <tr>
           <td class="docs">
-            <p>In addition to these basic operations, slices
-support several more that make them richer than
-arrays. One is the builtin <code>append</code>, which
-returns a slice containing one or more new values.
-Note that we need to accept a return value from
-<code>append</code> as we may get a new slice value.</p>
+            <p>На додачу до базових операцій, зрізи підтримують ще
+кілька операцій що роблять їх значно привабливішими,
+напротивагу масивам. Перша з них - це вбудована функція
+<code>append</code>, що повертає зріз, який зберігає одне або більше
+нових значень. Зауважимо, що потрібно присвоїти значення,
+що повертається з <code>append</code> оскільки ми можемо отримати
+новий зразок зрізу.</p>
 
           </td>
           <td class="code leading">
@@ -132,9 +127,7 @@ Note that we need to accept a return value from
         
         <tr>
           <td class="docs">
-            <p>Slices can also be <code>copy</code>&rsquo;d. Here we create an
-empty slice <code>c</code> of the same length as <code>s</code> and copy
-into <code>c</code> from <code>s</code>.</p>
+            <p>Зрізи такою можуть бути з<code>copy</code>йовані. В цьому прикладі ми створемо новий зріз <code>c</code> тогож типу та довжини що і <code>s</code> і використовуючи <code>copy</code> скопієюмо <code>s</code> в <code>c</code>.</p>
 
           </td>
           <td class="code leading">
@@ -149,9 +142,11 @@ into <code>c</code> from <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices support a &ldquo;slice&rdquo; operator with the syntax
-<code>slice[low:high]</code>. For example, this gets a slice
-of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
+            <p>Зрізи підтримуються оператор &ldquo;зрізання&rdquo; синтаксисом
+<code>зріз[з_ніжного_індексу:до_верхнього_індексу]</code>.
+В нашому прикладі, ця операція добуде зріз з <code>s</code>, що
+складає <code>s[2]</code>, <code>s[3]</code> та <code>s[4]</code> і представе
+його як <code>l</code>.</p>
 
           </td>
           <td class="code leading">
@@ -165,7 +160,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This slices up to (but excluding) <code>s[5]</code>.</p>
+            <p>Приклад зрізання усіх елеметів до (але виключаючи) <code>s[5]</code>.</p>
 
           </td>
           <td class="code leading">
@@ -179,7 +174,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>And this slices up from (and including) <code>s[2]</code>.</p>
+            <p>Приклад зрізання усьіх елементів з (але включаючи) <code>s[2]</code>.</p>
 
           </td>
           <td class="code leading">
@@ -193,8 +188,8 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can declare and initialize a variable for slice
-in a single line as well.</p>
+            <p>Нам дозволяється декларувати та ініціалізувати
+значення змінних в зрізі в один рядок (так само і масиви).</p>
 
           </td>
           <td class="code leading">
@@ -208,9 +203,9 @@ in a single line as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices can be composed into multi-dimensional data
-structures. The length of the inner slices can
-vary, unlike with multi-dimensional arrays.</p>
+            <p>Зрізи можуть бути скомпоновані в мультимірні структури
+данних. Довжина внутрішніх зрізів буде варюватись,
+навідміну від мультимірних масивів.</p>
 
           </td>
           <td class="code">
@@ -236,8 +231,9 @@ vary, unlike with multi-dimensional arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that while slices are different types than arrays,
-they are rendered similarly by <code>fmt.Println</code>.</p>
+            <p>Хоч зрізи і іншого типу ніж масяви, вони
+відображатимуться схоже якщо будуть
+надруковані за допомогою <code>fmt.Println</code>.</p>
 
           </td>
           <td class="code leading">
@@ -261,9 +257,10 @@ they are rendered similarly by <code>fmt.Println</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Check out this <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">great blog post</a>
-by the Go team for more details on the design and
-implementation of slices in Go.</p>
+            <p>Рекомендуємо прочитати <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">чудовий пост</a>
+за авторства команди розробників Go, щоб
+отримати більше відомостей про розробку
+та впровадження зрізів в <code>Go</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -274,8 +271,9 @@ implementation of slices in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Now that we&rsquo;ve seen arrays and slices we&rsquo;ll look at
-Go&rsquo;s other key builtin data structure: maps.</p>
+            <p>Після того як ми бачили масиви та зрізи,
+звернемо увагу на іншу важливу стурктуру
+данних в Go &mdash; на <em>мапи</em>.</p>
 
           </td>
           <td class="code empty">

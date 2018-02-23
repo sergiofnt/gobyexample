@@ -1,5 +1,6 @@
-# Note that while slices are different types than arrays,
-# they are rendered similarly by `fmt.Println`.
+# Хоч зрізи і іншого типу ніж масяви, вони
+# відображатимуться схоже якщо будуть
+# надруковані за допомогою `fmt.Println`.
 $ go run slices.go
 emp: [  ]
 set: [a b c]
@@ -13,9 +14,11 @@ sl3: [c d e f]
 dcl: [g h i]
 2d:  [[0] [1 2] [2 3 4]]
 
-# Check out this [great blog post](http://blog.golang.org/2011/01/go-slices-usage-and-internals.html)
-# by the Go team for more details on the design and
-# implementation of slices in Go.
+# Рекомендуємо прочитати [чудовий пост](http://blog.golang.org/2011/01/go-slices-usage-and-internals.html)
+# за авторства команди розробників Go, щоб
+# отримати більше відомостей про розробку
+# та впровадження зрізів в `Go`.
 
-# Now that we've seen arrays and slices we'll look at
-# Go's other key builtin data structure: maps.
+# Після того як ми бачили масиви та зрізи,
+# звернемо увагу на іншу важливу стурктуру
+# данних в Go &mdash; на _мапи_.
