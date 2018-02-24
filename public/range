@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Range</title>
+    <title>Go за Прикладом: Діапазон (Range)</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,15 +10,15 @@
   </script>
   <body>
     <div class="example" id="range">
-      <h2><a href="./">Go за Прикладом</a>: Range</h2>
+      <h2><a href="./">Go за Прикладом</a>: Діапазон (Range)</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>range</em> iterates over elements in a variety of data
-structures. Let&rsquo;s see how to use <code>range</code> with some
-of the data structures we&rsquo;ve already learned.</p>
+            <p>Ключове слово <em>range</em> (діапазон) ітерує по елементах в деяких
+структурах данних доступних в Go. Давайте подивимось, як
+використовувати <code>range</code> з вже знайомими нам структурами данних.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@ of the data structures we&rsquo;ve already learned.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/SkL_AS-1Jd"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/ulGSInnVj6p"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,8 +65,8 @@ of the data structures we&rsquo;ve already learned.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use <code>range</code> to sum the numbers in a slice.
-Arrays work like this too.</p>
+            <p>Ось - приклад сумування чисел у <a href="./slices">зрізі</a>.
+З масивами це працює аналогічним чином.</p>
 
           </td>
           <td class="code leading">
@@ -84,11 +84,11 @@ Arrays work like this too.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on arrays and slices provides both the
-index and value for each entry. Above we didn&rsquo;t
-need the index, so we ignored it with the
-blank identifier <code>_</code>. Sometimes we actually want
-the indexes though.</p>
+            <p><code>range</code> на масивах та зрізах видає і індекс
+і значення для кожного з входжень. У праклиді вище
+нам не потрібен був індекс, отож ми ігнорували його
+за допомогою пустого ідентфиікатора <code>_</code>. Але,
+інколи, індекс буває потрібен.</p>
 
           </td>
           <td class="code leading">
@@ -105,12 +105,13 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on map iterates over key/value pairs.</p>
+            <p><code>range</code> застосований на мапу поверне ключ та значення
+пари.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">kvs</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="s">&quot;banana&quot;</span><span class="p">}</span>
+            <div class="highlight"><pre>    <span class="nx">kvs</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;a&quot;</span><span class="p">:</span> <span class="s">&quot;абрикос&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">:</span> <span class="s">&quot;банан&quot;</span><span class="p">}</span>
     <span class="k">for</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">kvs</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s -&gt; %s\n&quot;</span><span class="p">,</span> <span class="nx">k</span><span class="p">,</span> <span class="nx">v</span><span class="p">)</span>
     <span class="p">}</span>
@@ -121,7 +122,7 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> can also iterate over just the keys of a map.</p>
+            <p><code>range</code> також може просто ітерувати влючі на мапі.</p>
 
           </td>
           <td class="code leading">
@@ -136,14 +137,14 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on strings iterates over Unicode code
-points. The first value is the starting byte index
-of the <code>rune</code> and the second the <code>rune</code> itself.</p>
+            <p><code>range</code> на рядку ітеруватиме через Unicode&rsquo;ні коди.
+Першим значенням буде початковий байт індекс руни (<code>rune</code>),
+а другим сама руна (<code>rune</code> - це тип значення в Go).</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="s">&quot;go&quot;</span> <span class="p">{</span>
+            <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="k">range</span> <span class="s">&quot;го&quot;</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -165,12 +166,12 @@ of the <code>rune</code> and the second the <code>rune</code> itself.</p>
             <div class="highlight"><pre><span class="gp">$</span> go run range.go
 <span class="go">sum: 9</span>
 <span class="go">index: 1</span>
-<span class="go">a -&gt; apple</span>
-<span class="go">b -&gt; banana</span>
+<span class="go">a -&gt; абрикос</span>
+<span class="go">b -&gt; банан</span>
 <span class="go">key: a</span>
 <span class="go">key: b</span>
-<span class="go">0 103</span>
-<span class="go">1 111</span>
+<span class="go">0 1075</span>
+<span class="go">2 1086</span>
 </pre></div>
 
           </td>
@@ -180,7 +181,7 @@ of the <code>rune</code> and the second the <code>rune</code> itself.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="functions">Functions</a>.
+        Наступний приклад: <a href="functions">Функції</a>.
       </p>
       
       <p class="footer">

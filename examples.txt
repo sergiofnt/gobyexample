@@ -7,9 +7,9 @@
 Умовний розгалужувач - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
 Зрізи (Slices)|Slices
-Maps
-Range
-Functions
+Мапи|Maps
+Діапазон (Range)|Range
+Функції|Functions
 Multiple Return Values
 Variadic Functions
 Closures

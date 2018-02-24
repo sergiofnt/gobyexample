@@ -1,34 +1,42 @@
-// _Functions_ are central in Go. We'll learn about
-// functions with a few different examples.
+// _Функції_ центральна тема в Go.Ми будмо знайомитись з
+// функціями в кількох різних прикладах.
 
 package main
 
 import "fmt"
 
-// Here's a function that takes two `int`s and returns
-// their sum as an `int`.
+// Ось функція що приймає два цілих числа (`int`)
+// та повертає їх суму (також як ціле число `int`).
 func plus(a int, b int) int {
-
-    // Go requires explicit returns, i.e. it won't
-    // automatically return the value of the last
-    // expression.
+    // Go потребує чітко вказувати що повертається,
+    // самостійно воно не поверне значення останного виразу.
     return a + b
 }
 
-// When you have multiple consecutive parameters of
-// the same type, you may omit the type name for the
-// like-typed parameters up to the final parameter that
-// declares the type.
+// За виключенням, випадку коли ми вказуємо яку змінну повернути,
+// як у випадку з змінною summ
+func plusNames(a int, b int) (summa int) {
+    summa = a + b
+    return
+}
+
+// Коли у вас кілька послідовних папаметрів одного типу,
+// дозволяється пропускати тип і вказувати його лише
+// для останнього аргумента, що має той же тип як
+// і попередні аргументи.
 func plusPlus(a, b, c int) int {
     return a + b + c
 }
 
 func main() {
 
-    // Call a function just as you'd expect, with
+    // Як ви і очікували викликаємо функцію
     // `name(args)`.
     res := plus(1, 2)
     fmt.Println("1+2 =", res)
+
+    res = plusNames(5, 2)
+    fmt.Println("5+2 =", res)
 
     res = plusPlus(1, 2, 3)
     fmt.Println("1+2+3 =", res)

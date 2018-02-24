@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Functions</title>
+    <title>Go за Прикладом: Функції</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,14 +10,14 @@
   </script>
   <body>
     <div class="example" id="functions">
-      <h2><a href="./">Go за Прикладом</a>: Functions</h2>
+      <h2><a href="./">Go за Прикладом</a>: Функції</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Functions</em> are central in Go. We&rsquo;ll learn about
-functions with a few different examples.</p>
+            <p><em>Функції</em> центральна тема в Go.Ми будмо знайомитись з
+функціями в кількох різних прикладах.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ functions with a few different examples.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/9Nky-Dn49f"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/UGuGllzKe7A"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -52,8 +52,8 @@ functions with a few different examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that takes two <code>int</code>s and returns
-their sum as an <code>int</code>.</p>
+            <p>Ось функція що приймає два цілих числа (<code>int</code>)
+та повертає їх суму (також як ціле число <code>int</code>).</p>
 
           </td>
           <td class="code leading">
@@ -66,9 +66,8 @@ their sum as an <code>int</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Go requires explicit returns, i.e. it won&rsquo;t
-automatically return the value of the last
-expression.</p>
+            <p>Go потребує чітко вказувати що повертається,
+самостійно воно не поверне значення останного виразу.</p>
 
           </td>
           <td class="code leading">
@@ -82,10 +81,27 @@ expression.</p>
         
         <tr>
           <td class="docs">
-            <p>When you have multiple consecutive parameters of
-the same type, you may omit the type name for the
-like-typed parameters up to the final parameter that
-declares the type.</p>
+            <p>За виключенням, випадку коли ми вказуємо яку змінну повернути,
+як у випадку з змінною summ</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">plusNames</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">(</span><span class="nx">summa</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">summa</span> <span class="p">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Коли у вас кілька послідовних папаметрів одного типу,
+дозволяється пропускати тип і вказувати його лише
+для останнього аргумента, що має той же тип як
+і попередні аргументи.</p>
 
           </td>
           <td class="code leading">
@@ -112,7 +128,7 @@ declares the type.</p>
         
         <tr>
           <td class="docs">
-            <p>Call a function just as you&rsquo;d expect, with
+            <p>Як ви і очікували викликаємо функцію
 <code>name(args)</code>.</p>
 
           </td>
@@ -120,6 +136,19 @@ declares the type.</p>
 	        
             <div class="highlight"><pre>    <span class="nx">res</span> <span class="o">:=</span> <span class="nx">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;1+2 =&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">res</span> <span class="p">=</span> <span class="nx">plusNames</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;5+2 =&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -149,8 +178,9 @@ declares the type.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run functions.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run functions.go
 <span class="go">1+2 = 3</span>
+<span class="go">5+2 = 7</span>
 <span class="go">1+2+3 = 6</span>
 </pre></div>
 
@@ -159,8 +189,9 @@ declares the type.</p>
         
         <tr>
           <td class="docs">
-            <p>There are several other features to Go functions. One is
-multiple return values, which we&rsquo;ll look at next.</p>
+            <p>У функцій Go є ще кілька фішок, одна
+з них можливість повернення кількох значень,
+з якими ми познайомимось в насутпному прикладі.</p>
 
           </td>
           <td class="code empty">

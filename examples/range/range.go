@@ -1,6 +1,6 @@
-// _range_ iterates over elements in a variety of data
-// structures. Let's see how to use `range` with some
-// of the data structures we've already learned.
+// Ключове слово _range_ (діапазон) ітерує по елементах в деяких
+// структурах данних доступних в Go. Давайте подивимось, як
+// використовувати `range` з вже знайомими нам структурами данних.
 
 package main
 
@@ -8,8 +8,8 @@ import "fmt"
 
 func main() {
 
-    // Here we use `range` to sum the numbers in a slice.
-    // Arrays work like this too.
+    // Ось - приклад сумування чисел у [зрізі](./slices).
+    // З масивами це працює аналогічним чином.
     nums := []int{2, 3, 4}
     sum := 0
     for _, num := range nums {
@@ -17,32 +17,33 @@ func main() {
     }
     fmt.Println("sum:", sum)
 
-    // `range` on arrays and slices provides both the
-    // index and value for each entry. Above we didn't
-    // need the index, so we ignored it with the
-    // blank identifier `_`. Sometimes we actually want
-    // the indexes though.
+    // `range` на масивах та зрізах видає і індекс
+    // і значення для кожного з входжень. У праклиді вище
+    // нам не потрібен був індекс, отож ми ігнорували його
+    // за допомогою пустого ідентфиікатора `_`. Але,
+    // інколи, індекс буває потрібен.
     for i, num := range nums {
         if num == 3 {
             fmt.Println("index:", i)
         }
     }
 
-    // `range` on map iterates over key/value pairs.
-    kvs := map[string]string{"a": "apple", "b": "banana"}
+    // `range` застосований на мапу поверне ключ та значення
+    // пари.
+    kvs := map[string]string{"a": "абрикос", "b": "банан"}
     for k, v := range kvs {
         fmt.Printf("%s -> %s\n", k, v)
     }
 
-    // `range` can also iterate over just the keys of a map.
+    // `range` також може просто ітерувати влючі на мапі.
     for k := range kvs {
         fmt.Println("key:", k)
     }
 
-    // `range` on strings iterates over Unicode code
-    // points. The first value is the starting byte index
-    // of the `rune` and the second the `rune` itself.
-    for i, c := range "go" {
+    // `range` на рядку ітеруватиме через Unicode'ні коди.
+    // Першим значенням буде початковий байт індекс руни (`rune`),
+    // а другим сама руна (`rune` - це тип значення в Go).
+    for i, c := range "го" {
         fmt.Println(i, c)
     }
 }
