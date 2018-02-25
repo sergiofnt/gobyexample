@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Rate Limiting</title>
+    <title>Go за Прикладом: Обмеження Частоти</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="rate-limiting">
-      <h2><a href="./">Go за Прикладом</a>: Rate Limiting</h2>
+      <h2><a href="./">Go за Прикладом</a>: Обмеження Частоти</h2>
       
       <table>
         
@@ -239,7 +239,7 @@ then serve the remaining 2 with ~200ms delays each.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="atomic-counters">Atomic Counters</a>.
+        Наступний приклад: <a href="atomic-counters">Атомарні Лічильники</a>.
       </p>
       
       <p class="footer">

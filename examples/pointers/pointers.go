@@ -1,26 +1,23 @@
-// Go supports <em><a href="http://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-// allowing you to pass references to values and records
-// within your program.
-
+// Go підтримує [_вказівники_](https://uk.wikipedia.org/wiki/%D0%92%D0%BA%D0%B0%D0%B7%D1%96%D0%B2%D0%BD%D0%B8%D0%BA), дозволяючи передавати за посиланням значення та записи в межах программи.
 package main
 
 import "fmt"
 
-// We'll show how pointers work in contrast to values with
-// 2 functions: `zeroval` and `zeroptr`. `zeroval` has an
-// `int` parameter, so arguments will be passed to it by
-// value. `zeroval` will get a copy of `ival` distinct
-// from the one in the calling function.
+// Ми спробуємо показати як працюють вказівники на противагу
+// значенням на прикладі двох функцій - `zeroval` та `zeroptr`.
+// `zeroval` має параметром `int` (ціле число), отож аргумент
+// буде передано її за значенням. `zeroval` отримує відмінну
+// копію `ival` від змінної з якою функцію визвали.
 func zeroval(ival int) {
     ival = 0
 }
 
-// `zeroptr` in contrast has an `*int` parameter, meaning
-// that it takes an `int` pointer. The `*iptr` code in the
-// function body then _dereferences_ the pointer from its
-// memory address to the current value at that address.
-// Assigning a value to a dereferenced pointer changes the
-// value at the referenced address.
+// `zeroptr` на противагу має параметром `*int`
+// (що означає вказівник на ціле число) може приймати значенням
+// лише вказівник на цей тип данних. `*iptr` в тілі функції
+// розіменовує вказівник з його адреси до значення в цій адресі.
+// Присвоєння значення розіменованому вказівнику змінює значення у
+// адресі за посиланням.
 func zeroptr(iptr *int) {
     *iptr = 0
 }
@@ -32,11 +29,14 @@ func main() {
     zeroval(i)
     fmt.Println("zeroval:", i)
 
-    // The `&i` syntax gives the memory address of `i`,
-    // i.e. a pointer to `i`.
+    // Синтакси `&i` дає посилання на адресу `i`,
+    // тобто вказівник на `i`.
+
+    fmt.Printf("%p\n", &i)
     zeroptr(&i)
+
     fmt.Println("zeroptr:", i)
 
-    // Pointers can be printed too.
+    // Вказівники можна друкувати.
     fmt.Println("pointer:", &i)
 }

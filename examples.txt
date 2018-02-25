@@ -3,47 +3,47 @@
 Змінні|Variables
 Константи|Constants
 Цикл For|For
-Умовний розгалужувач - Якщо/Інакше (If/Else)|If/Else
-Умовний розгалужувач - Перемикач (Switch)|Switch
+Розгалуження Умови - Якщо/Інакше (If/Else)|If/Else
+Розгалуження Умови - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
 Зрізи (Slices)|Slices
 Мапи|Maps
 Діапазон (Range)|Range
 Функції|Functions
-Multiple Return Values
-Variadic Functions
-Closures
-Recursion
-Pointers
-Structs
-Methods
-Interfaces
-Errors
-Goroutines
-Channels
-Channel Buffering
-Channel Synchronization
-Channel Directions
+Поверненння Кількох Значень|Multiple Return Values
+Варіативні Функції|Variadic Functions
+Замикання|Closures
+Рекурсія|Recursion
+Вказівники|Pointers
+Структури|Structs
+Методи|Methods
+Інтерфейси|Interfaces
+Помилки|Errors
+Goroutines|Goroutines
+Канали|Channels
+Буферизація Каналу|Channel Buffering
+Синзронізація Каналу|Channel Synchronization
+Напрямки каналу|Channel Directions
 Select
-Timeouts
-Non-Blocking Channel Operations
-Closing Channels
-Range over Channels
-Timers
-Tickers
+Тайм-аути|Timeouts
+Не Блокуючі Операції на Каналах|Non-Blocking Channel Operations
+Закриття каналів|Closing Channels
+Діапазон (Range) з Каналами|Range over Channels
+Таймери|Timers
+Маятники|Tickers
 Worker Pools
-Rate Limiting
-Atomic Counters
+Обмеження Частоти|Rate Limiting
+Атомарні Лічильники|Atomic Counters
 Mutexes
 Stateful Goroutines
-Sorting
+Сортування|Sorting
 Sorting by Functions
-Panic
-Defer
+Паніка|Panic
+Відкладення|Defer
 Collection Functions
-String Functions
-String Formatting
-Regular Expressions
+Рядкові Функції|String Functions
+Форматування Рядків|String Formatting
+Регулярні вирази|Regular Expressions
 JSON
 Time
 Epoch

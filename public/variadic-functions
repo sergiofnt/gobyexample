@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Variadic Functions</title>
+    <title>Go за Прикладом: Варіативні Функції</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,16 +10,15 @@
   </script>
   <body>
     <div class="example" id="variadic-functions">
-      <h2><a href="./">Go за Прикладом</a>: Variadic Functions</h2>
+      <h2><a href="./">Go за Прикладом</a>: Варіативні Функції</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="http://en.wikipedia.org/wiki/Variadic_function"><em>Variadic functions</em></a>
-can be called with any number of trailing arguments.
-For example, <code>fmt.Println</code> is a common variadic
-function.</p>
+            <p><a href="http://en.wikipedia.org/wiki/Variadic_function"><em>Варіативна функція</em></a>
+може бути викликана з будьякою кількістю елементів.
+Так от <code>fmt.Println</code> є прикладом варіативної функції.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +32,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/7f0JlVhToDD"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/NDEYbxeA3Om"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,8 +53,8 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that will take an arbitrary number
-of <code>int</code>s as arguments.</p>
+            <p>Ось функція, що прийме довільну кількість цілих чисел,
+як свої аргументи.</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +86,8 @@ of <code>int</code>s as arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Variadic functions can be called in the usual way
-with individual arguments.</p>
+            <p>Варіативні функції можуть бути викликані в
+звичайні манері з окремо вказаними аргументами.</p>
 
           </td>
           <td class="code leading">
@@ -102,9 +101,9 @@ with individual arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>If you already have multiple args in a slice,
-apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+            <p>Але якщо у вас вже є кілька аргументів у вигляді <a href="./slices"><code>зріза</code></a>,
+ви можете застосувати їх до варіативної функції
+використовуючи розпаковку <code>func(slice...)</code> наступним чином.</p>
 
           </td>
           <td class="code">
@@ -127,7 +126,7 @@ apply them to a variadic function using
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run variadic-functions.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run variadic-functions.go
 <span class="go">[1 2] 3</span>
 <span class="go">[1 2 3] 6</span>
 <span class="go">[1 2 3 4] 10</span>
@@ -138,8 +137,9 @@ apply them to a variadic function using
         
         <tr>
           <td class="docs">
-            <p>Another key aspect of functions in Go is their ability
-to form closures, which we&rsquo;ll look at next.</p>
+            <p>Інший ключовим аспектом функцій в Go - є їх
+здатність створювати замикання, що є
+нашою наступною темою.</p>
 
           </td>
           <td class="code empty">
@@ -152,7 +152,7 @@ to form closures, which we&rsquo;ll look at next.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="closures">Closures</a>.
+        Наступний приклад: <a href="closures">Замикання</a>.
       </p>
       
       <p class="footer">

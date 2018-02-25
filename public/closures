@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Closures</title>
+    <title>Go за Прикладом: Замикання</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,30 +10,21 @@
   </script>
   <body>
     <div class="example" id="closures">
-      <h2><a href="./">Go за Прикладом</a>: Closures</h2>
+      <h2><a href="./">Go за Прикладом</a>: Замикання</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <a href="http://en.wikipedia.org/wiki/Anonymous_function"><em>anonymous functions</em></a>,
-which can form <a href="http://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-Anonymous functions are useful when you want to define
-a function inline without having to name it.</p>
+            <p>Go підтримує <a href="https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D0%B0_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F"><em>анонімні функції</em></a>,
+що можуть створювати <a href="https://uk.wikipedia.org/wiki/%D0%97%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%D0%BD%D0%BD%D1%8F_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)"><em>замикання</em></a>.
+Анонімні функції можутьу бути корисні, коли вам
+потрібно декларувати функцію в коді без обов’язкового
+найменування її.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/zb93qzV6iN3"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/OMGqfdmqBTU"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,10 +45,9 @@ a function inline without having to name it.</p>
         
         <tr>
           <td class="docs">
-            <p>This function <code>intSeq</code> returns another function, which
-we define anonymously in the body of <code>intSeq</code>. The
-returned function <em>closes over</em> the variable <code>i</code> to
-form a closure.</p>
+            <p>Функція  <code>intSeq</code> повертає іншу функцію, яку ми
+оголошуємо анонімно в тілі <code>intSeq</code>. Функція, що
+повертається, замикається на змінні <code>i</code> та формує замикання.</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +78,10 @@ form a closure.</p>
         
         <tr>
           <td class="docs">
-            <p>We call <code>intSeq</code>, assigning the result (a function)
-to <code>nextInt</code>. This function value captures its
-own <code>i</code> value, which will be updated each time
-we call <code>nextInt</code>.</p>
+            <p>Ми викликаємо <code>intSeq</code>, присоюємо результат (функцію)
+до <code>nextInt</code>. Ця функціональна змінна замикається над
+своїм власним  значенням змінної <code>i</code>, що буде оновлено
+щоразу <code>nextInt</code> буде викликано.</p>
 
           </td>
           <td class="code leading">
@@ -104,8 +94,7 @@ we call <code>nextInt</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>See the effect of the closure by calling <code>nextInt</code>
-a few times.</p>
+            <p>Викличемо <code>nextInt</code> кілька раз для демонстрації ефекту замикання.</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +109,8 @@ a few times.</p>
         
         <tr>
           <td class="docs">
-            <p>To confirm that the state is unique to that
-particular function, create and test a new one.</p>
+            <p>Для демонстрації того що стан є унікальним відносно
+певної функції, створимо та протестуємо нове замикання.</p>
 
           </td>
           <td class="code">
@@ -156,8 +145,8 @@ particular function, create and test a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>The last feature of functions we&rsquo;ll look at for now is
-recursion.</p>
+            <p>Останньою особливістю функцій, на яку
+ми звернемо увагу буде рекурсія.</p>
 
           </td>
           <td class="code empty">
@@ -170,7 +159,7 @@ recursion.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="recursion">Recursion</a>.
+        Наступний приклад: <a href="recursion">Рекурсія</a>.
       </p>
       
       <p class="footer">

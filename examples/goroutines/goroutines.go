@@ -32,6 +32,7 @@ func main() {
     // separate goroutines now, so execution falls through
     // to here. This `Scanln` requires we press a key
     // before the program exits.
+
     fmt.Scanln()
     fmt.Println("done")
 }

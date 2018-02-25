@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Pointers</title>
+    <title>Go за Прикладом: Вказівники</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,29 +10,17 @@
   </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="./">Go за Прикладом</a>: Pointers</h2>
+      <h2><a href="./">Go за Прикладом</a>: Вказівники</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="http://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go підтримує <a href="https://uk.wikipedia.org/wiki/%D0%92%D0%BA%D0%B0%D0%B7%D1%96%D0%B2%D0%BD%D0%B8%D0%BA"><em>вказівники</em></a>, дозволяючи передавати за посиланням значення та записи в межах программи.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/KdE4TBbUL2"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Tf0OqBwEzUM"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,11 +41,11 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>Ми спробуємо показати як працюють вказівники на противагу
+значенням на прикладі двох функцій - <code>zeroval</code> та <code>zeroptr</code>.
+<code>zeroval</code> має параметром <code>int</code> (ціле число), отож аргумент
+буде передано її за значенням. <code>zeroval</code> отримує відмінну
+копію <code>ival</code> від змінної з якою функцію визвали.</p>
 
           </td>
           <td class="code leading">
@@ -72,12 +60,12 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p><code>zeroptr</code> на противагу має параметром <code>*int</code>
+(що означає вказівник на ціле число) може приймати значенням
+лише вказівник на цей тип данних. <code>*iptr</code> в тілі функції
+розіменовує вказівник з його адреси до значення в цій адресі.
+Присвоєння значення розіменованому вказівнику змінює значення у
+адресі за посиланням.</p>
 
           </td>
           <td class="code leading">
@@ -119,14 +107,24 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p>Синтакси <code>&amp;i</code> дає посилання на адресу <code>i</code>,
+тобто вказівник на <code>i</code>.</p>
 
+          </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">zeroptr</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%p\n&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
+    <span class="nx">zeroptr</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -134,7 +132,19 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Pointers can be printed too.</p>
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;zeroptr:&quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Вказівники можна друкувати.</p>
 
           </td>
           <td class="code">
@@ -152,9 +162,9 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> не змінює <code>i</code> в <code>main</code>,
+а <code>zeroptr</code> робить це бо має вказівник
+на комірку пам’яті виділену для <code>i</code>.</p>
 
           </td>
           <td class="code">
@@ -173,7 +183,7 @@ the memory address for that variable.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="structs">Structs</a>.
+        Наступний приклад: <a href="structs">Структури</a>.
       </p>
       
       <p class="footer">

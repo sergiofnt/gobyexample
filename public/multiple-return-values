@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Multiple Return Values</title>
+    <title>Go за Прикладом: Поверненння Кількох Значень</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,29 +10,19 @@
   </script>
   <body>
     <div class="example" id="multiple-return-values">
-      <h2><a href="./">Go за Прикладом</a>: Multiple Return Values</h2>
+      <h2><a href="./">Go за Прикладом</a>: Поверненння Кількох Значень</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has built-in support for <em>multiple return values</em>.
-This feature is used often in idiomatic Go, for example
-to return both result and error values from a function.</p>
+            <p>Go підтримує <em>повернення кількох значень</em>. Ця особилвість
+часто використовується в ідіоматичному Go, наприклад,
+для повернення результату виконання та помилки функції.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/chwFmr5dG1"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/40KPYN2Q15i"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,8 +43,8 @@ to return both result and error values from a function.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>(int, int)</code> in this function signature shows that
-the function returns 2 <code>int</code>s.</p>
+            <p>Конструкція <code>(int, int)</code> в цій декларації цієї функції
+показує, що вона зобов’‎язується повернути два цілих числа (<code>int</code>).</p>
 
           </td>
           <td class="code leading">
@@ -81,8 +71,8 @@ the function returns 2 <code>int</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use the 2 different return values from the
-call with <em>multiple assignment</em>.</p>
+            <p>В цьому прикладі ми декларуємо дві різні змінні шляхом
+присвоєння виклику функції що повертає два значення.</p>
 
           </td>
           <td class="code leading">
@@ -97,8 +87,8 @@ call with <em>multiple assignment</em>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you only want a subset of the returned values,
-use the blank identifier <code>_</code>.</p>
+            <p>Якщо ви плануєте викристати лише частину повернених
+значень - використауйте пустий ідентифікатор <code>_</code>.</p>
 
           </td>
           <td class="code">
@@ -132,8 +122,9 @@ use the blank identifier <code>_</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Accepting a variable number of arguments is another nice
-feature of Go functions; we&rsquo;ll look at this next.</p>
+            <p>Приймання змінної кількості аргументів, це
+ще одна приємна особливість Go,
+ми розберемо її в наступному прикладі.</p>
 
           </td>
           <td class="code empty">
@@ -146,7 +137,7 @@ feature of Go functions; we&rsquo;ll look at this next.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="variadic-functions">Variadic Functions</a>.
+        Наступний приклад: <a href="variadic-functions">Варіативні Функції</a>.
       </p>
       
       <p class="footer">

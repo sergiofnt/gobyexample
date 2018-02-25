@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Channel Synchronization</title>
+    <title>Go за Прикладом: Синзронізація Каналу</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="channel-synchronization">
-      <h2><a href="./">Go за Прикладом</a>: Channel Synchronization</h2>
+      <h2><a href="./">Go за Прикладом</a>: Синзронізація Каналу</h2>
       
       <table>
         
@@ -160,7 +160,7 @@ started.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="channel-directions">Channel Directions</a>.
+        Наступний приклад: <a href="channel-directions">Напрямки каналу</a>.
       </p>
       
       <p class="footer">

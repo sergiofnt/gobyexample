@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Channel Directions</title>
+    <title>Go за Прикладом: Напрямки каналу</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="channel-directions">
-      <h2><a href="./">Go за Прикладом</a>: Channel Directions</h2>
+      <h2><a href="./">Go за Прикладом</a>: Напрямки каналу</h2>
       
       <table>
         

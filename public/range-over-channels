@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Range over Channels</title>
+    <title>Go за Прикладом: Діапазон (Range) з Каналами</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="range-over-channels">
-      <h2><a href="./">Go за Прикладом</a>: Range over Channels</h2>
+      <h2><a href="./">Go за Прикладом</a>: Діапазон (Range) з Каналами</h2>
       
       <table>
         
@@ -134,7 +134,7 @@ values be received.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="timers">Timers</a>.
+        Наступний приклад: <a href="timers">Таймери</a>.
       </p>
       
       <p class="footer">

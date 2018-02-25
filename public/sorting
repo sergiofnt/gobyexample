@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Sorting</title>
+    <title>Go за Прикладом: Сортування</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="sorting">
-      <h2><a href="./">Go за Прикладом</a>: Sorting</h2>
+      <h2><a href="./">Go за Прикладом</a>: Сортування</h2>
       
       <table>
         

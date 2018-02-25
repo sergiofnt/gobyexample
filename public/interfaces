@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Interfaces</title>
+    <title>Go за Прикладом: Інтерфейси</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="interfaces">
-      <h2><a href="./">Go за Прикладом</a>: Interfaces</h2>
+      <h2><a href="./">Go за Прикладом</a>: Інтерфейси</h2>
       
       <table>
         
@@ -214,7 +214,7 @@ these structs as arguments to <code>measure</code>.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="errors">Errors</a>.
+        Наступний приклад: <a href="errors">Помилки</a>.
       </p>
       
       <p class="footer">

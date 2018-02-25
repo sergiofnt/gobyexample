@@ -198,7 +198,7 @@ there are 3 workers operating concurrently.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="rate-limiting">Rate Limiting</a>.
+        Наступний приклад: <a href="rate-limiting">Обмеження Частоти</a>.
       </p>
       
       <p class="footer">

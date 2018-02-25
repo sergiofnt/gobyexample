@@ -1,16 +1,15 @@
-// Go supports [_anonymous functions_](http://en.wikipedia.org/wiki/Anonymous_function),
-// which can form <a href="http://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
-// Anonymous functions are useful when you want to define
-// a function inline without having to name it.
-
+// Go підтримує [_анонімні функції_](https://uk.wikipedia.org/wiki/%D0%90%D0%BD%D0%BE%D0%BD%D1%96%D0%BC%D0%BD%D0%B0_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D1%96%D1%8F),
+// що можуть створювати [_замикання_](https://uk.wikipedia.org/wiki/%D0%97%D0%B0%D0%BC%D0%B8%D0%BA%D0%B0%D0%BD%D0%BD%D1%8F_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F)).
+// Анонімні функції можутьу бути корисні, коли вам
+// потрібно декларувати функцію в коді без обов’язкового
+// найменування її.
 package main
 
 import "fmt"
 
-// This function `intSeq` returns another function, which
-// we define anonymously in the body of `intSeq`. The
-// returned function _closes over_ the variable `i` to
-// form a closure.
+// Функція  `intSeq` повертає іншу функцію, яку ми
+// оголошуємо анонімно в тілі `intSeq`. Функція, що
+// повертається, замикається на змінні `i` та формує замикання.
 func intSeq() func() int {
     i := 0
     return func() int {
@@ -21,20 +20,19 @@ func intSeq() func() int {
 
 func main() {
 
-    // We call `intSeq`, assigning the result (a function)
-    // to `nextInt`. This function value captures its
-    // own `i` value, which will be updated each time
-    // we call `nextInt`.
+    // Ми викликаємо `intSeq`, присоюємо результат (функцію)
+    // до `nextInt`. Ця функціональна змінна замикається над
+    // своїм власним  значенням змінної `i`, що буде оновлено
+    // щоразу `nextInt` буде викликано.
     nextInt := intSeq()
 
-    // See the effect of the closure by calling `nextInt`
-    // a few times.
+    // Викличемо `nextInt` кілька раз для демонстрації ефекту замикання.
     fmt.Println(nextInt())
     fmt.Println(nextInt())
     fmt.Println(nextInt())
 
-    // To confirm that the state is unique to that
-    // particular function, create and test a new one.
+    // Для демонстрації того що стан є унікальним відносно
+    // певної функції, створимо та протестуємо нове замикання.
     newInts := intSeq()
     fmt.Println(newInts())
 }
