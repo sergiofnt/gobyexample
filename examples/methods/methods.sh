@@ -1,8 +1,9 @@
-$ go run methods.go 
+$ go run methods.go
 area:  50
 perim: 30
 area:  50
 perim: 30
 
-# Next we'll look at Go's mechanism for grouping and
-# naming related sets of methods: interfaces.
+# В насутпному прикладі ми оглянемо механізм Go
+# для групування та іменування споріднених
+# множин методів що називається - інтерфейси.

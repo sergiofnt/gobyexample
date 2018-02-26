@@ -1,12 +1,11 @@
-// Go's _structs_ are typed collections of fields.
-// They're useful for grouping data together to form
-// records.
-
+// _Структури_ в Go це типізовані колекції полів,
+// корисні для групування данних разом задля формування
+// записів.
 package main
 
 import "fmt"
 
-// This `person` struct type has `name` and `age` fields.
+// Ця структура `person` має поля для імені (`name`) та віку (`age`).
 type person struct {
     name string
     age  int
@@ -14,28 +13,30 @@ type person struct {
 
 func main() {
 
-    // This syntax creates a new struct.
+    // Наступний синтаксис створить нову структуру.
     fmt.Println(person{"Bob", 20})
 
-    // You can name the fields when initializing a struct.
+    // Дозволяється іменувати поля при ініціалізації структури.
     fmt.Println(person{name: "Alice", age: 30})
 
-    // Omitted fields will be zero-valued.
+    // Пропущені поля будуть створені відповідно нульового
+    // значення типу пропущеного поля.
     fmt.Println(person{name: "Fred"})
 
-    // An `&` prefix yields a pointer to the struct.
+    // Префікс `&` поверне вказівник на структуру.
     fmt.Println(&person{name: "Ann", age: 40})
 
-    // Access struct fields with a dot.
+    // Доступ до полів надається через синстксис крапки `.`
     s := person{name: "Sean", age: 50}
     fmt.Println(s.name)
 
-    // You can also use dots with struct pointers - the
-    // pointers are automatically dereferenced.
+    // Дозволяється використовувати крапки з вказівниками структур,
+    // вказівники, в такому разі, автоматично розіменовані.
     sp := &s
     fmt.Println(sp.age)
 
-    // Structs are mutable.
+    // Данні в структурі можна змінювати ( тобто вони `mutable`,
+    // такі що дозволяється змінбвати).
     sp.age = 51
     fmt.Println(sp.age)
 }

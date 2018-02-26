@@ -16,23 +16,13 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <em>structs</em> are typed collections of fields.
-They&rsquo;re useful for grouping data together to form
-records.</p>
+            <p><em>Структури</em> в Go це типізовані колекції полів,
+корисні для групування данних разом задля формування
+записів.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/OMCP5KFC10"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/GLyzeQLhLWy"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,7 +43,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>person</code> struct type has <code>name</code> and <code>age</code> fields.</p>
+            <p>Ця структура <code>person</code> має поля для імені (<code>name</code>) та віку (<code>age</code>).</p>
 
           </td>
           <td class="code leading">
@@ -81,7 +71,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>This syntax creates a new struct.</p>
+            <p>Наступний синтаксис створить нову структуру.</p>
 
           </td>
           <td class="code leading">
@@ -94,7 +84,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>You can name the fields when initializing a struct.</p>
+            <p>Дозволяється іменувати поля при ініціалізації структури.</p>
 
           </td>
           <td class="code leading">
@@ -107,7 +97,8 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>Omitted fields will be zero-valued.</p>
+            <p>Пропущені поля будуть створені відповідно нульового
+значення типу пропущеного поля.</p>
 
           </td>
           <td class="code leading">
@@ -120,7 +111,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>An <code>&amp;</code> prefix yields a pointer to the struct.</p>
+            <p>Префікс <code>&amp;</code> поверне вказівник на структуру.</p>
 
           </td>
           <td class="code leading">
@@ -133,7 +124,7 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>Access struct fields with a dot.</p>
+            <p>Доступ до полів надається через синстксис крапки <code>.</code></p>
 
           </td>
           <td class="code leading">
@@ -147,8 +138,8 @@ records.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also use dots with struct pointers - the
-pointers are automatically dereferenced.</p>
+            <p>Дозволяється використовувати крапки з вказівниками структур,
+вказівники, в такому разі, автоматично розіменовані.</p>
 
           </td>
           <td class="code leading">
@@ -162,7 +153,8 @@ pointers are automatically dereferenced.</p>
         
         <tr>
           <td class="docs">
-            <p>Structs are mutable.</p>
+            <p>Данні в структурі можна змінювати ( тобто вони <code>mutable</code>,
+такі що дозволяється змінбвати).</p>
 
           </td>
           <td class="code">
