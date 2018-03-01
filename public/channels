@@ -16,10 +16,10 @@
         
         <tr>
           <td class="docs">
-            <p><em>Channels</em> are the pipes that connect concurrent
-goroutines. You can send values into channels from one
-goroutine and receive those values into another
-goroutine.</p>
+            <p><em>Канали</em> це протоки, що об’єднуть горутини,
+які виконуються водночас. Ми можете надсилати
+данні до каналу з однієї горутини та
+отримаувати у іншій.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +33,7 @@ goroutine.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Kd8B0T_JGK"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/3iL70fFIROj"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,8 +66,8 @@ goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>Create a new channel with <code>make(chan val-type)</code>.
-Channels are typed by the values they convey.</p>
+            <p>Канали створюються наступним синтаксисом <code>make(chan тип-каналу)</code>.
+Канали типізовані типом змінної що вони передають.</p>
 
           </td>
           <td class="code leading">
@@ -80,9 +80,10 @@ Channels are typed by the values they convey.</p>
         
         <tr>
           <td class="docs">
-            <p><em>Send</em> a value into a channel using the <code>channel &lt;-</code>
-syntax. Here we send <code>&quot;ping&quot;</code>  to the <code>messages</code>
-channel we made above, from a new goroutine.</p>
+            <p><em>Надіслати</em> значення до каналу можна використовуючи
+<code>channel &lt;-</code> синтаксис. Ось тут ми надішлемо <code>&quot;ping&quot;</code>
+до каналу <code>messages</code> що ми створити з горутини
+анонімної функції.</p>
 
           </td>
           <td class="code leading">
@@ -95,9 +96,9 @@ channel we made above, from a new goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-channel</code> syntax <em>receives</em> a value from the
-channel. Here we&rsquo;ll receive the <code>&quot;ping&quot;</code> message
-we sent above and print it out.</p>
+            <p>Синтаксис <code>&lt;-channel</code> <em>отримує</em> значення з каналу.
+Ось тут ми отримуємо повідомлення <code>&quot;ping&quot;</code>, що ми
+щойно відправили і друкуємо його до екрану.</p>
 
           </td>
           <td class="code">
@@ -116,14 +117,14 @@ we sent above and print it out.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run the program the <code>&quot;ping&quot;</code> message is
-successfully passed from one goroutine to another via
-our channel.</p>
+            <p>Коли ми запускаємо прогрумму повідомлення <code>&quot;ping&quot;</code>
+успішно передається з однтєї горутини до нашої
+программи через наш канал.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run channels.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run channels.go
 <span class="go">ping</span>
 </pre></div>
 
@@ -132,10 +133,11 @@ our channel.</p>
         
         <tr>
           <td class="docs">
-            <p>By default sends and receives block until both the
-sender and receiver are ready. This property allowed
-us to wait at the end of our program for the <code>&quot;ping&quot;</code>
-message without having to use any other synchronization.</p>
+            <p>За стандартними налаштуваннями <em>надсилання</em> і
+<em>отримання</em> блокують виконання допоки <em>відправкник</em>
+або <em>отримувач</em> не будуть готові. Ця властивість
+дозволяє нашій программі зачекати на повідомлення
+<code>&quot;ping&quot;</code> без використання інших типів синхронізації.</p>
 
           </td>
           <td class="code empty">

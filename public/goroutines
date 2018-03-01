@@ -16,21 +16,11 @@
         
         <tr>
           <td class="docs">
-            <p>A <em>goroutine</em> is a lightweight thread of execution.</p>
+            <p><em>goroutine</em> (надалі просто <em>горутина</em>) це легковісний <a href="https://uk.wikipedia.org/wiki/%D0%9D%D0%B8%D1%82%D0%BA%D0%B0_(%D1%96%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0)">потік виконання</a>.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/2NYzLbw1IxV"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/mSUDmZEl4Zo"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -43,7 +33,10 @@
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+            <div class="highlight"><pre><span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;time&quot;</span>
+<span class="p">)</span>
 </pre></div>
 
           </td>
@@ -51,7 +44,8 @@
         
         <tr>
           <td class="docs">
-            
+            <p>Функція що ми використаємо за кілька хвилин.</p>
+
           </td>
           <td class="code leading">
 	        
@@ -79,9 +73,9 @@
         
         <tr>
           <td class="docs">
-            <p>Suppose we have a function call <code>f(s)</code>. Here&rsquo;s how
-we&rsquo;d call that in the usual way, running it
-synchronously.</p>
+            <p>Допустимо ми маємо виклик функції вигляду <code>f(s)</code>.
+Ось як би ми викликали цю функцію звичайним
+(синхронним) чином.</p>
 
           </td>
           <td class="code leading">
@@ -94,9 +88,9 @@ synchronously.</p>
         
         <tr>
           <td class="docs">
-            <p>To invoke this function in a goroutine, use
-<code>go f(s)</code>. This new goroutine will execute
-concurrently with the calling one.</p>
+            <p>Щоб розпочати виконання функції в горутині, скористайтесь
+синтаксисом запуску горутини <code>go f(s)</code>. Ця горутина буде
+виконана одночасно з викликом.</p>
 
           </td>
           <td class="code leading">
@@ -109,8 +103,8 @@ concurrently with the calling one.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also start a goroutine for an anonymous
-function call.</p>
+            <p>Аналогічним чином можна запустит горутину для виклику
+анонімних функцій.</p>
 
           </td>
           <td class="code leading">
@@ -125,26 +119,27 @@ function call.</p>
         
         <tr>
           <td class="docs">
-            <p>Our two function calls are running asynchronously in
-separate goroutines now, so execution falls through
-to here. This <code>Scanln</code> requires we press a key
-before the program exits.</p>
+            <p><code>time.Sleep(time.Millisecond)</code> створить паузу у виконанні
+щоб ми могли дочекатись результату роботи горутин.</p>
 
           </td>
-          <td class="code empty leading">
+          <td class="code leading">
 	        
-            
+            <div class="highlight"><pre>    <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Millisecond</span><span class="p">)</span>
+</pre></div>
+
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            
+            <p>Наші два виклики наразі працюються асинхронно в різних
+горутинах і результат їх виконання буде показано тут.</p>
+
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Scanln</span><span class="p">()</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;done&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;done&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -157,10 +152,12 @@ before the program exits.</p>
         
         <tr>
           <td class="docs">
-            <p>When we run this program, we see the output of the
-blocking call first, then the interleaved output of the
-two goroutines. This interleaving reflects the
-goroutines being run concurrently by the Go runtime.</p>
+            <p>Коли ми запустимо цю программу, ми побачимо
+спершу результат блокуючого виклику, а вже
+потім результат виконання  двох горутин.
+Як ми можете помітити, обидві горутини
+виконуються одночасно і контролюється
+середовищем виконання Go.</p>
 
           </td>
           <td class="code leading">
@@ -173,7 +170,6 @@ goroutines being run concurrently by the Go runtime.</p>
 <span class="go">going</span>
 <span class="go">goroutine : 1</span>
 <span class="go">goroutine : 2</span>
-<span class="go">&lt;enter&gt;</span>
 <span class="go">done</span>
 </pre></div>
 
@@ -182,8 +178,8 @@ goroutines being run concurrently by the Go runtime.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a complement to goroutines in
-concurrent Go programs: channels.</p>
+            <p><em>Канали</em>, є доповненням до горутин у
+механізмах одночасного виконання реалізованих у Go.</p>
 
           </td>
           <td class="code empty">

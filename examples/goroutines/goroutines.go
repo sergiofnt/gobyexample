@@ -1,9 +1,12 @@
-// A _goroutine_ is a lightweight thread of execution.
-
+// _goroutine_ (надалі просто _горутина_) це легковісний [потік виконання](https://uk.wikipedia.org/wiki/%D0%9D%D0%B8%D1%82%D0%BA%D0%B0_(%D1%96%D0%BD%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0)).
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "time"
+)
 
+// Функція що ми використаємо за кілька хвилин.
 func f(from string) {
     for i := 0; i < 3; i++ {
         fmt.Println(from, ":", i)
@@ -12,27 +15,27 @@ func f(from string) {
 
 func main() {
 
-    // Suppose we have a function call `f(s)`. Here's how
-    // we'd call that in the usual way, running it
-    // synchronously.
+    // Допустимо ми маємо виклик функції вигляду `f(s)`.
+    // Ось як би ми викликали цю функцію звичайним
+    // (синхронним) чином.
     f("direct")
 
-    // To invoke this function in a goroutine, use
-    // `go f(s)`. This new goroutine will execute
-    // concurrently with the calling one.
+    // Щоб розпочати виконання функції в горутині, скористайтесь
+    // синтаксисом запуску горутини `go f(s)`. Ця горутина буде
+    // виконана одночасно з викликом.
     go f("goroutine")
 
-    // You can also start a goroutine for an anonymous
-    // function call.
+    // Аналогічним чином можна запустит горутину для виклику
+    // анонімних функцій.
     go func(msg string) {
         fmt.Println(msg)
     }("going")
 
-    // Our two function calls are running asynchronously in
-    // separate goroutines now, so execution falls through
-    // to here. This `Scanln` requires we press a key
-    // before the program exits.
+    // `time.Sleep(time.Millisecond)` створить паузу у виконанні
+    // щоб ми могли дочекатись результату роботи горутин.
+    time.Sleep(time.Millisecond)
 
-    fmt.Scanln()
+    // Наші два виклики наразі працюються асинхронно в різних
+    // горутинах і результат їх виконання буде показано тут.
     fmt.Println("done")
 }

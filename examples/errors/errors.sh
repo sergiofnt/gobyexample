@@ -6,6 +6,6 @@ f2 failed: 42 - can't work with it
 42
 can't work with it
 
-# Ознайомтесь з [записом](http://blog.golang.org/2011/07/error-handling-and-go.html)
-# у блозі розробників Go, для отримання
-# докладної інформації.
+# Як завжди трошка докаладнішу
+# інформацію можна занйти в [записах](http://blog.golang.org/2011/07/error-handling-and-go.html)
+# у блозі розробників Go.

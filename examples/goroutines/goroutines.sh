@@ -1,7 +1,9 @@
-# When we run this program, we see the output of the
-# blocking call first, then the interleaved output of the
-# two goroutines. This interleaving reflects the
-# goroutines being run concurrently by the Go runtime.
+# Коли ми запустимо цю программу, ми побачимо
+# спершу результат блокуючого виклику, а вже
+# потім результат виконання  двох горутин.
+# Як ми можете помітити, обидві горутини
+# виконуються одночасно і контролюється
+# середовищем виконання Go.
 $ go run goroutines.go
 direct : 0
 direct : 1
@@ -10,8 +12,7 @@ goroutine : 0
 going
 goroutine : 1
 goroutine : 2
-<enter>
 done
 
-# Next we'll look at a complement to goroutines in
-# concurrent Go programs: channels.
+# _Канали_, є доповненням до горутин у
+# механізмах одночасного виконання реалізованих у Go.
