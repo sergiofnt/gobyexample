@@ -1,13 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
-
 # Testing Examples
-for file in $(find examples -name \*.sh \
-	| grep -v "exit.sh"    \  # thosse three files generate false positive
- 	| grep -v "panic.sh"   \  # errors, so its better to exlude them
-	| grep -v "signals.sh" \  # from tests.
-	); do
+for file in $(find examples -name \*.sh | grep -v "exit.sh" | grep -v "panic.sh" | grep -v "signals.sh" ); do  # from tests.
+
 
 	cd $(dirname $file)
 	# echo "@" $file
