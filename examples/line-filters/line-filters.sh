@@ -1,9 +1,9 @@
 # To try out our line filter, first make a file with a few
 # lowercase lines.
-$ echo 'hello'   > /tmp/lines
-$ echo 'filter' >> /tmp/lines
+$ echo 'hello'   > "line-filters"
+$ echo 'filter' >> "line-filters"
 
 # Then use the line filter to get uppercase lines.
-$ cat /tmp/lines | go run line-filters.go
+$ cat "line-filters" | go run line-filters.go
 HELLO
 FILTER

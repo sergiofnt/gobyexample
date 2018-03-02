@@ -140,7 +140,7 @@
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run constant.go
+            <div class="highlight"><pre><span class="gp">$</span> go run constants.go
 <span class="go">constant</span>
 <span class="go">6e+11</span>
 <span class="go">600000000000</span>

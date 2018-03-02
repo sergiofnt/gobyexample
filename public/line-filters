@@ -158,8 +158,8 @@ lowercase lines.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;hello&#39;</span>   &gt; /tmp/lines
-<span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;filter&#39;</span> &gt;&gt; /tmp/lines
+            <div class="highlight"><pre><span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;hello&#39;</span>   &gt; <span class="s2">&quot;line-filters&quot;</span>
+<span class="gp">$</span> <span class="nb">echo</span> <span class="s1">&#39;filter&#39;</span> &gt;&gt; <span class="s2">&quot;line-filters&quot;</span>
 </pre></div>
 
           </td>
@@ -172,7 +172,7 @@ lowercase lines.</p>
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> cat /tmp/lines <span class="p">|</span> go run line-filters.go
+            <div class="highlight"><pre><span class="gp">$</span> cat <span class="s2">&quot;line-filters&quot;</span> <span class="p">|</span> go run line-filters.go
 <span class="go">HELLO</span>
 <span class="go">FILTER</span>
 </pre></div>
