@@ -164,6 +164,22 @@ causing the program to print <code>interrupt</code> and then exit.</p>
         
       </table>
       
+      <table>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code">
+	        
+            <div class="highlight"><pre><span class="go">go run signals.go</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+      </table>
+      
       
       <p class="next">
         Наступний приклад: <a href="exit">Exit</a>.
