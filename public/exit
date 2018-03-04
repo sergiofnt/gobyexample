@@ -16,8 +16,8 @@
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Exit</code> to immediately exit with a given
-status.</p>
+            <p>Використовуйте <code>os.Exit</code> для негайного виходу з
+<a href="https://en.wikipedia.org/wiki/Exit_status">відповідним статусом</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ status.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/vDaM0-MGJ_k"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/jc66ieg6zB6"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,8 +65,7 @@ status.</p>
         
         <tr>
           <td class="docs">
-            <p><code>defer</code>s will <em>not</em> be run when using <code>os.Exit</code>, so
-this <code>fmt.Println</code> will never be called.</p>
+            <p>Відкладений виклик ( за допомогою <code>defer</code>) ніколи не буде запущено якщо буде викоирстана <code>os.Exit</code>, отож <code>fmt.Println</code> просто не виконається.</p>
 
           </td>
           <td class="code leading">
@@ -79,7 +78,7 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Exit with status 3.</p>
+            <p>Вийти зі статусом 3.</p>
 
           </td>
           <td class="code leading">
@@ -93,10 +92,12 @@ this <code>fmt.Println</code> will never be called.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike e.g. C, Go does not use an integer
-return value from <code>main</code> to indicate exit status. If
-you&rsquo;d like to exit with a non-zero status you should
-use <code>os.Exit</code>.</p>
+            <p>Напротивагу С/С++, Go не потребує використовувати
+ціле число, як значення що повертається з функції main
+(що вказати операційній системі з яким статусом
+завершилась программа). Тобто, якщо ви захочете
+вийти з ненульовим статусом - ви змушені будете
+скористатись <code>os.Exit</code>.</p>
 
           </td>
           <td class="code empty">
@@ -111,8 +112,9 @@ use <code>os.Exit</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you run <code>exit.go</code> using <code>go run</code>, the exit
-will be picked up by <code>go</code> and printed.</p>
+            <p>Якщо ви запустите <code>exit.go</code> використовуючи
+<code>go run</code>, то статус виходу буде підібрино
+<code>go</code> і надруковано.</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +128,9 @@ will be picked up by <code>go</code> and printed.</p>
         
         <tr>
           <td class="docs">
-            <p>By building and executing a binary you can see
-the status in the terminal.</p>
+            <p>Якщо ви скомпілюєте та запустите бінарний файл
+ви зможете підхопити статус код в терміналі
+самостійно.</p>
 
           </td>
           <td class="code leading">
@@ -143,7 +146,8 @@ the status in the terminal.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that the <code>!</code> from our program never got printed.</p>
+            <p>Зауважте що <code>!</code> з нашої программи ніколи не
+було надруковано.</p>
 
           </td>
           <td class="code empty">
