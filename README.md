@@ -1,4 +1,4 @@
-## Go за прикладом  <a href="https://travis-ci.org/butuzov/gobyexample"><img src="https://travis-ci.org/butuzov/gobyexample.svg?branch=ukrainian" alt="Build Status"></a>
+## Go за прикладом [![Build Status](https://travis-ci.org/butuzov/gobyexample.svg?branch=ukrainian)](https://travis-ci.org/butuzov/gobyexample)
 
 Content and build toolchain for [Go by Example](https://gobyexample.com),
 a site that teaches Go via annotated example programs.
