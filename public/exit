@@ -20,18 +20,8 @@
 <a href="https://en.wikipedia.org/wiki/Exit_status">відповідним статусом</a>.</p>
 
           </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/jc66ieg6zB6"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/7giTeSrfE9_L"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,7 +55,9 @@
         
         <tr>
           <td class="docs">
-            <p>Відкладений виклик ( за допомогою <code>defer</code>) ніколи не буде запущено якщо буде викоирстана <code>os.Exit</code>, отож <code>fmt.Println</code> просто не виконається.</p>
+            <p>Відкладений виклик ( за допомогою <code>defer</code>) ніколи не буде
+запущено, якщо використовується <code>os.Exit</code>, тобто <code>fmt.Println</code>
+просто не виконається.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +70,7 @@
         
         <tr>
           <td class="docs">
-            <p>Вийти зі статусом 3.</p>
+            <p>Завершити/вийти з программи зі статусом 3.</p>
 
           </td>
           <td class="code leading">
