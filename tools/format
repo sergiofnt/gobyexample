@@ -21,7 +21,28 @@ gbe_to_4spaces() {
   esac
 }
 
+#SHA=$(which sha1sum)
+
+# Weird bug on Mac, program terminating on
+# which `sha1sum` comman. So lets assume OS has
+# shasum, and sha1sum is our fallback case.
+
+sha=$(which shasum)
+if [[ $? != 0 || $sha == "" ]]; then
+	sha="sha1sum"
+fi
+
+
+# We going to run upgrade only if file updated.
 for path in $paths; do
-  gofmt -w=true $path
-  gbe_to_4spaces $path
+
+	hash_new=$($sha $path | awk '{print $1}')
+	hash_file=$(printf "$path" | sed -e 's/\.go/\.hash/g')
+	hash_old=$(awk 'NR==1{print $1}' $hash_file)
+
+	if [[ $hash_new != $hash_old ]]; then
+		gofmt -w=true $path
+		gbe_to_4spaces $path
+		echo "updating $path $hash_new $hash_old"
+	fi
 done
