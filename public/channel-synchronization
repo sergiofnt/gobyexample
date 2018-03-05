@@ -16,9 +16,9 @@
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.</p>
+            <p>Ми можемо використовувати канали для синхронізації
+між горутинами. Ось - приклад використання блокуючого
+отримання, задля очікування завершення горутини.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@ blocking receive to wait for a goroutine to finish.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/0DfW-1RMqi"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Rb-5V49f-Zh"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,17 +54,17 @@ blocking receive to wait for a goroutine to finish.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>Ця функція буде запущена в горутині. Канал <code>done</code>
+буде використано щоб надіслати повідомлення іншій
+про завершення роботи цієї функції.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">worker</span><span class="p">(</span><span class="nx">done</span> <span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;working...&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;працюємо...&quot;</span><span class="p">)</span>
     <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;done&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;готово&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -72,13 +72,25 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>Надіслати значення, щоб повідомити що завершення
+роботи.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">done</span> <span class="o">&lt;-</span> <span class="kc">true</span>
-<span class="p">}</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre><span class="p">}</span>
 </pre></div>
 
           </td>
@@ -98,8 +110,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>Запустити горутину <code>worker</code>, і виділити їй канал
+по якому вона передасть повідомлення.</p>
 
           </td>
           <td class="code leading">
@@ -113,14 +125,26 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>Блокуємо, допоки ми не отримаємо повідомлення
+з каналу, який ми передали функції запущені
+в горутині.</p>
 
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="o">&lt;-</span><span class="nx">done</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="o">&lt;-</span><span class="nx">done</span>
-<span class="p">}</span>
+            <div class="highlight"><pre><span class="p">}</span>
 </pre></div>
 
           </td>
@@ -132,27 +156,17 @@ worker on the channel.</p>
         
         <tr>
           <td class="docs">
-            
+            <p>Якщо ви приберете лінію <code>&lt;- done</code> з программи,
+то вона завершиться ще до того як <code>worker</code>
+буде запущено.</p>
+
           </td>
-          <td class="code leading">
+          <td class="code">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run channel-synchronization.go      
-<span class="go">working...done                  </span>
+            <div class="highlight"><pre><span class="gp">$</span> go run channel-synchronization.go
+<span class="go">працюємо...готово</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program, the
-program would exit before the <code>worker</code> even
-started.</p>
-
-          </td>
-          <td class="code empty">
-	        
-            
           </td>
         </tr>
         

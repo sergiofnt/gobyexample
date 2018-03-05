@@ -18,11 +18,21 @@
           <td class="docs">
             <p>В Go, <em>змінні</em> декларуються явно і використовуються
 компілятором, наприклад для перевірки коректності типу
-у викликах функцій</p>
+у викликах функцій.</p>
 
           </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/CGNAl7i5ezS"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/M6iOz0pjCYx"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -60,7 +70,7 @@
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;initial&quot;</span>
+            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">a</span> <span class="p">=</span> <span class="s">&quot;initiaal&quot;</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
 </pre></div>
 
@@ -83,7 +93,7 @@
         
         <tr>
           <td class="docs">
-            <p>Go припустить тип змінної опираючись на її значеня.</p>
+            <p>Go може припускати тип змінної відхштовхуючись від її значення.</p>
 
           </td>
           <td class="code leading">

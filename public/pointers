@@ -19,8 +19,18 @@
             <p>Go підтримує <a href="https://uk.wikipedia.org/wiki/%D0%92%D0%BA%D0%B0%D0%B7%D1%96%D0%B2%D0%BD%D0%B8%D0%BA"><em>вказівники</em></a>, дозволяючи передавати за посиланням значення та записи в межах программи.</p>
 
           </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Tf0OqBwEzUM"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/n8NnOcFAGrW"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 

@@ -23,8 +23,18 @@
 значень, без того щоб отримувач запросив ці значення.</p>
 
           </td>
+          <td class="code empty leading">
+	        
+            
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            
+          </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/lvfU_0glYt3"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/os5ziLNaf2C"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 

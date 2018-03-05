@@ -1,5 +1,6 @@
 // Використовуйте `os.Exit` для негайного виходу з
 // [відповідним статусом](https://en.wikipedia.org/wiki/Exit_status).
+
 package main
 
 import "fmt"

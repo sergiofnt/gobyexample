@@ -16,10 +16,10 @@
         
         <tr>
           <td class="docs">
-            <p>When using channels as function parameters, you can
-specify if a channel is meant to only send or receive
-values. This specificity increases the type-safety of
-the program.</p>
+            <p>Використовуючи канали як параметри функції, дозволяється
+вказувати призначення каналу - чи він буде використаний
+для відправки чи тільки для отримання значень.
+Використання цієї особливості підвищує безпеку программи.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +33,7 @@ the program.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/P9Fujfpa1f"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/SdSPKInVblT"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,9 +54,9 @@ the program.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>ping</code> function only accepts a channel for sending
-values. It would be a compile-time error to try to
-receive on this channel.</p>
+            <p>Функція <code>ping</code> прийме канал лише для надсилання значень.
+Ви отримаєте помилку компіляції, якщо спробудете отримати
+значення з цього каналу.</p>
 
           </td>
           <td class="code leading">
@@ -71,8 +71,8 @@ receive on this channel.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>pong</code> function accepts one channel for receives
-(<code>pings</code>) and a second for sends (<code>pongs</code>).</p>
+            <p>Функція <code>pong</code> приймає перший канал для отримань
+(<code>pings</code>) і другий дял відправлень (<code>pongs</code>).</p>
 
           </td>
           <td class="code leading">
@@ -95,7 +95,7 @@ receive on this channel.</p>
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">pings</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nx">pongs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="s">&quot;passed message&quot;</span><span class="p">)</span>
+    <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="s">&quot;передане повідомлення&quot;</span><span class="p">)</span>
     <span class="nx">pong</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="nx">pongs</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&lt;-</span><span class="nx">pongs</span><span class="p">)</span>
 <span class="p">}</span>
@@ -115,7 +115,7 @@ receive on this channel.</p>
           <td class="code">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run channel-directions.go
-<span class="go">passed message</span>
+<span class="go">передане повідомлення</span>
 </pre></div>
 
           </td>
