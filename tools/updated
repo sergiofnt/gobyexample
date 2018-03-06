@@ -1,0 +1,50 @@
+#!/bin/bash
+
+set -eo pipefail
+
+paths=$(ls examples/*/*.go)
+
+gbe_to_4spaces() {
+  local os=$(tr [A-Z] [a-z] <<< "`uname`")
+  case $os in
+    darwin*)
+      sed -i '' -e 's/	/    /g' $1
+      ;;
+    linux*)
+      sed -i -e 's/	/    /g' $1
+      ;;
+    *)
+      echo "$os is not supported."
+      echo "Add a proper 'sed' command for your platform to ./tools/format"
+      return 1
+      ;;
+  esac
+}
+
+#SHA=$(which sha1sum)
+
+# Weird bug on Mac, program terminating on
+# which `sha1sum` command. So lets assume OS has
+# shasum, and sha1sum is our fallback case.
+
+sha=$(which shasum)
+if [[ $? != 0 || $sha == "" ]]; then
+	sha="sha1sum"
+fi
+
+
+# We going to run upgrade only if file updated.
+for path in $paths; do
+
+	hash_new=$($sha $path | awk '{print $1}')
+	hash_file=$(printf "$path" | sed -e 's/\.go/\.hash/g')
+	hash_old=$(awk 'NR==1{print $1}' $hash_file)
+
+	if [[ $hash_new != $hash_old ]]; then
+		echo "Generating updated version of $path"
+		gofmt -w=true $path
+		gbe_to_4spaces $path
+		go run tools/measure/measure.go
+		go run tools/generate/generate.go
+	fi
+done

@@ -5,11 +5,9 @@ trap "{ echo finishing; TRAPPING=1; }" SIGINT
 
 while :
 do
-  tools/build
+  tools/updated
   RET=$?
-  if [ $RET -eq 0 ]; then
-    echo "success"
-  else
+  if [ $RET -ne 0 ]; then
     echo "error: $RET"
   fi
   if [ $TRAPPING -eq 0 ]; then
