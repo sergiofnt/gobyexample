@@ -1,11 +1,12 @@
-# Running this program shows the first operation timing
-# out and the second succeeding.
-$ go run timeouts.go 
-timeout 1
-result 2
+# Запуск цієї программи покаже що
+# у першої операції витік час, а друга
+# завершилась успішно.
+$ go run timeouts.go
+таймаут 1
+результат 2
 
-# Using this `select` timeout pattern requires
-# communicating results over channels. This is a good
-# idea in general because other important Go features are
-# based on channels and `select`. We'll look at two
-# examples of this next: timers and tickers.
+# Використання цього шоблону напряму залежить від
+# обміну результатами через канали. Це непогана
+# ідея бо і інші важливі особливості Go залежать
+# від каналів та `select`. Ми розглянемо це два
+# приклада: хронометри та маятники.

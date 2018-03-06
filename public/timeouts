@@ -16,10 +16,11 @@
         
         <tr>
           <td class="docs">
-            <p><em>Timeouts</em> are important for programs that connect to
-external resources or that otherwise need to bound
-execution time. Implementing timeouts in Go is easy and
-elegant thanks to channels and <code>select</code>.</p>
+            <p><em>Таймаути</em> важливі для програм що спілкуються з
+зовнішніми ресурсами або які враховують час
+виконання. Впровадження таймаутів в Go задача
+проста та елегантна, і все це завдяки каналам
+та <code>select</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +34,7 @@ elegant thanks to channels and <code>select</code>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/MgcfA-xpJO9"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/iB_TqojEqtp"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,9 +68,9 @@ elegant thanks to channels and <code>select</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example, suppose we&rsquo;re executing an external
-call that returns its result on a channel <code>c1</code>
-after 2s.</p>
+            <p>Для нашого прикладу, припустимо ми виконуємо
+виклик назовні що повертає результати каналом
+<code>c1</code> через 2 секунди.</p>
 
           </td>
           <td class="code leading">
@@ -77,7 +78,7 @@ after 2s.</p>
             <div class="highlight"><pre>    <span class="nx">c1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-        <span class="nx">c1</span> <span class="o">&lt;-</span> <span class="s">&quot;result 1&quot;</span>
+        <span class="nx">c1</span> <span class="o">&lt;-</span> <span class="s">&quot;результат 1&quot;</span>
     <span class="p">}()</span>
 </pre></div>
 
@@ -86,12 +87,13 @@ after 2s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>select</code> implementing a timeout.
-<code>res := &lt;-c1</code> awaits the result and <code>&lt;-Time.After</code>
-awaits a value to be sent after the timeout of
-1s. Since <code>select</code> proceeds with the first
-receive that&rsquo;s ready, we&rsquo;ll take the timeout case
-if the operation takes more than the allowed 1s.</p>
+            <p>А тут <code>select</code> імплементує  таймаут.
+<code>res := &lt;-c1</code> чекає на повідомлення і <code>&lt;-Time.After</code>
+теж чекає 1 секунду, на повідомлення з каналу що сам і створив.
+Оскільки <code>select</code> опрацьовує перший готовий виклак,
+буде опрацьований виклик з <code>time.After</code> оськільки він
+буде виконаний за 1 секунду, напротивагу 2-ом секундам
+виконання горутини, що писатиме в <code>c1</code>.</p>
 
           </td>
           <td class="code leading">
@@ -100,7 +102,7 @@ if the operation takes more than the allowed 1s.</p>
     <span class="k">case</span> <span class="nx">res</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">c1</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
     <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">):</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;timeout 1&quot;</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;таймаут 1&quot;</span><span class="p">)</span>
     <span class="p">}</span>
 </pre></div>
 
@@ -109,8 +111,8 @@ if the operation takes more than the allowed 1s.</p>
         
         <tr>
           <td class="docs">
-            <p>If we allow a longer timeout of 3s, then the receive
-from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
+            <p>Якщо ми дозволимо довший таймаут в 3 секунди, тоді
+ми зможемо отримати та надрукувати результат з каналу <code>c2</code>.</p>
 
           </td>
           <td class="code">
@@ -118,13 +120,13 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
             <div class="highlight"><pre>    <span class="nx">c2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
-        <span class="nx">c2</span> <span class="o">&lt;-</span> <span class="s">&quot;result 2&quot;</span>
+        <span class="nx">c2</span> <span class="o">&lt;-</span> <span class="s">&quot;результат 2&quot;</span>
     <span class="p">}()</span>
     <span class="k">select</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nx">res</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">c2</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
     <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">):</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;timeout 2&quot;</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;таймаут 2&quot;</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -138,15 +140,16 @@ from <code>c2</code> will succeed and we&rsquo;ll print the result.</p>
         
         <tr>
           <td class="docs">
-            <p>Running this program shows the first operation timing
-out and the second succeeding.</p>
+            <p>Запуск цієї программи покаже що
+у першої операції витік час, а друга
+завершилась успішно.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run timeouts.go 
-<span class="go">timeout 1</span>
-<span class="go">result 2</span>
+            <div class="highlight"><pre><span class="gp">$</span> go run timeouts.go
+<span class="go">таймаут 1</span>
+<span class="go">результат 2</span>
 </pre></div>
 
           </td>
@@ -154,11 +157,11 @@ out and the second succeeding.</p>
         
         <tr>
           <td class="docs">
-            <p>Using this <code>select</code> timeout pattern requires
-communicating results over channels. This is a good
-idea in general because other important Go features are
-based on channels and <code>select</code>. We&rsquo;ll look at two
-examples of this next: timers and tickers.</p>
+            <p>Використання цього шоблону напряму залежить від
+обміну результатами через канали. Це непогана
+ідея бо і інші важливі особливості Go залежать
+від каналів та <code>select</code>. Ми розглянемо це два
+приклада: хронометри та маятники.</p>
 
           </td>
           <td class="code empty">

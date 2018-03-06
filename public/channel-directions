@@ -33,7 +33,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/SdSPKInVblT"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Dx4aJORRMep"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,7 +55,7 @@
         <tr>
           <td class="docs">
             <p>Функція <code>ping</code> прийме канал лише для надсилання значень.
-Ви отримаєте помилку компіляції, якщо спробудете отримати
+Ви отримаєте помилку компіляції, якщо спробуєете отримати
 значення з цього каналу.</p>
 
           </td>
@@ -71,8 +71,8 @@
         
         <tr>
           <td class="docs">
-            <p>Функція <code>pong</code> приймає перший канал для отримань
-(<code>pings</code>) і другий дял відправлень (<code>pongs</code>).</p>
+            <p>Функція <code>pong</code> приймає перший канал для доставки
+(<code>pings</code>), a другий для відправки (<code>pongs</code>).</p>
 
           </td>
           <td class="code leading">

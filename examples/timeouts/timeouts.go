@@ -1,7 +1,8 @@
-// _Timeouts_ are important for programs that connect to
-// external resources or that otherwise need to bound
-// execution time. Implementing timeouts in Go is easy and
-// elegant thanks to channels and `select`.
+// _Таймаути_ важливі для програм що спілкуються з
+// зовнішніми ресурсами або які враховують час
+// виконання. Впровадження таймаутів в Go задача
+// проста та елегантна, і все це завдяки каналам
+// та `select`.
 
 package main
 
@@ -10,39 +11,40 @@ import "fmt"
 
 func main() {
 
-    // For our example, suppose we're executing an external
-    // call that returns its result on a channel `c1`
-    // after 2s.
+    // Для нашого прикладу, припустимо ми виконуємо
+    // виклик назовні що повертає результати каналом
+    // `c1` через 2 секунди.
     c1 := make(chan string, 1)
     go func() {
         time.Sleep(2 * time.Second)
-        c1 <- "result 1"
+        c1 <- "результат 1"
     }()
 
-    // Here's the `select` implementing a timeout.
-    // `res := <-c1` awaits the result and `<-Time.After`
-    // awaits a value to be sent after the timeout of
-    // 1s. Since `select` proceeds with the first
-    // receive that's ready, we'll take the timeout case
-    // if the operation takes more than the allowed 1s.
+    // А тут `select` імплементує  таймаут.
+    // `res := <-c1` чекає на повідомлення і `<-Time.After`
+    // теж чекає 1 секунду, на повідомлення з каналу що сам і створив.
+    // Оскільки `select` опрацьовує перший готовий виклак,
+    // буде опрацьований виклик з `time.After` оськільки він
+    // буде виконаний за 1 секунду, напротивагу 2-ом секундам
+    // виконання горутини, що писатиме в `c1`.
     select {
     case res := <-c1:
         fmt.Println(res)
     case <-time.After(1 * time.Second):
-        fmt.Println("timeout 1")
+        fmt.Println("таймаут 1")
     }
 
-    // If we allow a longer timeout of 3s, then the receive
-    // from `c2` will succeed and we'll print the result.
+    // Якщо ми дозволимо довший таймаут в 3 секунди, тоді
+    // ми зможемо отримати та надрукувати результат з каналу `c2`.
     c2 := make(chan string, 1)
     go func() {
         time.Sleep(2 * time.Second)
-        c2 <- "result 2"
+        c2 <- "результат 2"
     }()
     select {
     case res := <-c2:
         fmt.Println(res)
     case <-time.After(3 * time.Second):
-        fmt.Println("timeout 2")
+        fmt.Println("таймаут 2")
     }
 }

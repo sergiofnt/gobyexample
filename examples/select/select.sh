@@ -1,10 +1,10 @@
-# We receive the values `"one"` and then `"two"` as
-# expected.
-$ time go run select.go 
-received one
-received two
+# Ми отримаємо спочатку значення `"один"`,
+# а вже потім `"два"` - так як і задумувалось.
+$ time go run select.go
+отримано один
+отримано два
 
-# Note that the total execution time is only ~2 seconds
-# since both the 1 and 2 second `Sleeps` execute
-# concurrently.
+# Зауважте що час виконання близько 2 секунд оскільки
+# і для 1шої, і для 2гої секунди команда "Sleep" (спати)
+# виконується одночасно.
 real	0m2.245s
