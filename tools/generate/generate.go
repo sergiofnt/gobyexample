@@ -129,6 +129,7 @@ type Seg struct {
 type Example struct {
 	ID, Name                    string
 	GoCode, GoCodeHash, URLHash string
+	Translated                  bool
 	Segs                        [][]*Seg
 	NextExample                 *Example
 }
@@ -244,6 +245,17 @@ func parseExamples() []*Example {
 				if strings.HasSuffix(sourcePath, ".hash") {
 					example.GoCodeHash, example.URLHash = parseHashFile(sourcePath)
 				} else {
+
+					if strings.HasSuffix(sourcePath, ".go") {
+						_, s := parseSegs(sourcePath)
+
+						runes := float32(len([]rune(s)))
+						bytes := float32(len([]byte(s)))
+						if runes/bytes < .95 {
+							example.Translated = true
+						}
+					}
+
 					sourceSegs, filecontents := parseAndRenderSegs(sourcePath)
 					if filecontents != "" {
 						example.GoCode = filecontents

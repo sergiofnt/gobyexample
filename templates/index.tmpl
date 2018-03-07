@@ -22,7 +22,7 @@
 
       <ul>
       {{range .}}
-        <li><a href="{{.ID}}">{{.Name}}</a></li>
+        <li><a href="{{.ID}}" {{if .Translated}}class="translated"{{end}}>{{.Name}}</a></li>
       {{end}}
       </ul>
       <p class="footer">

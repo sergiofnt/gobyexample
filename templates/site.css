@@ -28,7 +28,17 @@ body {
 }
 ol, ul {
 	list-style:none;
+	list-style:decimal;
 }
+li a {
+	display: inline-block;
+	padding:2px;
+}
+a.translated {
+	background: #D2413A;
+	color:#fff !important;
+}
+
 blockquote, q {
 	quotes: none;
 }
