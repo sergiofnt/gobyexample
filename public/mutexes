@@ -16,10 +16,10 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we saw how to manage simple
-counter state using <a href="atomic-counters">atomic operations</a>.
-For more complex state we can use a <em><a href="http://en.wikipedia.org/wiki/Mutual_exclusion">mutex</a></em>
-to safely access data across multiple goroutines.</p>
+            <p>У попередньому пиркладі ми бачили як керувати простим
+лічильником використовуючи <a href="atomic-counters">атомарні лічильники</a>.
+В разі більш складних випадків ми можемо використовувати  <a href="https://uk.wikipedia.org/wiki/%D0%9C%27%D1%8E%D1%82%D0%B5%D0%BA%D1%81"><em>м’ютекси</em></a>
+для безпечного доступу до данних в горутинах.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +33,7 @@ to safely access data across multiple goroutines.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/IRewFKz2OPN"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Uz5C624XFLq"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -72,7 +72,7 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>For our example the <code>state</code> will be a map.</p>
+            <p>В нашому прикладі <code>state</code> буде мапою.</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +85,7 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>mutex</code> will synchronize access to <code>state</code>.</p>
+            <p>А цей <code>mutex</code> сихнронізуватиме доступ до <code>state</code>.</p>
 
           </td>
           <td class="code leading">
@@ -98,8 +98,8 @@ to safely access data across multiple goroutines.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll keep track of how many read and write
-operations we do.</p>
+            <p>Ми будемо слідкувати скільки операцій запису та
+читання ми робитимемо.</p>
 
           </td>
           <td class="code leading">
@@ -113,9 +113,9 @@ operations we do.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we start 100 goroutines to execute repeated
-reads against the state, once per millisecond in
-each goroutine.</p>
+            <p>Ось ми запускаємо 100 горутин для запуску повторних
+зчитувань данних стану нашої мапи раз в мілісекунду
+в кожній горутині.</p>
 
           </td>
           <td class="code leading">
@@ -131,12 +131,12 @@ each goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>For each read we pick a key to access,
-<code>Lock()</code> the <code>mutex</code> to ensure
-exclusive access to the <code>state</code>, read
-the value at the chosen key,
-<code>Unlock()</code> the mutex, and increment
-the <code>readOps</code> count.</p>
+            <p>Для кожного читання ми: генеруємо ключ для
+доступа, замикаємо (<code>Lock()</code>) м’ютекс
+щоб впевнитись в унікальному доступі до <code>state</code>,
+чичтаємо значення обраного ключа,
+відімкнути (<code>Unlock()</code>) м’ютекс, і зібльшуємо
+на одиницю лічильник <code>readOps</code>.</p>
 
           </td>
           <td class="code leading">
@@ -153,7 +153,7 @@ the <code>readOps</code> count.</p>
         
         <tr>
           <td class="docs">
-            <p>Wait a bit between reads.</p>
+            <p>Чекаємо мілісекунду до наступного читання.</p>
 
           </td>
           <td class="code leading">
@@ -169,8 +169,9 @@ the <code>readOps</code> count.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll also start 10 goroutines to simulate writes,
-using the same pattern we did for reads.</p>
+            <p>Ми також стартуємо 10 горутин, для записів,
+використовуючи цей же шаблон
+(що ми використали для читанння).</p>
 
           </td>
           <td class="code leading">
@@ -195,8 +196,8 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the 10 goroutines work on the <code>state</code> and
-<code>mutex</code> for a second.</p>
+            <p>Дамо 10 горутинам працювати з <code>state</code> та
+<code>mutex</code> рівно 1 секунду.</p>
 
           </td>
           <td class="code leading">
@@ -209,7 +210,8 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Take and report final operation counts.</p>
+            <p>Прочитаємо звіти щодо наших автоманих операцій читання
+та запису.</p>
 
           </td>
           <td class="code leading">
@@ -225,7 +227,7 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>With a final lock of <code>state</code>, show how it ended up.</p>
+            <p>І покажемо як же <code>state</code> став виглядати після того всього.</p>
 
           </td>
           <td class="code">
@@ -245,9 +247,9 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we executed about
-90,000 total operations against our <code>mutex</code>-synchronized
-<code>state</code>.</p>
+            <p>Запуск программи показує що ми приблизно запустили
+біля 90 000 операцій всього що працювали з нашою
+<code>mutex</code>-синхронізованою мапою <code>state</code>.</p>
 
           </td>
           <td class="code leading">
@@ -263,8 +265,8 @@ using the same pattern we did for reads.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at implementing this same state
-management task using only goroutines and channels.</p>
+            <p>В наступному прикладі ми спробуємо керувати станом
+лише за допомогою горутин та канналів.</p>
 
           </td>
           <td class="code empty">
