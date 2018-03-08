@@ -1,30 +1,33 @@
-// _Defer_ is used to ensure that a function call is
-// performed later in a program's execution, usually for
-// purposes of cleanup. `defer` is often used where e.g.
-// `ensure` and `finally` would be used in other languages.
+// _Відкладення_ використовують щоб впевнитись,
+// що виклик функції буде виконано пізніше в
+// виконанні программи, нерідко для очистки.
+// `defer` також  використовують там саме де
+// і `ensure` та `finally` використались би в
+// інших мовах.
 
 package main
 
 import "fmt"
 import "os"
 
-// Suppose we wanted to create a file, write to it,
-// and then close when we're done. Here's how we could
-// do that with `defer`.
+// Допустимо, ми бажаємо створити файл, записати щось до
+// нього, і коли ми закінчим з цим - закрити його.
+// Ось як би ми це зробили за допомогою `defer`
+// (ключове слово для відкладення).
 func main() {
 
-    // Immediately after getting a file object with
-    // `createFile`, we defer the closing of that file
-    // with `closeFile`. This will be executed at the end
-    // of the enclosing function (`main`), after
-    // `writeFile` has finished.
+    // Відразу після отримання обєкту `File` (що повертається
+    // `createFile`), ми відкладуємо його закриття за допомогою
+    // `closeFile`. ВІдкладений виклик буде виконано в самому
+    // кінці закриваючої функції (`main`), але після того,
+    // як `writeFile` завершить своє виконання.
     f := createFile("/tmp/defer.txt")
     defer closeFile(f)
     writeFile(f)
 }
 
 func createFile(p string) *os.File {
-    fmt.Println("creating")
+    fmt.Println("створєюмо")
     f, err := os.Create(p)
     if err != nil {
         panic(err)
@@ -33,12 +36,12 @@ func createFile(p string) *os.File {
 }
 
 func writeFile(f *os.File) {
-    fmt.Println("writing")
-    fmt.Fprintln(f, "data")
+    fmt.Println("записуємо")
+    fmt.Fprintln(f, "данні")
 
 }
 
 func closeFile(f *os.File) {
-    fmt.Println("closing")
+    fmt.Println("закриваємо")
     f.Close()
 }

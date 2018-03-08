@@ -1,6 +1,7 @@
-// Go offers excellent support for string formatting in
-// the `printf` tradition. Here are some examples of
-// common string formatting tasks.
+// Go пропонує відмінну підтримку для формутування рядків
+// традиційним для багатьох - [`printf`](https://en.wikipedia.org/wiki/Printf_format_string) шляхом.
+// Нижче ми розглянемо часто вживані приклади форматування
+// рядків в Go.
 
 package main
 
@@ -13,70 +14,67 @@ type point struct {
 
 func main() {
 
-    // Go offers several printing "verbs" designed to
-    // format general Go values. For example, this prints
-    // an instance of our `point` struct.
+    // Go пропонує кілька друкуючих "дієслів" розроблених
+    // для фомратування значень Go. Наприклад, `%v` дозволяє
+    // сформатувати та надрукувати примірник нашої структури `point`.
     p := point{1, 2}
     fmt.Printf("%v\n", p)
 
-    // If the value is a struct, the `%+v` variant will
-    // include the struct's field names.
+    // Якщо значення це структура, `%+v`варіація покаже поля структури.
     fmt.Printf("%+v\n", p)
 
-    // The `%#v` variant prints a Go syntax representation
-    // of the value, i.e. the source code snippet that
-    // would produce that value.
+    // А варіація `%#v` сформатує відображення значення синтаксисом Go,
+    // включаючи код що продукуватиме це значення.
     fmt.Printf("%#v\n", p)
 
-    // To print the type of a value, use `%T`.
+    // Тип значення можна отримати з `%T`.
     fmt.Printf("%T\n", p)
 
-    // Formatting booleans is straight-forward.
+    // Форматування логічного типу данних (`bool`) простіше-простого.
     fmt.Printf("%t\n", true)
 
-    // There are many options for formatting integers.
-    // Use `%d` for standard, base-10 formatting.
+    // Існує багато варіцій форматування для цілих чисел.
+    // Використання `%d` призведе до стандартного, десятичного  форматування.
     fmt.Printf("%d\n", 123)
 
-    // This prints a binary representation.
+    // Відображення у двійковій системі числення.
     fmt.Printf("%b\n", 14)
 
-    // This prints the character corresponding to the
-    // given integer.
+    // Код `%c` надрукує відповідний числу символ.
     fmt.Printf("%c\n", 33)
 
-    // `%x` provides hex encoding.
+    // `%x` надає відображення в шіснадцятковій системі числення.
     fmt.Printf("%x\n", 456)
 
-    // There are also several formatting options for
-    // floats. For basic decimal formatting use `%f`.
+    // Також є кілька налаштувань для форматування чисел з плаваючою
+    // комою. Найбільш базове - `%f`.
     fmt.Printf("%f\n", 78.9)
 
-    // `%e` and `%E` format the float in (slightly
-    // different versions of) scientific notation.
+    // `%e` та `%E` форматують число з плаваючою комою
+    // у кількох різних виглядах [експоненціального](https://uk.wikipedia.org/wiki/%D0%95%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81) запису.
     fmt.Printf("%e\n", 123400000.0)
     fmt.Printf("%E\n", 123400000.0)
 
-    // For basic string printing use `%s`.
-    fmt.Printf("%s\n", "\"string\"")
+    // Базове відобряження рядків `%s`.
+    fmt.Printf("%s\n", "\"рядок\"")
 
-    // To double-quote strings as in Go source, use `%q`.
-    fmt.Printf("%q\n", "\"string\"")
+    // Для подвійної екранізацій рядків скористайтесь `%q`.
+    fmt.Printf("%q\n", "\"рядок\"")
 
-    // As with integers seen earlier, `%x` renders
-    // the string in base-16, with two output characters
-    // per byte of input.
-    fmt.Printf("%x\n", "hex this")
+    // Так само, як і з чілими числами, `%x` трансформує
+    // рядок у шістнадцятирічне відображення, з друком двох символів
+    // на байт вхідного параметру.
+    fmt.Printf("%x\n", "шістнадцятирюй")
 
-    // To print a representation of a pointer, use `%p`.
+    // Щоб надрукувати адресу пам’яті вказівника (саме так
+    // буде відображено вказівник) використайте `%p`.
     fmt.Printf("%p\n", &p)
 
-    // When formatting numbers you will often want to
-    // control the width and precision of the resulting
-    // figure. To specify the width of an integer, use a
-    // number after the `%` in the verb. By default the
-    // result will be right-justified and padded with
-    // spaces.
+    // Коли форматуєте строки вам часто потрібно буде контролювати
+    // точність та довжину фінального числа. Щоб вказати довжину
+    // цілого числа, скористайтесь ичслом після символа `%` у дієслові.
+    // За стандартними налаштуваннями результатом буде вирівняне
+    // по правій стороні і видбите пробілами число.
     fmt.Printf("|%6d|%6d|\n", 12, 345)
 
     // You can also specify the width of printed floats,
@@ -85,24 +83,25 @@ func main() {
     // width.precision syntax.
     fmt.Printf("|%6.2f|%6.2f|\n", 1.2, 3.45)
 
-    // To left-justify, use the `-` flag.
+    // Для вирівнювання вліво, використайте прапорець `-` після `%`.
     fmt.Printf("|%-6.2f|%-6.2f|\n", 1.2, 3.45)
 
-    // You may also want to control width when formatting
-    // strings, especially to ensure that they align in
-    // table-like output. For basic right-justified width.
+    // Можливо вам забажається сформатцвати рядок схожим чином,
+    // наприклад, для положення в табличному виводі.
+    // Вирівняти направо можна наступним чином.
     fmt.Printf("|%6s|%6s|\n", "foo", "b")
 
-    // To left-justify use the `-` flag as with numbers.
+    // Вирівняти по лівій стороні можна за допомогою, вже
+    // знайомого цілим числам, прапорця `-` що ставиться після `%`.
     fmt.Printf("|%-6s|%-6s|\n", "foo", "b")
 
-    // So far we've seen `Printf`, which prints the
-    // formatted string to `os.Stdout`. `Sprintf` formats
-    // and returns a string without printing it anywhere.
-    s := fmt.Sprintf("a %s", "string")
+    // До поки ми бачили `Printf`, що друкує форматовану рядок
+    // до `os.Stdout`. `Sprintf` сформатує та поверне рядок без
+    // друку його кудинебудь.
+    s := fmt.Sprintf("це %s", "рядок")
     fmt.Println(s)
 
-    // You can format+print to `io.Writers` other than
-    // `os.Stdout` using `Fprintf`.
-    fmt.Fprintf(os.Stderr, "an %s\n", "error")
+    // Ви можете сформатувати+надрукувати до `io.Writers`
+    // напротивагу `os.Stdout` використовуючи `Fprintf`.
+    fmt.Fprintf(os.Stderr, "ой %s\n", "халепа")
 }

@@ -16,9 +16,10 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers excellent support for string formatting in
-the <code>printf</code> tradition. Here are some examples of
-common string formatting tasks.</p>
+            <p>Go пропонує відмінну підтримку для формутування рядків
+традиційним для багатьох - <a href="https://en.wikipedia.org/wiki/Printf_format_string"><code>printf</code></a> шляхом.
+Нижче ми розглянемо часто вживані приклади форматування
+рядків в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +33,7 @@ common string formatting tasks.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/JJAAFGxHVq"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Zqx1CVh4sPx"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -80,9 +81,9 @@ common string formatting tasks.</p>
         
         <tr>
           <td class="docs">
-            <p>Go offers several printing &ldquo;verbs&rdquo; designed to
-format general Go values. For example, this prints
-an instance of our <code>point</code> struct.</p>
+            <p>Go пропонує кілька друкуючих &ldquo;дієслів&rdquo; розроблених
+для фомратування значень Go. Наприклад, <code>%v</code> дозволяє
+сформатувати та надрукувати примірник нашої структури <code>point</code>.</p>
 
           </td>
           <td class="code leading">
@@ -96,8 +97,7 @@ an instance of our <code>point</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>If the value is a struct, the <code>%+v</code> variant will
-include the struct&rsquo;s field names.</p>
+            <p>Якщо значення це структура, <code>%+v</code>варіація покаже поля структури.</p>
 
           </td>
           <td class="code leading">
@@ -110,9 +110,8 @@ include the struct&rsquo;s field names.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>%#v</code> variant prints a Go syntax representation
-of the value, i.e. the source code snippet that
-would produce that value.</p>
+            <p>А варіація <code>%#v</code> сформатує відображення значення синтаксисом Go,
+включаючи код що продукуватиме це значення.</p>
 
           </td>
           <td class="code leading">
@@ -125,7 +124,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>To print the type of a value, use <code>%T</code>.</p>
+            <p>Тип значення можна отримати з <code>%T</code>.</p>
 
           </td>
           <td class="code leading">
@@ -138,7 +137,7 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>Formatting booleans is straight-forward.</p>
+            <p>Форматування логічного типу данних (<code>bool</code>) простіше-простого.</p>
 
           </td>
           <td class="code leading">
@@ -151,8 +150,8 @@ would produce that value.</p>
         
         <tr>
           <td class="docs">
-            <p>There are many options for formatting integers.
-Use <code>%d</code> for standard, base-10 formatting.</p>
+            <p>Існує багато варіцій форматування для цілих чисел.
+Використання <code>%d</code> призведе до стандартного, десятичного  форматування.</p>
 
           </td>
           <td class="code leading">
@@ -165,7 +164,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints a binary representation.</p>
+            <p>Відображення у двійковій системі числення.</p>
 
           </td>
           <td class="code leading">
@@ -178,8 +177,7 @@ Use <code>%d</code> for standard, base-10 formatting.</p>
         
         <tr>
           <td class="docs">
-            <p>This prints the character corresponding to the
-given integer.</p>
+            <p>Код <code>%c</code> надрукує відповідний числу символ.</p>
 
           </td>
           <td class="code leading">
@@ -192,7 +190,7 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%x</code> provides hex encoding.</p>
+            <p><code>%x</code> надає відображення в шіснадцятковій системі числення.</p>
 
           </td>
           <td class="code leading">
@@ -205,8 +203,8 @@ given integer.</p>
         
         <tr>
           <td class="docs">
-            <p>There are also several formatting options for
-floats. For basic decimal formatting use <code>%f</code>.</p>
+            <p>Також є кілька налаштувань для форматування чисел з плаваючою
+комою. Найбільш базове - <code>%f</code>.</p>
 
           </td>
           <td class="code leading">
@@ -219,8 +217,8 @@ floats. For basic decimal formatting use <code>%f</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>%e</code> and <code>%E</code> format the float in (slightly
-different versions of) scientific notation.</p>
+            <p><code>%e</code> та <code>%E</code> форматують число з плаваючою комою
+у кількох різних виглядах <a href="https://uk.wikipedia.org/wiki/%D0%95%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81">експоненціального</a> запису.</p>
 
           </td>
           <td class="code leading">
@@ -234,12 +232,12 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>For basic string printing use <code>%s</code>.</p>
+            <p>Базове відобряження рядків <code>%s</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;string\&quot;&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -247,12 +245,12 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>To double-quote strings as in Go source, use <code>%q</code>.</p>
+            <p>Для подвійної екранізацій рядків скористайтесь <code>%q</code>.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%q\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;string\&quot;&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%q\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -260,14 +258,14 @@ different versions of) scientific notation.</p>
         
         <tr>
           <td class="docs">
-            <p>As with integers seen earlier, <code>%x</code> renders
-the string in base-16, with two output characters
-per byte of input.</p>
+            <p>Так само, як і з чілими числами, <code>%x</code> трансформує
+рядок у шістнадцятирічне відображення, з друком двох символів
+на байт вхідного параметру.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;hex this&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;шістнадцятирюй&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -275,7 +273,8 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>To print a representation of a pointer, use <code>%p</code>.</p>
+            <p>Щоб надрукувати адресу пам’яті вказівника (саме так
+буде відображено вказівник) використайте <code>%p</code>.</p>
 
           </td>
           <td class="code leading">
@@ -288,12 +287,11 @@ per byte of input.</p>
         
         <tr>
           <td class="docs">
-            <p>When formatting numbers you will often want to
-control the width and precision of the resulting
-figure. To specify the width of an integer, use a
-number after the <code>%</code> in the verb. By default the
-result will be right-justified and padded with
-spaces.</p>
+            <p>Коли форматуєте строки вам часто потрібно буде контролювати
+точність та довжину фінального числа. Щоб вказати довжину
+цілого числа, скористайтесь ичслом після символа <code>%</code> у дієслові.
+За стандартними налаштуваннями результатом буде вирівняне
+по правій стороні і видбите пробілами число.</p>
 
           </td>
           <td class="code leading">
@@ -322,7 +320,7 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify, use the <code>-</code> flag.</p>
+            <p>Для вирівнювання вліво, використайте прапорець <code>-</code> після <code>%</code>.</p>
 
           </td>
           <td class="code leading">
@@ -335,9 +333,9 @@ width.precision syntax.</p>
         
         <tr>
           <td class="docs">
-            <p>You may also want to control width when formatting
-strings, especially to ensure that they align in
-table-like output. For basic right-justified width.</p>
+            <p>Можливо вам забажається сформатцвати рядок схожим чином,
+наприклад, для положення в табличному виводі.
+Вирівняти направо можна наступним чином.</p>
 
           </td>
           <td class="code leading">
@@ -350,7 +348,8 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>To left-justify use the <code>-</code> flag as with numbers.</p>
+            <p>Вирівняти по лівій стороні можна за допомогою, вже
+знайомого цілим числам, прапорця <code>-</code> що ставиться після <code>%</code>.</p>
 
           </td>
           <td class="code leading">
@@ -363,14 +362,14 @@ table-like output. For basic right-justified width.</p>
         
         <tr>
           <td class="docs">
-            <p>So far we&rsquo;ve seen <code>Printf</code>, which prints the
-formatted string to <code>os.Stdout</code>. <code>Sprintf</code> formats
-and returns a string without printing it anywhere.</p>
+            <p>До поки ми бачили <code>Printf</code>, що друкує форматовану рядок
+до <code>os.Stdout</code>. <code>Sprintf</code> сформатує та поверне рядок без
+друку його кудинебудь.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;a %s&quot;</span><span class="p">,</span> <span class="s">&quot;string&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;це %s&quot;</span><span class="p">,</span> <span class="s">&quot;рядок&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
@@ -379,13 +378,13 @@ and returns a string without printing it anywhere.</p>
         
         <tr>
           <td class="docs">
-            <p>You can format+print to <code>io.Writers</code> other than
-<code>os.Stdout</code> using <code>Fprintf</code>.</p>
+            <p>Ви можете сформатувати+надрукувати до <code>io.Writers</code>
+напротивагу <code>os.Stdout</code> використовуючи <code>Fprintf</code>.</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;an %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;error&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;ой %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;халепа&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -415,17 +414,17 @@ and returns a string without printing it anywhere.</p>
 <span class="go">78.900000</span>
 <span class="go">1.234000e+08</span>
 <span class="go">1.234000E+08</span>
-<span class="go">&quot;string&quot;</span>
-<span class="go">&quot;\&quot;string\&quot;&quot;</span>
-<span class="go">6865782074686973</span>
-<span class="go">0x42135100</span>
+<span class="go">&quot;рядок&quot;</span>
+<span class="go">&quot;\&quot;рядок\&quot;&quot;</span>
+<span class="go">d188d196d181d182d0bdd0b0d0b4d186d18fd182d0b8d180d18ed0b9</span>
+<span class="go">0xc4200160c0</span>
 <span class="go">|    12|   345|</span>
 <span class="go">|  1.20|  3.45|</span>
 <span class="go">|1.20  |3.45  |</span>
 <span class="go">|   foo|     b|</span>
 <span class="go">|foo   |b     |</span>
-<span class="go">a string</span>
-<span class="go">an error</span>
+<span class="go">це рядок</span>
+<span class="go">ой халепа</span>
 </pre></div>
 
           </td>
