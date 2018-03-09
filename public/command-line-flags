@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Command-Line Flags</title>
+    <title>Go за Прикладом: Прапорці командного рядку</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,16 +10,16 @@
   </script>
   <body>
     <div class="example" id="command-line-flags">
-      <h2><a href="./">Go за Прикладом</a>: Command-Line Flags</h2>
+      <h2><a href="./">Go за Прикладом</a>: Прапорці командного рядку</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="http://en.wikipedia.org/wiki/Command-line_interface#Command-line_option"><em>Command-line flags</em></a>
-are a common way to specify options for command-line
-programs. For example, in <code>wc -l</code> the <code>-l</code> is a
-command-line flag.</p>
+            <p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#.D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D1.82_.D0.BA.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D0.B8"><em>Прапорці командного рядку</em></a> це загально прийнятий
+спосіб вказувати налаштування для программ
+призначений для командного рядку. Наприклад,
+в <code>wc -l</code> прапорецем є <code>-l</code></p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +33,7 @@ command-line flag.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/NASEOq2R3n"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/dGqfQyDVdg1"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -42,9 +42,10 @@ command-line flag.</p>
         
         <tr>
           <td class="docs">
-            <p>Go provides a <code>flag</code> package supporting basic
-command-line flag parsing. We&rsquo;ll use this package to
-implement our example command-line program.</p>
+            <p>В Go є пакунок <code>flag</code> що підтримує основні операції
+розбору прапорців командного рядку.
+Ми використаємо цей пакунок, щоб створити
+власну программу для командного рядка.</p>
 
           </td>
           <td class="code leading">
@@ -70,12 +71,12 @@ implement our example command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>Basic flag declarations are available for string,
-integer, and boolean options. Here we declare a
-string flag <code>word</code> with a default value <code>&quot;foo&quot;</code>
-and a short description. This <code>flag.String</code> function
-returns a string pointer (not a string value);
-we&rsquo;ll see how to use this pointer below.</p>
+            <p>Основні декларування прапорців доступні для рядків,
+цілих чисел та логічного типу данних. В цьому прикладі,
+ми декларуємо прапорець <code>word</code> з стандартним значенням
+<code>&quot;foo&quot;</code> та короткою довідкою. Функція <code>flag.String</code>
+повертає вказівник рядка (а не рядкову змінну), ми ще
+побачимо як користуватись таким вказівником трошки нижче.</p>
 
           </td>
           <td class="code leading">
@@ -88,8 +89,8 @@ we&rsquo;ll see how to use this pointer below.</p>
         
         <tr>
           <td class="docs">
-            <p>This declares <code>numb</code> and <code>fork</code> flags, using a
-similar approach to the <code>word</code> flag.</p>
+            <p>Тут ми декларуємо прапорці <code>numb</code> та <code>fork</code>
+використовуючи вже знаомий по прапорцю <code>word</code> підхід.</p>
 
           </td>
           <td class="code leading">
@@ -103,10 +104,10 @@ similar approach to the <code>word</code> flag.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s also possible to declare an option that uses an
-existing var declared elsewhere in the program.
-Note that we need to pass in a pointer to the flag
-declaration function.</p>
+            <p>Також можливо декларувати налаштування таким чином
+щоб вже існуюча змінна прийняла на себе значення
+передане прапорцю. Зауважте, що потрібно передати
+вказівник цієї змінної функції що декларує прапорець.</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +121,8 @@ declaration function.</p>
         
         <tr>
           <td class="docs">
-            <p>Once all flags are declared, call <code>flag.Parse()</code>
-to execute the command-line parsing.</p>
+            <p>Як тільки усі прапорці декларовані, викличемо <code>flag.Parse()</code>
+щоб виконати аналіз конмадного рядку.</p>
 
           </td>
           <td class="code leading">
@@ -134,10 +135,10 @@ to execute the command-line parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we&rsquo;ll just dump out the parsed options and
-any trailing positional arguments. Note that we
-need to dereference the pointers with e.g. <code>*wordPtr</code>
-to get the actual option values.</p>
+            <p>Ми просто виведемо на екран усі розпізнані налаштуванняч та
+позиційні аргументи. Зауважте, що нам потрібно розіменувати
+вказівник, наприклад <code>*wordPtr</code>, щоб добути справжнє значення
+налаштування.</p>
 
           </td>
           <td class="code">
@@ -159,9 +160,9 @@ to get the actual option values.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with the command-line flags program it&rsquo;s
-best to first compile it and then run the resulting
-binary directly.</p>
+            <p>Щоб проексперементувати з прапорцями командного рядку,
+краще всього спершу скомпілювати нашу программу і вже
+потім запускати двійковий файл напряму.</p>
 
           </td>
           <td class="code leading">
@@ -174,8 +175,8 @@ binary directly.</p>
         
         <tr>
           <td class="docs">
-            <p>Try out the built program by first giving it values for
-all flags.</p>
+            <p>Спробуйте спершу скомпільовану программу давши
+значення усім прапорцям.</p>
 
           </td>
           <td class="code leading">
@@ -193,8 +194,8 @@ all flags.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you omit flags they automatically take
-their default values.</p>
+            <p>Зауважте, що якщо ви пропустите прапорці, вони
+автоматично приймуть свої стандартні налаштування.</p>
 
           </td>
           <td class="code leading">
@@ -212,8 +213,8 @@ their default values.</p>
         
         <tr>
           <td class="docs">
-            <p>Trailing positional arguments can be provided after
-any flags.</p>
+            <p>Заключні позиційні аргументи можуть бути вказані після
+будь яких прапорців.</p>
 
           </td>
           <td class="code leading">
@@ -249,8 +250,8 @@ will be interpreted as positional arguments).</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>-h</code> or <code>--help</code> flags to get automatically
-generated help text for the command-line program.</p>
+            <p>Скористайтес прапорцями <code>-h</code> або <code>--help</code> щоб отримати автоматично
+згенеровану довідку по роботі з команднним рядком программи.</p>
 
           </td>
           <td class="code leading">
@@ -268,9 +269,9 @@ generated help text for the command-line program.</p>
         
         <tr>
           <td class="docs">
-            <p>If you provide a flag that wasn&rsquo;t specified to the
-<code>flag</code> package, the program will print an error message
-and show the help text again.</p>
+            <p>Якщо ви вкажете прапорець, якиц не було вказано в нашій программі,
+у відповідь, ви отримаєте повідомлення помилки та
+(повторно) тест довідки.</p>
 
           </td>
           <td class="code leading">
@@ -286,8 +287,8 @@ and show the help text again.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at environment variables, another common
-way to parameterize programs.</p>
+            <p>Далі, ми розгялдемо змінні середовища, інший
+загальноприйнятий метод параметризації програм.</p>
 
           </td>
           <td class="code empty">

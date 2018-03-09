@@ -40,7 +40,7 @@ Stateful Goroutines
 Sorting by Functions
 Паніка|Panic
 Відкладення|Defer
-Collection Functions
+Функцій для роботи з колекціями|Collection Functions
 Рядкові Функції|String Functions
 Форматування Рядків|String Formatting
 Регулярні вирази|Regular Expressions
@@ -56,8 +56,8 @@ Base64 Encoding
 Reading Files
 Writing Files
 Line Filters
-Command-Line Arguments
-Command-Line Flags
+Аргументи командного рядку|Command-Line Arguments
+Прапорці командного рядку|Command-Line Flags
 Environment Variables
 Spawning Processes
 Exec'ing Processes

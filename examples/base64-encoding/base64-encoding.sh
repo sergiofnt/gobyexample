@@ -1,6 +1,8 @@
-# The string encodes to slightly different values with the
-# standard and URL base64 encoders (trailing `+` vs `-`)
-# but they both decode to the original string as desired.
+# Рядок кодується трохи по-різному при використанні
+# стандартного енкодера та енкодера URL (різниця полягає
+# в закриваючому символі `+` та `-`), але зворотні
+# результати кодування відповідають оригінальному рядку,
+# як і було задумано.
 $ go run base64-encoding.go
 YWJjMTIzIT8kKiYoKSctPUB+
 abc123!?$*&()'-=@~

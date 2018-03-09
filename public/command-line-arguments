@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Command-Line Arguments</title>
+    <title>Go за Прикладом: Аргументи командного рядку</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,14 +10,14 @@
   </script>
   <body>
     <div class="example" id="command-line-arguments">
-      <h2><a href="./">Go за Прикладом</a>: Command-Line Arguments</h2>
+      <h2><a href="./">Go за Прикладом</a>: Аргументи командного рядку</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B8"><em>Аргументи командного рядка</em></a> це загальноприйнятий свпосіб
-ззапуску програм з командний інтерфейсом. Наприклад,
+            <p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B8"><em>Аргументи командного рядка</em></a> це загальноприйнятий спосіб
+запуску програм з командний інтерфейсом. Наприклад,
 <code>go run hello.go</code> використовує <code>run</code> і  <code>hello.go</code>
 як аргументи для программи <code>go</code>.</p>
 
@@ -33,7 +33,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/3tOz4EcBMMz"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/O3RlB9AEQIE"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,7 +67,7 @@
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> надає досутп для незмінених аргументів
+            <p><code>os.Args</code> надає доступ для незмінених аргументів
 командного рядка. Зауважне що першим значенням у
 цьому зрізі буде шлях до самої программи, а <code>os.Args[1:]</code>
 буде утримувати вже аргументи до программи</p>
@@ -117,15 +117,15 @@
         
         <tr>
           <td class="docs">
-            <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+            <p>щоб проексперементувати з аргементами командного рядка,
+спершу скомпілюємо двійковий файл з <code>go build</code>.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go build command-line-arguments.go
 <span class="gp">$</span> ./command-line-arguments a b c d
-<span class="go">[./command-line-arguments a b c d]       </span>
+<span class="go">[./command-line-arguments a b c d]</span>
 <span class="go">[a b c d]</span>
 <span class="go">c</span>
 </pre></div>
@@ -135,8 +135,8 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>У наступному прикладі ми познайомимось з прапорцями - більш
+просунутим концептом передачі параметрів командному рядку.</p>
 
           </td>
           <td class="code empty">
@@ -149,7 +149,7 @@ with flags.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="command-line-flags">Command-Line Flags</a>.
+        Наступний приклад: <a href="command-line-flags">Прапорці командного рядку</a>.
       </p>
       
       <p class="footer">

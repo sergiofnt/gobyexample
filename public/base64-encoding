@@ -16,8 +16,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go provides built-in support for <a href="http://en.wikipedia.org/wiki/Base64">base64
-encoding/decoding</a>.</p>
+            <p>Go підтримує кодування/декодування
+<a href="https://uk.wikipedia.org/wiki/Base64">base64</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ encoding/decoding</a>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/t6rFm2x4Yr"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/RaJzn9QFKQW"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -40,9 +40,11 @@ encoding/decoding</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This syntax imports the <code>encoding/base64</code> package with
-the <code>b64</code> name instead of the default <code>base64</code>. It&rsquo;ll
-save us some space below.</p>
+            <p>За допомогою цього синтаксису ми імпортуємо пакет
+<code>encoding/base64</code> до якого будемо звертатись, як
+до <code>b64</code> замість стандартного звернення <code>base64</code>.
+Це дозволить нам зберегти трошка місяця під час
+програмування.</p>
 
           </td>
           <td class="code leading">
@@ -68,7 +70,7 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>string</code> we&rsquo;ll encode/decode.</p>
+            <p>Це рядок який ми будемо кодувати та декодувати.</p>
 
           </td>
           <td class="code leading">
@@ -81,10 +83,10 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Go supports both standard and URL-compatible
-base64. Here&rsquo;s how to encode using the standard
-encoder. The encoder requires a <code>[]byte</code> so we
-cast our <code>string</code> to that type.</p>
+            <p>Go підтриму як стандартну так і URL-сумісну base64.
+Спочатку приведемо приклад як використовувати
+стандартне base64. Механізм кодування потребує зріз
+байтів, отож ми сконвернуємо наш рядом до потрібного типу.</p>
 
           </td>
           <td class="code leading">
@@ -98,9 +100,9 @@ cast our <code>string</code> to that type.</p>
         
         <tr>
           <td class="docs">
-            <p>Decoding may return an error, which you can check
-if you don&rsquo;t already know the input to be
-well-formed.</p>
+            <p>Розкодування може повертати помилку, яку ви можете перевірити
+якщо ви не знаєте напевне чи була вхідний (не закодований)
+рядок привально сформований.</p>
 
           </td>
           <td class="code leading">
@@ -115,15 +117,27 @@ well-formed.</p>
         
         <tr>
           <td class="docs">
-            <p>This encodes/decodes using a URL-compatible base64
-format.</p>
+            <p>А це ми кодуємо за допомогою URL-сумісного base64.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">uEnc</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nx">EncodeToString</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>Розкодовуємо, аналогічно тому, як ми використовували
+стандартне кодування base64, кількома рядками вище.</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">uEnc</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nx">EncodeToString</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
-    <span class="nx">uDec</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nx">DecodeString</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">uDec</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">URLEncoding</span><span class="p">.</span><span class="nx">DecodeString</span><span class="p">(</span><span class="nx">uEnc</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">uDec</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
@@ -137,9 +151,11 @@ format.</p>
         
         <tr>
           <td class="docs">
-            <p>The string encodes to slightly different values with the
-standard and URL base64 encoders (trailing <code>+</code> vs <code>-</code>)
-but they both decode to the original string as desired.</p>
+            <p>Рядок кодується трохи по-різному при використанні
+стандартного енкодера та енкодера URL (різниця полягає
+в закриваючому символі <code>+</code> та <code>-</code>), але зворотні
+результати кодування відповідають оригінальному рядку,
+як і було задумано.</p>
 
           </td>
           <td class="code leading">

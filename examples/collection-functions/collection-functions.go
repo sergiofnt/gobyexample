@@ -1,28 +1,26 @@
-// We often need our programs to perform operations on
-// collections of data, like selecting all items that
-// satisfy a given predicate or mapping all items to a new
-// collection with a custom function.
+// Часто, напотрібно щоб программи робили операції
+// по збору данних, наприклад вибір усіх елементів
+// що задовільняють заданий предикат або розмітка усіх
+// елементів у нову колекцію за допомогою користувацьких
+// функцій. У деяких мовах ідіоматично в такому разі використовувати
+// [узагальнені (generic)](https://uk.wikipedia.org/wiki/%D0%A3%D0%B7%D0%B0%D0%B3%D0%B0%D0%BB%D1%8C%D0%BD%D0%B5%D0%BD%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F) структури даних та алгоритми.
+// Go не підтримує узагальнення, в Go загальноприйнятою
+// практикою є надавати функцій що працюють з колекціями -
+// якщо і коли вони будуть потрібні в ваших программах та
+// типах данних.
 
-// In some languages it's idiomatic to use [generic](http://en.wikipedia.org/wiki/Generic_programming)
-// data structures and algorithms. Go does not support
-// generics; in Go it's common to provide collection
-// functions if and when they are specifically needed for
-// your program and data types.
-
-// Here are some example collection functions for slices
-// of `strings`. You can use these examples to build your
-// own functions. Note that in some cases it may be
-// clearest to just inline the collection-manipulating
-// code directly, instead of creating and calling a
-// helper function.
+// Ось деякі приклади, що оперують над зрізом рядків. Ви можете
+// використовувати їх для створення власного функціоналу.
+// Зауважте що в деяких випадких можливо буде набагато ефективніше
+// якщо б ви вставили код напряму без створення окремої функції.
 
 package main
 
 import "strings"
 import "fmt"
 
-// Index returns the first index of the target string `t`, or
-// -1 if no match is found.
+// Index повертає перший ідекс елемента який дорівнює `t`,
+// або -1 якщо співпадень не знайдено.
 func Index(vs []string, t string) int {
     for i, v := range vs {
         if v == t {
@@ -32,14 +30,12 @@ func Index(vs []string, t string) int {
     return -1
 }
 
-// Include returns `true` if the target string t is in the
-// slice.
+// Include поверне `true` якщо рядок `t` знайдено у зрізі.
 func Include(vs []string, t string) bool {
     return Index(vs, t) >= 0
 }
 
-// Any returns `true` if one of the strings in the slice
-// satisfies the predicate `f`.
+// Any поверне `true` якщо хочаб один з рядків задовольняє [предикат](https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D0%B0%D1%82) `f`.
 func Any(vs []string, f func(string) bool) bool {
     for _, v := range vs {
         if f(v) {
@@ -49,8 +45,7 @@ func Any(vs []string, f func(string) bool) bool {
     return false
 }
 
-// All returns `true` if all of the strings in the slice
-// satisfy the predicate `f`.
+// All поверне `true` якщо усі рядки задовольняють предикат `f`.
 func All(vs []string, f func(string) bool) bool {
     for _, v := range vs {
         if !f(v) {
@@ -60,8 +55,8 @@ func All(vs []string, f func(string) bool) bool {
     return true
 }
 
-// Filter returns a new slice containing all strings in the
-// slice that satisfy the predicate `f`.
+// Filter поверне новий зріз, що містить усі рядки
+// які задовільняють предикат `f`.
 func Filter(vs []string, f func(string) bool) []string {
     vsf := make([]string, 0)
     for _, v := range vs {
@@ -72,8 +67,8 @@ func Filter(vs []string, f func(string) bool) []string {
     return vsf
 }
 
-// Map returns a new slice containing the results of applying
-// the function `f` to each string in the original slice.
+// Map поверне новий зріз що містить результати роботи предиката
+// `f` над кожним рядком оригінального зріза.
 func Map(vs []string, f func(string) string) []string {
     vsm := make([]string, len(vs))
     for i, v := range vs {
@@ -84,7 +79,8 @@ func Map(vs []string, f func(string) string) []string {
 
 func main() {
 
-    // Here we try out our various collection functions.
+    // Приклад застосування функцій роботи з колеціями що
+    // ми щойно переглянули.
     var strs = []string{"peach", "apple", "pear", "plum"}
 
     fmt.Println(Index(strs, "pear"))
@@ -103,9 +99,7 @@ func main() {
         return strings.Contains(v, "e")
     }))
 
-    // The above examples all used anonymous functions,
-    // but you can also use named functions of the correct
-    // type.
-    fmt.Println(Map(strs, strings.ToUpper))
-
+    // Више приведені приклади усі використовують анонімні
+    // фукнції але ви можете використовувати і звичайні
+    // іменовні якщо вони задовольняють потрібний нам тип.
 }

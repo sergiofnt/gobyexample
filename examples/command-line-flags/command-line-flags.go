@@ -1,46 +1,47 @@
-// [_Command-line flags_](http://en.wikipedia.org/wiki/Command-line_interface#Command-line_option)
-// are a common way to specify options for command-line
-// programs. For example, in `wc -l` the `-l` is a
-// command-line flag.
+// [_Прапорці командного рядку_](https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#.D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D1.82_.D0.BA.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D0.B8) це загально прийнятий
+// спосіб вказувати налаштування для программ
+// призначений для командного рядку. Наприклад,
+// в `wc -l` прапорецем є `-l`
 
 package main
 
-// Go provides a `flag` package supporting basic
-// command-line flag parsing. We'll use this package to
-// implement our example command-line program.
+// В Go є пакунок `flag` що підтримує основні операції
+// розбору прапорців командного рядку.
+// Ми використаємо цей пакунок, щоб створити
+// власну программу для командного рядка.
 import "flag"
 import "fmt"
 
 func main() {
 
-    // Basic flag declarations are available for string,
-    // integer, and boolean options. Here we declare a
-    // string flag `word` with a default value `"foo"`
-    // and a short description. This `flag.String` function
-    // returns a string pointer (not a string value);
-    // we'll see how to use this pointer below.
+    // Основні декларування прапорців доступні для рядків,
+    // цілих чисел та логічного типу данних. В цьому прикладі,
+    // ми декларуємо прапорець `word` з стандартним значенням
+    // `"foo"` та короткою довідкою. Функція `flag.String`
+    // повертає вказівник рядка (а не рядкову змінну), ми ще
+    // побачимо як користуватись таким вказівником трошки нижче.
     wordPtr := flag.String("word", "foo", "a string")
 
-    // This declares `numb` and `fork` flags, using a
-    // similar approach to the `word` flag.
+    // Тут ми декларуємо прапорці `numb` та `fork`
+    // використовуючи вже знаомий по прапорцю `word` підхід.
     numbPtr := flag.Int("numb", 42, "an int")
     boolPtr := flag.Bool("fork", false, "a bool")
 
-    // It's also possible to declare an option that uses an
-    // existing var declared elsewhere in the program.
-    // Note that we need to pass in a pointer to the flag
-    // declaration function.
+    // Також можливо декларувати налаштування таким чином
+    // щоб вже існуюча змінна прийняла на себе значення
+    // передане прапорцю. Зауважте, що потрібно передати
+    // вказівник цієї змінної функції що декларує прапорець.
     var svar string
     flag.StringVar(&svar, "svar", "bar", "a string var")
 
-    // Once all flags are declared, call `flag.Parse()`
-    // to execute the command-line parsing.
+    // Як тільки усі прапорці декларовані, викличемо `flag.Parse()`
+    // щоб виконати аналіз конмадного рядку.
     flag.Parse()
 
-    // Here we'll just dump out the parsed options and
-    // any trailing positional arguments. Note that we
-    // need to dereference the pointers with e.g. `*wordPtr`
-    // to get the actual option values.
+    // Ми просто виведемо на екран усі розпізнані налаштуванняч та
+    // позиційні аргументи. Зауважте, що нам потрібно розіменувати
+    // вказівник, наприклад `*wordPtr`, щоб добути справжнє значення
+    // налаштування.
     fmt.Println("word:", *wordPtr)
     fmt.Println("numb:", *numbPtr)
     fmt.Println("fork:", *boolPtr)

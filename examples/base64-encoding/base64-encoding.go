@@ -1,37 +1,41 @@
-// Go provides built-in support for [base64
-// encoding/decoding](http://en.wikipedia.org/wiki/Base64).
+// Go підтримує кодування/декодування
+// [base64](https://uk.wikipedia.org/wiki/Base64).
 
 package main
 
-// This syntax imports the `encoding/base64` package with
-// the `b64` name instead of the default `base64`. It'll
-// save us some space below.
+// За допомогою цього синтаксису ми імпортуємо пакет
+// `encoding/base64` до якого будемо звертатись, як
+// до `b64` замість стандартного звернення `base64`.
+// Це дозволить нам зберегти трошка місяця під час
+// програмування.
 import b64 "encoding/base64"
 import "fmt"
 
 func main() {
 
-    // Here's the `string` we'll encode/decode.
+    // Це рядок який ми будемо кодувати та декодувати.
     data := "abc123!?$*&()'-=@~"
 
-    // Go supports both standard and URL-compatible
-    // base64. Here's how to encode using the standard
-    // encoder. The encoder requires a `[]byte` so we
-    // cast our `string` to that type.
+    // Go підтриму як стандартну так і URL-сумісну base64.
+    // Спочатку приведемо приклад як використовувати
+    // стандартне base64. Механізм кодування потребує зріз
+    // байтів, отож ми сконвернуємо наш рядом до потрібного типу.
     sEnc := b64.StdEncoding.EncodeToString([]byte(data))
     fmt.Println(sEnc)
 
-    // Decoding may return an error, which you can check
-    // if you don't already know the input to be
-    // well-formed.
+    // Розкодування може повертати помилку, яку ви можете перевірити
+    // якщо ви не знаєте напевне чи була вхідний (не закодований)
+    // рядок привально сформований.
     sDec, _ := b64.StdEncoding.DecodeString(sEnc)
     fmt.Println(string(sDec))
     fmt.Println()
 
-    // This encodes/decodes using a URL-compatible base64
-    // format.
+    // А це ми кодуємо за допомогою URL-сумісного base64.
     uEnc := b64.URLEncoding.EncodeToString([]byte(data))
     fmt.Println(uEnc)
+
+    // Розкодовуємо, аналогічно тому, як ми використовували
+    // стандартне кодування base64, кількома рядками вище.
     uDec, _ := b64.URLEncoding.DecodeString(uEnc)
     fmt.Println(string(uDec))
 }

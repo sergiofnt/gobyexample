@@ -1,10 +1,10 @@
-# To experiment with the command-line flags program it's
-# best to first compile it and then run the resulting
-# binary directly.
+# Щоб проексперементувати з прапорцями командного рядку,
+# краще всього спершу скомпілювати нашу программу і вже
+# потім запускати двійковий файл напряму.
 $ go build command-line-flags.go
 
-# Try out the built program by first giving it values for
-# all flags.
+# Спробуйте спершу скомпільовану программу давши
+# значення усім прапорцям.
 $ ./command-line-flags -word=opt -numb=7 -fork -svar=flag
 word: opt
 numb: 7
@@ -12,8 +12,8 @@ fork: true
 svar: flag
 tail: []
 
-# Note that if you omit flags they automatically take
-# their default values.
+# Зауважте, що якщо ви пропустите прапорці, вони
+# автоматично приймуть свої стандартні налаштування.
 $ ./command-line-flags -word=opt
 word: opt
 numb: 42
@@ -21,8 +21,8 @@ fork: false
 svar: bar
 tail: []
 
-# Trailing positional arguments can be provided after
-# any flags.
+# Заключні позиційні аргументи можуть бути вказані після
+# будь яких прапорців.
 $ ./command-line-flags -word=opt a1 a2 a3
 word: opt
 ...
@@ -38,8 +38,8 @@ fork: false
 svar: bar
 tail: [a1 a2 a3 -numb=7]
 
-# Use `-h` or `--help` flags to get automatically
-# generated help text for the command-line program.
+# Скористайтес прапорцями `-h` або `--help` щоб отримати автоматично
+# згенеровану довідку по роботі з команднним рядком программи.
 $ ./command-line-flags -h
 Usage of ./command-line-flags:
   -fork=false: a bool
@@ -47,13 +47,13 @@ Usage of ./command-line-flags:
   -svar="bar": a string var
   -word="foo": a string
 
-# If you provide a flag that wasn't specified to the
-# `flag` package, the program will print an error message
-# and show the help text again.
+# Якщо ви вкажете прапорець, якиц не було вказано в нашій программі,
+# у відповідь, ви отримаєте повідомлення помилки та
+# (повторно) тест довідки.
 $ ./command-line-flags -wat
 flag provided but not defined: -wat
 Usage of ./command-line-flags:
 ...
 
-# Next we'll look at environment variables, another common
-# way to parameterize programs.
+# Далі, ми розгялдемо змінні середовища, інший
+# загальноприйнятий метод параметризації програм.
