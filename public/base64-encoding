@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Base64 Encoding</title>
+    <title>Go за Прикладом: Кодування Base64</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,7 +10,7 @@
   </script>
   <body>
     <div class="example" id="base64-encoding">
-      <h2><a href="./">Go за Прикладом</a>: Base64 Encoding</h2>
+      <h2><a href="./">Go за Прикладом</a>: Кодування Base64</h2>
       
       <table>
         
@@ -31,7 +31,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/RaJzn9QFKQW"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Bpoo1MLtfjq"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -109,7 +109,6 @@
 	        
             <div class="highlight"><pre>    <span class="nx">sDec</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">b64</span><span class="p">.</span><span class="nx">StdEncoding</span><span class="p">.</span><span class="nx">DecodeString</span><span class="p">(</span><span class="nx">sEnc</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">sDec</span><span class="p">))</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
 </pre></div>
 
           </td>
@@ -158,23 +157,12 @@
 як і було задумано.</p>
 
           </td>
-          <td class="code leading">
+          <td class="code">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run base64-encoding.go
 <span class="go">YWJjMTIzIT8kKiYoKSctPUB+</span>
 <span class="go">abc123!?$*&amp;()&#39;-=@~</span>
-</pre></div>
-
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre><span class="go">YWJjMTIzIT8kKiYoKSctPUB-</span>
+<span class="go">YWJjMTIzIT8kKiYoKSctPUB-</span>
 <span class="go">abc123!?$*&amp;()&#39;-=@~</span>
 </pre></div>
 

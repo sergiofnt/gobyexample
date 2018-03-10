@@ -1,6 +1,7 @@
-# Running our program prints the sorted string and int
-# slices and `true` as the result of our `AreSorted` test.
+# Запуск нашої программи призведе до друку сортованих зрізів
+# рядків та цілих чисел, та `true` як результат виконання
+# перевірки видсортованості зрізу методом `IntsAreSorted`.
 $ go run sorting.go
-Strings: [a b c]
-Ints:    [2 4 7]
-Sorted:  true
+Рядки:       [a b c]
+Цілі числа:  [2 4 7]
+Сортовано:   true

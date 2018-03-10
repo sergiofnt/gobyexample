@@ -6,6 +6,5 @@
 $ go run base64-encoding.go
 YWJjMTIzIT8kKiYoKSctPUB+
 abc123!?$*&()'-=@~
-
 YWJjMTIzIT8kKiYoKSctPUB-
 abc123!?$*&()'-=@~

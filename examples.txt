@@ -37,7 +37,7 @@ Worker Pools
 Mutexes
 Stateful Goroutines
 Сортування|Sorting
-Sorting by Functions
+Сортування функціями|Sorting by Functions
 Паніка|Panic
 Відкладення|Defer
 Функцій для роботи з колекціями|Collection Functions
@@ -51,13 +51,13 @@ Time Formatting / Parsing
 Random Numbers
 Number Parsing
 URL Parsing
-SHA1 Hashes
-Base64 Encoding
+SHA1 Хеші|SHA1 Hashes
+Кодування Base64|Base64 Encoding
 Reading Files
 Writing Files
 Line Filters
-Аргументи командного рядку|Command-Line Arguments
-Прапорці командного рядку|Command-Line Flags
+Командний Рядок - Аргументи|Command-Line Arguments
+Командний Рядок - Прапорці|Command-Line Flags
 Environment Variables
 Spawning Processes
 Exec'ing Processes

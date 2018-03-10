@@ -1,37 +1,48 @@
-// [_SHA1 hashes_](http://en.wikipedia.org/wiki/SHA-1) are
-// frequently used to compute short identities for binary
-// or text blobs. For example, the [git revision control
-// system](http://git-scm.com/) uses SHA1s extensively to
-// identify versioned files and directories. Here's how to
-// compute SHA1 hashes in Go.
+// [хеші _SHA1_](https://uk.wikipedia.org/wiki/SHA-1) часто
+// використовуються для визначення коротких ідентифікаторій
+// для двійкових або текстових шматків. Наприклад,
+// [система контролю версій git ](http://git-scm.com/) широко
+// використовує SHA1s для ідентифікації файлів та директорій.
+// Ось як можна обчислити SHA1 хеші в Go.
 
 package main
 
-// Go implements several hash functions in various
-// `crypto/*` packages.
+// Go
+// Go реалізує кілька функцій хешування у різноманітних пакунках
+// `crypto/*`.
 import "crypto/sha1"
 import "fmt"
 
 func main() {
-    s := "sha1 this string"
+    s1 := "це рядок sha1"
 
-    // The pattern for generating a hash is `sha1.New()`,
-    // `sha1.Write(bytes)`, then `sha1.Sum([]byte{})`.
-    // Here we start with a new hash.
+    // Шаблон для генерації хешу наступний `sha1.New()`,
+    // `sha1.Write(bytes)`, і наостанок `sha1.Sum([]byte{})`.
+    // Давайте почнемо з генерації нового хешу.
     h := sha1.New()
 
-    // `Write` expects bytes. If you have a string `s`,
-    // use `[]byte(s)` to coerce it to bytes.
-    h.Write([]byte(s))
+    // `Write` очікує байти. Якщо у вас є строка `s1`,
+    // скористайтесь `[]byte(s)` для конвертації її в байти.
+    h.Write([]byte(s1))
 
-    // This gets the finalized hash result as a byte
-    // slice. The argument to `Sum` can be used to append
-    // to an existing byte slice: it usually isn't needed.
-    bs := h.Sum(nil)
+    // Результатом цієї операції буде очікуваний хеш у вигляді
+    // зрізу байтів, який ми можемо представити у вигляді рядка.
+    // Аргумент до `Sum` може бути використано, для того щоб
+    // до нього додати отриманий зріз байтів нашого хешу,
+    // але насправді така операція зазвичай не потрібна.
+    bs1 := h.Sum(nil)
 
-    // SHA1 values are often printed in hex, for example
-    // in git commits. Use the `%x` format verb to convert
-    // a hash results to a hex string.
-    fmt.Println(s)
-    fmt.Printf("%x\n", bs)
+    // SHA1 значення дуже часто подаються у шістнадцятирічному
+    // вигляді, напирклад у git commit'ах. Скористайтесь
+    // дієсловом форматування `%x` щоб сконвертувати хеш результат
+    // в шістнадцятирічний рядок.
+    fmt.Println(s1)
+    fmt.Printf("%x\n", bs1)
+
+    // А, можна скористатись функцієї обгорткою `sha1.Sum`
+    // що відразу надасть вам потрібний хеш у вигляді байтового зрізу.
+    s2 := "використай sha1.Sum([]byte)"
+    bs2 := sha1.Sum([]byte(s2))
+    fmt.Println(s2)
+    fmt.Printf("%x\n", bs2)
 }

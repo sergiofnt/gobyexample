@@ -1,14 +1,17 @@
-# Running the program computes the hash and prints it in
-# a human-readable hex format.
+# Запуск цієї программи порахуує хеш та надрукує його у
+# форматі зрозумілому для людського ока.
 $ go run sha1-hashes.go
-sha1 this string
-cf23df2207d99a74fbe169e3eba035e633b65d94
+це рядок sha1
+afa57c30c2333a0a4bccd5d7292efc211f07e510
+використай sha1.Sum([]byte)
+5f0d608c5a8be56c733b6113d6161198f687436c
 
 
-# You can compute other hashes using a similar pattern to
-# the one shown above. For example, to compute MD5 hashes
-# import `crypto/md5` and use `md5.New()`.
+# Ви можете обчислювати і інші хеші використовуючи схожий
+# до вище приведеного сценарій. Наприклад, щоб порахувати
+# MD5 хеші імпортуйте `crypto/md5` і скористайтесь `md5.New()`
+# (або `md5.Sum([]byte)` що трошка коротше).
 
-# Note that if you need cryptographically secure hashes,
-# you should carefully research
-# [hash strength](http://en.wikipedia.org/wiki/Cryptographic_hash_function)!
+# Зауважте що якщо вам потрібні криптографічно безпечні
+# хеші вам потрібно провести уважне дослідження
+# [їх надійності](https://uk.wikipedia.org/wiki/Криптографічна_хеш-функція)!

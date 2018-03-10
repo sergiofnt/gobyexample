@@ -28,7 +28,6 @@ func main() {
     // рядок привально сформований.
     sDec, _ := b64.StdEncoding.DecodeString(sEnc)
     fmt.Println(string(sDec))
-    fmt.Println()
 
     // А це ми кодуємо за допомогою URL-сумісного base64.
     uEnc := b64.URLEncoding.EncodeToString([]byte(data))

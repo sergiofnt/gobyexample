@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: SHA1 Hashes</title>
+    <title>Go за Прикладом: SHA1 Хеші</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,18 +10,18 @@
   </script>
   <body>
     <div class="example" id="sha1-hashes">
-      <h2><a href="./">Go за Прикладом</a>: SHA1 Hashes</h2>
+      <h2><a href="./">Go за Прикладом</a>: SHA1 Хеші</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="http://en.wikipedia.org/wiki/SHA-1"><em>SHA1 hashes</em></a> are
-frequently used to compute short identities for binary
-or text blobs. For example, the <a href="http://git-scm.com/">git revision control
-system</a> uses SHA1s extensively to
-identify versioned files and directories. Here&rsquo;s how to
-compute SHA1 hashes in Go.</p>
+            <p><a href="https://uk.wikipedia.org/wiki/SHA-1">хеші <em>SHA1</em></a> часто
+використовуються для визначення коротких ідентифікаторій
+для двійкових або текстових шматків. Наприклад,
+<a href="http://git-scm.com/">система контролю версій git </a> широко
+використовує SHA1s для ідентифікації файлів та директорій.
+Ось як можна обчислити SHA1 хеші в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -35,7 +35,7 @@ compute SHA1 hashes in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/YUaWWEeB4U"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/8b8LOMNIU8m"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -44,8 +44,9 @@ compute SHA1 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Go implements several hash functions in various
-<code>crypto/*</code> packages.</p>
+            <p>Go
+Go реалізує кілька функцій хешування у різноманітних пакунках
+<code>crypto/*</code>.</p>
 
           </td>
           <td class="code leading">
@@ -64,7 +65,7 @@ compute SHA1 hashes in Go.</p>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;sha1 this string&quot;</span>
+    <span class="nx">s1</span> <span class="o">:=</span> <span class="s">&quot;це рядок sha1&quot;</span>
 </pre></div>
 
           </td>
@@ -72,9 +73,9 @@ compute SHA1 hashes in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>The pattern for generating a hash is <code>sha1.New()</code>,
-<code>sha1.Write(bytes)</code>, then <code>sha1.Sum([]byte{})</code>.
-Here we start with a new hash.</p>
+            <p>Шаблон для генерації хешу наступний <code>sha1.New()</code>,
+<code>sha1.Write(bytes)</code>, і наостанок <code>sha1.Sum([]byte{})</code>.
+Давайте почнемо з генерації нового хешу.</p>
 
           </td>
           <td class="code leading">
@@ -87,13 +88,13 @@ Here we start with a new hash.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Write</code> expects bytes. If you have a string <code>s</code>,
-use <code>[]byte(s)</code> to coerce it to bytes.</p>
+            <p><code>Write</code> очікує байти. Якщо у вас є строка <code>s1</code>,
+скористайтесь <code>[]byte(s)</code> для конвертації її в байти.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">h</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+            <div class="highlight"><pre>    <span class="nx">h</span><span class="p">.</span><span class="nx">Write</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s1</span><span class="p">))</span>
 </pre></div>
 
           </td>
@@ -101,14 +102,16 @@ use <code>[]byte(s)</code> to coerce it to bytes.</p>
         
         <tr>
           <td class="docs">
-            <p>This gets the finalized hash result as a byte
-slice. The argument to <code>Sum</code> can be used to append
-to an existing byte slice: it usually isn&rsquo;t needed.</p>
+            <p>Результатом цієї операції буде очікуваний хеш у вигляді
+зрізу байтів, який ми можемо представити у вигляді рядка.
+Аргумент до <code>Sum</code> може бути використано, для того щоб
+до нього додати отриманий зріз байтів нашого хешу,
+але насправді така операція зазвичай не потрібна.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">bs</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">bs1</span> <span class="o">:=</span> <span class="nx">h</span><span class="p">.</span><span class="nx">Sum</span><span class="p">(</span><span class="kc">nil</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -116,15 +119,33 @@ to an existing byte slice: it usually isn&rsquo;t needed.</p>
         
         <tr>
           <td class="docs">
-            <p>SHA1 values are often printed in hex, for example
-in git commits. Use the <code>%x</code> format verb to convert
-a hash results to a hex string.</p>
+            <p>SHA1 значення дуже часто подаються у шістнадцятирічному
+вигляді, напирклад у git commit&rsquo;ах. Скористайтесь
+дієсловом форматування <code>%x</code> щоб сконвертувати хеш результат
+в шістнадцятирічний рядок.</p>
+
+          </td>
+          <td class="code leading">
+	        
+            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="nx">bs1</span><span class="p">)</span>
+</pre></div>
+
+          </td>
+        </tr>
+        
+        <tr>
+          <td class="docs">
+            <p>А, можна скористатись функцієї обгорткою <code>sha1.Sum</code>
+що відразу надасть вам потрібний хеш у вигляді байтового зрізу.</p>
 
           </td>
           <td class="code">
 	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="nx">bs</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">s2</span> <span class="o">:=</span> <span class="s">&quot;використай sha1.Sum([]byte)&quot;</span>
+    <span class="nx">bs2</span> <span class="o">:=</span> <span class="nx">sha1</span><span class="p">.</span><span class="nx">Sum</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">s2</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="nx">bs2</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -137,15 +158,17 @@ a hash results to a hex string.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program computes the hash and prints it in
-a human-readable hex format.</p>
+            <p>Запуск цієї программи порахуує хеш та надрукує його у
+форматі зрозумілому для людського ока.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run sha1-hashes.go
-<span class="go">sha1 this string</span>
-<span class="go">cf23df2207d99a74fbe169e3eba035e633b65d94</span>
+<span class="go">це рядок sha1</span>
+<span class="go">afa57c30c2333a0a4bccd5d7292efc211f07e510</span>
+<span class="go">використай sha1.Sum([]byte)</span>
+<span class="go">5f0d608c5a8be56c733b6113d6161198f687436c</span>
 </pre></div>
 
           </td>
@@ -153,9 +176,10 @@ a human-readable hex format.</p>
         
         <tr>
           <td class="docs">
-            <p>You can compute other hashes using a similar pattern to
-the one shown above. For example, to compute MD5 hashes
-import <code>crypto/md5</code> and use <code>md5.New()</code>.</p>
+            <p>Ви можете обчислювати і інші хеші використовуючи схожий
+до вище приведеного сценарій. Наприклад, щоб порахувати
+MD5 хеші імпортуйте <code>crypto/md5</code> і скористайтесь <code>md5.New()</code>
+(або <code>md5.Sum([]byte)</code> що трошка коротше).</p>
 
           </td>
           <td class="code empty leading">
@@ -166,9 +190,9 @@ import <code>crypto/md5</code> and use <code>md5.New()</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that if you need cryptographically secure hashes,
-you should carefully research
-<a href="http://en.wikipedia.org/wiki/Cryptographic_hash_function">hash strength</a>!</p>
+            <p>Зауважте що якщо вам потрібні криптографічно безпечні
+хеші вам потрібно провести уважне дослідження
+<a href="https://uk.wikipedia.org/wiki/Криптографічна_хеш-функція">їх надійності</a>!</p>
 
           </td>
           <td class="code empty">
@@ -181,7 +205,7 @@ you should carefully research
       
       
       <p class="next">
-        Наступний приклад: <a href="base64-encoding">Base64 Encoding</a>.
+        Наступний приклад: <a href="base64-encoding">Кодування Base64</a>.
       </p>
       
       <p class="footer">

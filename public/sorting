@@ -16,9 +16,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>sort</code> package implements sorting for builtins
-and user-defined types. We&rsquo;ll look at sorting for
-builtins first.</p>
+            <p>Пакунок <code>sort</code> реалізує сортування для вбудованих
+та визначених користувачами типів. Спочатку познайомимось з
+сортуванням вбудованих типів.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@ builtins first.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/roQOJXtqAb"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/lEvudD__USe"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,17 +66,17 @@ builtins first.</p>
         
         <tr>
           <td class="docs">
-            <p>Sort methods are specific to the builtin type;
-here&rsquo;s an example for strings. Note that sorting is
-in-place, so it changes the given slice and doesn&rsquo;t
-return a new one.</p>
+            <p>Методи сортування працюють лише з окремими вбудованими
+типами, ось один з прикладів - сортування рядків. Зауважте що
+сортування проходить &ldquo;на місці&rdquo;, тобто сортується власне переданий
+зріз, а новий не створюється і не повертається.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">strs</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;c&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">}</span>
     <span class="nx">sort</span><span class="p">.</span><span class="nx">Strings</span><span class="p">(</span><span class="nx">strs</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Strings:&quot;</span><span class="p">,</span> <span class="nx">strs</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Рядки:      &quot;</span><span class="p">,</span> <span class="nx">strs</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -84,14 +84,14 @@ return a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>An example of sorting <code>int</code>s.</p>
+            <p>Сортування цілих чисел не дуже відрізняється від рядків.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="nx">ints</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">int</span><span class="p">{</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">}</span>
     <span class="nx">sort</span><span class="p">.</span><span class="nx">Ints</span><span class="p">(</span><span class="nx">ints</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Ints:   &quot;</span><span class="p">,</span> <span class="nx">ints</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Цілі числа: &quot;</span><span class="p">,</span> <span class="nx">ints</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -99,14 +99,14 @@ return a new one.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also use <code>sort</code> to check if a slice is
-already in sorted order.</p>
+            <p>Ми також можемо використати <code>sort</code> щоб перевірити
+чи зріз вже в сортованому порядку.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">sort</span><span class="p">.</span><span class="nx">IntsAreSorted</span><span class="p">(</span><span class="nx">ints</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Sorted: &quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Сортовано:  &quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -119,16 +119,17 @@ already in sorted order.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program prints the sorted string and int
-slices and <code>true</code> as the result of our <code>AreSorted</code> test.</p>
+            <p>Запуск нашої программи призведе до друку сортованих зрізів
+рядків та цілих чисел, та <code>true</code> як результат виконання
+перевірки видсортованості зрізу методом <code>IntsAreSorted</code>.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run sorting.go
-<span class="go">Strings: [a b c]</span>
-<span class="go">Ints:    [2 4 7]</span>
-<span class="go">Sorted:  true</span>
+<span class="go">Рядки:       [a b c]</span>
+<span class="go">Цілі числа:  [2 4 7]</span>
+<span class="go">Сортовано:   true</span>
 </pre></div>
 
           </td>
@@ -138,7 +139,7 @@ slices and <code>true</code> as the result of our <code>AreSorted</code> test.</
       
       
       <p class="next">
-        Наступний приклад: <a href="sorting-by-functions">Sorting by Functions</a>.
+        Наступний приклад: <a href="sorting-by-functions">Сортування функціями</a>.
       </p>
       
       <p class="footer">

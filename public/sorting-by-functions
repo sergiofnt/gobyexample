@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Sorting by Functions</title>
+    <title>Go за Прикладом: Сортування функціями</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,17 +10,17 @@
   </script>
   <body>
     <div class="example" id="sorting-by-functions">
-      <h2><a href="./">Go за Прикладом</a>: Sorting by Functions</h2>
+      <h2><a href="./">Go за Прикладом</a>: Сортування функціями</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to sort a collection by something
-other than its natural order. For example, suppose we
-wanted to sort strings by their length instead of
-alphabetically. Here&rsquo;s an example of custom sorts
-in Go.</p>
+            <p>Інколи ми можемо бажати сортувати колекцію данних за
+чомось іншим крім натурального порядоку. Наприклад, нам
+потрібно відсортувати  рядки за довжиною напротивагу
+сортуванню по алфавіту, наступний приклад, як це можна
+зробити в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -34,7 +34,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/4b7_qiGp33y"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Mt4fJYYD4WL"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -56,10 +56,10 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to sort by a custom function in Go, we need a
-corresponding type. Here we&rsquo;ve created a <code>byLength</code>
-type that is just an alias for the builtin <code>[]string</code>
-type.</p>
+            <p>Щоб відсотувати щось за власними правилами в Go, нам
+спочатку треба мати це &ldquo;шось&rdquo;. Ми створюємо тип <code>byLength</code>
+(заДовжиною) який є превдонімом до вбудованого типу -
+зріз рядків <code>[]string</code>.</p>
 
           </td>
           <td class="code leading">
@@ -72,13 +72,13 @@ type.</p>
         
         <tr>
           <td class="docs">
-            <p>We implement <code>sort.Interface</code> - <code>Len</code>, <code>Less</code>, and
-<code>Swap</code> - on our type so we can use the <code>sort</code> package&rsquo;s
-generic <code>Sort</code> function. <code>Len</code> and <code>Swap</code>
-will usually be similar across types and <code>Less</code> will
-hold the actual custom sorting logic. In our case we
-want to sort in order of increasing string length, so
-we use <code>len(s[i])</code> and <code>len(s[j])</code> here.</p>
+            <p>Нам необхідно реалізувати <code>sort.Interface</code>, тобто створити методи
+<code>Len</code>, <code>Less</code> та <code>Swap</code> - що будуть оперувати на нашому типі данних,
+що дозволить нам використати узагальнену функцію <code>Sort</code> пакунка <code>sort</code>.
+<code>Len</code> та <code>Swap</code> зазвичай будуть схожими на інші свої аналоги.
+Найбільш відрізнятись буде  <code>Less</code>, вона буде реалізовувати власну
+логіку сортування, яка в нашому випадку полягає в порівнянні довжини
+рядків.</p>
 
           </td>
           <td class="code leading">
@@ -99,16 +99,16 @@ we use <code>len(s[i])</code> and <code>len(s[j])</code> here.</p>
         
         <tr>
           <td class="docs">
-            <p>With all of this in place, we can now implement our
-custom sort by casting the original <code>fruits</code> slice to
-<code>byLength</code>, and then use <code>sort.Sort</code> on that typed
-slice.</p>
+            <p>З готовими, ми нарешті можемо реалізувати наше власне
+сортування за допомогою конвертації початкового зрізу <code>fruits</code>
+у зріз <code>byLength</code> (заДовжиною), і використання <code>sort.Sort</code> до
+цього типу данних.</p>
 
           </td>
           <td class="code">
 	        
             <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">fruits</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;banana&quot;</span><span class="p">,</span> <span class="s">&quot;kiwi&quot;</span><span class="p">}</span>
+    <span class="nx">fruits</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;персик&quot;</span><span class="p">,</span> <span class="s">&quot;банан&quot;</span><span class="p">,</span> <span class="s">&quot;ківі&quot;</span><span class="p">}</span>
     <span class="nx">sort</span><span class="p">.</span><span class="nx">Sort</span><span class="p">(</span><span class="nx">byLength</span><span class="p">(</span><span class="nx">fruits</span><span class="p">))</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">fruits</span><span class="p">)</span>
 <span class="p">}</span>
@@ -123,14 +123,14 @@ slice.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows a list sorted by string
-length, as desired.</p>
+            <p>Запуск нашої программи покаже список фруктів
+відсортований за довжиною рядка.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run sorting-by-functions.go 
-<span class="go">[kiwi peach banana]</span>
+            <div class="highlight"><pre><span class="gp">$</span> go run sorting-by-functions.go
+<span class="go">[ківі банан персик]</span>
 </pre></div>
 
           </td>
@@ -138,11 +138,11 @@ length, as desired.</p>
         
         <tr>
           <td class="docs">
-            <p>By following this same pattern of creating a custom
-type, implementing the three <code>Interface</code> methods on that
-type, and then calling sort.Sort on a collection of that
-custom type, we can sort Go slices by arbitrary
-functions.</p>
+            <p>Створючи новий тип данних, реалізуючи три методи
+інтерфейсу <code>sort.Interface</code> по відношенню до цього
+типу данних і викликаючи sort.Sort з новоствореним
+типом данних переданим їй аргументом - ми можемо
+сортувати власні типи використовуючи власні методи.</p>
 
           </td>
           <td class="code empty">
