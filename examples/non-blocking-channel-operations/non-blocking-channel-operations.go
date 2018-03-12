@@ -1,7 +1,7 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Базові надсилання та отримання на каналах є блокуючими операціями.
+// Однак, ми можемо використовувати `select` з умовою `default`
+// для реалізації _не блокуючих відправлень_, і навіть для
+// не-блокуючих різнонаправлених `select`ів.
 
 package main
 
@@ -11,39 +11,39 @@ func main() {
     messages := make(chan string)
     signals := make(chan bool)
 
-    // Here's a non-blocking receive. If a value is
-    // available on `messages` then `select` will take
-    // the `<-messages` `case` with that value. If not
-    // it will immediately take the `default` case.
+    // Ось не болкуюче приймання. Якщо значення доступне
+    // в каналі `messages` тоді `select` підбере умову
+    // `<-messages` `case` з цим значенням. Ні?
+    // негайно буде обрана стандартна умова `default`.
     select {
     case msg := <-messages:
-        fmt.Println("received message", msg)
+        fmt.Println("отримане повідомлення", msg)
     default:
-        fmt.Println("no message received")
+        fmt.Println("жодних повідомлень не отримано")
     }
 
-    // A non-blocking send works similarly. Here `msg`
-    // cannot be sent to the `messages` channel, because
-    // the channel has no buffer and there is no receiver.
-    // Therefore the `default` case is selected.
-    msg := "hi"
+    // Не блокуючі надсилання працюють схожим чином, тут
+    // `msg` не може бути надіслано до каналу `messages`,
+    // тому що цей канал не є буферезованим і тому що немає
+    // отримувача. Тому відбудеться стандартна умова `default`.
+    msg := "привіт"
     select {
     case messages <- msg:
-        fmt.Println("sent message", msg)
+        fmt.Println("надіслано повідомлення", msg)
     default:
-        fmt.Println("no message sent")
+        fmt.Println("жодних повідомлень не надіслано")
     }
 
-    // We can use multiple `case`s above the `default`
-    // clause to implement a multi-way non-blocking
-    // select. Here we attempt non-blocking receives
-    // on both `messages` and `signals`.
+    // Над стандартною умовою `default` дозволяється мати
+    // більше однієї умови, для імплементації різнонаправлених
+    // `select`ів, умови яких будуть чекати отримання як
+    // `messages`, так і  `signals`.
     select {
     case msg := <-messages:
-        fmt.Println("received message", msg)
+        fmt.Println("отримано повідомлення", msg)
     case sig := <-signals:
-        fmt.Println("received signal", sig)
+        fmt.Println("отриманий сигнал", sig)
     default:
-        fmt.Println("no activity")
+        fmt.Println("жодної активності")
     }
 }

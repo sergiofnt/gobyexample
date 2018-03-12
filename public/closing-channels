@@ -16,9 +16,9 @@
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p><em>Закриття</em> каналу вказує на те, що більше жодних значень
+в нього відправлено не буде. Це може буде корисним при передачі
+повідомлення про завершення до отримувачів каналу.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/eFZ2SeKswH"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/QasR-KdPFJF"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,10 +53,9 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>В цьому прикладі ми використаємо канал <code>jobs</code> для
+комунікації задач між горутиною <code>main()</code> та робочою горутиною.
+Коли більше робот немає - ми <code>close</code> (закриємо) канал <code>jobs</code>.</p>
 
           </td>
           <td class="code leading">
@@ -71,13 +70,12 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>Це робоча горутина, вона безперервно отримує з каналу
+<code>jobs</code> задачі за допомогою <code>j, more := &lt;-jobs</code>.
+У цій конструкції <code>more</code> буде <code>false</code> канал <code>jobs</code>
+закриється і всі значення з нього будуть вийняті.
+Ми використаємо це дял відправки повідомлення в канал <code>done</code>
+що роботи закінчені.</p>
 
           </td>
           <td class="code leading">
@@ -86,9 +84,9 @@ all our jobs.</p>
         <span class="k">for</span> <span class="p">{</span>
             <span class="nx">j</span><span class="p">,</span> <span class="nx">more</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">jobs</span>
             <span class="k">if</span> <span class="nx">more</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;received job&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;отримана робота&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
             <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-                <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;received all jobs&quot;</span><span class="p">)</span>
+                <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;усі роботи отримані&quot;</span><span class="p">)</span>
                 <span class="nx">done</span> <span class="o">&lt;-</span> <span class="kc">true</span>
                 <span class="k">return</span>
             <span class="p">}</span>
@@ -101,18 +99,18 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>Оце надішле 3 задачі до робочої горутини через канал
+<code>jobs</code>, після чого закриє його.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">j</span> <span class="o">:=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span> <span class="p">{</span>
         <span class="nx">jobs</span> <span class="o">&lt;-</span> <span class="nx">j</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sent job&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;надіслана робота&quot;</span><span class="p">,</span> <span class="nx">j</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nb">close</span><span class="p">(</span><span class="nx">jobs</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sent all jobs&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;усі роботи надіслані&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -120,9 +118,9 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>Ми чекаємо коли горутина робітник використає
+<a href="channel-synchronization">синхронізацію</a> що
+ми бачили раніше.</p>
 
           </td>
           <td class="code">
@@ -144,15 +142,15 @@ we saw earlier.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run closing-channels.go 
-<span class="go">sent job 1</span>
-<span class="go">received job 1</span>
-<span class="go">sent job 2</span>
-<span class="go">received job 2</span>
-<span class="go">sent job 3</span>
-<span class="go">received job 3</span>
-<span class="go">sent all jobs</span>
-<span class="go">received all jobs</span>
+            <div class="highlight"><pre><span class="gp">$</span> go run closing-channels.go
+<span class="go">надіслана робота 1</span>
+<span class="go">надіслана робота 2</span>
+<span class="go">надіслана робота 3</span>
+<span class="go">усі роботи надіслані</span>
+<span class="go">отримана робота 1</span>
+<span class="go">отримана робота 2</span>
+<span class="go">отримана робота 3</span>
+<span class="go">усі роботи отримані</span>
 </pre></div>
 
           </td>
@@ -160,8 +158,8 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Ідея закритих каналів пирводить нас до
+наступного прикладу: <code>range</code> з каналами.</p>
 
           </td>
           <td class="code empty">

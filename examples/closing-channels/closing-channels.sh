@@ -1,12 +1,12 @@
-$ go run closing-channels.go 
-sent job 1
-received job 1
-sent job 2
-received job 2
-sent job 3
-received job 3
-sent all jobs
-received all jobs
+$ go run closing-channels.go
+надіслана робота 1
+надіслана робота 2
+надіслана робота 3
+усі роботи надіслані
+отримана робота 1
+отримана робота 2
+отримана робота 3
+усі роботи отримані
 
-# The idea of closed channels leads naturally to our next
-# example: `range` over channels.
+# Ідея закритих каналів пирводить нас до
+# наступного прикладу: `range` з каналами.
