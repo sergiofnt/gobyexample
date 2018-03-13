@@ -1,8 +1,8 @@
-// [Timers](timers) are for when you want to do
-// something once in the future - _tickers_ are for when
-// you want to do something repeatedly at regular
-// intervals. Here's an example of a ticker that ticks
-// periodically until we stop it.
+// [Таймери](timers) прзначені для відслідковування часу
+// до якої-небудь одноразової події в майбутньому -
+// _маятники_ ж призначені для виконання події через
+// чітко задані інтервали. Ось пряклад маятника що маякує
+// нам, аж поки ми його не зупинемо.
 
 package main
 
@@ -11,21 +11,22 @@ import "fmt"
 
 func main() {
 
-    // Tickers use a similar mechanism to timers: a
-    // channel that is sent values. Here we'll use the
-    // `range` builtin on the channel to iterate over
-    // the values as they arrive every 500ms.
+    // Маятники використовують схожий до таймерів механізм -
+    // канал до якого надсилаються значення. Ось ми використаємо
+    // `range` для канала маятника і будемо виводити значення
+    // відразу як вони прибуватимуть, приблизно раз в пів секунди.
     ticker := time.NewTicker(500 * time.Millisecond)
     go func() {
+        var f = "15:04:05.999999999"
         for t := range ticker.C {
-            fmt.Println("Tick at", t)
+            fmt.Println("Коливання @", t.Format(f))
         }
     }()
 
-    // Tickers can be stopped like timers. Once a ticker
-    // is stopped it won't receive any more values on its
-    // channel. We'll stop ours after 1600ms.
+    // Маятники можуть бути зупинені так само як і таймери. Після
+    // того як таймер зупинено він не буде отримувати жодних
+    // значень з каналу. Наш - ми зупинемо через 1600мілісекунд.
     time.Sleep(1600 * time.Millisecond)
     ticker.Stop()
-    fmt.Println("Ticker stopped")
+    fmt.Println("Маятник зупинено")
 }

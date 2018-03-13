@@ -1,8 +1,9 @@
-// We often want to execute Go code at some point in the
-// future, or repeatedly at some interval. Go's built-in
-// _timer_ and _ticker_ features make both of these tasks
-// easy. We'll look first at timers and then
-// at [tickers](tickers).
+// Інколи нам потрібно виконати певний код на якийсь момент
+// в майбутньому, або запускати його через певні інтервали
+// часу - це стає можливими завдяки сосбливим можливостям Go
+// відомим як: _таймер_ та _маятник_. Спершу ми познайомимось
+// з таймерами, а в насутпному прикладі побачимо що таке
+// [маятник](tickers).
 
 package main
 
@@ -11,29 +12,29 @@ import "fmt"
 
 func main() {
 
-    // Timers represent a single event in the future. You
-    // tell the timer how long you want to wait, and it
-    // provides a channel that will be notified at that
-    // time. This timer will wait 2 seconds.
+    // Таймер представляє поодиноку подію що станеться в
+    // майбуутньому. Ви вказуєте таймеру на скільки часу
+    // ви хочете зачекати, і таймер забезпечує вам канал
+    // по якому ви можете отримати повідомлення про те що
+    // час очікування скінчився. Наш таймер, наприклад,
+    // розрахований на 2 секунди.
     timer1 := time.NewTimer(2 * time.Second)
 
-    // The `<-timer1.C` blocks on the timer's channel `C`
-    // until it sends a value indicating that the timer
-    // expired.
+    // `<-timer1.C` блокується каналом `C` допоки не буде
+    // надіслано повідомлення що час витік.
     <-timer1.C
-    fmt.Println("Timer 1 expired")
+    fmt.Println("Таймер 1 просрочено")
 
-    // If you just wanted to wait, you could have used
-    // `time.Sleep`. One reason a timer may be useful is
-    // that you can cancel the timer before it expires.
-    // Here's an example of that.
+    // Якщо вам просто хочеться зачекати, ми можете використати
+    // `time.Sleep`. Одна з причин костності таймер, те що він
+    // може бути зупинений в будьякий момент.
     timer2 := time.NewTimer(time.Second)
     go func() {
         <-timer2.C
-        fmt.Println("Timer 2 expired")
+        fmt.Println("Таймер 2 просрочено")
     }()
     stop2 := timer2.Stop()
     if stop2 {
-        fmt.Println("Timer 2 stopped")
+        fmt.Println("Тaймер 2 зупинено")
     }
 }

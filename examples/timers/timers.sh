@@ -1,6 +1,5 @@
-// The first timer will expire ~2s after we start the
-// program, but the second should be stopped before it has
-// a chance to expire.
+# Перший таймер витече приблизно через 2 секунди після старту,
+# буде зупинено ще до того, як він матиме шанс витікти.
 $ go run timers.go
-Timer 1 expired
-Timer 2 stopped
+Таймер 1 просрочено
+Тaймер 2 зупинено
