@@ -32,7 +32,7 @@ Select
 Таймери|Timers
 Маятники|Tickers
 Worker Pools
-Обмеження Частоти|Rate Limiting
+Обмеження Частоти Запитів|Rate Limiting
 Атомарні Лічильники|Atomic Counters
 Mutexes
 Stateful Goroutines

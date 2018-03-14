@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Обмеження Частоти</title>
+    <title>Go за Прикладом: Обмеження Частоти Запитів</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,17 +10,18 @@
   </script>
   <body>
     <div class="example" id="rate-limiting">
-      <h2><a href="./">Go за Прикладом</a>: Обмеження Частоти</h2>
+      <h2><a href="./">Go за Прикладом</a>: Обмеження Частоти Запитів</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em><a href="http://en.wikipedia.org/wiki/Rate_limiting">Rate limiting</a></em>
-is an important mechanism for controlling resource
-utilization and maintaining quality of service. Go
-elegantly supports rate limiting with goroutines,
-channels, and <a href="tickers">tickers</a>.</p>
+            <p><em><a href="http://en.wikipedia.org/wiki/Rate_limiting">Обмеження Частоти Запитів</a></em>
+це важливий механізм контролю за ресурсом, використаня
+та підтримки необхідної якості роботи. Go елегентно
+підтримує обмеження частоти за допомогою
+<a href="goroutines">горутин</a>, <a href="channels">каналів</a>
+та <a href="tickers">маятників</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -34,7 +35,7 @@ channels, and <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/l4uDE-RCDpa"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/aBouAr7Pce7"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -68,10 +69,10 @@ channels, and <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at basic rate limiting. Suppose
-we want to limit our handling of incoming requests.
-We&rsquo;ll serve these requests off a channel of the
-same name.</p>
+            <p>Спершу подивимось на звичайний приклад обмеження
+частоти. Припустимо ми хочемо обмежити обслуговування
+вхідних запитів, ми будемо обслууговувати ці запити
+через одноіменний канал (<code>requests</code>).</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +89,9 @@ same name.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>limiter</code> channel will receive a value
-every 200 milliseconds. This is the regulator in
-our rate limiting scheme.</p>
+            <p>Цей канало <code>limiter</code> (обмежувач) буде приймати
+значення кожні 200 мілісекунд, це регулятор
+нашої системи обмеження частоти запитів.</p>
 
           </td>
           <td class="code leading">
@@ -103,9 +104,9 @@ our rate limiting scheme.</p>
         
         <tr>
           <td class="docs">
-            <p>By blocking on a receive from the <code>limiter</code> channel
-before serving each request, we limit ourselves to
-1 request every 200 milliseconds.</p>
+            <p>Блокуючи на отримувачі з каналу <code>limiter</code> перед
+обробкою кожного запиту,ми обмежуємо себе до 1
+запиту кожні  200 мілісекунд.</p>
 
           </td>
           <td class="code leading">
@@ -121,11 +122,11 @@ before serving each request, we limit ourselves to
         
         <tr>
           <td class="docs">
-            <p>We may want to allow short bursts of requests in
-our rate limiting scheme while preserving the
-overall rate limit. We can accomplish this by
-buffering our limiter channel. This <code>burstyLimiter</code>
-channel will allow bursts of up to 3 events.</p>
+            <p>Можливо ми схочемо дозволити невеликі напливи запитів,
+вцілому притримуючись нашої стандартної схеми
+обмеженя. Ми можемо досигнути цього створюючи буфер
+в нашому каналі обмеження. Цей канал <code>burstyLimiter</code>
+дозволятиме напиливи аж трьох подій.</p>
 
           </td>
           <td class="code leading">
@@ -138,7 +139,8 @@ channel will allow bursts of up to 3 events.</p>
         
         <tr>
           <td class="docs">
-            <p>Fill up the channel to represent allowed bursting.</p>
+            <p>Заповнюємо канал, для представлення допустимого
+напливу.</p>
 
           </td>
           <td class="code leading">
@@ -153,8 +155,8 @@ channel will allow bursts of up to 3 events.</p>
         
         <tr>
           <td class="docs">
-            <p>Every 200 milliseconds we&rsquo;ll try to add a new
-value to <code>burstyLimiter</code>, up to its limit of 3.</p>
+            <p>Кожні 200 мілісекунд ми спробуємо додати значення в
+<code>burstyLimiter</code>, аж до його ліміту в 3 події.</p>
 
           </td>
           <td class="code leading">
@@ -171,9 +173,9 @@ value to <code>burstyLimiter</code>, up to its limit of 3.</p>
         
         <tr>
           <td class="docs">
-            <p>Now simulate 5 more incoming requests. The first
-3 of these will benefit from the burst capability
-of <code>burstyLimiter</code>.</p>
+            <p>Тупер ми симулюємо 5 вхідних запитів. Перші три,
+отримають перевагу від реалізації буфера каналу
+<code>burstyLimiter</code>.</p>
 
           </td>
           <td class="code">
@@ -199,8 +201,9 @@ of <code>burstyLimiter</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program we see the first batch of requests
-handled once every ~200 milliseconds as desired.</p>
+            <p>Запускаючи нашої программу ми побачимо першу
+партія запитів що обслуговуватимуться кожні 200
+мілісекунд.</p>
 
           </td>
           <td class="code leading">
@@ -218,9 +221,12 @@ handled once every ~200 milliseconds as desired.</p>
         
         <tr>
           <td class="docs">
-            <p>For the second batch of requests we serve the first
-3 immediately because of the burstable rate limiting,
-then serve the remaining 2 with ~200ms delays each.</p>
+            <p>Друга ж партія запитів що ми обслуговувємо
+представляє собою 3 запити що не чекають
+лімітування і представляють собою &ldquo;наплив&rdquo;
+- дозволену кулькіть запитів без обмеження та
+ще 2 обмежені 200 мілісекундним інтервалом
+запити.</p>
 
           </td>
           <td class="code">
