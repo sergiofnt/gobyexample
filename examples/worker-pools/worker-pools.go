@@ -1,47 +1,51 @@
-// In this example we'll look at how to implement
-// a _worker pool_ using goroutines and channels.
+// У цьому прикладі ми розглянемо як реалізовувати
+// _пул робітників_ використовуючи горутини та канали.
 
 package main
 
 import "fmt"
 import "time"
 
-// Here's the worker, of which we'll run several
-// concurrent instances. These workers will receive
-// work on the `jobs` channel and send the corresponding
-// results on `results`. We'll sleep a second per job to
-// simulate an expensive task.
+// Ось приклад, робітника якого ми будемо використовувати
+// щоб запустити кілька різних екземплярів. Ці робітники будуть
+// отримувати роботу на каналі `jobs` та надсилати сповіщення
+// про завершення роботи до каналу `results`. Роботою нашого
+// "працівника" буде сон довжиною в секунду (така собі симуляція
+// реальної роботи).
 func worker(id int, jobs <-chan int, results chan<- int) {
     for j := range jobs {
-        fmt.Println("worker", id, "started  job", j)
+        fmt.Println("працівник", id,
+            "почав проботу над завданням", j)
         time.Sleep(time.Second)
-        fmt.Println("worker", id, "finished job", j)
+        fmt.Println("працівник", id,
+            "закінчив роботу над завданням", j)
         results <- j * 2
     }
 }
 
 func main() {
 
-    // In order to use our pool of workers we need to send
-    // them work and collect their results. We make 2
-    // channels for this.
+    // Щоб використовувати "пул працівників" нам необхідно
+    // створити два канали: один з яких буде передавати завдання
+    // робітнику, а інший отримавути результати роботи.
     jobs := make(chan int, 100)
     results := make(chan int, 100)
 
-    // This starts up 3 workers, initially blocked
-    // because there are no jobs yet.
+    // Запускаємо трох працівників, але спочатку вони блокуються
+    // тому що жодної роботи для них ще немає.
     for w := 1; w <= 3; w++ {
         go worker(w, jobs, results)
     }
 
-    // Here we send 5 `jobs` and then `close` that
-    // channel to indicate that's all the work we have.
+    // Надсилаємо 5 завдань о каналу роботи, після чого
+    // закриваємо канал для індикації що це вся робота
+    // що наразі доступна.
     for j := 1; j <= 5; j++ {
         jobs <- j
     }
     close(jobs)
 
-    // Finally we collect all the results of the work.
+    // Нарешті підбираємо результати роботи наших прцівників.
     for a := 1; a <= 5; a++ {
         <-results
     }

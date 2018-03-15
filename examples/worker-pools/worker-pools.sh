@@ -1,17 +1,20 @@
-# Our running program shows the 5 jobs being executed by
-# various workers. The program only takes about 2 seconds
-# despite doing about 5 seconds of total work because
-# there are 3 workers operating concurrently.
-$ time go run worker-pools.go 
-worker 1 started  job 1
-worker 2 started  job 2
-worker 3 started  job 3
-worker 1 finished job 1
-worker 1 started  job 4
-worker 2 finished job 2
-worker 2 started  job 5
-worker 3 finished job 3
-worker 1 finished job 4
-worker 2 finished job 5
+# Наша программа показує 5 завдань що виконуються
+# різними працівниками. Программа працює лише близько
+# 2 секунд, не зважаючи на роботу розраховану
+# вцілому на 5 секунд і все це завдяки 3
+# працівникам що працюються одночасно.
+$ time go run worker-pools.go
+працівник 3 почав працювати над завданням 1
+працівник 1 почав працювати над завданням 2
+працівник 2 почав працювати над завданням 3
+працівник 2 закінчив працювати над завданням 3
+працівник 2 почав працювати над завданням 4
+працівник 3 закінчив працювати над завданням 1
+працівник 3 почав працювати над завданням 5
+працівник 1 закінчив працювати над завданням 2
+працівник 2 закінчив працювати над завданням 4
+працівник 3 закінчив працювати над завданням 5
 
-real	0m2.358s
+real	0m2.322s
+user	0m0.231s
+sys	0m0.290s

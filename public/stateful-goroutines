@@ -16,14 +16,15 @@
         
         <tr>
           <td class="docs">
-            <p>In the previous example we used explicit locking with
-<a href="mutexes">mutexes</a> to synchronize access to shared state
-across multiple goroutines. Another option is to use the
-built-in synchronization features of  goroutines and
-channels to achieve the same result. This channel-based
-approach aligns with Go&rsquo;s ideas of sharing memory by
-communicating and having each piece of data owned
-by exactly 1 goroutine.</p>
+            <p>В попередньому уроці ми використали явне закріплення
+за допомогою <a href="mutexes">mutexes</a> для синхронізації доступу
+до спільного стану кількома горутинами. Іншою можливістю
+якою варто скористатись є особливіть виокристання
+горутин та каналів для синхронізації задял отримання
+такого ж результату. Цей базований на каналах спосіб
+співпадає з ідіоматичним Go в питанні спільної пам’яті
+і наданні кожного шматочка пам’яті у володіння лише 1ій
+горутині.</p>
 
           </td>
           <td class="code empty leading">
@@ -37,7 +38,7 @@ by exactly 1 goroutine.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/dlfBGF-qff6"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/ZtroHf1zpUJ"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -63,14 +64,13 @@ by exactly 1 goroutine.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example our state will be owned by a single
-goroutine. This will guarantee that the data is never
-corrupted with concurrent access. In order to read or
-write that state, other goroutines will send messages
-to the owning goroutine and receive corresponding
-replies. These <code>readOp</code> and <code>writeOp</code> <code>struct</code>s
-encapsulate those requests and a way for the owning
-goroutine to respond.</p>
+            <p>У цьому прикладі наш стан буде переданий у володіння
+єдиній горутині. Це гарантуватие що данні ніколи не будуть
+зіпсовані з одночасним доступом. Щоб читати та писати стан
+інші оперуючі гоуртини будуть надсилати повідомлення
+головній горутині і отримувати відповідні відповіді.
+Ці структури <code>readOp</code> та <code>writeOp</code> приховують ці запити
+і те як головна горутина відповідатиме.</p>
 
           </td>
           <td class="code leading">
@@ -103,7 +103,8 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>As before we&rsquo;ll count how many operations we perform.</p>
+            <p>Як і раніше, ми будемо прораховувати операції що ми
+виконуємо.</p>
 
           </td>
           <td class="code leading">
@@ -117,15 +118,15 @@ goroutine to respond.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>reads</code> and <code>writes</code> channels will be used by
-other goroutines to issue read and write requests,
-respectively.</p>
+            <p>Наші канали <code>reads</code> та <code>writes</code> будуть викорстані
+іншими горутинами для створення запитів на запис або на
+читання відповідно.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nx">reads</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">readOp</span><span class="p">)</span>
-    <span class="nx">writes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">writeOp</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nx">writes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">writeOp</span><span class="p">)</span>
+    <span class="nx">reads</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">readOp</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -133,15 +134,14 @@ respectively.</p>
         
         <tr>
           <td class="docs">
-            <p>Here is the goroutine that owns the <code>state</code>, which
-is a map as in the previous example but now private
-to the stateful goroutine. This goroutine repeatedly
-selects on the <code>reads</code> and <code>writes</code> channels,
-responding to requests as they arrive. A response
-is executed by first performing the requested
-operation and then sending a value on the response
-channel <code>resp</code> to indicate success (and the desired
-value in the case of <code>reads</code>).</p>
+            <p>Це горутина що є власником стану (який був мапою в
+попередньому прикладі) який наразі є приватним для
+горутини зі станом. Ця горутина у циклі зчитує запити
+на читання та запис з відповідних каналів і відповідає
+на запити як тільки ті надходять. Відповідь відбувається
+шляхом виконання операції що була запитана і надсиланням
+відповіді до каналу <code>resp</code> для відмітки про успіх і
+бажане значення у у випадку  <code>reads</code>).</p>
 
           </td>
           <td class="code leading">
@@ -165,11 +165,10 @@ value in the case of <code>reads</code>).</p>
         
         <tr>
           <td class="docs">
-            <p>This starts 100 goroutines to issue reads to the
-state-owning goroutine via the <code>reads</code> channel.
-Each read requires constructing a <code>readOp</code>, sending
-it over the <code>reads</code> channel, and the receiving the
-result over the provided <code>resp</code> channel.</p>
+            <p>Тут ми запустимо 100 горутин що будуть просити
+зчитування у головної горутини через канал <code>reads</code>.
+Кожна горутина створює <code>readOp</code>, надсилає її до каналу
+ <code>reads</code> і отримує відповідь з каналу <code>resp</code>.</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +193,8 @@ result over the provided <code>resp</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We start 10 writes as well, using a similar
-approach.</p>
+            <p>Використовуючи такий же метод ми запускаємо
+10 горутин що писатимуть данні.</p>
 
           </td>
           <td class="code leading">
@@ -221,7 +220,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Let the goroutines work for a second.</p>
+            <p>Даємо нашим горутинам попрацювати близько секунди.</p>
 
           </td>
           <td class="code leading">
@@ -234,7 +233,7 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, capture and report the op counts.</p>
+            <p>Нашеті, дивимось скільки було зчитувань та записів:</p>
 
           </td>
           <td class="code">
@@ -255,16 +254,15 @@ approach.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program shows that the goroutine-based
-state management example completes about 80,000
-total operations.</p>
+            <p>Запуск нашої программи покаже що базований на горутинах
+приклад управління станом проводить біля 95,000 операцій.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run stateful-goroutines.go
-<span class="go">readOps: 71708</span>
-<span class="go">writeOps: 7177</span>
+<span class="go">readOps: 87142</span>
+<span class="go">writeOps: 8740</span>
 </pre></div>
 
           </td>
@@ -272,14 +270,13 @@ total operations.</p>
         
         <tr>
           <td class="docs">
-            <p>For this particular case the goroutine-based approach
-was a bit more involved than the mutex-based one. It
-might be useful in certain cases though, for example
-where you have other channels involved or when managing
-multiple such mutexes would be error-prone. You should
-use whichever approach feels most natural, especially
-with respect to understanding the correctness of your
-program.</p>
+            <p>У конкретно цій справі базований на горутинах спосіб
+був трошка більш задіяний ніж <a href="mutexes">mutex</a>-овий.
+Це може бути корисним у випадках коли і інші канали
+задіяні або коли управління кількома такими <code>mutex</code>ами
+буде схильне до помилок. Слудує викоирстовувати той спосіб
+який вам більш до впоодби, з урахуванням розуміння того
+наскільки коректно працює ваша программа.</p>
 
           </td>
           <td class="code empty">
