@@ -1,9 +1,10 @@
-# To try out our line filter, first make a file with a few
-# lowercase lines.
+# Щоб спробувати наш рядковий фільтр, створимо файл з кількома
+# рядками у нижньому регістрі.
 $ echo 'hello'   > "line-filters"
 $ echo 'filter' >> "line-filters"
 
-# Then use the line filter to get uppercase lines.
+# Після чого скористаємось рядковим фільтром, щоб отримати
+# ціж рядки у верхньому регістрі.
 $ cat "line-filters" | go run line-filters.go
 HELLO
 FILTER

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Line Filters</title>
+    <title>Go за Прикладом: Рядкові Фільтри</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,29 +10,20 @@
   </script>
   <body>
     <div class="example" id="line-filters">
-      <h2><a href="./">Go за Прикладом</a>: Line Filters</h2>
+      <h2><a href="./">Go за Прикладом</a>: Рядкові Фільтри</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A <em>line filter</em> is a common type of program that reads
-input on stdin, processes it, and then prints some
-derived result to stdout. <code>grep</code> and <code>sed</code> are common
-line filters.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here&rsquo;s an example line filter in Go that writes a
-capitalized version of all input text. You can use this
-pattern to write your own Go line filters.</p>
+            <p><em>Рядковий фільтр</em> це узагальнений тип програм що читають
+дані з <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки">стандартного потоку введення</a>,
+обробляють, і видають якісь похідні результати до стандартного
+потоку виведення. Программи <code>grep</code> та  <code>sed</code> є загально вживаними
+рядковими фільтрами. Розгялнемо приклад рядкового фільтра:
+що повертає скорвертовану до верхнього регістру версію тексту,
+що який він попередньо отримує. Ми может використати цей зразок,
+щоб написати власний рядковий фільтр за допомогою Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +37,7 @@ pattern to write your own Go line filters.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/XWGW9XYVONQ"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/rGTfyxwwMo_C"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -84,10 +75,9 @@ pattern to write your own Go line filters.</p>
         
         <tr>
           <td class="docs">
-            <p>Wrapping the unbuffered <code>os.Stdin</code> with a buffered
-scanner gives us a convenient <code>Scan</code> method that
-advances the scanner to the next token; which is
-the next line in the default scanner.</p>
+            <p>Використання не буфуризованого <code>os.Stdin</code> через буферезований сканнер
+дає нам доступ до методу <code>Scan</code> який пересуває сканер до наступного
+токену;  яким у нас є наступна лінія нашого сканера.</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +90,8 @@ the next line in the default scanner.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Text</code> returns the current token, here the next line,
-from the input.</p>
+            <p><code>Text</code> поверне поточний токен, в нашому прикладі наступну
+лінію з вхідних данних.</p>
 
           </td>
           <td class="code leading">
@@ -126,7 +116,7 @@ from the input.</p>
         
         <tr>
           <td class="docs">
-            <p>Write out the uppercased line.</p>
+            <p>Запис результату до стандартного потоку виводу.</p>
 
           </td>
           <td class="code leading">
@@ -140,8 +130,8 @@ from the input.</p>
         
         <tr>
           <td class="docs">
-            <p>Check for errors during <code>Scan</code>. End of file is
-expected and not reported by <code>Scan</code> as an error.</p>
+            <p>Перевірка щодо помилок під час <code>Scan</code>. Кінець файлу - очікуванна
+помилка не буде зарапортований <code>Scan</code> як така.</p>
 
           </td>
           <td class="code">
@@ -162,8 +152,8 @@ expected and not reported by <code>Scan</code> as an error.</p>
         
         <tr>
           <td class="docs">
-            <p>To try out our line filter, first make a file with a few
-lowercase lines.</p>
+            <p>Щоб спробувати наш рядковий фільтр, створимо файл з кількома
+рядками у нижньому регістрі.</p>
 
           </td>
           <td class="code leading">
@@ -177,7 +167,8 @@ lowercase lines.</p>
         
         <tr>
           <td class="docs">
-            <p>Then use the line filter to get uppercase lines.</p>
+            <p>Після чого скористаємось рядковим фільтром, щоб отримати
+ціж рядки у верхньому регістрі.</p>
 
           </td>
           <td class="code">
