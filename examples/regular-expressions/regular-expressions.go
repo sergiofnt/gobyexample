@@ -1,6 +1,5 @@
-// Go offers built-in support for [regular expressions](http://en.wikipedia.org/wiki/Regular_expression).
-// Here are some examples of  common regexp-related tasks
-// in Go.
+// Go надає вбудовану підтримку [регулярних виразів](https://uk.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D0%B8%D0%B9_%D0%B2%D0%B8%D1%80%D0%B0%D0%B7).
+// Ось, деякі приклади задач що так чи інакше пов’язані з регулярними виразами.
 
 package main
 
@@ -10,71 +9,69 @@ import "regexp"
 
 func main() {
 
-    // This tests whether a pattern matches a string.
+    // Тестуємо чи наш шаблон співпадає з рядком.
     match, _ := regexp.MatchString("p([a-z]+)ch", "peach")
     fmt.Println(match)
 
-    // Above we used a string pattern directly, but for
-    // other regexp tasks you'll need to `Compile` an
-    // optimized `Regexp` struct.
+    // Рядком вище - ми прямо використали викорастали рядковий шаблон,
+    // але для інших задач пов’язаних з ругелярними виразами,
+    // нам необхідно буде `Compile` (скомпілювати) рядковий
+    // шаблон у `Regexp` структуру.
     r, _ := regexp.Compile("p([a-z]+)ch")
 
-    // Many methods are available on these structs. Here's
-    // a match test like we saw earlier.
+    // На таких структура доступно чимало різних методоів:
+    // ось наприклад співставлення з рядком, що ми бачили в
+    // першому прикладі.
     fmt.Println(r.MatchString("peach"))
 
-    // This finds the match for the regexp.
+    // А тут ми знаходимо збіг для нашого регулярного виразу.
     fmt.Println(r.FindString("peach punch"))
 
-    // This also finds the first match but returns the
-    // start and end indexes for the match instead of the
-    // matching text.
+    // Цей приклад теж знайде збіги, але поверне початковий
+    // та кінцевий індекси для збіру, замість рядка що збігається.
     fmt.Println(r.FindStringIndex("peach punch"))
 
-    // The `Submatch` variants include information about
-    // both the whole-pattern matches and the submatches
-    // within those matches. For example this will return
-    // information for both `p([a-z]+)ch` and `([a-z]+)`.
+    // Варіації методів `Submatch` включать також інформацію про
+    // повні збіги та часткові збіги в межах повних. Для прикладу -
+    // це поверне інформацію про регулярні вирази `p([a-z]+)ch`
+    // та `([a-z]+)`.
     fmt.Println(r.FindStringSubmatch("peach punch"))
 
-    // Similarly this will return information about the
-    // indexes of matches and submatches.
+    // Схожим чином - ми отримаємо індекс повного і
+    // часткового збігу.
     fmt.Println(r.FindStringSubmatchIndex("peach punch"))
 
-    // The `All` variants of these functions apply to all
-    // matches in the input, not just the first. For
-    // example to find all matches for a regexp.
+    // Варіації методів `All` аплікуються до усіх збігів, а не лише
+    // до першого. Приклад знаходження усіх збігів.
     fmt.Println(r.FindAllString("peach punch pinch", -1))
 
-    // These `All` variants are available for the other
-    // functions we saw above as well.
+    // Варіції `All` також доступні і іншим методам що ми вже бачили.
     fmt.Println(r.FindAllStringSubmatchIndex(
         "peach punch pinch", -1))
 
-    // Providing a non-negative integer as the second
-    // argument to these functions will limit the number
-    // of matches.
+    // Другий аргумент - заданий додатнім цілим числом, допомогає
+    // обмежити кількість збігів - цим числом.
     fmt.Println(r.FindAllString("peach punch pinch", 2))
 
-    // Our examples above had string arguments and used
-    // names like `MatchString`. We can also provide
-    // `[]byte` arguments and drop `String` from the
-    // function name.
+    // Приклади що ми розглянули отримуються рядковий параметр і
+    // використовують імя типу `MatchString`, але ми також можемо
+    // надати аргументом і зріз байтів - `[]byte` та прибрати `String`
+    // з імені методу - і отримаємо аналогічний метод що буде працювати з
+    // зрізами байтів.
     fmt.Println(r.Match([]byte("peach")))
 
-    // When creating constants with regular expressions
-    // you can use the `MustCompile` variation of
-    // `Compile`. A plain `Compile` won't work for
-    // constants because it has 2 return values.
+    // Створюєчи константи регулярних виразів - ви можете
+    // використовувати варіацію `MustCompile` замість `Compile`.
+    // Простий `Compile` не спрацює з константом оскільки повертає
+    // два значення.
     r = regexp.MustCompile("p([a-z]+)ch")
     fmt.Println(r)
 
-    // The `regexp` package can also be used to replace
-    // subsets of strings with other values.
+    // Пакунок `regexp` можна використовувати для заміни чаткових-збігів
+    // рядків іншими значеннями.
     fmt.Println(r.ReplaceAllString("a peach", "<fruit>"))
 
-    // The `Func` variant allows you to transform matched
-    // text with a given function.
+    // Варіація  методів `Func` дозволяє трансформувати текст заданою функцією.
     in := []byte("a peach")
     out := r.ReplaceAllFunc(in, bytes.ToUpper)
     fmt.Println(string(out))

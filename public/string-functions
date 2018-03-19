@@ -16,9 +16,9 @@
         
         <tr>
           <td class="docs">
-            <p>The standard library&rsquo;s <code>strings</code> package provides many
-useful string-related functions. Here are some examples
-to give you a sense of the package.</p>
+            <p>Пакунок стандартної бібліотеки <code>strings</code> надає чимало корисних
+фкнкцій що можна використовувати з рядками. Щоб уявити можливості
+пакунку <code>strings</code> приведемо кілька прикладів.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@ to give you a sense of the package.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Lf5_Zbg6or"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/YzKcLDJQ5cO"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,8 +54,8 @@ to give you a sense of the package.</p>
         
         <tr>
           <td class="docs">
-            <p>We alias <code>fmt.Println</code> to a shorter name as we&rsquo;ll use
-it a lot below.</p>
+            <p>Ми скоротимо <code>fmt.Println</code> до <code>p</code> оскільки використовувати
+ми його будем багато.</p>
 
           </td>
           <td class="code leading">
@@ -80,13 +80,11 @@ it a lot below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a sample of the functions available in
-<code>strings</code>. Since these are functions from the
-package, not methods on the string object itself,
-we need pass the string in question as the first
-argument to the function. You can find more
-functions in the <a href="http://golang.org/pkg/strings/"><code>strings</code></a>
-package docs.</p>
+            <p>Ось пирклади функцій що доступні в <code>strings</code>.
+Оскільки це функції пакунку, а не власні методи
+обєкту рядка, нам необхідно передавати рядок першим
+аргументом прямо. Ви можете отримати більше інфомарції
+з сторінки документації пакету <a href="http://golang.org/pkg/strings/"><code>strings</code></a>.</p>
 
           </td>
           <td class="code leading">
@@ -111,9 +109,9 @@ package docs.</p>
         
         <tr>
           <td class="docs">
-            <p>Not part of <code>strings</code>, but worth mentioning here, are
-the mechanisms for getting the length of a string in
-bytes and getting a byte by index.</p>
+            <p>Це не частина пакунка, але варто згадати тут, то як
+отримати довжину рядку у байтах та власне, як отримати
+байт за індексом.</p>
 
           </td>
           <td class="code leading">
@@ -128,12 +126,11 @@ bytes and getting a byte by index.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that <code>len</code> and indexing above work at the byte level.
-Go uses UTF-8 encoded strings, so this is often useful
-as-is. If you&rsquo;re working with potentially multi-byte
-characters you&rsquo;ll want to use encoding-aware operations.
-See <a href="https://blog.golang.org/strings">strings, bytes, runes and characters in Go</a>
-for more information.</p>
+            <p>Зауваження: <code>len</code> та індексування вище працюють на рівні байтів.
+Go ж використовує UTF-8 кодовані рядки, і тому це часто буває корисно як-є.
+Якщо ви працюєте потенційно з багатобайтними символами - скорше за все, вам зазочеться використовувати операції які зважатимуть на кодування.
+Прочитайте <a href="https://blog.golang.org/strings">&ldquo;рядки, байти, руни та символи в Go&rdquo;</a>
+для отримання докладнішої інформації.</p>
 
           </td>
           <td class="code empty">

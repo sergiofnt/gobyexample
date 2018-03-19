@@ -1,25 +1,23 @@
-// The standard library's `strings` package provides many
-// useful string-related functions. Here are some examples
-// to give you a sense of the package.
+// Пакунок стандартної бібліотеки `strings` надає чимало корисних
+// фкнкцій що можна використовувати з рядками. Щоб уявити можливості
+// пакунку `strings` приведемо кілька прикладів.
 
 package main
 
 import s "strings"
 import "fmt"
 
-// We alias `fmt.Println` to a shorter name as we'll use
-// it a lot below.
+// Ми скоротимо `fmt.Println` до `p` оскільки використовувати
+// ми його будем багато.
 var p = fmt.Println
 
 func main() {
 
-    // Here's a sample of the functions available in
-    // `strings`. Since these are functions from the
-    // package, not methods on the string object itself,
-    // we need pass the string in question as the first
-    // argument to the function. You can find more
-    // functions in the [`strings`](http://golang.org/pkg/strings/)
-    // package docs.
+    // Ось пирклади функцій що доступні в `strings`.
+    // Оскільки це функції пакунку, а не власні методи
+    // обєкту рядка, нам необхідно передавати рядок першим
+    // аргументом прямо. Ви можете отримати більше інфомарції
+    // з сторінки документації пакету [`strings`](http://golang.org/pkg/strings/).
     p("Contains:  ", s.Contains("test", "es"))
     p("Count:     ", s.Count("test", "t"))
     p("HasPrefix: ", s.HasPrefix("test", "te"))
@@ -34,16 +32,15 @@ func main() {
     p("ToUpper:   ", s.ToUpper("test"))
     p()
 
-    // Not part of `strings`, but worth mentioning here, are
-    // the mechanisms for getting the length of a string in
-    // bytes and getting a byte by index.
+    // Це не частина пакунка, але варто згадати тут, то як
+    // отримати довжину рядку у байтах та власне, як отримати
+    // байт за індексом.
     p("Len: ", len("hello"))
     p("Char:", "hello"[1])
 }
 
-// Note that `len` and indexing above work at the byte level.
-// Go uses UTF-8 encoded strings, so this is often useful
-// as-is. If you're working with potentially multi-byte
-// characters you'll want to use encoding-aware operations.
-// See [strings, bytes, runes and characters in Go](https://blog.golang.org/strings)
-// for more information.
+// Зауваження: `len` та індексування вище працюють на рівні байтів.
+// Go ж використовує UTF-8 кодовані рядки, і тому це часто буває корисно як-є.
+// Якщо ви працюєте потенційно з багатобайтними символами - скорше за все, вам зазочеться використовувати операції які зважатимуть на кодування.
+// Прочитайте ["рядки, байти, руни та символи в Go"](https://blog.golang.org/strings)
+// для отримання докладнішої інформації.

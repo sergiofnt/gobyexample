@@ -16,9 +16,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for <a href="http://en.wikipedia.org/wiki/Regular_expression">regular expressions</a>.
-Here are some examples of  common regexp-related tasks
-in Go.</p>
+            <p>Go надає вбудовану підтримку <a href="https://uk.wikipedia.org/wiki/%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D0%B8%D0%B9_%D0%B2%D0%B8%D1%80%D0%B0%D0%B7">регулярних виразів</a>.
+Ось, деякі приклади задач що так чи інакше пов’язані з регулярними виразами.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +31,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/YeSiBTfhFq"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/b3eK4JXk2OP"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,7 +66,7 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>This tests whether a pattern matches a string.</p>
+            <p>Тестуємо чи наш шаблон співпадає з рядком.</p>
 
           </td>
           <td class="code leading">
@@ -81,9 +80,10 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>Above we used a string pattern directly, but for
-other regexp tasks you&rsquo;ll need to <code>Compile</code> an
-optimized <code>Regexp</code> struct.</p>
+            <p>Рядком вище - ми прямо використали викорастали рядковий шаблон,
+але для інших задач пов’язаних з ругелярними виразами,
+нам необхідно буде <code>Compile</code> (скомпілювати) рядковий
+шаблон у <code>Regexp</code> структуру.</p>
 
           </td>
           <td class="code leading">
@@ -96,8 +96,9 @@ optimized <code>Regexp</code> struct.</p>
         
         <tr>
           <td class="docs">
-            <p>Many methods are available on these structs. Here&rsquo;s
-a match test like we saw earlier.</p>
+            <p>На таких структура доступно чимало різних методоів:
+ось наприклад співставлення з рядком, що ми бачили в
+першому прикладі.</p>
 
           </td>
           <td class="code leading">
@@ -110,7 +111,7 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This finds the match for the regexp.</p>
+            <p>А тут ми знаходимо збіг для нашого регулярного виразу.</p>
 
           </td>
           <td class="code leading">
@@ -123,9 +124,8 @@ a match test like we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>This also finds the first match but returns the
-start and end indexes for the match instead of the
-matching text.</p>
+            <p>Цей приклад теж знайде збіги, але поверне початковий
+та кінцевий індекси для збіру, замість рядка що збігається.</p>
 
           </td>
           <td class="code leading">
@@ -138,10 +138,10 @@ matching text.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Submatch</code> variants include information about
-both the whole-pattern matches and the submatches
-within those matches. For example this will return
-information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
+            <p>Варіації методів <code>Submatch</code> включать також інформацію про
+повні збіги та часткові збіги в межах повних. Для прикладу -
+це поверне інформацію про регулярні вирази <code>p([a-z]+)ch</code>
+та <code>([a-z]+)</code>.</p>
 
           </td>
           <td class="code leading">
@@ -154,8 +154,8 @@ information for both <code>p([a-z]+)ch</code> and <code>([a-z]+)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Similarly this will return information about the
-indexes of matches and submatches.</p>
+            <p>Схожим чином - ми отримаємо індекс повного і
+часткового збігу.</p>
 
           </td>
           <td class="code leading">
@@ -168,9 +168,8 @@ indexes of matches and submatches.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>All</code> variants of these functions apply to all
-matches in the input, not just the first. For
-example to find all matches for a regexp.</p>
+            <p>Варіації методів <code>All</code> аплікуються до усіх збігів, а не лише
+до першого. Приклад знаходження усіх збігів.</p>
 
           </td>
           <td class="code leading">
@@ -183,8 +182,7 @@ example to find all matches for a regexp.</p>
         
         <tr>
           <td class="docs">
-            <p>These <code>All</code> variants are available for the other
-functions we saw above as well.</p>
+            <p>Варіції <code>All</code> також доступні і іншим методам що ми вже бачили.</p>
 
           </td>
           <td class="code leading">
@@ -198,9 +196,8 @@ functions we saw above as well.</p>
         
         <tr>
           <td class="docs">
-            <p>Providing a non-negative integer as the second
-argument to these functions will limit the number
-of matches.</p>
+            <p>Другий аргумент - заданий додатнім цілим числом, допомогає
+обмежити кількість збігів - цим числом.</p>
 
           </td>
           <td class="code leading">
@@ -213,10 +210,11 @@ of matches.</p>
         
         <tr>
           <td class="docs">
-            <p>Our examples above had string arguments and used
-names like <code>MatchString</code>. We can also provide
-<code>[]byte</code> arguments and drop <code>String</code> from the
-function name.</p>
+            <p>Приклади що ми розглянули отримуються рядковий параметр і
+використовують імя типу <code>MatchString</code>, але ми також можемо
+надати аргументом і зріз байтів - <code>[]byte</code> та прибрати <code>String</code>
+з імені методу - і отримаємо аналогічний метод що буде працювати з
+зрізами байтів.</p>
 
           </td>
           <td class="code leading">
@@ -229,10 +227,10 @@ function name.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating constants with regular expressions
-you can use the <code>MustCompile</code> variation of
-<code>Compile</code>. A plain <code>Compile</code> won&rsquo;t work for
-constants because it has 2 return values.</p>
+            <p>Створюєчи константи регулярних виразів - ви можете
+використовувати варіацію <code>MustCompile</code> замість <code>Compile</code>.
+Простий <code>Compile</code> не спрацює з константом оскільки повертає
+два значення.</p>
 
           </td>
           <td class="code leading">
@@ -246,8 +244,8 @@ constants because it has 2 return values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>regexp</code> package can also be used to replace
-subsets of strings with other values.</p>
+            <p>Пакунок <code>regexp</code> можна використовувати для заміни чаткових-збігів
+рядків іншими значеннями.</p>
 
           </td>
           <td class="code leading">
@@ -260,8 +258,7 @@ subsets of strings with other values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Func</code> variant allows you to transform matched
-text with a given function.</p>
+            <p>Варіація  методів <code>Func</code> дозволяє трансформувати текст заданою функцією.</p>
 
           </td>
           <td class="code">
@@ -285,7 +282,7 @@ text with a given function.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run regular-expressions.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run regular-expressions.go
 <span class="go">true</span>
 <span class="go">true</span>
 <span class="go">peach</span>
@@ -306,8 +303,8 @@ text with a given function.</p>
         
         <tr>
           <td class="docs">
-            <p>For a complete reference on Go regular expressions check
-the <a href="http://golang.org/pkg/regexp/"><code>regexp</code></a> package docs.</p>
+            <p>Радимо перевірити повну документацію з пакунку
+<a href="http://golang.org/pkg/regexp/"><code>regexp</code></a>.</p>
 
           </td>
           <td class="code empty">
