@@ -16,10 +16,11 @@
         
         <tr>
           <td class="docs">
-            <p>A <code>panic</code> typically means something went unexpectedly
-wrong. Mostly we use it to fail fast on errors that
-shouldn&rsquo;t occur during normal operation, or that we
-aren&rsquo;t prepared to handle gracefully.</p>
+            <p><code>panic</code> зазвичай означає те, що щось пішло неочікувано
+погано. Дуже погано. В більшості випадків, ми
+використовуємо її задля швидкого провалу
+на помилках які зазвичай не мали б виникнути, або
+на помилках які ми не здадтні опрацювати акуратно.</p>
 
           </td>
           <td class="code empty leading">
@@ -33,7 +34,7 @@ aren&rsquo;t prepared to handle gracefully.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/c86oXzfQOt"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/J9ktvySEU4K"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,14 +67,14 @@ aren&rsquo;t prepared to handle gracefully.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use panic throughout this site to check for
-unexpected errors. This is the only program on the
-site designed to panic.</p>
+            <p>Ми скористаємось панікою  на цьому місці для перевірки
+на неочікувані помилки. Єдина мета цього шматка коду
+запаніуквати.</p>
 
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre>    <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;a problem&quot;</span><span class="p">)</span>
+            <div class="highlight"><pre>    <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;маємо проблему&quot;</span><span class="p">)</span>
 </pre></div>
 
           </td>
@@ -81,10 +82,10 @@ site designed to panic.</p>
         
         <tr>
           <td class="docs">
-            <p>A common use of panic is to abort if a function
-returns an error value that we don&rsquo;t know how to
-(or want to) handle. Here&rsquo;s an example of
-<code>panic</code>king if we get an unexpected error when creating a new file.</p>
+            <p>Загальний використання паніки це перервати виконання функції
+по повертає помилку яку ми не знаємо як (або не хочемо)
+опрацьовувати. Ось приклад <code>panic</code>и якщо ми отримали
+неочікувану помилку під час створення файлу.</p>
 
           </td>
           <td class="code">
@@ -105,15 +106,15 @@ returns an error value that we don&rsquo;t know how to
         
         <tr>
           <td class="docs">
-            <p>Running this program will cause it to panic, print
-an error message and goroutine traces, and exit with
-a non-zero status.</p>
+            <p>Запуск цієї программи призведе до її паніки, виводу
+повідомлення помилки та сліду горутина, та визоду з
+ненульовим статусом.</p>
 
           </td>
           <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run panic.go
-<span class="go">panic: a problem</span>
+<span class="go">panic: маємо проблему</span>
 </pre></div>
 
           </td>
@@ -137,9 +138,11 @@ a non-zero status.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that unlike some languages which use exceptions
-for handling of many errors, in Go it is idiomatic
-to use error-indicating return values wherever possible.</p>
+            <p>Зауважте що навідміну від інших мов що викоирстовують
+виключення для опрацювання помилок, в GO ідіоматично викорисовувати
+повернення помилок що вказують на проблеми як умога частіше.
+А вже з поверненням такої помилки нам може допомогти справитись
+<a href="recover">Відновлення</a>.</p>
 
           </td>
           <td class="code empty">
@@ -152,7 +155,7 @@ to use error-indicating return values wherever possible.</p>
       
       
       <p class="next">
-        Наступний приклад: <a href="defer">Відкладення</a>.
+        Наступний приклад: <a href="recover">Відновлення</a>.
       </p>
       
       <p class="footer">

@@ -1,8 +1,8 @@
-# Running this program will cause it to panic, print
-# an error message and goroutine traces, and exit with
-# a non-zero status.
+# Запуск цієї программи призведе до її паніки, виводу
+# повідомлення помилки та сліду горутина, та визоду з
+# ненульовим статусом.
 $ go run panic.go
-panic: a problem
+panic: маємо проблему
 
 goroutine 1 [running]:
 main.main()
@@ -10,6 +10,8 @@ main.main()
 ...
 exit status 2
 
-# Note that unlike some languages which use exceptions
-# for handling of many errors, in Go it is idiomatic
-# to use error-indicating return values wherever possible.
+# Зауважте що навідміну від інших мов що викоирстовують
+# виключення для опрацювання помилок, в GO ідіоматично викорисовувати
+# повернення помилок що вказують на проблеми як умога частіше.
+# А вже з поверненням такої помилки нам може допомогти справитись
+# [Відновлення](recover).
