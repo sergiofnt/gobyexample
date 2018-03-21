@@ -161,7 +161,7 @@
 закрито після того як в нього було записано.</p>
 
           </td>
-          <td class="code">
+          <td class="code leading">
 	        
             <div class="highlight"><pre><span class="gp">$</span> go run defer.go
 <span class="go">створєюмо</span>
@@ -172,11 +172,24 @@
           </td>
         </tr>
         
+        <tr>
+          <td class="docs">
+            <p>Тепер, після того як ми знаємо що таке <a href="panic">паніка</a>
+та відкладення, ми готові ознайомитись з концептом
+<a href="recover">відновлення</a>.</p>
+
+          </td>
+          <td class="code empty">
+	        
+            
+          </td>
+        </tr>
+        
       </table>
       
       
       <p class="next">
-        Наступний приклад: <a href="collection-functions">Функцій для роботи з колекціями</a>.
+        Наступний приклад: <a href="recover">Відновлення</a>.
       </p>
       
       <p class="footer">

@@ -40,6 +40,7 @@ Stateful Goroutines
 Сортування функціями|Sorting by Functions
 Паніка|Panic
 Відкладення|Defer
+Відновлення|Recover
 Функцій для роботи з колекціями|Collection Functions
 Рядкові Функції|String Functions
 Форматування Рядків|String Formatting
