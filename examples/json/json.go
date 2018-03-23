@@ -1,6 +1,5 @@
-// Go offers built-in support for JSON encoding and
-// decoding, including to and from built-in and custom
-// data types.
+// Go підтримує кодування та розкодування JSON на рівні
+// як базових типів даних так і ваших власних структур даних.
 
 package main
 
@@ -8,8 +7,8 @@ import "encoding/json"
 import "fmt"
 import "os"
 
-// We'll use these two structs to demonstrate encoding and
-// decoding of custom types below.
+// Ми використаємо ці структури щоб продемонструвати
+// кодування та розкодування не типових структур данних.
 type response1 struct {
     Page   int
     Fruits []string
@@ -21,9 +20,8 @@ type response2 struct {
 
 func main() {
 
-    // First we'll look at encoding basic data types to
-    // JSON strings. Here are some examples for atomic
-    // values.
+    // Спочатку розглянемо кодування базових типів в JSON рядки.
+    // Це в нас приклади атомарних значень.
     bolB, _ := json.Marshal(true)
     fmt.Println(string(bolB))
 
@@ -36,8 +34,8 @@ func main() {
     strB, _ := json.Marshal("gopher")
     fmt.Println(string(strB))
 
-    // And here are some for slices and maps, which encode
-    // to JSON arrays and objects as you'd expect.
+    // А це приклад з зрізами та мапам, що кодуються в JSON
+    // масиви та об’єкти саме так, як ми від них цього чекаємо.
     slcD := []string{"apple", "peach", "pear"}
     slcB, _ := json.Marshal(slcD)
     fmt.Println(string(slcB))
@@ -46,73 +44,74 @@ func main() {
     mapB, _ := json.Marshal(mapD)
     fmt.Println(string(mapB))
 
-    // The JSON package can automatically encode your
-    // custom data types. It will only include exported
-    // fields in the encoded output and will by default
-    // use those names as the JSON keys.
+    // Пакет JSON може автоматично кодувати ваші типи
+    // данних. Це дозволяє автоматично включати експортовані
+    // поля до вашого виводу. Ці поля по-замовчуванню
+    // будуть носити тіж назви що і поля структури яка
+    // кодувалась.
     res1D := &response1{
         Page:   1,
         Fruits: []string{"apple", "peach", "pear"}}
     res1B, _ := json.Marshal(res1D)
     fmt.Println(string(res1B))
 
-    // You can use tags on struct field declarations
-    // to customize the encoded JSON key names. Check the
-    // definition of `response2` above to see an example
-    // of such tags.
+    // Ви можете скористатись тегами (матеданими) під час
+    // декларації полів структури для налаштування на власний розсуд того
+    // як кодуватимуться імен ключів для JSON. Задля прикладу, переірте, подане вище, визначення структури `response2`.
     res2D := &response2{
         Page:   1,
         Fruits: []string{"apple", "peach", "pear"}}
     res2B, _ := json.Marshal(res2D)
     fmt.Println(string(res2B))
 
-    // Now let's look at decoding JSON data into Go
-    // values. Here's an example for a generic data
-    // structure.
+    // Тепер, розглянемо як декодувати JSON дані в
+    // значення Go, на прикладі узагальненої структури.
     byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
 
-    // We need to provide a variable where the JSON
-    // package can put the decoded data. This
-    // `map[string]interface{}` will hold a map of strings
-    // to arbitrary data types.
+    // Ми маємо надати змінну, де б пакет JSON був здатний
+    // зберігати розкодовані данні. Змінна dat` з типом
+    // `map[string]interface{}` використовуватиме як ми бачимо
+    // мапу з ключами типу рядок та довільним значенням.
     var dat map[string]interface{}
 
-    // Here's the actual decoding, and a check for
-    // associated errors.
+    // Власне розкодування та перевірка на супутні помилки
+    // відбувається тут.
     if err := json.Unmarshal(byt, &dat); err != nil {
         panic(err)
     }
     fmt.Println(dat)
 
-    // In order to use the values in the decoded map,
-    // we'll need to cast them to their appropriate type.
-    // For example here we cast the value in `num` to
-    // the expected `float64` type.
+    // Щоб використати данні з розкодованої мапи, нам потрібно буде
+    // скастувати (від англійської _to cast_ - надавати форму, що
+    // використовується в сенсі "перетворювати один тип
+    // данних у інший шляхом, що підтримується обраною мовою") їх
+    // до відповідного типу. Для прикладу - ми кастуємо значення
+    // значення `num` до очікуваного типу `float64`.
     num := dat["num"].(float64)
     fmt.Println(num)
 
-    // Accessing nested data requires a series of
-    // casts.
+    // Доступ до вкладених данних потребує від нас серій
+    // кастувань.
     strs := dat["strs"].([]interface{})
     str1 := strs[0].(string)
     fmt.Println(str1)
 
-    // We can also decode JSON into custom data types.
-    // This has the advantages of adding additional
-    // type-safety to our programs and eliminating the
-    // need for type assertions when accessing the decoded
-    // data.
+    // Дозволяється озкодувати JSON у певну структуру
+    // даних і слід надавати перевагу цьому методу оскільки
+    // він гарантує нашій программі  додаткову типобезпеку
+    // і усуває потребу в перевірках типу при використанні розкодованих
+    // даних.
     str := `{"page": 1, "fruits": ["apple", "peach"]}`
     res := response2{}
     json.Unmarshal([]byte(str), &res)
     fmt.Println(res)
     fmt.Println(res.Fruits[0])
 
-    // In the examples above we always used bytes and
-    // strings as intermediates between the data and
-    // JSON representation on standard out. We can also
-    // stream JSON encodings directly to `os.Writer`s like
-    // `os.Stdout` or even HTTP response bodies.
+    // В прикладах вище, ми використовували байти та рядки
+    // як посередники між даними і JSON представленням при
+    // виведенні до стандартного потоку виведення. Ми також
+    // можемо напрвляти поток кодувань на пряму в `os.Writer`
+    // так само як `os.Stdout` або навіть у HTTP Response.
     enc := json.NewEncoder(os.Stdout)
     d := map[string]int{"apple": 5, "lettuce": 7}
     enc.Encode(d)

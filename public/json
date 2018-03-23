@@ -16,9 +16,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for JSON encoding and
-decoding, including to and from built-in and custom
-data types.</p>
+            <p>Go підтримує кодування та розкодування JSON на рівні
+як базових типів даних так і ваших власних структур даних.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +31,7 @@ data types.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/UGeNKd-cw34"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/fi-ML5NmpQP"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,8 +54,8 @@ data types.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use these two structs to demonstrate encoding and
-decoding of custom types below.</p>
+            <p>Ми використаємо ці структури щоб продемонструвати
+кодування та розкодування не типових структур данних.</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +87,8 @@ decoding of custom types below.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at encoding basic data types to
-JSON strings. Here are some examples for atomic
-values.</p>
+            <p>Спочатку розглянемо кодування базових типів в JSON рядки.
+Це в нас приклади атомарних значень.</p>
 
           </td>
           <td class="code leading">
@@ -143,8 +141,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>And here are some for slices and maps, which encode
-to JSON arrays and objects as you&rsquo;d expect.</p>
+            <p>А це приклад з зрізами та мапам, що кодуються в JSON
+масиви та об’єкти саме так, як ми від них цього чекаємо.</p>
 
           </td>
           <td class="code leading">
@@ -173,10 +171,11 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
         
         <tr>
           <td class="docs">
-            <p>The JSON package can automatically encode your
-custom data types. It will only include exported
-fields in the encoded output and will by default
-use those names as the JSON keys.</p>
+            <p>Пакет JSON може автоматично кодувати ваші типи
+данних. Це дозволяє автоматично включати експортовані
+поля до вашого виводу. Ці поля по-замовчуванню
+будуть носити тіж назви що і поля структури яка
+кодувалась.</p>
 
           </td>
           <td class="code leading">
@@ -193,10 +192,9 @@ use those names as the JSON keys.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use tags on struct field declarations
-to customize the encoded JSON key names. Check the
-definition of <code>response2</code> above to see an example
-of such tags.</p>
+            <p>Ви можете скористатись тегами (матеданими) під час
+декларації полів структури для налаштування на власний розсуд того
+як кодуватимуться імен ключів для JSON. Задля прикладу, переірте, подане вище, визначення структури <code>response2</code>.</p>
 
           </td>
           <td class="code leading">
@@ -213,9 +211,8 @@ of such tags.</p>
         
         <tr>
           <td class="docs">
-            <p>Now let&rsquo;s look at decoding JSON data into Go
-values. Here&rsquo;s an example for a generic data
-structure.</p>
+            <p>Тепер, розглянемо як декодувати JSON дані в
+значення Go, на прикладі узагальненої структури.</p>
 
           </td>
           <td class="code leading">
@@ -228,10 +225,10 @@ structure.</p>
         
         <tr>
           <td class="docs">
-            <p>We need to provide a variable where the JSON
-package can put the decoded data. This
-<code>map[string]interface{}</code> will hold a map of strings
-to arbitrary data types.</p>
+            <p>Ми маємо надати змінну, де б пакет JSON був здатний
+зберігати розкодовані данні. Змінна dat<code>з типом
+</code>map[string]interface{}` використовуватиме як ми бачимо
+мапу з ключами типу рядок та довільним значенням.</p>
 
           </td>
           <td class="code leading">
@@ -244,8 +241,8 @@ to arbitrary data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual decoding, and a check for
-associated errors.</p>
+            <p>Власне розкодування та перевірка на супутні помилки
+відбувається тут.</p>
 
           </td>
           <td class="code leading">
@@ -261,10 +258,12 @@ associated errors.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use the values in the decoded map,
-we&rsquo;ll need to cast them to their appropriate type.
-For example here we cast the value in <code>num</code> to
-the expected <code>float64</code> type.</p>
+            <p>Щоб використати данні з розкодованої мапи, нам потрібно буде
+скастувати (від англійської <em>to cast</em> - надавати форму, що
+використовується в сенсі &ldquo;перетворювати один тип
+данних у інший шляхом, що підтримується обраною мовою&rdquo;) їх
+до відповідного типу. Для прикладу - ми кастуємо значення
+значення <code>num</code> до очікуваного типу <code>float64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -278,8 +277,8 @@ the expected <code>float64</code> type.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing nested data requires a series of
-casts.</p>
+            <p>Доступ до вкладених данних потребує від нас серій
+кастувань.</p>
 
           </td>
           <td class="code leading">
@@ -294,11 +293,11 @@ casts.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also decode JSON into custom data types.
-This has the advantages of adding additional
-type-safety to our programs and eliminating the
-need for type assertions when accessing the decoded
-data.</p>
+            <p>Дозволяється озкодувати JSON у певну структуру
+даних і слід надавати перевагу цьому методу оскільки
+він гарантує нашій программі  додаткову типобезпеку
+і усуває потребу в перевірках типу при використанні розкодованих
+даних.</p>
 
           </td>
           <td class="code leading">
@@ -315,11 +314,11 @@ data.</p>
         
         <tr>
           <td class="docs">
-            <p>In the examples above we always used bytes and
-strings as intermediates between the data and
-JSON representation on standard out. We can also
-stream JSON encodings directly to <code>os.Writer</code>s like
-<code>os.Stdout</code> or even HTTP response bodies.</p>
+            <p>В прикладах вище, ми використовували байти та рядки
+як посередники між даними і JSON представленням при
+виведенні до стандартного потоку виведення. Ми також
+можемо напрвляти поток кодувань на пряму в <code>os.Writer</code>
+так само як <code>os.Stdout</code> або навіть у HTTP Response.</p>
 
           </td>
           <td class="code">
@@ -365,10 +364,10 @@ stream JSON encodings directly to <code>os.Writer</code>s like
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ve covered the basic of JSON in Go here, but check
-out the <a href="http://blog.golang.org/2011/01/json-and-go.html">JSON and Go</a>
-blog post and <a href="http://golang.org/pkg/encoding/json/">JSON package docs</a>
-for more.</p>
+            <p>Ми наразі ознайомились з базовим JSON в
+Go але перевірте статтю <a href="http://blog.golang.org/2011/01/json-and-go.html">JSON та Go</a>
+та документацію <a href="http://golang.org/pkg/encoding/json/">пакету JSON</a>
+для отримання більш докладної інформації.</p>
 
           </td>
           <td class="code empty">
