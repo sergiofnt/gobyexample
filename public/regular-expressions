@@ -31,7 +31,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/b3eK4JXk2OP"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/GhZ5Xy_yNz8"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -244,7 +244,7 @@
         
         <tr>
           <td class="docs">
-            <p>Пакунок <code>regexp</code> можна використовувати для заміни чаткових-збігів
+            <p>Пакет <code>regexp</code> можна використовувати для заміни чаткових-збігів
 рядків іншими значеннями.</p>
 
           </td>
@@ -303,7 +303,7 @@
         
         <tr>
           <td class="docs">
-            <p>Радимо перевірити повну документацію з пакунку
+            <p>Радимо перевірити повну документацію з пакету
 <a href="http://golang.org/pkg/regexp/"><code>regexp</code></a>.</p>
 
           </td>

@@ -67,7 +67,7 @@ func main() {
     r = regexp.MustCompile("p([a-z]+)ch")
     fmt.Println(r)
 
-    // Пакунок `regexp` можна використовувати для заміни чаткових-збігів
+    // Пакет `regexp` можна використовувати для заміни чаткових-збігів
     // рядків іншими значеннями.
     fmt.Println(r.ReplaceAllString("a peach", "<fruit>"))
 

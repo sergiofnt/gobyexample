@@ -34,7 +34,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/Mt4fJYYD4WL"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/bj_b8H3FLmw"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -74,7 +74,7 @@
           <td class="docs">
             <p>Нам необхідно реалізувати <code>sort.Interface</code>, тобто створити методи
 <code>Len</code>, <code>Less</code> та <code>Swap</code> - що будуть оперувати на нашому типі данних,
-що дозволить нам використати узагальнену функцію <code>Sort</code> пакунка <code>sort</code>.
+що дозволить нам використати узагальнену функцію <code>Sort</code> пакету <code>sort</code>.
 <code>Len</code> та <code>Swap</code> зазвичай будуть схожими на інші свої аналоги.
 Найбільш відрізнятись буде  <code>Less</code>, вона буде реалізовувати власну
 логіку сортування, яка в нашому випадку полягає в порівнянні довжини

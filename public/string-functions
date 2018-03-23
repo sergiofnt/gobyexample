@@ -16,9 +16,9 @@
         
         <tr>
           <td class="docs">
-            <p>Пакунок стандартної бібліотеки <code>strings</code> надає чимало корисних
+            <p>Пакет стандартної бібліотеки <code>strings</code> надає чимало корисних
 фкнкцій що можна використовувати з рядками. Щоб уявити можливості
-пакунку <code>strings</code> приведемо кілька прикладів.</p>
+пакету <code>strings</code> приведемо кілька прикладів.</p>
 
           </td>
           <td class="code empty leading">
@@ -32,7 +32,7 @@
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/YzKcLDJQ5cO"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/QG__6Smrht0"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -81,7 +81,7 @@
         <tr>
           <td class="docs">
             <p>Ось пирклади функцій що доступні в <code>strings</code>.
-Оскільки це функції пакунку, а не власні методи
+Оскільки це функції пакету, а не власні методи
 обєкту рядка, нам необхідно передавати рядок першим
 аргументом прямо. Ви можете отримати більше інфомарції
 з сторінки документації пакету <a href="http://golang.org/pkg/strings/"><code>strings</code></a>.</p>
@@ -109,7 +109,7 @@
         
         <tr>
           <td class="docs">
-            <p>Це не частина пакунка, але варто згадати тут, то як
+            <p>Це не частина пакету, але варто згадати тут, то як
 отримати довжину рядку у байтах та власне, як отримати
 байт за індексом.</p>
 
