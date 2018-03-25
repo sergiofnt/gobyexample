@@ -7,6 +7,7 @@ cd $TRAVIS_BUILD_DIR
 # clean up
 rm -f public/*
 
+MSG=$(git log -1 --oneline)
 # generate new files.
 cd public
 
@@ -36,5 +37,5 @@ if [[ -z $COMMIT ]]; then
 	echo "Updating pages @ gobyexample.com.ua branch"
 	git add --all
 	git commit -m "Travis CI | ${MSG}"
-	git push --dry-run "https://${GITHUB_TOKEN}@${GH}" gobyexample.com.ua
+	git push "https://${GITHUB_TOKEN}@${GH}" gobyexample.com.ua
 fi
