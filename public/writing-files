@@ -270,8 +270,8 @@ we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.
         Наступний приклад: <a href="line-filters">Рядкові Фільтри</a>.
       </p>
       
-      <p class="footer">
-        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/writing-files">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+	  <p class="footer">
+        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/writing-files">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>

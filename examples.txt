@@ -46,11 +46,11 @@ Stateful Goroutines
 Форматування Рядків|String Formatting
 Регулярні вирази|Regular Expressions
 JSON
-Time
+Час|Time
 Epoch
-Time Formatting / Parsing
-Random Numbers
-Number Parsing
+Форматування Часу|Time Formatting / Parsing
+Генерація випадкових чисел|Random Numbers
+Конвертація Тексту в Числа|Number Parsing
 URL Parsing
 SHA1 Хеші|SHA1 Hashes
 Кодування Base64|Base64 Encoding

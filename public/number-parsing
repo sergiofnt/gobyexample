@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go за Прикладом: Number Parsing</title>
+    <title>Go за Прикладом: Конвертація Тексту в Числа</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script type="text/javascript">
@@ -10,14 +10,14 @@
   </script>
   <body>
     <div class="example" id="number-parsing">
-      <h2><a href="./">Go за Прикладом</a>: Number Parsing</h2>
+      <h2><a href="./">Go за Прикладом</a>: Конвертація Тексту в Числа</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Parsing numbers from strings is a basic but common task
-in many programs; here&rsquo;s how to do it in Go.</p>
+            <p>Часто нам необхідно сконвертувати часло з рядкового
+значення і ось як це робити в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ in many programs; here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/N90EppECFk"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/Lq8H_62Lp55"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -40,8 +40,8 @@ in many programs; here&rsquo;s how to do it in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>The built-in package <code>strconv</code> provides the number
-parsing.</p>
+            <p>Конвертація з рядків в числа є можливою завдяки пакету
+<code>strconv</code>.</p>
 
           </td>
           <td class="code leading">
@@ -67,8 +67,9 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>With <code>ParseFloat</code>, this <code>64</code> tells how many bits of
-precision to parse.</p>
+            <p><code>64</code> щш ви бачите у фунції <code>ParseFloat</code> вказує на те
+до скількох бітів точності ми будемо конвернувати
+це число.</p>
 
           </td>
           <td class="code leading">
@@ -82,9 +83,9 @@ precision to parse.</p>
         
         <tr>
           <td class="docs">
-            <p>For <code>ParseInt</code>, the <code>0</code> means infer the base from
-the string. <code>64</code> requires that the result fit in 64
-bits.</p>
+            <p><code>0</code> в <code>ParseInt</code> вказує на те, що тип визначатиметься
+базуючись на фомарті у рядку, а <code>64</code> це вимога до
+результату поміститсть у 64 біти.</p>
 
           </td>
           <td class="code leading">
@@ -98,7 +99,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ParseInt</code> will recognize hex-formatted numbers.</p>
+            <p><code>ParseInt</code> може розпізнати навіть шістнадцяткові числа.</p>
 
           </td>
           <td class="code leading">
@@ -112,7 +113,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>ParseUint</code> is also available.</p>
+            <p>Як бачите <code>ParseUint</code> також доступний.</p>
 
           </td>
           <td class="code leading">
@@ -126,8 +127,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Atoi</code> is a convenience function for basic base-10
-<code>int</code> parsing.</p>
+            <p><code>Atoi</code> зручно використовувати для конвертації
+числа за основою 10 (десятичного) в ціле число.</p>
 
           </td>
           <td class="code leading">
@@ -141,7 +142,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse functions return an error on bad input.</p>
+            <p>Якщо на вхід подано &ldquo;погані данні&rdquo; - ми маємо
+можливість перехопити помилку.</p>
 
           </td>
           <td class="code">
@@ -164,13 +166,13 @@ bits.</p>
           </td>
           <td class="code leading">
 	        
-            <div class="highlight"><pre><span class="gp">$</span> go run number-parsing.go 
+            <div class="highlight"><pre><span class="gp">$</span> go run number-parsing.go
 <span class="go">1.234</span>
 <span class="go">123</span>
 <span class="go">456</span>
 <span class="go">789</span>
 <span class="go">135</span>
-<span class="go">strconv.ParseInt: parsing &quot;wat&quot;: invalid syntax</span>
+<span class="go">strconv.Atoi: parsing &quot;wat&quot;: invalid syntax</span>
 </pre></div>
 
           </td>
@@ -178,7 +180,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another common parsing task: URLs.</p>
+            <p>Далі ми розглянемо іще один з вид роботи з
+текстом : розбір URLs на складові.</p>
 
           </td>
           <td class="code empty">
@@ -194,8 +197,8 @@ bits.</p>
         Наступний приклад: <a href="url-parsing">URL Parsing</a>.
       </p>
       
-      <p class="footer">
-        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/number-parsing">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+	  <p class="footer">
+        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/number-parsing">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>

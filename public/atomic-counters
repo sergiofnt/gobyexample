@@ -203,8 +203,8 @@
         Наступний приклад: <a href="mutexes">Mutexes</a>.
       </p>
       
-      <p class="footer">
-        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/atomic-counters">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+	  <p class="footer">
+        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/atomic-counters">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>

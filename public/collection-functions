@@ -327,8 +327,8 @@ Go не підтримує узагальнення, в Go загальнопр�
         Наступний приклад: <a href="string-functions">Рядкові Функції</a>.
       </p>
       
-      <p class="footer">
-        Створено <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Перекладено <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгук</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/collection-functions">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+	  <p class="footer">
+        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/collection-functions">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
       </p>
     </div>
   </body>
