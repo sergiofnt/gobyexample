@@ -3,9 +3,4 @@ language: go
 go: "1.10"
 
 script: ./tests.sh
-
-deploy:
-  provider: script
-  script:   ./deploy.sh
-  on:
-      branch: ukrainian
+after_success: ./deploy.sh
