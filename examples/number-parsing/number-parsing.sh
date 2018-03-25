@@ -1,9 +1,10 @@
-$ go run number-parsing.go 
+$ go run number-parsing.go
 1.234
 123
 456
 789
 135
-strconv.ParseInt: parsing "wat": invalid syntax
+strconv.Atoi: parsing "wat": invalid syntax
 
-# Next we'll look at another common parsing task: URLs.
+# Далі ми розглянемо іще один з вид роботи з
+# текстом : розбір URLs на складові.

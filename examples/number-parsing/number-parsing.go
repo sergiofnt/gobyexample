@@ -1,40 +1,42 @@
-// Parsing numbers from strings is a basic but common task
-// in many programs; here's how to do it in Go.
+// Часто нам необхідно сконвертувати часло з рядкового
+// значення і ось як це робити в Go.
 
 package main
 
-// The built-in package `strconv` provides the number
-// parsing.
+// Конвертація з рядків в числа є можливою завдяки пакету
+// `strconv`.
 import "strconv"
 import "fmt"
 
 func main() {
 
-    // With `ParseFloat`, this `64` tells how many bits of
-    // precision to parse.
+    // `64` щш ви бачите у фунції `ParseFloat` вказує на те
+    // до скількох бітів точності ми будемо конвернувати
+    // це число.
     f, _ := strconv.ParseFloat("1.234", 64)
     fmt.Println(f)
 
-    // For `ParseInt`, the `0` means infer the base from
-    // the string. `64` requires that the result fit in 64
-    // bits.
+    // `0` в `ParseInt` вказує на те, що тип визначатиметься
+    // базуючись на фомарті у рядку, а `64` це вимога до
+    // результату поміститсть у 64 біти.
     i, _ := strconv.ParseInt("123", 0, 64)
     fmt.Println(i)
 
-    // `ParseInt` will recognize hex-formatted numbers.
+    // `ParseInt` може розпізнати навіть шістнадцяткові числа.
     d, _ := strconv.ParseInt("0x1c8", 0, 64)
     fmt.Println(d)
 
-    // A `ParseUint` is also available.
+    // Як бачите `ParseUint` також доступний.
     u, _ := strconv.ParseUint("789", 0, 64)
     fmt.Println(u)
 
-    // `Atoi` is a convenience function for basic base-10
-    // `int` parsing.
+    // `Atoi` зручно використовувати для конвертації
+    // числа за основою 10 (десятичного) в ціле число.
     k, _ := strconv.Atoi("135")
     fmt.Println(k)
 
-    // Parse functions return an error on bad input.
+    // Якщо на вхід подано "погані данні" - ми маємо
+    // можливість перехопити помилку.
     _, e := strconv.Atoi("wat")
     fmt.Println(e)
 }
