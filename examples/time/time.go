@@ -1,5 +1,5 @@
-// Go offers extensive support for times and durations;
-// here are some examples.
+// Go має об’ємну підтримку часових значеннь
+// та значеннь тривалості. Розглянемо наступні приклади.
 
 package main
 
@@ -9,19 +9,19 @@ import "time"
 func main() {
     p := fmt.Println
 
-    // We'll start by getting the current time.
+    // Розмочнемо з отримання поточного часу.
     now := time.Now()
     p(now)
 
-    // You can build a `time` struct by providing the
-    // year, month, day, etc. Times are always associated
-    // with a `Location`, i.e. time zone.
+    // Ми можемо збудувати структуру часу надаючи значення
+    // рік, місяць, день та інше. Час завжди ассоційований
+    // з Розташуванням, інакше кажучи з часовою зоною.
     then := time.Date(
         2009, 11, 17, 20, 34, 58, 651387237, time.UTC)
     p(then)
 
-    // You can extract the various components of the time
-    // value as expected.
+    // Ми можемо скористатись з різних частинок структури
+    // значення часу.
     p(then.Year())
     p(then.Month())
     p(then.Day())
@@ -31,31 +31,32 @@ func main() {
     p(then.Nanosecond())
     p(then.Location())
 
-    // The Monday-Sunday `Weekday` is also available.
+    // Також доступне для використання день тижня за
+    // допомогою функції `Weekday`.
     p(then.Weekday())
 
-    // These methods compare two times, testing if the
-    // first occurs before, after, or at the same time
-    // as the second, respectively.
+    // Наступні методи порівнють два часи, перевіряючи
+    // чи трапилась подію у відповідності до іншого часу
+    // до, після або в тоже момент (з точністю до секунди) відповідно
     p(then.Before(now))
     p(then.After(now))
     p(then.Equal(now))
 
-    // The `Sub` methods returns a `Duration` representing
-    // the interval between two times.
+    // `Sub` або різниця метод поверне `Duration` (тривалість) що
+    // предсталвятиме інтервал між двома подіями.
     diff := now.Sub(then)
     p(diff)
 
-    // We can compute the length of the duration in
-    // various units.
+    // Ми навіть можемо порахувати довжину тривалості у різноманітних
+    // вечелинах.
     p(diff.Hours())
     p(diff.Minutes())
     p(diff.Seconds())
     p(diff.Nanoseconds())
 
-    // You can use `Add` to advance a time by a given
-    // duration, or with a `-` to move backwards by a
-    // duration.
+    // Ми можемо навіть скористатись методом `Add` для збільчення часу на
+    // певну тривалість або зменшеня якщо буде використано
+    // тривалість зі знаком мінус.
     p(then.Add(diff))
     p(then.Add(-diff))
 }
