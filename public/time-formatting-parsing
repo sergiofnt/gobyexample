@@ -16,8 +16,8 @@
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Підтримка форматування та розбору (з рядків) часу
+в Go організована через шаблонізовані рядкові літерали.</p>
 
           </td>
           <td class="code empty leading">
@@ -31,7 +31,7 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-	        <a href="http://play.golang.org/p/BFw556nWcM"><img title="Run code" src="play.png" class="run" /></a>
+	        <a href="http://play.golang.org/p/0mRSWZ2yLxf"><img title="Run code" src="play.png" class="run" /></a>
             <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,9 +66,8 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>Це простий приклад форматування часу згідно до RFC3339
+використовуючи відповідну часову константу.</p>
 
           </td>
           <td class="code leading">
@@ -82,7 +81,8 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>Парсинг рядку в час ивкористовує теж значення <code>вигляду</code>,
+що і <code>Format</code>.</p>
 
           </td>
           <td class="code leading">
@@ -98,13 +98,14 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p>І <code>Format</code>, і <code>Parse</code> використовують для розпізнавання часу
+строки з прикладами. Зазвичай ви будете використовувати
+вже готові константи пакету <code>time</code> але, ви можете створювати свої власні
+шаблони для розпізнання часу. Такі шаблони повинні використовувати
+посилання на час <code>Mon Jan 2 15:04:05 MST 2006</code> щоб &ldquo;відтворити&rdquo; шаблон
+за яким час можна розпізнати/відформатувати у відповідний рядок/час.
+Приклад часу мусить бути таким як показано: рік 2006,
+15 для годни, Monday відповідно для дня тижня, ну і так далі.</p>
 
           </td>
           <td class="code leading">
@@ -122,9 +123,9 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>Чисто для числового представлення ви також можете
+використовувати стандартне рядкове форматування
+за допомогою доступних компонентів значення часу.</p>
 
           </td>
           <td class="code leading">
@@ -139,8 +140,8 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p><code>Parse</code> поверне помилку (якщо вхідна змінна деформована)
+з поясненням в чому виникла проблема.</p>
 
           </td>
           <td class="code">
