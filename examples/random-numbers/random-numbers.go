@@ -1,6 +1,5 @@
-// Go's `math/rand` package provides
-// [pseudorandom number](http://en.wikipedia.org/wiki/Pseudorandom_number_generator)
-// generation.
+// Пакет `math/rand` дозволяє реалізовувати генерацію
+// [псевдовипадкових чисел](https://uk.wikipedia.org/wiki/Генератор_псевдовипадкових_чисел).
 
 package main
 
@@ -10,38 +9,40 @@ import "math/rand"
 
 func main() {
 
-    // For example, `rand.Intn` returns a random `int` n,
+    // Наприклад, `rand.Intn` повертає випадкове ціле число (`int`) n,
     // `0 <= n < 100`.
     fmt.Print(rand.Intn(100), ",")
     fmt.Print(rand.Intn(100))
     fmt.Println()
 
-    // `rand.Float64` returns a `float64` `f`,
+    // А `rand.Float64` поверне випадкове число з плаваючою комою `float64` `f`,
     // `0.0 <= f < 1.0`.
     fmt.Println(rand.Float64())
 
-    // This can be used to generate random floats in
-    // other ranges, for example `5.0 <= f' < 10.0`.
+    // Це може бути в нагоди при генерації чисел в діапазонах,
+    // наприклад `5.0 <= f' < 10.0`.
     fmt.Print((rand.Float64()*5)+5, ",")
     fmt.Print((rand.Float64() * 5) + 5)
     fmt.Println()
 
-    // The default number generator is deterministic, so it'll
-    // produce the same sequence of numbers each time by default.
-    // To produce varying sequences, give it a seed that changes.
-    // Note that this is not safe to use for random numbers you
-    // intend to be secret, use `crypto/rand` for those.
+    // Станадартний генератор чисел детермінований, отже він буде
+    // видавати тіж самі послідовності з чисел кожного разу.
+    // Щоб отримати послідовності, які будуть мінятись, нам необхідно
+    // надати початкове значення, або "seed" як його ще називають.
+    // Зауваження - це не дуже безпечно використовувати випадкові
+    // числа що мають триматись в секреті, скористайтесь
+    // пакетом `crypto/rand` для цих цілей.
     s1 := rand.NewSource(time.Now().UnixNano())
     r1 := rand.New(s1)
 
-    // Call the resulting `rand.Rand` just like the
-    // functions on the `rand` package.
+    // Виклик результуючого `rand.Rand` проходить аналогічно функціям
+    // пакету `rand`.
     fmt.Print(r1.Intn(100), ",")
     fmt.Print(r1.Intn(100))
     fmt.Println()
 
-    // If you seed a source with the same number, it
-    // produces the same sequence of random numbers.
+    // Якщо початковим значенням буде одне і теж число
+    // результат теж буде однаковий для різних викликів генераторів.
     s2 := rand.NewSource(42)
     r2 := rand.New(s2)
     fmt.Print(r2.Intn(100), ",")
