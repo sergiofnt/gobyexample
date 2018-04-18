@@ -44,7 +44,7 @@ for path in $paths; do
 		echo "Generating updated version of $path"
 		gofmt -w=true $path
 		gbe_to_4spaces $path
-		go run tools/measure/measure.go
-		go run tools/generate/generate.go
+		go run tools/measurer/measure.go
+		go run tools/generator/generate.go
 	fi
 done

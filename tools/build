@@ -3,5 +3,5 @@
 set -e
 
 tools/format
-go run tools/measure/measure.go
-go run tools/generate/generate.go
+go run tools/measurer/measure.go
+go run tools/generator/generate.go
