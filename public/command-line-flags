@@ -1,149 +1,137 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Командний Рядок - Прапорці</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="command-line-flags">
-      <h2><a href="./">Go за Прикладом</a>: Командний Рядок - Прапорці</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#.D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D1.82_.D0.BA.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D0.B8"><em>Прапорці командного рядку</em></a> це загально прийнятий
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Командний Рядок - Прапорці</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="command-line-flags">
+	<h2><a href="./">Go за Прикладом</a>: Командний Рядок - Прапорці</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#.D0.A4.D0.BE.D1.80.D0.BC.D0.B0.D1.82_.D0.BA.D0.BE.D0.BC.D0.B0.D0.BD.D0.B4.D0.B8"><em>Прапорці командного рядку</em></a> це загально прийнятий
 спосіб вказувати налаштування для программ
 призначений для командного рядку. Наприклад,
 в <code>wc -l</code> прапорецем є <code>-l</code></p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/xaRuAnoAGiG"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/xaRuAnoAGiG"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Пакет Go <code>flag</code> підтримує основні операції
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Пакет Go <code>flag</code> підтримує основні операції
 розбору прапорців командного рядку.
 Ми скористаємось цим пакетом, щоб створити
 власну программу для командного рядка.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;flag&quot;</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;flag&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Основні декларування прапорців доступні для рядків,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Основні декларування прапорців доступні для рядків,
 цілих чисел та логічного типу данних. В цьому прикладі,
 ми декларуємо прапорець <code>word</code> з стандартним значенням
 <code>&quot;foo&quot;</code> та короткою довідкою. Функція <code>flag.String</code>
 повертає вказівник рядка (а не рядкову змінну), ми ще
 побачимо як користуватись таким вказівником трошки нижче.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">wordPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;word&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;a string&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">wordPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;word&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;a string&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Тут ми декларуємо прапорці <code>numb</code> та <code>fork</code>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Тут ми декларуємо прапорці <code>numb</code> та <code>fork</code>
 використовуючи вже знаомий по прапорцю <code>word</code> підхід.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">numbPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Int</span><span class="p">(</span><span class="s">&quot;numb&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s">&quot;an int&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">numbPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Int</span><span class="p">(</span><span class="s">&quot;numb&quot;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s">&quot;an int&quot;</span><span class="p">)</span>
     <span class="nx">boolPtr</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">Bool</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&quot;a bool&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Також можливо декларувати налаштування таким чином
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Також можливо декларувати налаштування таким чином
 щоб вже існуюча змінна прийняла на себе значення
 передане прапорцю. Зауважте, що потрібно передати
 вказівник цієї змінної функції що декларує прапорець.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">svar</span> <span class="kt">string</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">svar</span> <span class="kt">string</span>
     <span class="nx">flag</span><span class="p">.</span><span class="nx">StringVar</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">svar</span><span class="p">,</span> <span class="s">&quot;svar&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span> <span class="s">&quot;a string var&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Як тільки усі прапорці декларовані, викличемо <code>flag.Parse()</code>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Як тільки усі прапорці декларовані, викличемо <code>flag.Parse()</code>
 щоб виконати аналіз конмадного рядку.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">flag</span><span class="p">.</span><span class="nx">Parse</span><span class="p">()</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">flag</span><span class="p">.</span><span class="nx">Parse</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми просто виведемо на екран усі розпізнані налаштуванняч та
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми просто виведемо на екран усі розпізнані налаштуванняч та
 позиційні аргументи. Зауважте, що нам потрібно розіменувати
 вказівник, наприклад <code>*wordPtr</code>, щоб добути справжнє значення
 налаштування.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;word:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">wordPtr</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;word:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">wordPtr</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;numb:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">numbPtr</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;fork:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">boolPtr</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;svar:&quot;</span><span class="p">,</span> <span class="nx">svar</span><span class="p">)</span>
@@ -151,37 +139,33 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Щоб проексперементувати з прапорцями командного рядку,
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Щоб проексперементувати з прапорцями командного рядку,
 краще всього спершу скомпілювати нашу программу і вже
 потім запускати двійковий файл напряму.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go build command-line-flags.go
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go build command-line-flags.go
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Спробуйте спершу скомпільовану программу давши
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Спробуйте спершу скомпільовану программу давши
 значення усім прапорцям.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt -numb<span class="o">=</span><span class="m">7</span> -fork -svar<span class="o">=</span>flag
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt -numb<span class="o">=</span><span class="m">7</span> -fork -svar<span class="o">=</span>flag
 <span class="go">word: opt</span>
 <span class="go">numb: 7</span>
 <span class="go">fork: true</span>
@@ -189,18 +173,16 @@
 <span class="go">tail: []</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Зауважте, що якщо ви пропустите прапорці, вони
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Зауважте, що якщо ви пропустите прапорці, вони
 автоматично приймуть свої стандартні налаштування.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt
 <span class="go">word: opt</span>
 <span class="go">numb: 42</span>
 <span class="go">fork: false</span>
@@ -208,36 +190,32 @@
 <span class="go">tail: []</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Заключні позиційні аргументи можуть бути вказані після
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Заключні позиційні аргументи можуть бути вказані після
 будь яких прапорців.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3
 <span class="go">word: opt</span>
 <span class="go">...</span>
 <span class="go">tail: [a1 a2 a3]</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Note that the <code>flag</code> package requires all flags to
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Note that the <code>flag</code> package requires all flags to
 appear before positional arguments (otherwise the flags
 will be interpreted as positional arguments).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3 -numb<span class="o">=</span>7
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -word<span class="o">=</span>opt a1 a2 a3 -numb<span class="o">=</span>7
 <span class="go">word: opt</span>
 <span class="go">numb: 42</span>
 <span class="go">fork: false</span>
@@ -245,18 +223,16 @@ will be interpreted as positional arguments).</p>
 <span class="go">tail: [a1 a2 a3 -numb=7]</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Скористайтес прапорцями <code>-h</code> або <code>--help</code> щоб отримати автоматично
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Скористайтес прапорцями <code>-h</code> або <code>--help</code> щоб отримати автоматично
 згенеровану довідку по роботі з команднним рядком программи.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -h
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -h
 <span class="go">Usage of ./command-line-flags:</span>
 <span class="go">  -fork=false: a bool</span>
 <span class="go">  -numb=42: an int</span>
@@ -264,49 +240,46 @@ will be interpreted as positional arguments).</p>
 <span class="go">  -word=&quot;foo&quot;: a string</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Якщо ви вкажете прапорець, якиц не було вказано в нашій программі,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо ви вкажете прапорець, якиц не було вказано в нашій программі,
 у відповідь, ви отримаєте повідомлення помилки та
 (повторно) тест довідки.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -wat
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-flags -wat
 <span class="go">flag provided but not defined: -wat</span>
 <span class="go">Usage of ./command-line-flags:</span>
 <span class="go">...</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Далі, ми розгялдемо змінні середовища, інший
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Далі, ми розгялдемо змінні середовища, інший
 загальноприйнятий метод параметризації програм.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="environment-variables">Environment Variables</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/command-line-flags">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="environment-variables">Environment Variables</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/command-line-flags">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

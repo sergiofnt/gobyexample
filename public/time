@@ -1,109 +1,101 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Час</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="time">
-      <h2><a href="./">Go за Прикладом</a>: Час</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Go має об’ємну підтримку часових значеннь
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Час</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="time">
+	<h2><a href="./">Go за Прикладом</a>: Час</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Go має об’ємну підтримку часових значеннь
 та значеннь тривалості. Розглянемо наступні приклади.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/Er97T2i_vd2"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/Er97T2i_vd2"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;time&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">p</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Розмочнемо з отримання поточного часу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Розмочнемо з отримання поточного часу.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">now</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">()</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">now</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми можемо збудувати структуру часу надаючи значення
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми можемо збудувати структуру часу надаючи значення
 рік, місяць, день та інше. Час завжди ассоційований
 з Розташуванням, інакше кажучи з часовою зоною.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">then</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Date</span><span class="p">(</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">then</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Date</span><span class="p">(</span>
         <span class="mi">2009</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">651387237</span><span class="p">,</span> <span class="nx">time</span><span class="p">.</span><span class="nx">UTC</span><span class="p">)</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми можемо скористатись з різних частинок структури
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми можемо скористатись з різних частинок структури
 значення часу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Year</span><span class="p">())</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Year</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Month</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Day</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Hour</span><span class="p">())</span>
@@ -113,100 +105,88 @@
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Location</span><span class="p">())</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Також доступне для використання день тижня за
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Також доступне для використання день тижня за
 допомогою функції <code>Weekday</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Weekday</span><span class="p">())</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Weekday</span><span class="p">())</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Наступні методи порівнють два часи, перевіряючи
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Наступні методи порівнють два часи, перевіряючи
 чи трапилась подію у відповідності до іншого часу
 до, після або в тоже момент (з точністю до секунди) відповідно</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Before</span><span class="p">(</span><span class="nx">now</span><span class="p">))</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Before</span><span class="p">(</span><span class="nx">now</span><span class="p">))</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">After</span><span class="p">(</span><span class="nx">now</span><span class="p">))</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Equal</span><span class="p">(</span><span class="nx">now</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>Sub</code> або різниця метод поверне <code>Duration</code> (тривалість) що
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Sub</code> або різниця метод поверне <code>Duration</code> (тривалість) що
 предсталвятиме інтервал між двома подіями.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">diff</span> <span class="o">:=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">Sub</span><span class="p">(</span><span class="nx">then</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">diff</span> <span class="o">:=</span> <span class="nx">now</span><span class="p">.</span><span class="nx">Sub</span><span class="p">(</span><span class="nx">then</span><span class="p">)</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми навіть можемо порахувати довжину тривалості у різноманітних
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми навіть можемо порахувати довжину тривалості у різноманітних
 вечелинах.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">Hours</span><span class="p">())</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">Hours</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">Minutes</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">Seconds</span><span class="p">())</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">diff</span><span class="p">.</span><span class="nx">Nanoseconds</span><span class="p">())</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми можемо навіть скористатись методом <code>Add</code> для збільчення часу на
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми можемо навіть скористатись методом <code>Add</code> для збільчення часу на
 певну тривалість або зменшеня якщо буде використано
 тривалість зі знаком мінус.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">diff</span><span class="p">))</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="nx">diff</span><span class="p">))</span>
     <span class="nx">p</span><span class="p">(</span><span class="nx">then</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="o">-</span><span class="nx">diff</span><span class="p">))</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run time.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run time.go
 <span class="go">2018-03-26 11:17:26.489645943 +0300 EEST m=+0.000299106</span>
 <span class="go">2009-11-17 20:34:58.651387237 +0000 UTC</span>
 <span class="go">2009</span>
@@ -230,30 +210,29 @@
 <span class="go">2001-07-12 08:52:30.813128531 +0000 UTC</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Далі ми розглянемо споріднену ідею часу відносно до епох Unix.</p>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Далі ми розглянемо споріднену ідею часу відносно до епох Unix.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="epoch">Epoch</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/time">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="epoch">Epoch</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/time">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

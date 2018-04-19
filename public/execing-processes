@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Exec'ing Processes</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="execing-processes">
-      <h2><a href="./">Go за Прикладом</a>: Exec'ing Processes</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>In the previous example we looked at
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Exec'ing Processes</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="execing-processes">
+	<h2><a href="./">Go за Прикладом</a>: Exec'ing Processes</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>In the previous example we looked at
 <a href="spawning-processes">spawning external processes</a>. We
 do this when we need an external process accessible to
 a running Go process. Sometimes we just want to
@@ -25,168 +30,150 @@ completely replace the current Go process with another
 implementation of the classic
 <a href="http://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
 function.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/neqdJ51KLN"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/neqdJ51KLN"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;syscall&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;syscall&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;os&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;os/exec&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>For our example we&rsquo;ll exec <code>ls</code>. Go requires an
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>For our example we&rsquo;ll exec <code>ls</code>. Go requires an
 absolute path to the binary we want to execute, so
 we&rsquo;ll use <code>exec.LookPath</code> to find it (probably
 <code>/bin/ls</code>).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">binary</span><span class="p">,</span> <span class="nx">lookErr</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">LookPath</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">binary</span><span class="p">,</span> <span class="nx">lookErr</span> <span class="o">:=</span> <span class="nx">exec</span><span class="p">.</span><span class="nx">LookPath</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">lookErr</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nb">panic</span><span class="p">(</span><span class="nx">lookErr</span><span class="p">)</span>
     <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>Exec</code> requires arguments in slice form (as
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Exec</code> requires arguments in slice form (as
 apposed to one big string). We&rsquo;ll give <code>ls</code> a few
 common arguments. Note that the first argument should
 be the program name.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">args</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;ls&quot;</span><span class="p">,</span> <span class="s">&quot;-a&quot;</span><span class="p">,</span> <span class="s">&quot;-l&quot;</span><span class="p">,</span> <span class="s">&quot;-h&quot;</span><span class="p">}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">args</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;ls&quot;</span><span class="p">,</span> <span class="s">&quot;-a&quot;</span><span class="p">,</span> <span class="s">&quot;-l&quot;</span><span class="p">,</span> <span class="s">&quot;-h&quot;</span><span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>Exec</code> also needs a set of <a href="environment-variables">environment variables</a>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Exec</code> also needs a set of <a href="environment-variables">environment variables</a>
 to use. Here we just provide our current
 environment.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">env</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Environ</span><span class="p">()</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">env</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Environ</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Here&rsquo;s the actual <code>syscall.Exec</code> call. If this call is
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Here&rsquo;s the actual <code>syscall.Exec</code> call. If this call is
 successful, the execution of our process will end
 here and be replaced by the <code>/bin/ls -a -l -h</code>
 process. If there is an error we&rsquo;ll get a return
 value.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">execErr</span> <span class="o">:=</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">Exec</span><span class="p">(</span><span class="nx">binary</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">env</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">execErr</span> <span class="o">:=</span> <span class="nx">syscall</span><span class="p">.</span><span class="nx">Exec</span><span class="p">(</span><span class="nx">binary</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">env</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">execErr</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nb">panic</span><span class="p">(</span><span class="nx">execErr</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>When we run our program it is replaced by <code>ls</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run execing-processes.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>When we run our program it is replaced by <code>ls</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run execing-processes.go
 <span class="go">total 16</span>
 <span class="go">drwxr-xr-x  4 mark 136B Oct 3 16:29 .</span>
 <span class="go">drwxr-xr-x 91 mark 3.0K Oct 3 12:50 ..</span>
 <span class="go">-rw-r--r--  1 mark 1.3K Oct 3 16:28 execing-processes.go</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Note that Go does not offer a classic Unix <code>fork</code>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Note that Go does not offer a classic Unix <code>fork</code>
 function. Usually this isn&rsquo;t an issue though, since
 starting goroutines, spawning processes, and exec&rsquo;ing
 processes covers most use cases for <code>fork</code>.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="signals">Signals</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/execing-processes">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="signals">Signals</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/execing-processes">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

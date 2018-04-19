@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Функцій для роботи з колекціями</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="collection-functions">
-      <h2><a href="./">Go за Прикладом</a>: Функцій для роботи з колекціями</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Часто, напотрібно щоб программи робили операції
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Функцій для роботи з колекціями</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="collection-functions">
+	<h2><a href="./">Go за Прикладом</a>: Функцій для роботи з колекціями</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Часто, напотрібно щоб программи робили операції
 по збору данних, наприклад вибір усіх елементів
 що задовільняють заданий предикат або розмітка усіх
 елементів у нову колекцію за допомогою користувацьких
@@ -26,62 +31,53 @@ Go не підтримує узагальнення, в Go загальнопр�
 практикою є надавати функцій що працюють з колекціями -
 якщо і коли вони будуть потрібні в ваших программах та
 типах данних.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ось деякі приклади, що оперують над зрізом рядків. Ви можете
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ось деякі приклади, що оперують над зрізом рядків. Ви можете
 використовувати їх для створення власного функціоналу.
 Зауважте що в деяких випадких можливо буде набагато ефективніше
 якщо б ви вставили код напряму без створення окремої функції.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/1q1_-4SP_gd"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/1q1_-4SP_gd"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;strings&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;strings&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Index повертає перший ідекс елемента який дорівнює <code>t</code>,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Index повертає перший ідекс елемента який дорівнює <code>t</code>,
 або -1 якщо співпадень не знайдено.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">v</span> <span class="o">==</span> <span class="nx">t</span> <span class="p">{</span>
             <span class="k">return</span> <span class="nx">i</span>
@@ -91,32 +87,28 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Include поверне <code>true</code> якщо рядок <code>t</code> знайдено у зрізі.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Include поверне <code>true</code> якщо рядок <code>t</code> знайдено у зрізі.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">Include</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">t</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">Index</span><span class="p">(</span><span class="nx">vs</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">0</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Any поверне <code>true</code> якщо хочаб один з рядків задовольняє <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D0%B0%D1%82">предикат</a> <code>f</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Any</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Any поверне <code>true</code> якщо хочаб один з рядків задовольняє <a href="https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D0%BA%D0%B0%D1%82">предикат</a> <code>f</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">Any</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="kc">true</span>
@@ -126,17 +118,15 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>All поверне <code>true</code> якщо усі рядки задовольняють предикат <code>f</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">All</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>All поверне <code>true</code> якщо усі рядки задовольняють предикат <code>f</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">All</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">!</span><span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">return</span> <span class="kc">false</span>
@@ -146,18 +136,16 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Filter поверне новий зріз, що містить усі рядки
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Filter поверне новий зріз, що містить усі рядки
 які задовільняють предикат <code>f</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Filter</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">Filter</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
     <span class="nx">vsf</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="k">for</span> <span class="nx">_</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
@@ -168,18 +156,16 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Map поверне новий зріз що містить результати роботи предиката
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Map поверне новий зріз що містить результати роботи предиката
 <code>f</code> над кожним рядком оригінального зріза.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">Map</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">Map</span><span class="p">(</span><span class="nx">vs</span> <span class="p">[]</span><span class="kt">string</span><span class="p">,</span> <span class="nx">f</span> <span class="kd">func</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="kt">string</span><span class="p">)</span> <span class="p">[]</span><span class="kt">string</span> <span class="p">{</span>
     <span class="nx">vsm</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">vs</span><span class="p">))</span>
     <span class="k">for</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">v</span> <span class="o">:=</span> <span class="k">range</span> <span class="nx">vs</span> <span class="p">{</span>
         <span class="nx">vsm</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nx">f</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span>
@@ -188,127 +174,109 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Приклад застосування функцій роботи з колеціями що
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Приклад застосування функцій роботи з колеціями що
 ми щойно переглянули.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">strs</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;plum&quot;</span><span class="p">}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">strs</span> <span class="p">=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">,</span> <span class="s">&quot;plum&quot;</span><span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Index</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">))</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Index</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Include</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;grape&quot;</span><span class="p">))</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Include</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="s">&quot;grape&quot;</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Any</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Any</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">All</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">All</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">HasPrefix</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;p&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Filter</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">Filter</span><span class="p">(</span><span class="nx">strs</span><span class="p">,</span> <span class="kd">func</span><span class="p">(</span><span class="nx">v</span> <span class="kt">string</span><span class="p">)</span> <span class="kt">bool</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">Contains</span><span class="p">(</span><span class="nx">v</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">)</span>
     <span class="p">}))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Више приведені приклади усі використовують анонімні
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Више приведені приклади усі використовують анонімні
 фукнції але ви можете використовувати і звичайні
 іменовні якщо вони задовольняють потрібний нам тип.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre><span class="p">}</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run collection-functions.go 
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run collection-functions.go 
 <span class="go">2</span>
 <span class="go">false</span>
 <span class="go">true</span>
@@ -317,19 +285,20 @@ Go не підтримує узагальнення, в Go загальнопр�
 <span class="go">[PEACH APPLE PEAR PLUM]</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="string-functions">Рядкові Функції</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/collection-functions">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+			</td>
+		</tr>
+	
+	</table>
+	
+
+
+	<p class="next">
+		Наступний приклад: <a href="string-functions">Рядкові Функції</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/collection-functions">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

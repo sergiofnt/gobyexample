@@ -1,180 +1,167 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Відновлення</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="recover">
-      <h2><a href="./">Go за Прикладом</a>: Відновлення</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Фукнція <em>recover</em> (або відновлення) може бути корисна
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Відновлення</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="recover">
+	<h2><a href="./">Go за Прикладом</a>: Відновлення</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Фукнція <em>recover</em> (або відновлення) може бути корисна
 лише працюючи в парі з <em>defer</em> щоб перехоплювати <em>panic</em>
 та відновлювати контроль виконання.</p>
-
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/PZidGVUet57"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/PZidGVUet57"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Основна мета цієї функції викликати паніку.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">errorFunc</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Основна мета цієї функції викликати паніку.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">errorFunc</span><span class="p">()</span> <span class="p">{</span>
     <span class="nb">panic</span><span class="p">(</span><span class="s">&quot;Паніка без причини&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Паніка буде викликана в цій функції, і наша ціль
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Паніка буде викликана в цій функції, і наша ціль
 перехопити цей стан та акуратно завершити роботу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">normalFunc</span><span class="p">()</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">normalFunc</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Перехоплення <em>panic</em>&lsquo;и та <em>recover</em> відбувається
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Перехоплення <em>panic</em>&lsquo;и та <em>recover</em> відбувається
 за допомогою відкладеного виклику який, як ви вже
 знаєте відбувається останньою дією виклику функції.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">defer</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="nx">r</span> <span class="o">:=</span> <span class="nb">recover</span><span class="p">();</span> <span class="nx">r</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
             <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Опрацювання паніки:&quot;</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Момент в який программа за<em>panic</em>&lsquo;ує.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">errorFunc</span><span class="p">()</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Момент в який программа за<em>panic</em>&lsquo;ує.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">errorFunc</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Цей рядок ніколи не буде надруковано.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Нормальний вихід&quot;</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Цей рядок ніколи не буде надруковано.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Нормальний вихід&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">normalFunc</span><span class="p">()</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Повернення з функції normalFunc.&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Запуск программи покаже як вона опрацювала
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Запуск программи покаже як вона опрацювала
 сигнал <em>panic</em>&lsquo;и та відновала свою роботу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run recover.go
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run recover.go
 <span class="go">Опрацювання паніки: Паніка без причини</span>
 <span class="go">Повернення з функції normalFunc.</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Власне <em>panic</em>&lsquo;а була перехоплена в момент коли вона мала б
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Власне <em>panic</em>&lsquo;а була перехоплена в момент коли вона мала б
 рівнем вище в main, і єдиний шлях зробити це є використання
 відкладення виклику функції що буде перевіряти чи потрібно
 функції робитит відновлення.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="collection-functions">Функцій для роботи з колекціями</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/recover">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="collection-functions">Функцій для роботи з колекціями</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/recover">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

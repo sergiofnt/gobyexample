@@ -1,80 +1,76 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Інтерфейси</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="interfaces">
-      <h2><a href="./">Go за Прикладом</a>: Інтерфейси</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p><em>Інтерфейси</em> - це іменовані коллекції описів методів.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/vklsFY9KPTu"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Інтерфейси</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="interfaces">
+	<h2><a href="./">Go за Прикладом</a>: Інтерфейси</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p><em>Інтерфейси</em> - це іменовані коллекції описів методів.</p>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/vklsFY9KPTu"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;math&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Базовий приклад інтерфейсу для геометричних фігур.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">geometry</span> <span class="kd">interface</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Базовий приклад інтерфейсу для геометричних фігур.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">geometry</span> <span class="kd">interface</span> <span class="p">{</span>
     <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span>
     <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Задля прикладу ми реалізуємо цей інтефейс для типів
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Задля прикладу ми реалізуємо цей інтефейс для типів
 <code>rect</code> (квадрат) та <code>circle</code> (круг).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">rect</span> <span class="kd">struct</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">rect</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">width</span><span class="p">,</span> <span class="nx">height</span> <span class="kt">float64</span>
 <span class="p">}</span>
 <span class="kd">type</span> <span class="nx">circle</span> <span class="kd">struct</span> <span class="p">{</span>
@@ -82,20 +78,18 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Щоб релізувати інтерфейс в Go, нам лише потрібно
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Щоб релізувати інтерфейс в Go, нам лише потрібно
 створити усі методі в цьому інтерфейсі. Як у
 прикладі де ми імплементуємо <code>geometry</code> для
 <code>rect</code> (квадрата).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">rect</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">rect</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">r</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">r</span><span class="p">.</span><span class="nx">height</span>
 <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">r</span> <span class="nx">rect</span><span class="p">)</span> <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
@@ -103,17 +97,15 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>І реалізація для <code>circle</code> (круга).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">circle</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>І реалізація для <code>circle</code> (круга).</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">circle</span><span class="p">)</span> <span class="nx">area</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">math</span><span class="p">.</span><span class="nx">Pi</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">radius</span> <span class="o">*</span> <span class="nx">c</span><span class="p">.</span><span class="nx">radius</span>
 <span class="p">}</span>
 <span class="kd">func</span> <span class="p">(</span><span class="nx">c</span> <span class="nx">circle</span><span class="p">)</span> <span class="nx">perim</span><span class="p">()</span> <span class="kt">float64</span> <span class="p">{</span>
@@ -121,73 +113,65 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Якщо параметр змінної є типом інтерфейсу,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо параметр змінної є типом інтерфейсу,
 то ми можемо викликати методи що перелічені
 у цьому інтерфейсі. Ось приклад загальнох
 функції <code>measure</code> що користується цією
 перевагою щоб працбвати на будьякій
 структурі що реалізує інтерфейс <code>geometry</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">measure</span><span class="p">(</span><span class="nx">g</span> <span class="nx">geometry</span><span class="p">)</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">measure</span><span class="p">(</span><span class="nx">g</span> <span class="nx">geometry</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">area</span><span class="p">())</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">perim</span><span class="p">())</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">r</span> <span class="o">:=</span> <span class="nx">rect</span><span class="p">{</span><span class="nx">width</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">height</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
     <span class="nx">c</span> <span class="o">:=</span> <span class="nx">circle</span><span class="p">{</span><span class="nx">radius</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Обидві структури <code>circle</code> (круг) і <code>rect</code> (квадрат)
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Обидві структури <code>circle</code> (круг) і <code>rect</code> (квадрат)
 реалізуються інтерфейс <code>geometry</code> отож ми можемо викостати
 їх зразки як аргумент до фукнції <code>measure</code>.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">measure</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">measure</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>
     <span class="nx">measure</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run interfaces.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run interfaces.go
 <span class="go">{3 4}</span>
 <span class="go">12</span>
 <span class="go">14</span>
@@ -196,31 +180,30 @@
 <span class="go">31.41592653589793</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Дізнайтесь більше про інтерфейси з
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Дізнайтесь більше про інтерфейси з
 <a href="http://jordanorelli.tumblr.com/post/32665860244/how-to-use-interfaces-in-go">цього чудового посту</a>.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="errors">Помилки</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/interfaces">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="errors">Помилки</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/interfaces">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

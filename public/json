@@ -1,66 +1,64 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: JSON</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="json">
-      <h2><a href="./">Go за Прикладом</a>: JSON</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Go підтримує кодування та розкодування JSON на рівні
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: JSON</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="json">
+	<h2><a href="./">Go за Прикладом</a>: JSON</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Go підтримує кодування та розкодування JSON на рівні
 як базових типів даних так і ваших власних структур даних.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/fi-ML5NmpQP"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/fi-ML5NmpQP"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;encoding/json&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;encoding/json&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;os&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми використаємо ці структури щоб продемонструвати
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми використаємо ці структури щоб продемонструвати
 кодування та розкодування не типових структур данних.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">response1</span> <span class="kd">struct</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">response1</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">Page</span>   <span class="kt">int</span>
     <span class="nx">Fruits</span> <span class="p">[]</span><span class="kt">string</span>
 <span class="p">}</span>
@@ -70,279 +68,245 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Спочатку розглянемо кодування базових типів в JSON рядки.
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Спочатку розглянемо кодування базових типів в JSON рядки.
 Це в нас приклади атомарних значень.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">bolB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">bolB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">bolB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">intB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">intB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">intB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fltB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="mf">2.34</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fltB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="mf">2.34</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">fltB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">strB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="s">&quot;gopher&quot;</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">strB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="s">&quot;gopher&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">strB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>А це приклад з зрізами та мапам, що кодуються в JSON
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>А це приклад з зрізами та мапам, що кодуються в JSON
 масиви та об’єкти саме так, як ми від них цього чекаємо.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">slcD</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">slcD</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}</span>
     <span class="nx">slcB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">slcD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">slcB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">mapD</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
     <span class="nx">mapB</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">mapD</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">mapB</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Пакет JSON може автоматично кодувати ваші типи
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Пакет JSON може автоматично кодувати ваші типи
 данних. Це дозволяє автоматично включати експортовані
 поля до вашого виводу. Ці поля по-замовчуванню
 будуть носити тіж назви що і поля структури яка
 кодувалась.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">res1D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">response1</span><span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">res1D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">response1</span><span class="p">{</span>
         <span class="nx">Page</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
         <span class="nx">Fruits</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}}</span>
     <span class="nx">res1B</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">res1D</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">res1B</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ви можете скористатись тегами (матеданими) під час
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ви можете скористатись тегами (матеданими) під час
 декларації полів структури для налаштування на власний розсуд того
 як кодуватимуться імен ключів для JSON. Задля прикладу, переірте, подане вище, визначення структури <code>response2</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">res2D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">response2</span><span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">res2D</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">response2</span><span class="p">{</span>
         <span class="nx">Page</span><span class="p">:</span>   <span class="mi">1</span><span class="p">,</span>
         <span class="nx">Fruits</span><span class="p">:</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">,</span> <span class="s">&quot;peach&quot;</span><span class="p">,</span> <span class="s">&quot;pear&quot;</span><span class="p">}}</span>
     <span class="nx">res2B</span><span class="p">,</span> <span class="nx">_</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Marshal</span><span class="p">(</span><span class="nx">res2D</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">res2B</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Тепер, розглянемо як декодувати JSON дані в
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Тепер, розглянемо як декодувати JSON дані в
 значення Go, на прикладі узагальненої структури.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">byt</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`{&quot;num&quot;:6.13,&quot;strs&quot;:[&quot;a&quot;,&quot;b&quot;]}`</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">byt</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">`{&quot;num&quot;:6.13,&quot;strs&quot;:[&quot;a&quot;,&quot;b&quot;]}`</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми маємо надати змінну, де б пакет JSON був здатний
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми маємо надати змінну, де б пакет JSON був здатний
 зберігати розкодовані данні. Змінна dat<code>з типом
 </code>map[string]interface{}` використовуватиме як ми бачимо
 мапу з ключами типу рядок та довільним значенням.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">dat</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">dat</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kd">interface</span><span class="p">{}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Власне розкодування та перевірка на супутні помилки
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Власне розкодування та перевірка на супутні помилки
 відбувається тут.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">byt</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">dat</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">(</span><span class="nx">byt</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">dat</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">dat</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Щоб використати данні з розкодованої мапи, нам потрібно буде
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Щоб використати данні з розкодованої мапи, нам потрібно буде
 скастувати (від англійської <em>to cast</em> - надавати форму, що
 використовується в сенсі &ldquo;перетворювати один тип
 данних у інший шляхом, що підтримується обраною мовою&rdquo;) їх
 до відповідного типу. Для прикладу - ми кастуємо значення
 значення <code>num</code> до очікуваного типу <code>float64</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">num</span> <span class="o">:=</span> <span class="nx">dat</span><span class="p">[</span><span class="s">&quot;num&quot;</span><span class="p">].(</span><span class="kt">float64</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">num</span> <span class="o">:=</span> <span class="nx">dat</span><span class="p">[</span><span class="s">&quot;num&quot;</span><span class="p">].(</span><span class="kt">float64</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Доступ до вкладених данних потребує від нас серій
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Доступ до вкладених данних потребує від нас серій
 кастувань.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">strs</span> <span class="o">:=</span> <span class="nx">dat</span><span class="p">[</span><span class="s">&quot;strs&quot;</span><span class="p">].([]</span><span class="kd">interface</span><span class="p">{})</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">strs</span> <span class="o">:=</span> <span class="nx">dat</span><span class="p">[</span><span class="s">&quot;strs&quot;</span><span class="p">].([]</span><span class="kd">interface</span><span class="p">{})</span>
     <span class="nx">str1</span> <span class="o">:=</span> <span class="nx">strs</span><span class="p">[</span><span class="mi">0</span><span class="p">].(</span><span class="kt">string</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">str1</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Дозволяється озкодувати JSON у певну структуру
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Дозволяється озкодувати JSON у певну структуру
 даних і слід надавати перевагу цьому методу оскільки
 він гарантує нашій программі  додаткову типобезпеку
 і усуває потребу в перевірках типу при використанні розкодованих
 даних.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">str</span> <span class="o">:=</span> <span class="s">`{&quot;page&quot;: 1, &quot;fruits&quot;: [&quot;apple&quot;, &quot;peach&quot;]}`</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">str</span> <span class="o">:=</span> <span class="s">`{&quot;page&quot;: 1, &quot;fruits&quot;: [&quot;apple&quot;, &quot;peach&quot;]}`</span>
     <span class="nx">res</span> <span class="o">:=</span> <span class="nx">response2</span><span class="p">{}</span>
     <span class="nx">json</span><span class="p">.</span><span class="nx">Unmarshal</span><span class="p">([]</span><span class="nb">byte</span><span class="p">(</span><span class="nx">str</span><span class="p">),</span> <span class="o">&amp;</span><span class="nx">res</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">Fruits</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>В прикладах вище, ми використовували байти та рядки
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>В прикладах вище, ми використовували байти та рядки
 як посередники між даними і JSON представленням при
 виведенні до стандартного потоку виведення. Ми також
 можемо напрвляти поток кодувань на пряму в <code>os.Writer</code>
 так само як <code>os.Stdout</code> або навіть у HTTP Response.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">enc</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">enc</span> <span class="o">:=</span> <span class="nx">json</span><span class="p">.</span><span class="nx">NewEncoder</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stdout</span><span class="p">)</span>
     <span class="nx">d</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&quot;apple&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s">&quot;lettuce&quot;</span><span class="p">:</span> <span class="mi">7</span><span class="p">}</span>
     <span class="nx">enc</span><span class="p">.</span><span class="nx">Encode</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run json.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run json.go
 <span class="go">true</span>
 <span class="go">1</span>
 <span class="go">2.34</span>
@@ -359,33 +323,32 @@
 <span class="go">{&quot;apple&quot;:5,&quot;lettuce&quot;:7}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми наразі ознайомились з базовим JSON в
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми наразі ознайомились з базовим JSON в
 Go але перевірте статтю <a href="http://blog.golang.org/2011/01/json-and-go.html">JSON та Go</a>
 та документацію <a href="http://golang.org/pkg/encoding/json/">пакету JSON</a>
 для отримання більш докладної інформації.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="time">Час</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/json">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="time">Час</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/json">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

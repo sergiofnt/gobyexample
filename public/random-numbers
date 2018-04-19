@@ -1,160 +1,146 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Генерація випадкових чисел</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="random-numbers">
-      <h2><a href="./">Go за Прикладом</a>: Генерація випадкових чисел</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Пакет <code>math/rand</code> дозволяє реалізовувати генерацію
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Генерація випадкових чисел</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="random-numbers">
+	<h2><a href="./">Go за Прикладом</a>: Генерація випадкових чисел</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Пакет <code>math/rand</code> дозволяє реалізовувати генерацію
 <a href="https://uk.wikipedia.org/wiki/Генератор_псевдовипадкових_чисел">псевдовипадкових чисел</a>.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/ZXSK8WnqTdR"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/ZXSK8WnqTdR"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;time&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;time&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;math/rand&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Наприклад, <code>rand.Intn</code> повертає випадкове ціле число (<code>int</code>) n,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Наприклад, <code>rand.Intn</code> повертає випадкове ціле число (<code>int</code>) n,
 <code>0 &lt;= n &lt; 100</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>А <code>rand.Float64</code> поверне випадкове число з плаваючою комою <code>float64</code> <code>f</code>,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>А <code>rand.Float64</code> поверне випадкове число з плаваючою комою <code>float64</code> <code>f</code>,
 <code>0.0 &lt;= f &lt; 1.0</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Float64</span><span class="p">())</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Float64</span><span class="p">())</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Це може бути в нагоди при генерації чисел в діапазонах,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Це може бути в нагоди при генерації чисел в діапазонах,
 наприклад <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">((</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Float64</span><span class="p">()</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">((</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Float64</span><span class="p">()</span><span class="o">*</span><span class="mi">5</span><span class="p">)</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">((</span><span class="nx">rand</span><span class="p">.</span><span class="nx">Float64</span><span class="p">()</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Станадартний генератор чисел детермінований, отже він буде
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Станадартний генератор чисел детермінований, отже він буде
 видавати тіж самі послідовності з чисел кожного разу.
 Щоб отримати послідовності, які будуть мінятись, нам необхідно
 надати початкове значення, або &ldquo;seed&rdquo; як його ще називають.
 Зауваження - це не дуже безпечно використовувати випадкові
 числа що мають триматись в секреті, скористайтесь
 пакетом <code>crypto/rand</code> для цих цілей.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">s1</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">NewSource</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">UnixNano</span><span class="p">())</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">s1</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">NewSource</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">UnixNano</span><span class="p">())</span>
     <span class="nx">r1</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="nx">s1</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Виклик результуючого <code>rand.Rand</code> проходить аналогічно функціям
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Виклик результуючого <code>rand.Rand</code> проходить аналогічно функціям
 пакету <code>rand</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">r1</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">r1</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">r1</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Якщо початковим значенням буде одне і теж число
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо початковим значенням буде одне і теж число
 результат теж буде однаковий для різних викликів генераторів.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">s2</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">NewSource</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">s2</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">NewSource</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
     <span class="nx">r2</span> <span class="o">:=</span> <span class="nx">rand</span><span class="p">.</span><span class="nx">New</span><span class="p">(</span><span class="nx">s2</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">r2</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="s">&quot;,&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nx">r2</span><span class="p">.</span><span class="nx">Intn</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
@@ -166,20 +152,18 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run random-numbers.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run random-numbers.go
 <span class="go">81,87</span>
 <span class="go">0.6645600532184904</span>
 <span class="go">7.1885709359349015,7.123187485356329</span>
@@ -188,32 +172,31 @@
 <span class="go">5,87</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Зверніть увагу на документацію пакета <a href="http://golang.org/pkg/math/rand/"><code>math/rand</code></a>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Зверніть увагу на документацію пакета <a href="http://golang.org/pkg/math/rand/"><code>math/rand</code></a>
 для довідки про інші випадкові велечини
 що Go поже запропонувати.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="number-parsing">Конвертація Тексту в Числа</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/random-numbers">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="number-parsing">Конвертація Тексту в Числа</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/random-numbers">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

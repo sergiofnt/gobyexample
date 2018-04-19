@@ -1,226 +1,204 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Зрізи (Slices)</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="slices">
-      <h2><a href="./">Go за Прикладом</a>: Зрізи (Slices)</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p><code>Slices</code> або <em>зрізи</em> це ключовий тип данних у Go,
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Зрізи (Slices)</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="slices">
+	<h2><a href="./">Go за Прикладом</a>: Зрізи (Slices)</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p><code>Slices</code> або <em>зрізи</em> це ключовий тип данних у Go,
 що представля собою більш потужний інтерфейс до
 послідовностей, аніж <a href="./arrays">масиви</a>.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/dQRimewEG_u"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/dQRimewEG_u"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Навідміну від масивів, зрізи обмежені лише типом
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Навідміну від масивів, зрізи обмежені лише типом
 елементів які вони зобов’язуються зберігати
 (масиви ж, надодачу, обмежені в кількості елементів).
 Створити пустий зріз не нульової довжини можна
 за допомоогою вбудованої функції <code>make</code>. Це приклад
 створення зрізу рядків довжиною в 3 елементи (усі строки
 ініціалізовані з нульовим значенням).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;emp:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ми встановнлюємо та звертаємось до значень так само,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ми встановнлюємо та звертаємось до значень так само,
 як і в масивах.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;a&quot;</span>
     <span class="nx">s</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;b&quot;</span>
     <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">=</span> <span class="s">&quot;c&quot;</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;set:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;get:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>len</code> повертає довжину зрізу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;len:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>len</code> повертає довжину зрізу.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;len:&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>На додачу до базових операцій, зрізи підтримують ще
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>На додачу до базових операцій, зрізи підтримують ще
 кілька операцій що роблять їх значно привабливішими,
 напротивагу масивам. Перша з них - це вбудована функція
 <code>append</code>, що повертає зріз, який зберігає одне або більше
 нових значень. Зауважимо, що потрібно присвоїти значення,
 що повертається з <code>append</code> оскільки ми можемо отримати
 новий зразок зрізу.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&quot;d&quot;</span><span class="p">)</span>
     <span class="nx">s</span> <span class="p">=</span> <span class="nb">append</span><span class="p">(</span><span class="nx">s</span><span class="p">,</span> <span class="s">&quot;e&quot;</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;apd:&quot;</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Зрізи такою можуть бути з<code>copy</code>йовані. В цьому прикладі ми створемо новий зріз <code>c</code> тогож типу та довжини що і <code>s</code> і використовуючи <code>copy</code> скопієюмо <code>s</code> в <code>c</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">c</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Зрізи такою можуть бути з<code>copy</code>йовані. В цьому прикладі ми створемо новий зріз <code>c</code> тогож типу та довжини що і <code>s</code> і використовуючи <code>copy</code> скопієюмо <code>s</code> в <code>c</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">c</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">s</span><span class="p">))</span>
     <span class="nb">copy</span><span class="p">(</span><span class="nx">c</span><span class="p">,</span> <span class="nx">s</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;cpy:&quot;</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Зрізи підтримуються оператор &ldquo;зрізання&rdquo; синтаксисом
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Зрізи підтримуються оператор &ldquo;зрізання&rdquo; синтаксисом
 <code>зріз[з_ніжного_індексу:до_верхнього_індексу]</code>.
 В нашому прикладі, ця операція добуде зріз з <code>s</code>, що
 складає <code>s[2]</code>, <code>s[3]</code> та <code>s[4]</code> і представе
 його як <code>l</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">l</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">l</span> <span class="o">:=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl1:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Приклад зрізання усіх елеметів до (але виключаючи) <code>s[5]</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Приклад зрізання усіх елеметів до (але виключаючи) <code>s[5]</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl2:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Приклад зрізання усьіх елементів з (але включаючи) <code>s[2]</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Приклад зрізання усьіх елементів з (але включаючи) <code>s[2]</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">l</span> <span class="p">=</span> <span class="nx">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;sl3:&quot;</span><span class="p">,</span> <span class="nx">l</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Нам дозволяється декларувати та ініціалізувати
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Нам дозволяється декларувати та ініціалізувати
 значення змінних в зрізі в один рядок (так само і масиви).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">t</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">t</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;i&quot;</span><span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;dcl:&quot;</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Зрізи можуть бути скомпоновані в мультимірні структури
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Зрізи можуть бути скомпоновані в мультимірні структури
 данних. Довжина внутрішніх зрізів буде варюватись,
 навідміну від мультимірних масивів.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">twoD</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">twoD</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([][]</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
     <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="mi">3</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">{</span>
         <span class="nx">innerLen</span> <span class="o">:=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="nx">twoD</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span> <span class="nx">innerLen</span><span class="p">)</span>
@@ -232,23 +210,21 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Хоч зрізи і іншого типу ніж масяви, вони
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Хоч зрізи і іншого типу ніж масяви, вони
 відображатимуться схоже якщо будуть
 надруковані за допомогою <code>fmt.Println</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run slices.go
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run slices.go
 <span class="go">emp: [  ]</span>
 <span class="go">set: [a b c]</span>
 <span class="go">get: c</span>
@@ -262,46 +238,43 @@
 <span class="go">2d:  [[0] [1 2] [2 3 4]]</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Рекомендуємо прочитати <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">чудовий пост</a>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Рекомендуємо прочитати <a href="http://blog.golang.org/2011/01/go-slices-usage-and-internals.html">чудовий пост</a>
 за авторства команди розробників Go, щоб
 отримати більше відомостей про розробку
 та впровадження зрізів в <code>Go</code>.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Після того як ми бачили масиви та зрізи,
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Після того як ми бачили масиви та зрізи,
 звернемо увагу на іншу важливу стурктуру
 данних в Go &mdash; на <em>мапи</em>.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="maps">Мапи</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/slices">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="maps">Мапи</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/slices">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

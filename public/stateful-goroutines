@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Stateful Goroutines</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="stateful-goroutines">
-      <h2><a href="./">Go за Прикладом</a>: Stateful Goroutines</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>В попередньому уроці ми використали явне закріплення
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Stateful Goroutines</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="stateful-goroutines">
+	<h2><a href="./">Go за Прикладом</a>: Stateful Goroutines</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>В попередньому уроці ми використали явне закріплення
 за допомогою <a href="mutexes">mutexes</a> для синхронізації доступу
 до спільного стану кількома горутинами. Іншою можливістю
 якою варто скористатись є особливіть виокристання
@@ -25,33 +30,28 @@
 співпадає з ідіоматичним Go в питанні спільної пам’яті
 і наданні кожного шматочка пам’яті у володіння лише 1ій
 горутині.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/ZtroHf1zpUJ"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/ZtroHf1zpUJ"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="p">(</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="p">(</span>
     <span class="s">&quot;fmt&quot;</span>
     <span class="s">&quot;math/rand&quot;</span>
     <span class="s">&quot;sync/atomic&quot;</span>
@@ -59,23 +59,21 @@
 <span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>У цьому прикладі наш стан буде переданий у володіння
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>У цьому прикладі наш стан буде переданий у володіння
 єдиній горутині. Це гарантуватие що данні ніколи не будуть
 зіпсовані з одночасним доступом. Щоб читати та писати стан
 інші оперуючі гоуртини будуть надсилати повідомлення
 головній горутині і отримувати відповідні відповіді.
 Ці структури <code>readOp</code> та <code>writeOp</code> приховують ці запити
 і те як головна горутина відповідатиме.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">readOp</span> <span class="kd">struct</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">readOp</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">key</span>  <span class="kt">int</span>
     <span class="nx">resp</span> <span class="kd">chan</span> <span class="kt">int</span>
 <span class="p">}</span>
@@ -86,55 +84,48 @@
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Як і раніше, ми будемо прораховувати операції що ми
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Як і раніше, ми будемо прораховувати операції що ми
 виконуємо.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">readOps</span> <span class="kt">uint64</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">readOps</span> <span class="kt">uint64</span>
     <span class="kd">var</span> <span class="nx">writeOps</span> <span class="kt">uint64</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Наші канали <code>reads</code> та <code>writes</code> будуть викорстані
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Наші канали <code>reads</code> та <code>writes</code> будуть викорстані
 іншими горутинами для створення запитів на запис або на
 читання відповідно.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">writes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">writeOp</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">writes</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">writeOp</span><span class="p">)</span>
     <span class="nx">reads</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="o">*</span><span class="nx">readOp</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Це горутина що є власником стану (який був мапою в
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Це горутина що є власником стану (який був мапою в
 попередньому прикладі) який наразі є приватним для
 горутини зі станом. Ця горутина у циклі зчитує запити
 на читання та запис з відповідних каналів і відповідає
@@ -142,11 +133,10 @@
 шляхом виконання операції що була запитана і надсиланням
 відповіді до каналу <code>resp</code> для відмітки про успіх і
 бажане значення у у випадку  <code>reads</code>).</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
         <span class="kd">var</span> <span class="nx">state</span> <span class="p">=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">int</span><span class="p">]</span><span class="kt">int</span><span class="p">)</span>
         <span class="k">for</span> <span class="p">{</span>
             <span class="k">select</span> <span class="p">{</span>
@@ -160,20 +150,18 @@
     <span class="p">}()</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Тут ми запустимо 100 горутин що будуть просити
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Тут ми запустимо 100 горутин що будуть просити
 зчитування у головної горутини через канал <code>reads</code>.
 Кожна горутина створює <code>readOp</code>, надсилає її до каналу
  <code>reads</code> і отримує відповідь з каналу <code>resp</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">r</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">r</span><span class="o">++</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">for</span> <span class="nx">r</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">r</span> <span class="p">&lt;</span> <span class="mi">100</span><span class="p">;</span> <span class="nx">r</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">for</span> <span class="p">{</span>
                 <span class="nx">read</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">readOp</span><span class="p">{</span>
@@ -188,18 +176,16 @@
     <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Використовуючи такий же метод ми запускаємо
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Використовуючи такий же метод ми запускаємо
 10 горутин що писатимуть данні.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="k">for</span> <span class="nx">w</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">w</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">w</span><span class="o">++</span> <span class="p">{</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">for</span> <span class="nx">w</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">w</span> <span class="p">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">w</span><span class="o">++</span> <span class="p">{</span>
         <span class="k">go</span> <span class="kd">func</span><span class="p">()</span> <span class="p">{</span>
             <span class="k">for</span> <span class="p">{</span>
                 <span class="nx">write</span> <span class="o">:=</span> <span class="o">&amp;</span><span class="nx">writeOp</span><span class="p">{</span>
@@ -215,86 +201,79 @@
     <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Даємо нашим горутинам попрацювати близько секунди.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Даємо нашим горутинам попрацювати близько секунди.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">time</span><span class="p">.</span><span class="nx">Sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Нашеті, дивимось скільки було зчитувань та записів:</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">readOpsFinal</span> <span class="o">:=</span> <span class="nx">atomic</span><span class="p">.</span><span class="nx">LoadUint64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">readOps</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Нашеті, дивимось скільки було зчитувань та записів:</p>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">readOpsFinal</span> <span class="o">:=</span> <span class="nx">atomic</span><span class="p">.</span><span class="nx">LoadUint64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">readOps</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;readOps:&quot;</span><span class="p">,</span> <span class="nx">readOpsFinal</span><span class="p">)</span>
     <span class="nx">writeOpsFinal</span> <span class="o">:=</span> <span class="nx">atomic</span><span class="p">.</span><span class="nx">LoadUint64</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">writeOps</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;writeOps:&quot;</span><span class="p">,</span> <span class="nx">writeOpsFinal</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Запуск нашої программи покаже що базований на горутинах
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Запуск нашої программи покаже що базований на горутинах
 приклад управління станом проводить біля 95,000 операцій.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run stateful-goroutines.go
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run stateful-goroutines.go
 <span class="go">readOps: 87142</span>
 <span class="go">writeOps: 8740</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>У конкретно цій справі базований на горутинах спосіб
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>У конкретно цій справі базований на горутинах спосіб
 був трошка більш задіяний ніж <a href="mutexes">mutex</a>-овий.
 Це може бути корисним у випадках коли і інші канали
 задіяні або коли управління кількома такими <code>mutex</code>ами
 буде схильне до помилок. Слудує викоирстовувати той спосіб
 який вам більш до впоодби, з урахуванням розуміння того
 наскільки коректно працює ваша программа.</p>
+</td>
+			<td class="code empty">
+			
+			
+			</td>
+		</tr>
+	
+	</table>
+	
 
-          </td>
-          <td class="code empty">
-	        
-            
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="sorting">Сортування</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/stateful-goroutines">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+
+	<p class="next">
+		Наступний приклад: <a href="sorting">Сортування</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/stateful-goroutines">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>

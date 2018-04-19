@@ -1,407 +1,357 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Go за Прикладом: Форматування Рядків</title>
-    <link rel=stylesheet href="site.css">
-  </head>
-  <script type="text/javascript">
-    if (window.location.host == "gobyexample.com") {}
-  </script>
-  <body>
-    <div class="example" id="string-formatting">
-      <h2><a href="./">Go за Прикладом</a>: Форматування Рядків</h2>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            <p>Go пропонує відмінну підтримку для формутування рядків
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Форматування Рядків</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="string-formatting">
+	<h2><a href="./">Go за Прикладом</a>: Форматування Рядків</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Go пропонує відмінну підтримку для формутування рядків
 традиційним для багатьох - <a href="https://en.wikipedia.org/wiki/Printf_format_string"><code>printf</code></a> шляхом.
 Нижче ми розглянемо часто вживані приклади форматування
 рядків в Go.</p>
-
-          </td>
-          <td class="code empty leading">
-	        
-            
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        <a href="http://play.golang.org/p/Zqx1CVh4sPx"><img title="Run code" src="play.png" class="run" /></a>
-            <div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/Zqx1CVh4sPx"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
 <span class="kn">import</span> <span class="s">&quot;os&quot;</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">type</span> <span class="nx">point</span> <span class="kd">struct</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">point</span> <span class="kd">struct</span> <span class="p">{</span>
     <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="kt">int</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Go пропонує кілька друкуючих &ldquo;дієслів&rdquo; розроблених
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Go пропонує кілька друкуючих &ldquo;дієслів&rdquo; розроблених
 для фомратування значень Go. Наприклад, <code>%v</code> дозволяє
 сформатувати та надрукувати примірник нашої структури <code>point</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">point</span><span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Якщо значення це структура, <code>%+v</code>варіація покаже поля структури.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%+v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо значення це структура, <code>%+v</code>варіація покаже поля структури.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%+v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>А варіація <code>%#v</code> сформатує відображення значення синтаксисом Go,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>А варіація <code>%#v</code> сформатує відображення значення синтаксисом Go,
 включаючи код що продукуватиме це значення.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%#v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%#v\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Тип значення можна отримати з <code>%T</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Тип значення можна отримати з <code>%T</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%T\n&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Форматування логічного типу данних (<code>bool</code>) простіше-простого.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%t\n&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Форматування логічного типу данних (<code>bool</code>) простіше-простого.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%t\n&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Існує багато варіцій форматування для цілих чисел.
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Існує багато варіцій форматування для цілих чисел.
 Використання <code>%d</code> призведе до стандартного, десятичного  форматування.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d\n&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d\n&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Відображення у двійковій системі числення.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b\n&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Відображення у двійковій системі числення.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%b\n&quot;</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Код <code>%c</code> надрукує відповідний числу символ.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%c\n&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Код <code>%c</code> надрукує відповідний числу символ.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%c\n&quot;</span><span class="p">,</span> <span class="mi">33</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>%x</code> надає відображення в шіснадцятковій системі числення.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="mi">456</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>%x</code> надає відображення в шіснадцятковій системі числення.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="mi">456</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Також є кілька налаштувань для форматування чисел з плаваючою
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Також є кілька налаштувань для форматування чисел з плаваючою
 комою. Найбільш базове - <code>%f</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%f\n&quot;</span><span class="p">,</span> <span class="mf">78.9</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%f\n&quot;</span><span class="p">,</span> <span class="mf">78.9</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p><code>%e</code> та <code>%E</code> форматують число з плаваючою комою
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>%e</code> та <code>%E</code> форматують число з плаваючою комою
 у кількох різних виглядах <a href="https://uk.wikipedia.org/wiki/%D0%95%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81">експоненціального</a> запису.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%e\n&quot;</span><span class="p">,</span> <span class="mf">123400000.0</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%e\n&quot;</span><span class="p">,</span> <span class="mf">123400000.0</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%E\n&quot;</span><span class="p">,</span> <span class="mf">123400000.0</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Базове відобряження рядків <code>%s</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Базове відобряження рядків <code>%s</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%s\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Для подвійної екранізацій рядків скористайтесь <code>%q</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%q\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Для подвійної екранізацій рядків скористайтесь <code>%q</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%q\n&quot;</span><span class="p">,</span> <span class="s">&quot;\&quot;рядок\&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Так само, як і з чілими числами, <code>%x</code> трансформує
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Так само, як і з чілими числами, <code>%x</code> трансформує
 рядок у шістнадцятирічне відображення, з друком двох символів
 на байт вхідного параметру.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;шістнадцятирюй&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;шістнадцятирюй&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Щоб надрукувати адресу пам’яті вказівника (саме так
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Щоб надрукувати адресу пам’яті вказівника (саме так
 буде відображено вказівник) використайте <code>%p</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%p\n&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">p</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%p\n&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">p</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Коли форматуєте строки вам часто потрібно буде контролювати
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Коли форматуєте строки вам часто потрібно буде контролювати
 точність та довжину фінального числа. Щоб вказати довжину
 цілого числа, скористайтесь ичслом після символа <code>%</code> у дієслові.
 За стандартними налаштуваннями результатом буде вирівняне
 по правій стороні і видбите пробілами число.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6d|%6d|\n&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">345</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6d|%6d|\n&quot;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">345</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>You can also specify the width of printed floats,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>You can also specify the width of printed floats,
 though usually you&rsquo;ll also want to restrict the
 decimal precision at the same time with the
 width.precision syntax.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6.2f|%6.2f|\n&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6.2f|%6.2f|\n&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Для вирівнювання вліво, використайте прапорець <code>-</code> після <code>%</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%-6.2f|%-6.2f|\n&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">)</span>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Для вирівнювання вліво, використайте прапорець <code>-</code> після <code>%</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%-6.2f|%-6.2f|\n&quot;</span><span class="p">,</span> <span class="mf">1.2</span><span class="p">,</span> <span class="mf">3.45</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Можливо вам забажається сформатцвати рядок схожим чином,
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Можливо вам забажається сформатцвати рядок схожим чином,
 наприклад, для положення в табличному виводі.
 Вирівняти направо можна наступним чином.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6s|%6s|\n&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%6s|%6s|\n&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Вирівняти по лівій стороні можна за допомогою, вже
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Вирівняти по лівій стороні можна за допомогою, вже
 знайомого цілим числам, прапорця <code>-</code> що ставиться після <code>%</code>.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%-6s|%-6s|\n&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;|%-6s|%-6s|\n&quot;</span><span class="p">,</span> <span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;b&quot;</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>До поки ми бачили <code>Printf</code>, що друкує форматовану рядок
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>До поки ми бачили <code>Printf</code>, що друкує форматовану рядок
 до <code>os.Stdout</code>. <code>Sprintf</code> сформатує та поверне рядок без
 друку його кудинебудь.</p>
-
-          </td>
-          <td class="code leading">
-	        
-            <div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;це %s&quot;</span><span class="p">,</span> <span class="s">&quot;рядок&quot;</span><span class="p">)</span>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;це %s&quot;</span><span class="p">,</span> <span class="s">&quot;рядок&quot;</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">s</span><span class="p">)</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Ви можете сформатувати+надрукувати до <code>io.Writers</code>
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ви можете сформатувати+надрукувати до <code>io.Writers</code>
 напротивагу <code>os.Stdout</code> використовуючи <code>Fprintf</code>.</p>
-
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;ой %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;халепа&quot;</span><span class="p">)</span>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintf</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="s">&quot;ой %s\n&quot;</span><span class="p">,</span> <span class="s">&quot;халепа&quot;</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      <table>
-        
-        <tr>
-          <td class="docs">
-            
-          </td>
-          <td class="code">
-	        
-            <div class="highlight"><pre><span class="gp">$</span> go run string-formatting.go
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run string-formatting.go
 <span class="go">{1 2}</span>
 <span class="go">{x:1 y:2}</span>
 <span class="go">main.point{x:1, y:2}</span>
@@ -427,19 +377,20 @@ width.precision syntax.</p>
 <span class="go">ой халепа</span>
 </pre></div>
 
-          </td>
-        </tr>
-        
-      </table>
-      
-      
-      <p class="next">
-        Наступний приклад: <a href="regular-expressions">Регулярні вирази</a>.
-      </p>
-      
-	  <p class="footer">
-        Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="mailto:butuzov@made.ua">відгуки</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/string-formatting">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
-      </p>
-    </div>
-  </body>
+			</td>
+		</tr>
+	
+	</table>
+	
+
+
+	<p class="next">
+		Наступний приклад: <a href="regular-expressions">Регулярні вирази</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/string-formatting">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
 </html>
