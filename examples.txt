@@ -54,7 +54,7 @@ Epoch
 URL Parsing
 SHA1 Хеші|SHA1 Hashes
 Кодування Base64|Base64 Encoding
-Reading Files
+Читання файлів|Reading Files
 Writing Files
 Рядкові Фільтри|Line Filters
 Командний Рядок - Аргументи|Command-Line Arguments
