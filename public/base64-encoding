@@ -17,6 +17,9 @@
 <body>
 	<div class="example" id="base64-encoding">
 	<h2><a href="./">Go за Прикладом</a>: Кодування Base64</h2>
+
+	<p class="worning">Work in Progress / Сайт в процесі розробки</p>
+
 	
 	<table>
 		
@@ -160,7 +163,7 @@
 
 
 	<p class="next">
-		Наступний приклад: <a href="reading-files">Reading Files</a>.
+		Наступний приклад: <a href="reading-files">Читання файлів</a>.
 	</p>
 
 <p class="footer">

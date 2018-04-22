@@ -17,6 +17,9 @@
 <body>
 	<div class="example" id="non-blocking-channel-operations">
 	<h2><a href="./">Go за Прикладом</a>: Не Блокуючі Операції на Каналах</h2>
+
+	<p class="worning">Work in Progress / Сайт в процесі розробки</p>
+
 	
 	<table>
 		
