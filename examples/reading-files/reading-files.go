@@ -1,6 +1,5 @@
-// Reading and writing files are basic tasks needed for
-// many Go programs. First we'll look at some examples of
-// reading files.
+// Одинми з базових задач з якими працюють Go-программи є
+// запис та читання файлів.  І в першу чергу, ми познайомимось з читанням.
 
 package main
 
@@ -12,8 +11,9 @@ import (
     "os"
 )
 
-// Reading files requires checking most calls for errors.
-// This helper will streamline our error checks below.
+// Читання файлів потребує доволі немало викликів ддля обробки помилок.
+// Ми скористаємось допоміжною функцією яка оброблятиме помилки і
+// спросить задачу нашої рохробки.
 func check(e error) {
     if e != nil {
         panic(e)
@@ -22,63 +22,62 @@ func check(e error) {
 
 func main() {
 
-    // Perhaps the most basic file reading task is
-    // slurping a file's entire contents into memory.
+    // Мабуть найбільш проста задача повязана з читанням
+    // це завантаження файлу в пам’ять.
     dat, err := ioutil.ReadFile("/tmp/dat")
     check(err)
     fmt.Print(string(dat))
 
-    // You'll often want more control over how and what
-    // parts of a file are read. For these tasks, start
-    // by `Open`ing a file to obtain an `os.File` value.
+    // Але зазвичай вам потрібно трошка більше контролю
+    // над тим як і які частини файлу будуть читатись.
+    // Для таких задач, почніть з `Open` (відкривання) файлу
+    // щоб отримати значення `os.File`.
     f, err := os.Open("/tmp/dat")
     check(err)
 
-    // Read some bytes from the beginning of the file.
-    // Allow up to 5 to be read but also note how many
-    // actually were read.
+    // Прочитайте деякі байти з початку файлу, наприклад перші 5
+    // байтів. Але зауважте що якільки байт було прочитано
+    // насправді.
     b1 := make([]byte, 5)
     n1, err := f.Read(b1)
     check(err)
-    fmt.Printf("%d bytes: %s\n", n1, string(b1))
+    fmt.Printf("%d байт: %s\n", n1, string(b1))
 
-    // You can also `Seek` to a known location in the file
-    // and `Read` from there.
+    // Ви також можете `Seek` (перемотати) до первного положення в файлі
+    // і `Read` (прочитати) звідти.
     o2, err := f.Seek(6, 0)
     check(err)
     b2 := make([]byte, 2)
     n2, err := f.Read(b2)
     check(err)
-    fmt.Printf("%d bytes @ %d: %s\n", n2, o2, string(b2))
+    fmt.Printf("%d байт @ %d: %s\n", n2, o2, string(b2))
 
-    // The `io` package provides some functions that may
-    // be helpful for file reading. For example, reads
-    // like the ones above can be more robustly
-    // implemented with `ReadAtLeast`.
+    // Пакет `io` надає перну функціональність, що може стати в нагоді
+    // під час "читання". Наприклад, читання як в пиркладі зверху, може
+    // бути надійніше впроваджено з `ReadAtLeast`.
     o3, err := f.Seek(6, 0)
     check(err)
     b3 := make([]byte, 2)
     n3, err := io.ReadAtLeast(f, b3, 2)
     check(err)
-    fmt.Printf("%d bytes @ %d: %s\n", n3, o3, string(b3))
+    fmt.Printf("%d байт @ %d: %s\n", n3, o3, string(b3))
 
-    // There is no built-in rewind, but `Seek(0, 0)`
-    // accomplishes this.
+    // Використання `Seek(0, 0)` доволяє ставновлючати вказівник читання
+    // на початок файлу, назразок "перемотки на початок касети".
     _, err = f.Seek(0, 0)
     check(err)
 
-    // The `bufio` package implements a buffered
-    // reader that may be useful both for its efficiency
-    // with many small reads and because of the additional
-    // reading methods it provides.
+    // Пакунок `bufio` впроваджує буферизоване читання
+    // що може бути корисне як для еффективнсоті (з багатьма
+    // невелики зчитуваннями), так і завдяки додатковим методам
+    // що воно реалізує.
     r4 := bufio.NewReader(f)
     b4, err := r4.Peek(5)
     check(err)
-    fmt.Printf("5 bytes: %s\n", string(b4))
+    fmt.Printf("5 байт: %s\n", string(b4))
 
-    // Close the file when you're done (usually this would
-    // be scheduled immediately after `Open`ing with
-    // `defer`).
+    // Закривайте файл коли ви з ним закінчили (зазвичай це
+    // роблять відразу після відкриття за допомогою `defer`).
     f.Close()
 
 }
