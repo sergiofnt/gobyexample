@@ -18,7 +18,7 @@
 	<div class="example" id="for">
 	<h2><a href="./">Go за Прикладом</a>: Цикл For</h2>
 
-	<p class="worning">Work in Progress / Сайт в процесі розробки</p>
+	<p class="warning">Work in Progress / Сайт в процесі розробки</p>
 
 	
 	<table>

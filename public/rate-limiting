@@ -18,7 +18,7 @@
 	<div class="example" id="rate-limiting">
 	<h2><a href="./">Go за Прикладом</a>: Обмеження Частоти Запитів</h2>
 
-	<p class="worning">Work in Progress / Сайт в процесі розробки</p>
+	<p class="warning">Work in Progress / Сайт в процесі розробки</p>
 
 	
 	<table>
