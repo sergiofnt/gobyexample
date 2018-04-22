@@ -39,6 +39,12 @@ a.translated {
 	color:#fff !important;
 }
 
+p.warning {
+	color:red;
+	text-align: center;
+	font-weight: bold;
+}
+
 blockquote, q {
 	quotes: none;
 }
