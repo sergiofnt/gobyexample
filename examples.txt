@@ -55,7 +55,7 @@ URL Parsing
 SHA1 Хеші|SHA1 Hashes
 Кодування Base64|Base64 Encoding
 Читання файлів|Reading Files
-Writing Files
+Запис файлів|Writing Files
 Рядкові Фільтри|Line Filters
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
