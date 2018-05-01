@@ -24,10 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><a href="http://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
-are a universal mechanism for <a href="http://www.12factor.net/config">conveying configuration
-information to Unix programs</a>.
-Let&rsquo;s look at how to set, get, and list environment variables.</p>
+			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/Змінні_середовища">Зминніні середовища</a>
+це універсальний спосіб <a href="https://www.12factor.net/uk/config">передачі конфігурацій программам Unix</a>.
+Давайте розгялнемо як встановлювати, отримаувати та показувати зміннні середовища.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +37,7 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/kfqLhpmEpw"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/bclVBTLgCKY"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -68,10 +67,9 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>To set a key/value pair, use <code>os.Setenv</code>. To get a
-value for a key, use <code>os.Getenv</code>. This will return
-an empty string if the key isn&rsquo;t present in the
-environment.</p>
+			<td class="docs"><p>Щоб встановити пару ключ/значення, скористайтесь <code>os.Setenv</code>,
+а щоб отримати, спробуйте <code>os.Getenv</code>. Якщо ключ не знайдено в
+сереовищі, буде повернена пустий рядок.</p>
 </td>
 			<td class="code leading">
 			
@@ -84,10 +82,10 @@ environment.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Use <code>os.Environ</code> to list all key/value pairs in the
-environment. This returns a slice of strings in the
-form <code>KEY=value</code>. You can <code>strings.Split</code> them to
-get the key and value. Here we print all the keys.</p>
+			<td class="docs"><p>Використовуйте <code>os.Environ</code> для переліку усіх пар ключ/значення
+середовища. Метод поверне зріз рядків у вигляді <code>KEY=value</code>.
+Ми можете розділіти рядок за допомогою <code>strings.Split</code>
+щоб отримати значення. В цьому прикладі ми розрукуємо ключі.</p>
 </td>
 			<td class="code">
 			
@@ -107,23 +105,23 @@ get the key and value. Here we print all the keys.</p>
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Running the program shows that we pick up the value
-for <code>FOO</code> that we set in the program, but that
-<code>BAR</code> is empty.</p>
+			<td class="docs"><p>Запуск програми показже що <code>FOO</code> матиме значення
+(бо ми встановили його), <code>BAR</code> пусте бо воно відсутнє
+в середовищі.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go run environment-variables.go
 <span class="go">FOO: 1</span>
-<span class="go">BAR: </span>
+<span class="go">BAR:</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>The list of keys in the environment will depend on your
-particular machine.</p>
+			<td class="docs"><p>Перелік ключів змінних середовища залежить від машити,
+тобто середовиза машини.</p>
 </td>
 			<td class="code leading">
 			
@@ -137,8 +135,8 @@ particular machine.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>If we set <code>BAR</code> in the environment first, the running
-program picks that value up.</p>
+			<td class="docs"><p>якщо ми встановимо <code>BAR</code> всередовищі спочатку, програма що
+запуститься слідом матиме змогу скористатись з цієї зміннної.</p>
 </td>
 			<td class="code">
 			

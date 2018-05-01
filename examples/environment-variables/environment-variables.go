@@ -1,7 +1,6 @@
-// [Environment variables](http://en.wikipedia.org/wiki/Environment_variable)
-// are a universal mechanism for [conveying configuration
-// information to Unix programs](http://www.12factor.net/config).
-// Let's look at how to set, get, and list environment variables.
+// [Зминніні середовища](https://uk.wikipedia.org/wiki/Змінні_середовища)
+// це універсальний спосіб [передачі конфігурацій программам Unix](https://www.12factor.net/uk/config).
+// Давайте розгялнемо як встановлювати, отримаувати та показувати зміннні середовища.
 
 package main
 
@@ -11,18 +10,17 @@ import "fmt"
 
 func main() {
 
-    // To set a key/value pair, use `os.Setenv`. To get a
-    // value for a key, use `os.Getenv`. This will return
-    // an empty string if the key isn't present in the
-    // environment.
+    // Щоб встановити пару ключ/значення, скористайтесь `os.Setenv`,
+    // а щоб отримати, спробуйте `os.Getenv`. Якщо ключ не знайдено в
+    // сереовищі, буде повернена пустий рядок.
     os.Setenv("FOO", "1")
     fmt.Println("FOO:", os.Getenv("FOO"))
     fmt.Println("BAR:", os.Getenv("BAR"))
 
-    // Use `os.Environ` to list all key/value pairs in the
-    // environment. This returns a slice of strings in the
-    // form `KEY=value`. You can `strings.Split` them to
-    // get the key and value. Here we print all the keys.
+    // Використовуйте `os.Environ` для переліку усіх пар ключ/значення
+    // середовища. Метод поверне зріз рядків у вигляді `KEY=value`.
+    // Ми можете розділіти рядок за допомогою `strings.Split`
+    // щоб отримати значення. В цьому прикладі ми розрукуємо ключі.
     fmt.Println()
     for _, e := range os.Environ() {
         pair := strings.Split(e, "=")

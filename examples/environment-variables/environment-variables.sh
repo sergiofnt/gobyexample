@@ -1,19 +1,19 @@
-# Running the program shows that we pick up the value
-# for `FOO` that we set in the program, but that
-# `BAR` is empty.
+# Запуск програми показже що `FOO` матиме значення
+# (бо ми встановили його), `BAR` пусте бо воно відсутнє
+# в середовищі.
 $ go run environment-variables.go
 FOO: 1
-BAR: 
+BAR:
 
-# The list of keys in the environment will depend on your
-# particular machine.
+# Перелік ключів змінних середовища залежить від машити,
+# тобто середовиза машини.
 TERM_PROGRAM
 PATH
 SHELL
 ...
 
-# If we set `BAR` in the environment first, the running
-# program picks that value up.
+# якщо ми встановимо `BAR` всередовищі спочатку, програма що
+# запуститься слідом матиме змогу скористатись з цієї зміннної.
 $ BAR=2 go run environment-variables.go
 FOO: 1
 BAR: 2
