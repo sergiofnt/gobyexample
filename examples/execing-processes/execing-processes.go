@@ -1,12 +1,10 @@
-// In the previous example we looked at
-// [spawning external processes](spawning-processes). We
-// do this when we need an external process accessible to
-// a running Go process. Sometimes we just want to
-// completely replace the current Go process with another
-// (perhaps non-Go) one. To do this we'll use Go's
-// implementation of the classic
-// <a href="http://en.wikipedia.org/wiki/Exec_(operating_system)"><code>exec</code></a>
-// function.
+// У попередньому прикладі ми розглянули
+// [запуск сторонніх процесів](spawning-processes).
+// Ми робимо це коли хочемо, щоб запущений процес
+// був доступний нашому Go процесу. Але інколи, все чого ми
+// бажаєм - це лише повністю замінити поточний Goпроцес
+// іншим (можливо навіть не "Go-процесом"). Ми скористаємось
+// реалізацією Go класичного системного виклику [exec](http://en.wikipedia.org/wiki/Exec_(operating_system)).
 
 package main
 
@@ -16,31 +14,26 @@ import "os/exec"
 
 func main() {
 
-    // For our example we'll exec `ls`. Go requires an
-    // absolute path to the binary we want to execute, so
-    // we'll use `exec.LookPath` to find it (probably
-    // `/bin/ls`).
+    // Для прикладу, ми виконаємо `ls`. Go потребує абсолютний
+    // шлях до програми що ми хочемо виконати, отож ми скористаємось
+    // `exec.LookPath` задля пошуку (і можливо ми знайдемо її як `/bin/ls`).
     binary, lookErr := exec.LookPath("ls")
     if lookErr != nil {
         panic(lookErr)
     }
 
-    // `Exec` requires arguments in slice form (as
-    // apposed to one big string). We'll give `ls` a few
-    // common arguments. Note that the first argument should
-    // be the program name.
-    args := []string{"ls", "-a", "-l", "-h"}
+    // `Exec` потребує аргументу у вигляді [`зрізу`](slices)
+    // (напротивагу одному великому рядку). Ми надамо `ls`
+    // кілька звичайних (для цієї команди) аргументів.
+    args := []string{"-h", "-o"}
 
-    // `Exec` also needs a set of [environment variables](environment-variables)
-    // to use. Here we just provide our current
-    // environment.
+    // `Exec` також необхідно мати дял використання
+    // [змінні оточення](environment-variables). Ми ж надамо йому
+    // наше поточне середовище.
     env := os.Environ()
 
-    // Here's the actual `syscall.Exec` call. If this call is
-    // successful, the execution of our process will end
-    // here and be replaced by the `/bin/ls -a -l -h`
-    // process. If there is an error we'll get a return
-    // value.
+    // Ось власне виклик `syscall.Exec`. Якщо виклик успішний, виконання нашого процесу завершиться і буде замінено процесом `/bin/ls -a -l -h`.
+    // Якщо виникне помилка то ми отримаємо [паніку](panic) з текстом помилки.
     execErr := syscall.Exec(binary, args, env)
     if execErr != nil {
         panic(execErr)

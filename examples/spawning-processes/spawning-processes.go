@@ -1,9 +1,9 @@
-// Sometimes our Go programs need to spawn other, non-Go
-// processes. For example, the syntax highlighting on this
-// site is [implemented](https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go)
-// by spawning a [`pygmentize`](http://pygments.org/)
-// process from a Go program. Let's look at a few examples
-// of spawning processes from Go.
+// Інколи, нашій Go программі необхідно запустит інший, не "Go"
+// процес. Наприклад, підсвітка синтаксису на цьому сайті
+// [реалізована](https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go)
+// пстороннім процесом [`pygmentize`](http://pygments.org/) запущеним
+// з Go програми. Давайте розглянумо кілька прикладів запуску
+// процесів з Go.
 
 package main
 
@@ -13,16 +13,17 @@ import "os/exec"
 
 func main() {
 
-    // We'll start with a simple command that takes no
-    // arguments or input and just prints something to
-    // stdout. The `exec.Command` helper creates an object
-    // to represent this external process.
+    // Розпочнемо ми з простої команди, яка не приймає
+    // жодних аргументів або вводу, і яка лише друкує "щось"
+    // до `stdout`. Функція `exec.Command` створить об’єкт
+    // який представляє собою цей зовнішній процес.
     dateCmd := exec.Command("date")
 
-    // `.Output` is another helper that handles the common
-    // case of running a command, waiting for it to finish,
-    // and collecting its output. If there were no errors,
-    // `dateOut` will hold bytes with the date info.
+    // `.Output` - інша функція, яка бере на себе управління
+    // загальними випадками запуску процесу, очікування його
+    // завершення та отримання виводу. Якщо помилок не було,
+    // [зріз](slices) `dateOut` буде наповнено байтами відповіді
+    // проце `date`, який ми щойно викликали.
     dateOut, err := dateCmd.Output()
     if err != nil {
         panic(err)
@@ -30,15 +31,15 @@ func main() {
     fmt.Println("> date")
     fmt.Println(string(dateOut))
 
-    // Next we'll look at a slightly more involved case
-    // where we pipe data to the external process on its
-    // `stdin` and collect the results from its `stdout`.
+    // Тепер ми готові розглянути приклад, більш просунутого використання,
+    // де ми перенаправимо дані у [`поток введення`](https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення) зовнішнього процесу та
+    // отримаємо результати з його [`потоку виведення`](https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення).
     grepCmd := exec.Command("grep", "hello")
 
-    // Here we explicitly grab input/output pipes, start
-    // the process, write some input to it, read the
-    // resulting output, and finally wait for the process
-    // to exit.
+    // Ми чітко вказуємо - "захопи перенаправлення вводу та виводу",
+    // запускаємо процес, виконуємо необхідне введення інформації
+    // до нього, читаємо результуючий вивід і, нарешті, очікуємо
+    // завершення процесу.
     grepIn, _ := grepCmd.StdinPipe()
     grepOut, _ := grepCmd.StdoutPipe()
     grepCmd.Start()
@@ -47,20 +48,17 @@ func main() {
     grepBytes, _ := ioutil.ReadAll(grepOut)
     grepCmd.Wait()
 
-    // We ommited error checks in the above example, but
-    // you could use the usual `if err != nil` pattern for
-    // all of them. We also only collect the `StdoutPipe`
-    // results, but you could collect the `StderrPipe` in
-    // exactly the same way.
+    // Ми оминули перевірку на помилки у попередньому прикладі,
+    // але ви можете використовувати звичайний прийом `if err != nil`
+    // для цього. Ми вже скористались з результатом отриманим з `StdoutPipe`,
+    // у схожий спосіб, ви можете отримати відповідь що надходить з `StderrPipe`.
     fmt.Println("> grep hello")
     fmt.Println(string(grepBytes))
 
-    // Note that when spawning commands we need to
-    // provide an explicitly delineated command and
-    // argument array, vs. being able to just pass in one
-    // command-line string. If you want to spawn a full
-    // command with a string, you can use `bash`'s `-c`
-    // option:
+    // Зауважемо - коли ми породжуємо процеси нам необхідно надати
+    // чітко розділені команду і масив аргументів, напротивагу передачі
+    // всієї команди записаної в один рядок. Якщо ж вам, таки, кортить
+    // передати все одним рядком, скористайтесь `bash`'овим параметром `-c`:
     lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
     lsOut, err := lsCmd.Output()
     if err != nil {

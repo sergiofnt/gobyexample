@@ -1,8 +1,8 @@
-# The spawned programs return output that is the same
-# as if we had run them directly from the command-line.
-$ go run spawning-processes.go 
+# Запущені програми повертають вивід так само,
+# як би ми запускали їх з командного рядка.
+$ go run spawning-processes.go
 > date
-Wed Oct 10 09:53:11 PDT 2012
+Mon Jun 18 16:53:38 EEST 2018
 
 > grep hello
 hello grep

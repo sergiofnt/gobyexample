@@ -3,8 +3,8 @@
 Змінні|Variables
 Константи|Constants
 Цикл For|For
-Розгалуження Умови - Якщо/Інакше (If/Else)|If/Else
-Розгалуження Умови - Перемикач (Switch)|Switch
+Оператори Розгалуження - Якщо/Інакше (If/Else)|If/Else
+Оператори Розгалуження - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
 Зрізи (Slices)|Slices
 Мапи|Maps
@@ -19,7 +19,7 @@
 Методи|Methods
 Інтерфейси|Interfaces
 Помилки|Errors
-Goroutines|Goroutines
+Грутини|Goroutines
 Канали|Channels
 Буферизація Каналу|Channel Buffering
 Синзронізація Каналу|Channel Synchronization
@@ -59,8 +59,8 @@ SHA1 Хеші|SHA1 Hashes
 Рядкові Фільтри|Line Filters
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
-Environment Variables
-Spawning Processes
-Exec'ing Processes
+Змінні оточення|Environment Variables
+Запуск сторонніх процесів|Spawning Processes
+Заміна поточного процесу новим|Exec'ing Processes
 Signals
 Exit

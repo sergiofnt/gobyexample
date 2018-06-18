@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
-	<title>Go за Прикладом: Spawning Processes</title>
+	<title>Go за Прикладом: Запуск сторонніх процесів</title>
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="example" id="spawning-processes">
-	<h2><a href="./">Go за Прикладом</a>: Spawning Processes</h2>
+	<h2><a href="./">Go за Прикладом</a>: Запуск сторонніх процесів</h2>
 
 	<p class="warning">Work in Progress / Сайт в процесі розробки</p>
 
@@ -24,12 +24,12 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Sometimes our Go programs need to spawn other, non-Go
-processes. For example, the syntax highlighting on this
-site is <a href="https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go">implemented</a>
-by spawning a <a href="http://pygments.org/"><code>pygmentize</code></a>
-process from a Go program. Let&rsquo;s look at a few examples
-of spawning processes from Go.</p>
+			<td class="docs"><p>Інколи, нашій Go программі необхідно запустит інший, не &ldquo;Go&rdquo;
+процес. Наприклад, підсвітка синтаксису на цьому сайті
+<a href="https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go">реалізована</a>
+пстороннім процесом <a href="http://pygments.org/"><code>pygmentize</code></a> запущеним
+з Go програми. Давайте розглянумо кілька прикладів запуску
+процесів з Go.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -40,7 +40,7 @@ of spawning processes from Go.</p>
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/y6SB6Mf2VQ"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/sEAHiNA2p9j"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -70,10 +70,10 @@ of spawning processes from Go.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We&rsquo;ll start with a simple command that takes no
-arguments or input and just prints something to
-stdout. The <code>exec.Command</code> helper creates an object
-to represent this external process.</p>
+			<td class="docs"><p>Розпочнемо ми з простої команди, яка не приймає
+жодних аргументів або вводу, і яка лише друкує &ldquo;щось&rdquo;
+до <code>stdout</code>. Функція <code>exec.Command</code> створить об’єкт
+який представляє собою цей зовнішній процес.</p>
 </td>
 			<td class="code leading">
 			
@@ -84,10 +84,11 @@ to represent this external process.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>.Output</code> is another helper that handles the common
-case of running a command, waiting for it to finish,
-and collecting its output. If there were no errors,
-<code>dateOut</code> will hold bytes with the date info.</p>
+			<td class="docs"><p><code>.Output</code> - інша функція, яка бере на себе управління
+загальними випадками запуску процесу, очікування його
+завершення та отримання виводу. Якщо помилок не було,
+<a href="slices">зріз</a> <code>dateOut</code> буде наповнено байтами відповіді
+проце <code>date</code>, який ми щойно викликали.</p>
 </td>
 			<td class="code leading">
 			
@@ -103,9 +104,9 @@ and collecting its output. If there were no errors,
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Next we&rsquo;ll look at a slightly more involved case
-where we pipe data to the external process on its
-<code>stdin</code> and collect the results from its <code>stdout</code>.</p>
+			<td class="docs"><p>Тепер ми готові розглянути приклад, більш просунутого використання,
+де ми перенаправимо дані у <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення"><code>поток введення</code></a> зовнішнього процесу та
+отримаємо результати з його <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення"><code>потоку виведення</code></a>.</p>
 </td>
 			<td class="code leading">
 			
@@ -116,10 +117,10 @@ where we pipe data to the external process on its
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Here we explicitly grab input/output pipes, start
-the process, write some input to it, read the
-resulting output, and finally wait for the process
-to exit.</p>
+			<td class="docs"><p>Ми чітко вказуємо - &ldquo;захопи перенаправлення вводу та виводу&rdquo;,
+запускаємо процес, виконуємо необхідне введення інформації
+до нього, читаємо результуючий вивід і, нарешті, очікуємо
+завершення процесу.</p>
 </td>
 			<td class="code leading">
 			
@@ -136,11 +137,10 @@ to exit.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We ommited error checks in the above example, but
-you could use the usual <code>if err != nil</code> pattern for
-all of them. We also only collect the <code>StdoutPipe</code>
-results, but you could collect the <code>StderrPipe</code> in
-exactly the same way.</p>
+			<td class="docs"><p>Ми оминули перевірку на помилки у попередньому прикладі,
+але ви можете використовувати звичайний прийом <code>if err != nil</code>
+для цього. Ми вже скористались з результатом отриманим з <code>StdoutPipe</code>,
+у схожий спосіб, ви можете отримати відповідь що надходить з <code>StderrPipe</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -152,12 +152,10 @@ exactly the same way.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Note that when spawning commands we need to
-provide an explicitly delineated command and
-argument array, vs. being able to just pass in one
-command-line string. If you want to spawn a full
-command with a string, you can use <code>bash</code>&rsquo;s <code>-c</code>
-option:</p>
+			<td class="docs"><p>Зауважемо - коли ми породжуємо процеси нам необхідно надати
+чітко розділені команду і масив аргументів, напротивагу передачі
+всієї команди записаної в один рядок. Якщо ж вам, таки, кортить
+передати все одним рядком, скористайтесь <code>bash</code>&lsquo;овим параметром <code>-c</code>:</p>
 </td>
 			<td class="code">
 			
@@ -179,14 +177,14 @@ option:</p>
 	<table>
 		
 		<tr>
-			<td class="docs"><p>The spawned programs return output that is the same
-as if we had run them directly from the command-line.</p>
+			<td class="docs"><p>Запущені програми повертають вивід так само,
+як би ми запускали їх з командного рядка.</p>
 </td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre><span class="gp">$</span> go run spawning-processes.go 
+			<div class="highlight"><pre><span class="gp">$</span> go run spawning-processes.go
 <span class="gp">&gt;</span> date
-<span class="go">Wed Oct 10 09:53:11 PDT 2012</span>
+<span class="go">Mon Jun 18 16:53:38 EEST 2018</span>
 </pre></div>
 
 			</td>
@@ -221,7 +219,7 @@ as if we had run them directly from the command-line.</p>
 
 
 	<p class="next">
-		Наступний приклад: <a href="execing-processes">Exec'ing Processes</a>.
+		Наступний приклад: <a href="execing-processes">Заміна поточного процесу новим</a>.
 	</p>
 
 <p class="footer">
