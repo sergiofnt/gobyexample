@@ -206,9 +206,9 @@
 			<td class="code">
 			
 			<div class="highlight"><pre><span class="gp">&gt;</span> ls -a -l -h
-<span class="go">drwxr-xr-x  4 mark 136B Oct 3 16:29 .</span>
-<span class="go">drwxr-xr-x 91 mark 3.0K Oct 3 12:50 ..</span>
-<span class="go">-rw-r--r--  1 mark 1.3K Oct 3 16:28 spawning-processes.go</span>
+<span class="go">drwxr-xr-x  4 butuzov 136B Oct 3 16:29 .</span>
+<span class="go">drwxr-xr-x 91 butuzov 3.0K Oct 3 12:50 ..</span>
+<span class="go">-rw-r--r--  1 butuzov 1.3K Oct 3 16:28 spawning-processes.go</span>
 </pre></div>
 
 			</td>

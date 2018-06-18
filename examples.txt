@@ -62,5 +62,5 @@ SHA1 Хеші|SHA1 Hashes
 Змінні оточення|Environment Variables
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
-Signals
+Сигнали|Signals
 Exit

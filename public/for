@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/QrwSYDKkIrh"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/G1U4eAK5H04"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,7 +64,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Найбільш базовий тип, з єдиною інструкцією.</p>
+			<td class="docs"><p>Найбільш базовий тип - з єдиною інструкцією.</p>
 </td>
 			<td class="code leading">
 			
@@ -80,7 +80,7 @@
 	
 		<tr>
 			<td class="docs"><p>Класичний ініціалізація/умова/післяумова <code>for</code> цикл,
-також відомий як С-style <code>for</code> цикл.</p>
+також відомий як С-style <code>for</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -94,9 +94,9 @@
 	
 		<tr>
 			<td class="docs"><p><code>for</code> без умови буде видбуватись постійно
-допоки программи не перерве його за допомогою
+допоки программа не перерве його за допомогою
 ключових слів <code>break</code> (що перериває цикл) або
-<code>return</code> (що повертає значення з заключаючої функції).</p>
+<code>return</code> (що повертає значення з функції).</p>
 </td>
 			<td class="code leading">
 			

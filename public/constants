@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/6Af_3jAC-9P"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/P6p1ai2hplY"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -79,8 +79,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ключове слово <code>const</code> може з’являтись будь де,
-де може з’являтись ключове слово <code>var</code> (яким декларуються <em><a href="./variables">змінні</a></em>).</p>
+			<td class="docs"><p>Ключове слово <code>const</code> може з’являтись усюди,
+де може з’являтись ключове слово <code>var</code> (яким, в свою чергу, декларуються <em><a href="./variables">змінні</a></em>).</p>
 </td>
 			<td class="code leading">
 			
@@ -92,7 +92,7 @@
 	
 		<tr>
 			<td class="docs"><p>Вирази констант обчислюються за допомогою
-<a href="https://uk.wikipedia.org/wiki/%D0%94%D0%BE%D0%B2%D0%B3%D0%B0_%D0%B0%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D0%BA%D0%B0">арфиметики з довільною точністю</a>.</p>
+<a href="https://uk.wikipedia.org/wiki/Довга_арифметика">арфиметики з довільною точністю</a>.</p>
 </td>
 			<td class="code leading">
 			
@@ -104,8 +104,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Числові константи можуть не мати типу допоки
-їм не присвоять його, як у нашому прикладі з
+			<td class="docs"><p>Числові константи не мають типу, аж допоки
+їм не нададуть його, як у нашому прикладі,
 явним перетворення.</p>
 </td>
 			<td class="code leading">
@@ -119,8 +119,8 @@
 		<tr>
 			<td class="docs"><p>Числовій константі може бути надано тип шляхом використання
 її у контексті що потребує тип, наприклад у присвоєнні або
-виклицу функції. Нижче подано примірник де <code>math.Sin</code> очікує
-значення типу <code>float64</code>.</p>
+під час виклику функції. Нижче подано примиклад - де <code>math.Sin</code>
+очікує значення типу <code>float64</code>.</p>
 </td>
 			<td class="code">
 			
