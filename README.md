@@ -1,71 +1,66 @@
 ## Go за прикладом [![Build Status](https://travis-ci.org/butuzov/gobyexample.svg?branch=ukrainian)](https://travis-ci.org/butuzov/gobyexample)
 
-Content and build toolchain for [Go by Example](https://gobyexample.com),
-a site that teaches Go via annotated example programs.
+Наповнення та інструментарій для [Go за Прикладом](https://gobyexample.com.ua), сайту що навчає Go задопомогою анотованих прикладів.
+
+### УВАГА
+
+Робота, наразі, не завершена. Ми перевіряємо на банальні орфографічні помилки і стилистику перекладів.
+
+### Загальне
+Сайт "Go за прикладом" збудовано шляхом обробки коду та коментарів отриманих з першоджерельних файлів (що знаходяться в директорії `examples`) та форматуванню їх  за допомогою шаблонів ( з директорій `templates`) у статичі файли ( що лежатимуть у директорії `public`). Інстурменти що забезпечують весь процес створення сайт знаходяться у директорії `tools`, поряд з деякими залежностями ( що лежать у `vendor`).
+
+Створена директорія `public` може буде завантажена на будьякий shared/CDN/cloud хостинг.
 
 
-### Overview
+### Побудова сторінок сайту
 
-The Go by Example site is built by extracting code and
-comments from source files in `examples` and rendering
-them via the `templates` into a static `public`
-directory. The programs implementing this build process
-are in `tools`, along with some vendor'd dependencies
-in `vendor`.
+Щоб побудувати сайт - вам знадобляться Go та Python. Запустіть:
 
-The built `public` directory can be served by any
-static content system. The production site uses S3 and
-CloudFront, for example.
-
-
-### Building
-
-To build the site you'll need Go and Python installed. Run:
-
-```console
-$ go get github.com/russross/blackfriday
-$ tools/build
-$ open public/index.html
+```bash
+> go get github.com/russross/blackfriday
+> tools/build
+> open public/index.html
 ```
 
-To build continuously in a loop:
+Щоб будувати безперервно скористайтесь (але це не так зручно, насправді):
 
-```console
-$ tools/build-loop
+```bash
+> tools/build-loop
 ```
 
 ### Publishing
 
-To upload the site:
+Ця варіація проекту **gobyexample** облаштована автоматичним deploy'єм на сервера [linode](https://linode.com) прямо з сховища артефактів ( див гілку "**gobyexample.com.ua**" )
 
-```console
-$ gem install aws-sdk
-$ export AWS_ACCESS_KEY_ID=...
-$ export AWS_SECRET_ACCESS_KEY=...
-$ tools/upload-site
+Оригінальний сайт deploy'івся на AWS S3 наступним чином.
+
+```bash
+> gem install aws-sdk
+> export AWS_ACCESS_KEY_ID=...
+> export AWS_SECRET_ACCESS_KEY=...
+> tools/upload-site
 ```
 
-### License
+### Ліцензія
 
-This work is copyright Mark McGranaghan and licensed under a
+Ця робота є авторським правом Mark McGranaghan та ліцензована за
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
 
-The Go Gopher is copyright [Renée French](http://reneefrench.blogspot.com/) and licensed under a
+Go's Гофер є авторським правом [Renée French](http://reneefrench.blogspot.com/) та ліцензовано за
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
 
 
-### Translations
+### Інші переклади
 
-Contributor translations of the Go by Example site are available in:
+Переклади "Go by Example" від волонтерів доступні в наступних версіях:
 
-* [Chinese](https://gobyexample.xgwang.me/) by [xg-wang](https://github.com/xg-wang/gobyexample)
-* [French](http://le-go-par-l-exemple.keiruaprod.fr) by [keirua](https://github.com/keirua/gobyexample)
-* [Italian](http://gobyexample.it) by the [Go Italian community](https://github.com/golangit/gobyexample-it)
-* [Korean](https://mingrammer.com/gobyexample/) by [mingrammer](https://github.com/mingrammer)
-* [Spanish](http://goconejemplos.com) by the [Go Mexico community](https://github.com/dabit/gobyexample)
+* [Китайська](https://gobyexample.xgwang.me/) за авторства [xg-wang](https://github.com/xg-wang/gobyexample)
+* [Французька](http://le-go-par-l-exemple.keiruaprod.fr) за авторства [keirua](https://github.com/keirua/gobyexample)
+* [Італійська](http://gobyexample.it) за авторства [Go Italian community](https://github.com/golangit/gobyexample-it)
+* [Корейська](https://mingrammer.com/gobyexample/) за авторства [mingrammer](https://github.com/mingrammer)
+* [Іспанська](http://goconejemplos.com) за авторства [Стільноти Go у Мексиці](https://github.com/dabit/gobyexample)
 
-### Thanks
+### Дякуємо
 
-Thanks to [Jeremy Ashkenas](https://github.com/jashkenas)
-for [Docco](http://jashkenas.github.com/docco/), which
-inspired this project.
+Дякуюємо [Jeremy Ashkenas](https://github.com/jashkenas)
+за [Docco](http://jashkenas.github.com/docco/), що надихнув на цей проект.
