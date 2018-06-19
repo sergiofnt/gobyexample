@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/t5ezOqqzON4"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/NtydUavEDvm"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -151,7 +151,7 @@
 	
 		<tr>
 			<td class="docs"><p>Пакет <code>io</code> надає перну функціональність, що може стати в нагоді
-під час &ldquo;читання&rdquo;. Наприклад, читання як в пиркладі зверху, може
+під час &ldquo;читання&rdquo;. Наприклад, читання як в прикладі зверху, може
 бути надійніше впроваджено з <code>ReadAtLeast</code>.</p>
 </td>
 			<td class="code leading">

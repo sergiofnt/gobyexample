@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>У попередньому пиркладі ми бачили як керувати простим
+			<td class="docs"><p>У попередньому прикладі ми бачили як керувати простим
 лічильником використовуючи <a href="atomic-counters">атомарні лічильники</a>.
 В разі більш складних випадків ми можемо використовувати  <a href="https://uk.wikipedia.org/wiki/%D0%9C%27%D1%8E%D1%82%D0%B5%D0%BA%D1%81"><em>м’ютекси</em></a>
 для безпечного доступу до данних в горутинах.</p>
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/Uz5C624XFLq"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/hu5Fhv50wGj"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
