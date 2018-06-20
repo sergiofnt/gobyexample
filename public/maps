@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/9iuWzLkY-fz"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/3J1YZe3J1Dx"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -140,8 +140,8 @@
 		<tr>
 			<td class="docs"><p>Необов&rsquo;язкове друге значення під час запиту значення
 по ключу з мапи, показує чи присутній данний ключ в мапі.
-Це корисно використати для розподілу існуючих ключіи та
-ключіи з нульовим значенням (ниприклад <code>0</code> або <code>&quot;&quot;</code>).
+Це корисно використати для розподілу існуючих ключів та
+ключів з нульовим значенням (ниприклад <code>0</code> або <code>&quot;&quot;</code>).
 В прикладі зправа, нам непотрібно саме значення - отож ми
 ігноруємо його за допомогою <em>пустого ідентифікатора</em> <code>_</code>.</p>
 </td>
