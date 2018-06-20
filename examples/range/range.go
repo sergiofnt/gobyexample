@@ -35,7 +35,7 @@ func main() {
         fmt.Printf("%s -> %s\n", k, v)
     }
 
-    // `range` також може просто ітерувати влючі на мапі.
+    // `range` також може просто ітерувати ключі на мапі.
     for k := range kvs {
         fmt.Println("key:", k)
     }
