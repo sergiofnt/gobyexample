@@ -24,7 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Твердежння <code>switch</code> виражають умовності на кілька гілок.</p>
+			<td class="docs"><p>Оператор розгалуження <code>switch</code> використовують
+в основному для представлення у вигляді гілок
+умов.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -35,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/_CmN0iYvmDj"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/fIFtgc5J9l7"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,12 +66,12 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось базовий <code>switch</code>.</p>
+			<td class="docs"><p>Ось базовий приклад <code>switch</code>.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">i</span> <span class="o">:=</span> <span class="mi">2</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;Напиши &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&quot; як &quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="s">&quot;Напишемо &quot;</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="s">&quot; як &quot;</span><span class="p">)</span>
     <span class="k">switch</span> <span class="nx">i</span> <span class="p">{</span>
     <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;один&quot;</span><span class="p">)</span>
@@ -84,10 +86,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ви можете використовувати коми - задля розподілу
-кількох умов в одній гілці твердженням <code>case</code>.
-Ми також використовуємо <code>default</code> (необов’язкове твердження),
-для розгалуження умови, що відображатиме стандартно-задану дію.</p>
+			<td class="docs"><p>Дозволяється використовувати коми - так ми розділяємо
+кілька умов в одній гілці <code>case</code>. Також існує <code>default</code> -
+стандартна умова для усіх випадків (яка виконається -
+за умови що жодна умова ще не виконалась).</p>
 </td>
 			<td class="code leading">
 			
@@ -104,7 +106,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>switch</code> без виразу - являє собою альтернативний спосіб
-виразити <code>if/else</code> логіку. Приклад також демонструє,
+реалізувати <code>if/else</code> логіку. Приклад також демонструє,
 що гілки <code>case</code> можуть містити не тільки константи.</p>
 </td>
 			<td class="code leading">
@@ -122,10 +124,12 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Тип <code>switch</code> що порівнює типи замість значень. Ви можете
-використати це для визначення типу значення інтерфейса.
-В цьому прикладі <code>switch</code> видасть повідомлення базуючись на
-значенні типу змінної <code>t</code> якщо йому про це буде відомо.</p>
+			<td class="docs"><p>Так само - як і в попередньому прикладі з <code>if</code>, у
+операторі <code>switch</code> можливо задекларувати змінну,
+і перевірити умову в одній з гілок вибору.
+Наразі, ми перевіряємо це для визначення типу
+вхідної змінної (тип <a href="interfaces"><code>itnerface{}</code></a>
+дозволяє працювати з будь-яким типом даних).</p>
 </td>
 			<td class="code">
 			

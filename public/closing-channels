@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/QasR-KdPFJF"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/HIo7ZIwtJaD"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -74,7 +74,7 @@
 <code>jobs</code> задачі за допомогою <code>j, more := &lt;-jobs</code>.
 У цій конструкції <code>more</code> буде <code>false</code> канал <code>jobs</code>
 закриється і всі значення з нього будуть вийняті.
-Ми використаємо це дял відправки повідомлення в канал <code>done</code>
+Ми використаємо це для відправки повідомлення в канал <code>done</code>
 що роботи закінчені.</p>
 </td>
 			<td class="code leading">
@@ -150,7 +150,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ідея закритих каналів пирводить нас до
+			<td class="docs"><p>Ідея закритих каналів приводить нас до
 наступного прикладу: <code>range</code> з каналами.</p>
 </td>
 			<td class="code empty">

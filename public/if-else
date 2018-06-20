@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Розгалуження з <code>if</code> та <code>else</code> в Go дуже прості.</p>
+			<td class="docs"><p>Оператори розгалуження <code>if/else</code> в Go це просто.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/mUcRtJccoVW"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/SqN_iCYUKsB"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -63,7 +63,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось базовий приклад.</p>
+			<td class="docs"><p>Ось базовий приклад, де ми бичимо - що нам не потрібні
+круглі дужки навколо умови в Go, хоча потреба фігурні
+дужки нікуди не зникла.</p>
 </td>
 			<td class="code leading">
 			
@@ -78,7 +80,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дозволяється мати твердження <code>if</code> без <code>else</code></p>
+			<td class="docs"><p>Використовуємо ключове слово <code>if</code> без <code>else</code></p>
 </td>
 			<td class="code leading">
 			
@@ -91,10 +93,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Твердження може передувати умовам, будь яка змінна декларована
-в такому твердженні доступна в усіх розгалуженнях.</p>
+			<td class="docs"><p>Ми можемо декларувати зміні які будуть доступні у
+всьому розгалуженні (не тільки <code>if</code>, але і у <code>else if</code>
+та <code>else</code>).</p>
 </td>
-			<td class="code leading">
+			<td class="code">
 			
 			<div class="highlight"><pre>    <span class="k">if</span> <span class="nx">num</span> <span class="o">:=</span> <span class="mi">9</span><span class="p">;</span> <span class="nx">num</span> <span class="p">&lt;</span> <span class="mi">0</span> <span class="p">{</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">num</span><span class="p">,</span> <span class="s">&quot;є негативним числом&quot;</span><span class="p">)</span>
@@ -109,23 +112,16 @@
 			</td>
 		</tr>
 	
-		<tr>
-			<td class="docs"><p>Увага, вам не потрібні круглі дужки навколо умов в Go,
-вимагається лише фігурні дужки.</p>
-</td>
-			<td class="code empty">
-			
-			
-			</td>
-		</tr>
-	
 	</table>
 	
 	<table>
 		
 		<tr>
-			<td class="docs"></td>
-			<td class="code leading">
+			<td class="docs"><p>На додачу розкажемо, що в Go не існує <a href="https://uk.wikipedia.org/wiki/Тернарна_умовна_операція">тенарного if</a>,
+отож, вам потрібно використовувати повний блок <code>if</code>,
+для обробки логіки що підпорядковується умовам.</p>
+</td>
+			<td class="code">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go run <span class="k">if</span>-else.go
 <span class="go">7 не парне</span>
@@ -133,17 +129,6 @@
 <span class="go">9 має одну цифру</span>
 </pre></div>
 
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"><p>В Go не існує <a href="https://uk.wikipedia.org/wiki/%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B0_%D1%83%D0%BC%D0%BE%D0%B2%D0%BD%D0%B0_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D1%96%D1%8F">тенарного if</a>,
-отож, вам потрібно використовувати
-повний блок <code>if</code> в такому випадку.</p>
-</td>
-			<td class="code empty">
-			
-			
 			</td>
 		</tr>
 	

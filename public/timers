@@ -40,7 +40,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/V7LwcxjjPck"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/eSRSjvTGJVx"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -100,7 +100,7 @@
 		<tr>
 			<td class="docs"><p>Якщо вам просто хочеться зачекати, ми можете використати
 <code>time.Sleep</code>. Одна з причин костності таймер, те що він
-може бути зупинений в будьякий момент.</p>
+може бути зупинений в будь-який момент.</p>
 </td>
 			<td class="code">
 			
