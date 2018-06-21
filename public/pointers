@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/n8NnOcFAGrW"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/f65DR6rG5Uu"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -114,14 +114,6 @@
 			<td class="docs"><p>Синтакси <code>&amp;i</code> дає посилання на адресу <code>i</code>,
 тобто вказівник на <code>i</code>.</p>
 </td>
-			<td class="code empty leading">
-			
-			
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"></td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%p\n&quot;</span><span class="p">,</span> <span class="o">&amp;</span><span class="nx">i</span><span class="p">)</span>
@@ -167,8 +159,9 @@
 			<div class="highlight"><pre><span class="gp">$</span> go run pointers.go
 <span class="go">initial: 1</span>
 <span class="go">zeroval: 1</span>
+<span class="go">0xc4200160b8</span>
 <span class="go">zeroptr: 0</span>
-<span class="go">pointer: 0x42131100</span>
+<span class="go">pointer: 0xc4200160b8</span>
 </pre></div>
 
 			</td>

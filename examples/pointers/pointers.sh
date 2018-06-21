@@ -4,5 +4,6 @@
 $ go run pointers.go
 initial: 1
 zeroval: 1
+0xc4200160b8
 zeroptr: 0
-pointer: 0x42131100
+pointer: 0xc4200160b8
