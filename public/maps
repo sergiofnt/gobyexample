@@ -25,8 +25,8 @@
 		
 		<tr>
 			<td class="docs"><p><em>Мапи</em> це <a href="http://en.wikipedia.org/wiki/Associative_array">ассоційований тип данних</a> в Go
-(який в інших мовах програмування, інколи, називають
-<em>хеш таблиця</em> або <em>словник</em>).</p>
+(в інших мовах програмування, такі структури
+ще називають: <em>хеш таблиця</em> або <em>словник</em>).</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/3J1YZe3J1Dx"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/OCGTzKRjIzX"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,7 +65,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб cтворити пусту мапу використайте функцію <a href="./slices"><code>make</code></a>:
+			<td class="docs"><p>Cтворюємо пусту мапу скориставший функцією <a href="./slices"><code>make</code></a>:
 <code>make(map[key-type]val-type)</code>.</p>
 </td>
 			<td class="code leading">
@@ -77,8 +77,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Задати ключ/значення пари можливо за допомогою,
-вже знайомого, синтаксису <nobr><code>name[key] = val</code><nobr>.</p>
+			<td class="docs"><p>Задаємо ключ/значення пари за допомогою,
+вже знайомого, синтаксису доступа за індексом
+(індексом для мап є значення <em>ключа</em>)
+наприклад - <nobr><code>name[key] = val</code><nobr>.</p>
 </td>
 			<td class="code leading">
 			
@@ -91,7 +93,7 @@
 	
 		<tr>
 			<td class="docs"><p>Друк мапи з <code>fmt.Println</code> покаже нам усі існуючі
-ключ/значення пари в нашій мапі.</p>
+пари ключ/значення що належить мапі.</p>
 </td>
 			<td class="code leading">
 			
@@ -114,8 +116,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>len</code> поверне кількість пар у мапі якщо ви вкажете
-мапу аргументом до цієї функції.</p>
+			<td class="docs"><p>Функція <code>len</code> поверне кількість пар у мапі.</p>
 </td>
 			<td class="code leading">
 			
@@ -139,10 +140,10 @@
 	
 		<tr>
 			<td class="docs"><p>Необов&rsquo;язкове друге значення під час запиту значення
-по ключу з мапи, показує чи присутній данний ключ в мапі.
-Це корисно використати для розподілу існуючих ключів та
-ключів з нульовим значенням (ниприклад <code>0</code> або <code>&quot;&quot;</code>).
-В прикладі зправа, нам непотрібно саме значення - отож ми
+по ключу з мапи, покаже чи присутній данний ключ в мапі.
+Це корисно використати для перевірки існуючих ключів та
+ключів <em>з нульовим значенням</em> (наприклад <code>0</code> або <code>&quot;&quot;</code>).
+В цьому прикладі, нам непотрібно саме значення - отож ми
 ігноруємо його за допомогою <em>пустого ідентифікатора</em> <code>_</code>.</p>
 </td>
 			<td class="code leading">
@@ -155,8 +156,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дозволяється декларувати та ініалізувати мапу в один
-рядок використовуючи наступний синтаксис.</p>
+			<td class="docs"><p>Декларувати та ініалізувати мапу в один
+рядок можна використовуючи наступний синтаксис.</p>
 </td>
 			<td class="code">
 			
@@ -174,8 +175,7 @@
 		
 		<tr>
 			<td class="docs"><p>Зауважте, що мапи відображаються у вигляді
-<nobr><code>map[k:v k:v]</code></nobr>, якщо вони надруковані за
-допомогою <code>fmt.Println</code></p>
+<nobr><code>map[k:v k:v]</code></nobr>, коли друкуються <code>fmt.Println</code>.</p>
 </td>
 			<td class="code">
 			

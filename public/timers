@@ -28,7 +28,7 @@
 в майбутньому, або запускати його через певні інтервали
 часу - це стає можливими завдяки сосбливим можливостям Go
 відомим як: <em>таймер</em> та <em>маятник</em>. Спершу ми познайомимось
-з таймерами, а в насутпному прикладі побачимо що таке
+з таймерами, а в наступному прикладі побачимо що таке
 <a href="tickers">маятник</a>.</p>
 </td>
 			<td class="code empty leading">
@@ -40,7 +40,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/eSRSjvTGJVx"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/9ONNjGAYAKD"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
