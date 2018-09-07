@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/G1U4eAK5H04"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/WTvRHvAO1_A"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,7 +64,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Найбільш базовий тип - з єдиною інструкцією.</p>
+			<td class="docs"><p>Найбільш розповсюдженим є тип з єдиною інструкцією.</p>
 </td>
 			<td class="code leading">
 			
@@ -93,8 +93,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>for</code> без умови буде видбуватись постійно
-допоки программа не перерве його за допомогою
+			<td class="docs"><p><code>for</code> без умови буде відбуватись постійно аж
+допоки программа не перерве його, за допомогою
 ключових слів <code>break</code> (що перериває цикл) або
 <code>return</code> (що повертає значення з функції).</p>
 </td>
@@ -110,8 +110,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ви також можете використати ключове слово <code>continue</code>
-для переходу до наступної ітерації циклу.</p>
+			<td class="docs"><p>Існує також ключове слово <code>continue</code> - призначенням
+якого є перехіду до наступної ітерації циклу.</p>
 </td>
 			<td class="code">
 			
