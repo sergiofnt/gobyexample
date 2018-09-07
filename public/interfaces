@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/vklsFY9KPTu"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/YY_8ZJZMJ31"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -86,7 +86,7 @@
 	
 		<tr>
 			<td class="docs"><p>Щоб релізувати інтерфейс в Go, нам лише потрібно
-створити усі методі в цьому інтерфейсі. Як у
+створити усі методи в цьому інтерфейсі. Як у
 прикладі де ми імплементуємо <code>geometry</code> для
 <code>rect</code> (квадрата).</p>
 </td>
@@ -120,12 +120,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Якщо параметр змінної є типом інтерфейсу,
-то ми можемо викликати методи що перелічені
-у цьому інтерфейсі. Ось приклад загальнох
-функції <code>measure</code> що користується цією
-перевагою щоб працбвати на будьякій
-структурі що реалізує інтерфейс <code>geometry</code>.</p>
+			<td class="docs"><p>У разі, якщо змінна має тип інтерфейс, нам дозволяється
+викликати оглошені в цьому інтерфейсі методи.
+то ми можемо викликати методи що перелічені у
+цьому інтерфейсі.</p>
 </td>
 			<td class="code leading">
 			
