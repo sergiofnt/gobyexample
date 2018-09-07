@@ -19,7 +19,7 @@
 Методи|Methods
 Інтерфейси|Interfaces
 Помилки|Errors
-Грутини|Goroutines
+Горутини|Goroutines
 Канали|Channels
 Буферизація Каналу|Channel Buffering
 Синзронізація Каналу|Channel Synchronization

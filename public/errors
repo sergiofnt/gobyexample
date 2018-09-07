@@ -41,7 +41,7 @@ Java чи Ruby, або в порівнянні з перевантаженням
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/dqoD956wyAl"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/T-uOMtLyCzs"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -167,8 +167,8 @@ Java чи Ruby, або в порівнянні з перевантаженням
 	
 		<tr>
 			<td class="docs"><p>Ци два цикли тестують кожну знаших функцій що повертають
-помилки. Зауважте, що однолінійна перевірка помилки поряд з
-оператором умовного розгалуження <code>if</code> це одна з ідіом Go.</p>
+помилки. Зауважте, що перевірка помилки, поряд з оператором
+умовного розгалуження <code>if</code>, це одна з ідіом Go.</p>
 </td>
 			<td class="code leading">
 			
@@ -245,7 +245,7 @@ Java чи Ruby, або в порівнянні з перевантаженням
 
 
 	<p class="next">
-		Наступний приклад: <a href="goroutines">Грутини</a>.
+		Наступний приклад: <a href="goroutines">Горутини</a>.
 	</p>
 
 <p class="footer">

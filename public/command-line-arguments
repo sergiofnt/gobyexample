@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/O3RlB9AEQIE"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/qez-UuhVm8P"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -68,7 +68,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>os.Args</code> надає доступ для незмінених аргументів
-командного рядка. Зауважне що першим значенням у
+командного рядка. Зауважте що першим значенням у
 цьому зрізі буде шлях до самої программи, а <code>os.Args[1:]</code>
 буде утримувати вже аргументи до программи</p>
 </td>

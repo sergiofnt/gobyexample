@@ -160,8 +160,8 @@
 			<div class="highlight"><pre><span class="gp">$</span> go run pointers.go
 <span class="go">initial: 1</span>
 <span class="go">zeroval: 1</span>
-<span class="go">0xc4200160b8</span>
 <span class="go">zeroptr: 0</span>
+<span class="go">pointer: 0xc4200160b8</span>
 <span class="go">pointer: 0xc4200160b8</span>
 </pre></div>
 
