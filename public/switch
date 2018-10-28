@@ -24,8 +24,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Оператор розгалуження <code>switch</code> використовують
-в основному для представлення у вигляді гілок
+			<td class="docs"><p>Оператор розгалуження <code>switch</code> використовують,
+як правило, для представлення у вигляді розгалуження
 умов.</p>
 </td>
 			<td class="code empty leading">
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/fIFtgc5J9l7"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/kXvAUjylSxg"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,7 +66,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось базовий приклад <code>switch</code>.</p>
+			<td class="docs"><p>Розглянемо базовий приклад <code>switch</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -86,10 +86,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дозволяється використовувати коми - так ми розділяємо
-кілька умов в одній гілці <code>case</code>. Також існує <code>default</code> -
-стандартна умова для усіх випадків (яка виконається -
-за умови що жодна умова ще не виконалась).</p>
+			<td class="docs"><p>Дозволяється використовувати коми (&ldquo;,&rdquo;) - так ми розділяємо
+кілька умов в одній гілці <code>case</code>. Також існує умова <code>default</code> -
+вона відбудеться, за умови що жодна інша умова ще не виконалась.</p>
 </td>
 			<td class="code leading">
 			
@@ -105,9 +104,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>switch</code> без виразу - являє собою альтернативний спосіб
-реалізувати <code>if/else</code> логіку. Приклад також демонструє,
-що гілки <code>case</code> можуть містити не тільки константи.</p>
+			<td class="docs"><p><code>switch</code> без виразу - предстввляє собою альтернативний спосіб
+реалізувати <code>if/else</code> логіку. Цей приклад демонструє,
+що гілки <code>case</code> не обмежуться <a href="constants">константами</a>.</p>
 </td>
 			<td class="code leading">
 			
@@ -124,10 +123,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Так само - як і в попередньому прикладі з <code>if</code>, у
-операторі <code>switch</code> можливо задекларувати змінну,
-і перевірити умову в одній з гілок вибору.
-Наразі, ми перевіряємо це для визначення типу
+			<td class="docs"><p>Так само - як і в попередньому прикладі з <code>if</code>,
+оператор <code>switch</code> дозволяє декларувати змінну,
+яка буде доступна на усіх гілках перевірки умови.
+Наразі, ми демонструємо це - визначенням типу
 вхідної змінної (тип <a href="interfaces"><code>itnerface{}</code></a>
 дозволяє працювати з будь-яким типом даних).</p>
 </td>

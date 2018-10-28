@@ -1,31 +1,31 @@
-Привіт Світе|Hello World
-Значення|Values
-Змінні|Variables
-Константи|Constants
-Цикл For|For
+Привіт Світе (Hello World)|Hello World
+Значення (Values)|Values
+Змінні (Variables)|Variables
+Константи (Constants)|Constants
+Цикли (For)|For
 Оператори Розгалуження - Якщо/Інакше (If/Else)|If/Else
 Оператори Розгалуження - Перемикач (Switch)|Switch
 Масиви (Arrays)|Arrays
 Зрізи (Slices)|Slices
-Мапи|Maps
+Мапи (Maps)|Maps
 Діапазон (Range)|Range
-Функції|Functions
-Поверненння Кількох Значень|Multiple Return Values
-Варіативні Функції|Variadic Functions
-Замикання|Closures
-Рекурсія|Recursion
-Вказівники|Pointers
-Структури|Structs
-Методи|Methods
-Інтерфейси|Interfaces
-Помилки|Errors
-Горутини|Goroutines
-Канали|Channels
-Буферизація Каналу|Channel Buffering
+Функції (Functions)|Functions
+Поверненння Кількох Значень (Multiple Return Values)|Multiple Return Values
+Варіативні Функції (Variadic Functions)|Variadic Functions
+Замикання (Closures)|Closures
+Рекурсія (Recursion)|Recursion
+Вказівники (Pointers)|Pointers
+Структури (Structs)|Structs
+Методи (Methods)|Methods
+Інтерфейси (Interfaces)|Interfaces
+Помилки (Errors)|Errors
+Горутини (Goroutines)|Goroutines
+Канали (Channels)|Channels
+Буферизація каналiв (Channel Buffering)|Channel Buffering
 Синзронізація Каналу|Channel Synchronization
 Напрямки каналу|Channel Directions
 Select
-Тайм-аути|Timeouts
+Тайм-аути (Timeouts)|Timeouts
 Не Блокуючі Операції на Каналах|Non-Blocking Channel Operations
 Закриття каналів|Closing Channels
 Діапазон (Range) з Каналами|Range over Channels
