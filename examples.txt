@@ -22,7 +22,7 @@
 Горутини (Goroutines)|Goroutines
 Канали (Channels)|Channels
 Буферизація каналiв (Channel Buffering)|Channel Buffering
-Синзронізація Каналу|Channel Synchronization
+Синхронізація каналу|Channel Synchronization
 Напрямки каналу|Channel Directions
 Select
 Тайм-аути (Timeouts)|Timeouts
