@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/fi-ML5NmpQP"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/7S7aplavVyp"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -265,7 +265,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дозволяється озкодувати JSON у певну структуру
+			<td class="docs"><p>Дозволяється розкодувати JSON у певну структуру
 даних і слід надавати перевагу цьому методу оскільки
 він гарантує нашій программі  додаткову типобезпеку
 і усуває потребу в перевірках типу при використанні розкодованих
