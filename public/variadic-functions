@@ -25,8 +25,8 @@
 		
 		<tr>
 			<td class="docs"><p><a href="http://en.wikipedia.org/wiki/Variadic_function"><em>Варіативна функція</em></a>
-може бути викликана з будьякою кількістю елементів.
-Так от <code>fmt.Println</code> є прикладом варіативної функції.</p>
+може бути викликана з будь-якою кількістю елементів.
+Так-от, <code>fmt.Println</code> - є прикладом варіативної функції.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/NDEYbxeA3Om"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/qlHyu0xgIyA"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,8 +55,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось функція, що прийме довільну кількість цілих чисел,
-як свої аргументи.</p>
+			<td class="docs"><p>Ця функція, прийме своїм аргументом довільну кількість цілих чисел.</p>
 </td>
 			<td class="code leading">
 			
@@ -84,8 +83,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Варіативні функції можуть бути викликані в
-звичайні манері з окремо вказаними аргументами.</p>
+			<td class="docs"><p>Варіативні функції, можуть бути викликані звичайним чином з окремо вказаними аргументами.</p>
 </td>
 			<td class="code leading">
 			
@@ -97,9 +95,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Але якщо у вас вже є кілька аргументів у вигляді <a href="./slices"><code>зріза</code></a>,
-ви можете застосувати їх до варіативної функції
-використовуючи розпаковку <code>func(slice...)</code> наступним чином.</p>
+			<td class="docs"><p>Також можливо &lsquo;розпакувати&rsquo; аргументи, які знаходяться вигляді <a href="./slices"><code>зрізу</code></a>,
+скориставшись синтаксисом розпаковування - <code>func(slice...)</code>.</p>
 </td>
 			<td class="code">
 			
@@ -129,7 +126,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Інший ключовим аспектом функцій в Go - є їх
+			<td class="docs"><p>Іншим ключовим аспектом функцій в Go - є їх
 здатність створювати замикання, що є
 нашою наступною темою.</p>
 </td>
