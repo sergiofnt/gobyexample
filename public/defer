@@ -24,11 +24,11 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><em>Відкладення</em> використовують щоб впевнитись,
-що виклик функції буде виконано пізніше в
-виконанні программи, нерідко для очистки.
-<code>defer</code> також  використовують там саме де
-і <code>ensure</code> та <code>finally</code> використались би в
+			<td class="docs"><p>Конструкція <code>defer</code> або <em>відкладення</em> використовують
+щоб впевнитись, що виклик функції буде виконано пізніше,
+по завершенню роботи программи, найчастіше - для
+звільнення алокованих ресурсів. <code>defer</code> вживають там,
+де <code>ensure</code> та <code>finally</code> були б використані в
 інших мовах.</p>
 </td>
 			<td class="code empty leading">
@@ -40,7 +40,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/V7raVYsvuQ5"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/Y8TeJjNvDjU"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -59,10 +59,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Допустимо, ми бажаємо створити файл, записати щось до
-нього, і коли ми закінчим з цим - закрити його.
-Ось як би ми це зробили за допомогою <code>defer</code>
-(ключове слово для відкладення).</p>
+			<td class="docs"><p>Припустимо, нам потрібно створити файл, записати
+до нього якусь інформацію, і коли ми закінчимо
+роботу з ним - закрити його. Ми <em>відкладемо</em> закриття
+файлу, за допомогою інструкції <code>defer</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -73,11 +73,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Відразу після отримання обєкту <code>File</code> (що повертається
-<code>createFile</code>), ми відкладуємо його закриття за допомогою
-<code>closeFile</code>. ВІдкладений виклик буде виконано в самому
-кінці закриваючої функції (<code>main</code>), але після того,
-як <code>writeFile</code> завершить своє виконання.</p>
+			<td class="docs"><p>Після створення об&rsquo;єкту <code>File</code> ( результат роботи <code>createFile</code> ),
+ми відкладуємо його закриття за допомогою <code>closeFile</code>.
+Виклик <code>closeFile</code> буде виконано по закінченні
+роботи функції <code>main</code>, але вже після того,
+як <code>writeFile</code> завершить свою роботу.</p>
 </td>
 			<td class="code leading">
 			
@@ -147,8 +147,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Запуск программи доводить, що файл було
-закрито після того як в нього було записано.</p>
+			<td class="docs"><p>Запуск программи доводить - файл було
+закрито після того, як до нього було записано дані.</p>
 </td>
 			<td class="code leading">
 			
@@ -162,9 +162,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Тепер, після того як ми знаємо що таке <a href="panic">паніка</a>
-та відкладення, ми готові ознайомитись з концептом
-<a href="recover">відновлення</a>.</p>
+			<td class="docs"><p>Тепер нам відомі такі поняття як <a href="panic">паніка (<code>panic</code>)</a>
+та відкладення (defer), і ми готові ознайомитись з концептом
+<a href="recover"><code>відновлення (recover)</code></a>.</p>
 </td>
 			<td class="code empty">
 			

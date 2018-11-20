@@ -59,7 +59,7 @@ SHA1 Хеші|SHA1 Hashes
 Рядкові Фільтри|Line Filters
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
-Змінні оточення|Environment Variables
+Змінні середовища|Environment Variables
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
 Сигнали|Signals

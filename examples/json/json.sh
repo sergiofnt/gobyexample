@@ -14,7 +14,7 @@ a
 apple
 {"apple":5,"lettuce":7}
 
-# Ми наразі ознайомились з базовим JSON в
-# Go але перевірте статтю [JSON та Go](http://blog.golang.org/2011/01/json-and-go.html)
+# Ми ознайомились з базовою роботою Go з форматом JSON,
+# і радимо прочитати статтю [JSON та Go](http://blog.golang.org/2011/01/json-and-go.html)
 # та документацію [пакету JSON](http://golang.org/pkg/encoding/json/)
-# для отримання більш докладної інформації.
+# для отримання більш розгорнутої інформації про сам пакет в Go.
