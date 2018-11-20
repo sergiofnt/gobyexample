@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><code>Slices</code> або <em>зрізи</em> є ключовим типом данних у Go,
+			<td class="docs"><p><code>Slices</code> або <em>зрізи</em> є ключовим типом даних у Go,
 який являє собою набагато зручніший інтерфейс до
 послідовностей, аніж <a href="./arrays">масиви</a>.</p>
 </td>
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/1p0TFz_4aqu"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/s2VL5yBzwK6"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -199,7 +199,7 @@
 	
 		<tr>
 			<td class="docs"><p>Зрізи можуть бути скомпоновані в мультимірні структури
-данних. Довжина внутрішніх зрізів буде варюватись,
+даних. Довжина внутрішніх зрізів буде варюватись,
 навідміну від мультимірних масивів.</p>
 </td>
 			<td class="code">
@@ -262,7 +262,7 @@
 		<tr>
 			<td class="docs"><p>Після того як ми бачили масиви та зрізи,
 звернемо увагу на іншу важливу структуру
-данних в Go &mdash; <em>мапи</em>.</p>
+даних в Go &mdash; <em>мапи</em>.</p>
 </td>
 			<td class="code empty">
 			

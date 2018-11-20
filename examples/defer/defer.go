@@ -37,7 +37,7 @@ func createFile(p string) *os.File {
 
 func writeFile(f *os.File) {
     fmt.Println("записуємо")
-    fmt.Fprintln(f, "данні")
+    fmt.Fprintln(f, "дані")
 
 }
 

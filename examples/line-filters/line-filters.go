@@ -25,7 +25,7 @@ func main() {
 
     for scanner.Scan() {
         // `Text` поверне поточний токен, в нашому прикладі наступну
-        // лінію з вхідних данних.
+        // лінію з вхідних даних.
 
         ucl := strings.ToUpper(scanner.Text())
 

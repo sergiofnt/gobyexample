@@ -25,7 +25,7 @@
 		
 		<tr>
 			<td class="docs"><p>В <a href="range">попередньому</a> прикладі ми бачили як <code>for</code> та
-<code>range</code> забезпечують ітерацію для базових структур данних.
+<code>range</code> забезпечують ітерацію для базових структур даних.
 Цей синтаксис також може бути використаний для
 отримання значень з каналу.</p>
 </td>
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/xMIA7GXf_QO"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/Ry5mtYC3Vmh"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 

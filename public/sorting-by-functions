@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Інколи ми можемо бажати сортувати колекцію данних за
+			<td class="docs"><p>Інколи ми можемо бажати сортувати колекцію даних за
 чомось іншим крім натурального порядоку. Наприклад, нам
 потрібно відсортувати  рядки за довжиною напротивагу
 сортуванню по алфавіту, наступний приклад, як це можна
@@ -39,7 +39,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/bj_b8H3FLmw"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/NNqngkoLs_z"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -73,7 +73,7 @@
 	
 		<tr>
 			<td class="docs"><p>Нам необхідно реалізувати <code>sort.Interface</code>, тобто створити методи
-<code>Len</code>, <code>Less</code> та <code>Swap</code> - що будуть оперувати на нашому типі данних,
+<code>Len</code>, <code>Less</code> та <code>Swap</code> - що будуть оперувати на нашому типі даних,
 що дозволить нам використати узагальнену функцію <code>Sort</code> пакету <code>sort</code>.
 <code>Len</code> та <code>Swap</code> зазвичай будуть схожими на інші свої аналоги.
 Найбільш відрізнятись буде  <code>Less</code>, вона буде реалізовувати власну
@@ -100,7 +100,7 @@
 			<td class="docs"><p>З готовими, ми нарешті можемо реалізувати наше власне
 сортування за допомогою конвертації початкового зрізу <code>fruits</code>
 у зріз <code>byLength</code> (заДовжиною), і використання <code>sort.Sort</code> до
-цього типу данних.</p>
+цього типу даних.</p>
 </td>
 			<td class="code">
 			
@@ -132,10 +132,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Створючи новий тип данних, реалізуючи три методи
+			<td class="docs"><p>Створючи новий тип даних, реалізуючи три методи
 інтерфейсу <code>sort.Interface</code> по відношенню до цього
-типу данних і викликаючи sort.Sort з новоствореним
-типом данних переданим їй аргументом - ми можемо
+типу даних і викликаючи sort.Sort з новоствореним
+типом даних переданим їй аргументом - ми можемо
 сортувати власні типи використовуючи власні методи.</p>
 </td>
 			<td class="code empty">

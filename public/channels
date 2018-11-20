@@ -26,7 +26,7 @@
 		<tr>
 			<td class="docs"><p><em>Канали</em> це протоки, що об’єднуть горутини,
 які виконуються водночас. Ми можете надсилати
-данні до каналу з однієї горутини та
+дані до каналу з однієї горутини та
 отримаувати у іншій.</p>
 </td>
 			<td class="code empty leading">
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/3iL70fFIROj"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/SfP8X5mS9u9"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 

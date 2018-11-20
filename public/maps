@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><em>Мапи</em> це <a href="http://en.wikipedia.org/wiki/Associative_array">ассоційований тип данних</a> в Go
+			<td class="docs"><p><em>Мапи</em> це <a href="http://en.wikipedia.org/wiki/Associative_array">ассоційований тип даних</a> в Go
 (в інших мовах програмування, такі структури
 ще називають: <em>хеш таблиця</em> або <em>словник</em>).</p>
 </td>
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/OCGTzKRjIzX"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/6UVmKR5e1Xv"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -140,7 +140,7 @@
 	
 		<tr>
 			<td class="docs"><p>Необов&rsquo;язкове друге значення під час запиту значення
-по ключу з мапи, покаже чи присутній данний ключ в мапі.
+по ключу з мапи, покаже чи присутній даний ключ в мапі.
 Це корисно використати для перевірки існуючих ключів та
 ключів <em>з нульовим значенням</em> (наприклад <code>0</code> або <code>&quot;&quot;</code>).
 В цьому прикладі, нам непотрібно саме значення - отож ми

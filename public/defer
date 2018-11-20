@@ -40,7 +40,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/Y8TeJjNvDjU"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/hu3E2YzMjuU"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -113,7 +113,7 @@
 			
 			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">writeFile</span><span class="p">(</span><span class="nx">f</span> <span class="o">*</span><span class="nx">os</span><span class="p">.</span><span class="nx">File</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;записуємо&quot;</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintln</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s">&quot;данні&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Fprintln</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="s">&quot;дані&quot;</span><span class="p">)</span>
 </pre></div>
 
 			</td>

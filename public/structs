@@ -25,7 +25,7 @@
 		
 		<tr>
 			<td class="docs"><p><em>Структури</em> в Go це типізовані колекції полів,
-корисні для групування данних разом задля формування
+корисні для групування даних разом задля формування
 записів.</p>
 </td>
 			<td class="code empty leading">
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/nQViAVzLI_i"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/f5L15h32i8g"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -149,7 +149,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Данні в структурі можна змінювати ( тобто вони <code>mutable</code>,
+			<td class="docs"><p>Дані у структурі можна змінювати ( тобто вони <code>mutable</code>,
 такі що дозволяється змінбвати).</p>
 </td>
 			<td class="code">
