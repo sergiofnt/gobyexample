@@ -1,0 +1,12 @@
+version: '2.1'
+
+services:
+
+# Nginx
+  nginxlb:
+    image: docker.io/butuzov/nginx:1.15.6
+    ports:
+      - "5020:80"
+    volumes:
+      - ./public/:/var/www/html/
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
