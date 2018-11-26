@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
-	<title>Go за Прикладом: Маятники</title>
+	<title>Go за Прикладом: Маятники (Tickers)</title>
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
@@ -16,7 +16,7 @@
 </head>
 <body>
 	<div class="example" id="tickers">
-	<h2><a href="./">Go за Прикладом</a>: Маятники</h2>
+	<h2><a href="./">Go за Прикладом</a>: Маятники (Tickers)</h2>
 
 	<p class="warning">Work in Progress / Сайт в процесі розробки</p>
 

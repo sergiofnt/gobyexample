@@ -29,8 +29,8 @@ Select
 Не Блокуючі Операції на Каналах|Non-Blocking Channel Operations
 Закриття каналів|Closing Channels
 Діапазон (Range) з Каналами|Range over Channels
-Таймери|Timers
-Маятники|Tickers
+Хронометри (Timers)|Timers
+Маятники (Tickers)|Tickers
 Worker Pools
 Обмеження Частоти Запитів|Rate Limiting
 Атомарні Лічильники|Atomic Counters
