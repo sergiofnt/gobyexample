@@ -24,14 +24,14 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><em>Рядковий фільтр</em> це узагальнений тип програм що читають
-дані з <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки">стандартного потоку введення</a>,
-обробляють, і видають якісь похідні результати до стандартного
-потоку виведення. Программи <code>grep</code> та  <code>sed</code> є загально вживаними
-рядковими фільтрами. Розгялнемо приклад рядкового фільтра:
-що повертає скорвертовану до верхнього регістру версію тексту,
-що який він попередньо отримує. Ми может використати цей зразок,
-щоб написати власний рядковий фільтр за допомогою Go.</p>
+			<td class="docs"><p><em>Фільтр рядків</em> це тип програм, що отримують дані з
+<a href="https://uk.wikipedia.org/wiki/Стандартні_потоки">стандартного потоку введення</a>,
+обробляють їх та видають результати роботи назад (до стандартного
+потоку виведення). Одним з найвідоміших прикладів рядкових
+фільтрів є <code>grep</code> та <code>sed</code>. Ми розглянемо приклад створення
+рядкового фільтра: що поверне текст переданий до нього
+сконвертованим до верхнього регістру. Скористайтесь цим зразоком,
+для написання власного фільтра в майбутньому.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -42,7 +42,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/BTC1tFZJQpx"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/VOTuiRTKrWr"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -75,9 +75,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Використання не буфуризованого <code>os.Stdin</code> через буферезований сканнер
-дає нам доступ до методу <code>Scan</code> який пересуває сканер до наступного
-токену;  яким у нас є наступна лінія нашого сканера.</p>
+			<td class="docs"><p>Використання небуферизованого <code>os.Stdin</code> через буферезований сканнер
+дає нам доступ до методу <code>Scan</code>, який пересуватиме сканер
+до наступного токену (а ним у нас є символ переносу &ldquo;\n&rdquo;).</p>
 </td>
 			<td class="code leading">
 			
@@ -88,9 +88,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Text</code> поверне поточний токен, в нашому прикладі наступну
-лінію з вхідних даних.</p>
-</td>
+			<td class="docs"></td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="k">for</span> <span class="nx">scanner</span><span class="p">.</span><span class="nx">Scan</span><span class="p">()</span> <span class="p">{</span>
@@ -100,7 +98,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"></td>
+			<td class="docs"><p><code>Text</code> повертає поточний токен (в нашому прикладі -
+наступна лінія вхідних данних).</p>
+</td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>        <span class="nx">ucl</span> <span class="o">:=</span> <span class="nx">strings</span><span class="p">.</span><span class="nx">ToUpper</span><span class="p">(</span><span class="nx">scanner</span><span class="p">.</span><span class="nx">Text</span><span class="p">())</span>
@@ -110,7 +110,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Запис результату до стандартного потоку виводу.</p>
+			<td class="docs"><p>Передача результату назад до стандартного потоку виводу,
+за допомогою <code>fmt.Println</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -122,8 +123,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Перевірка щодо помилок під час <code>Scan</code>. Кінець файлу - очікуванна
-помилка не буде зарапортований <code>Scan</code> як така.</p>
+			<td class="docs"><p>Переврка помилок підчас роботи <code>Scan</code>.
+&ldquo;Кінець файлу&rdquo; - це очікуванна помилка і не буде
+зарапортована <code>Scan</code> як &ldquo;помилка&rdquo; взагалі.</p>
 </td>
 			<td class="code">
 			
@@ -142,8 +144,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Щоб спробувати наш рядковий фільтр, створимо файл з кількома
-рядками у нижньому регістрі.</p>
+			<td class="docs"><p>Для теста нашого рядкового фільтра,
+створимо файл з кількома рядками у
+нижньому регістрі.</p>
 </td>
 			<td class="code leading">
 			
@@ -155,8 +158,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Після чого скористаємось рядковим фільтром, щоб отримати
-ціж рядки у верхньому регістрі.</p>
+			<td class="docs"><p>Після чого прочитаємо зміст файлу та перенаправимо
+потік у наш фільтр, для того, щоб отримати його назад у
+верхньому регістрі.</p>
 </td>
 			<td class="code">
 			
