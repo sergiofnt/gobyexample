@@ -24,10 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Використовуючи канали як параметри функції, дозволяється
-вказувати призначення каналу - чи він буде використаний
-для відправки чи тільки для отримання значень.
-Використання цієї особливості підвищує безпеку программи.</p>
+			<td class="docs"><p>Скориставшись <a href="channels">канал</a>&lsquo;ом як аргументом функції,
+ви також можете вказати його призначення: буде він використаний
+для відправки, чи для отримання значень. Це додатковий крок у
+жорсткій типізації каналів, спрямований на підвищення рівня безпеки.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/Dx4aJORRMep"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/8ObWpOoWz4J"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -56,8 +56,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>ping</code> прийме канал лише для надсилання значень.
-Ви отримаєте помилку компіляції, якщо спробуєете отримати
+			<td class="docs"><p>Функція <code>ping</code> прийме канал, лише, для надсилання значень.
+Ви отримаєте помилку компіляції, якщо спробуєте отримати
 значення з цього каналу.</p>
 </td>
 			<td class="code leading">
@@ -71,8 +71,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>pong</code> приймає перший канал для доставки
-(<code>pings</code>), a другий для відправки (<code>pongs</code>).</p>
+			<td class="docs"><p>Функція <code>pong</code> прийме перший канал для надсилання
+(<code>pings</code>), a другий для відправки (<code>pongs</code>) значень.</p>
 </td>
 			<td class="code leading">
 			
@@ -87,14 +87,24 @@
 	
 		<tr>
 			<td class="docs"></td>
-			<td class="code">
+			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
     <span class="nx">pings</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nx">pongs</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="nx">ping</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="s">&quot;передане повідомлення&quot;</span><span class="p">)</span>
     <span class="nx">pong</span><span class="p">(</span><span class="nx">pings</span><span class="p">,</span> <span class="nx">pongs</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&lt;-</span><span class="nx">pongs</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Блокуємо виконання і отримуємо наше повідомлення.</p>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="o">&lt;-</span><span class="nx">pongs</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 

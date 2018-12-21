@@ -24,10 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>В <a href="range">попередньому</a> прикладі ми бачили як <code>for</code> та
-<code>range</code> забезпечують ітерацію для базових структур даних.
-Цей синтаксис також може бути використаний для
-отримання значень з каналу.</p>
+			<td class="docs"><p>В попередньому <a href="range">прикладі</a> ми дізнались як <code>for</code> та
+<code>range</code> забезпечують ітерацію базових структур даних,
+але цей синтаксис можна використи і для отримання значень з каналу.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/Ry5mtYC3Vmh"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/-eh5wvEPR6s"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,8 +65,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми будемо ітерувати 2 значення, які ми зараз надсилаємо
-до каналу <code>queue</code>.</p>
+			<td class="docs"><p>Ми створемо канал <code>queue</code> і надішлемо до нього два строкових значення,
+після чого ми закриємо його.</p>
 </td>
 			<td class="code leading">
 			
@@ -81,9 +80,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Цей <code>range</code> ітерує через кожен елемент що він отримує
-з <code>queue</code>. І тому що ми закрили цей канал вище ітерація
-припиняється, після отримання усіх 2 елементів з нього.</p>
+			<td class="docs"><p>Скориставшись <code>range</code> ми пройдемось по значеннях <code>queue</code>, a так як ми
+закрили цей канал - ітерація припиняється, після отримання
+усіх (2) елементів з нього.</p>
 </td>
 			<td class="code">
 			
@@ -101,24 +100,16 @@
 	<table>
 		
 		<tr>
-			<td class="docs"></td>
-			<td class="code leading">
+			<td class="docs"><p>Цей приклад також демонструє здатність закривати не пустий канал і
+все ж отримувати з нього значення.</p>
+</td>
+			<td class="code">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go run range-over-channels.go
 <span class="go">one</span>
 <span class="go">two</span>
 </pre></div>
 
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"><p>це також приклад того що можливо закрити не пустий канал та
-все ще бути спроможним отримати з нього залишкові значення.</p>
-</td>
-			<td class="code empty">
-			
-			
 			</td>
 		</tr>
 	
