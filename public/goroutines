@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/E3w_lFULmS0"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/CXtiTR-mPxo"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -93,9 +93,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб запустити виконання функції в горутині, скористайтесь
-синтаксисом запуску горутини <code>go f(s)</code>. Ця горутина буде
-виконуватись одночасно з викликом.</p>
+			<td class="docs"><p>Щоб запустити виконання функції в горутині, скористаймось
+синтаксисом запуску горутини <code>go f(s)</code>, тким чином горутина
+буде виконуватись одночасно з викликом.</p>
 </td>
 			<td class="code leading">
 			
@@ -106,8 +106,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Аналогічним чином - дозволяється запускати горутини для
-анонімних функцій.</p>
+			<td class="docs"><p>Аналогічним чином можна запускати в горутини анонімні функції.</p>
 </td>
 			<td class="code leading">
 			
@@ -120,7 +119,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>time.Sleep(time.Millisecond)</code> - створить паузу у виконанні,
+			<td class="docs"><p><code>time.Sleep(time.Millisecond)</code> - створить затримку у виконанні,
 щоб ми дочекались результатів роботи вже запущених горутин.</p>
 </td>
 			<td class="code leading">
@@ -149,11 +148,11 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Коли ми запустимо цю программу, ми побачимо
+			<td class="docs"><p>Коли ми запустимо нашу програму, ми побачимо
 спершу результат блокуючого виклику, а вже
 потім результат виконання  двох горутин.
 Як ми можете помітити, обидві горутини
-виконуються одночасно і контролюється
+виконуються одночасно ії виконання контролюється
 середовищем виконання Go.</p>
 </td>
 			<td class="code leading">
@@ -173,8 +172,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><em>Канали</em>, є доповненням до горутин у
-механізмах одночасного виконання реалізованих у Go.</p>
+			<td class="docs"><p>На додаток до механізмів асинхронного виконання,
+таких як горутини, ми зараз розгялнемо <em>Канали</em>.</p>
 </td>
 			<td class="code empty">
 			
