@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Використовуйте <code>os.Exit</code> для негайного виходу з
+			<td class="docs"><p>Скористайтесь <code>os.Exit</code> для негайного виходу з
 <a href="https://en.wikipedia.org/wiki/Exit_status">відповідним статусом</a>.</p>
 </td>
 			<td class="code empty leading">
@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/akoc3nEkYZl"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/cUhgQU33FjG"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -78,7 +78,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Завершити/вийти з программи зі статусом 3.</p>
+			<td class="docs"><p>Завершити з программу з статусом 3.</p>
 </td>
 			<td class="code leading">
 			
@@ -92,8 +92,8 @@
 		<tr>
 			<td class="docs"><p>Напротивагу С/С++, Go не потребує використовувати
 ціле число, як значення що повертається з функції main
-(що вказати операційній системі з яким статусом
-завершилась программа). Тобто, якщо ви захочете
+(щоб вказати операційні системі з яким статусом
+завершилась програма). Тобто, якщо ви захочете
 вийти з ненульовим статусом - ви змушені будете
 скористатись <code>os.Exit</code>.</p>
 </td>
@@ -109,7 +109,7 @@
 		
 		<tr>
 			<td class="docs"><p>Якщо ви запустите <code>exit.go</code> використовуючи
-<code>go run</code>, то статус виходу буде підібрино
+<code>go run</code>, то статус виходу буде підібрано
 <code>go</code> і надруковано.</p>
 </td>
 			<td class="code leading">
@@ -122,7 +122,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Якщо ви скомпілюєте та запустите бінарний файл
+			<td class="docs"><p>Якщо ви скомпілюєте та запустите бінарний файл,
 ви зможете підхопити статус код в терміналі
 самостійно.</p>
 </td>
@@ -139,7 +139,7 @@
 	
 		<tr>
 			<td class="docs"><p>Зауважте що <code>!</code> з нашої программи ніколи не
-було надруковано.</p>
+буде надруковано.</p>
 </td>
 			<td class="code empty">
 			
