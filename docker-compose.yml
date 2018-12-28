@@ -4,7 +4,7 @@ services:
 
 # Nginx
   nginxlb:
-    image: docker.io/butuzov/nginx:1.15.6
+    image: docker.io/butuzov/nginx:1.15.7
     ports:
       - "5020:80"
     volumes:
