@@ -25,8 +25,7 @@
 		
 		<tr>
 			<td class="docs"><p><em>Мапи</em> це <a href="http://en.wikipedia.org/wiki/Associative_array">ассоційований тип даних</a> в Go
-(в інших мовах програмування, такі структури
-ще називають: <em>хеш таблиця</em> або <em>словник</em>).</p>
+(в інших мовах програмування, такі структури даних ще називають: <em>хеш таблиця</em> або <em>словник</em>).</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/6UVmKR5e1Xv"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/Zs9jetY6yr9"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -65,8 +64,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Cтворюємо пусту мапу скориставший функцією <a href="./slices"><code>make</code></a>:
-<code>make(map[key-type]val-type)</code>.</p>
+			<td class="docs"><p>Скориставшись функцією <a href="./slices"><code>make</code></a>:
+<code>make(map[key-type]val-type)</code>, ми ініціюємо створення мапи.</p>
 </td>
 			<td class="code leading">
 			
@@ -77,9 +76,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Задаємо ключ/значення пари за допомогою,
-вже знайомого, синтаксису доступа за індексом
-(індексом для мап є значення <em>ключа</em>)
+			<td class="docs"><p>Задати/Створити значенням можна за допомогою,
+вже знайомого, синтаксису доступу за індексом,
+де індекс це <code>ключ</code>,
 наприклад - <nobr><code>name[key] = val</code><nobr>.</p>
 </td>
 			<td class="code leading">
@@ -92,8 +91,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Друк мапи з <code>fmt.Println</code> покаже нам усі існуючі
-пари ключ/значення що належить мапі.</p>
+			<td class="docs"><p>Друкуючи мипу з <code>fmt.Println</code> ми побачимо усі існуючі
+пари ключ/значення, які належить мапі.</p>
 </td>
 			<td class="code leading">
 			
@@ -104,7 +103,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Добути значення для ключа можна за допомогою <code>name[key]</code>.</p>
+			<td class="docs"><p>Отримати значення за ключнем можна звернувшись до
+мапи за індексом <code>name[key]</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -116,7 +116,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>len</code> поверне кількість пар у мапі.</p>
+			<td class="docs"><p>Функція <code>len</code> повертає кількість пар у мапі.</p>
 </td>
 			<td class="code leading">
 			
@@ -127,7 +127,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>delete</code> видалить ключ/значення пару з мапи.</p>
+			<td class="docs"><p>Функція <code>delete</code> видаляє пару ключ/значення з мапи.</p>
 </td>
 			<td class="code leading">
 			
@@ -139,12 +139,12 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Необов&rsquo;язкове друге значення під час запиту значення
-по ключу з мапи, покаже чи присутній даний ключ в мапі.
-Це корисно використати для перевірки існуючих ключів та
-ключів <em>з нульовим значенням</em> (наприклад <code>0</code> або <code>&quot;&quot;</code>).
-В цьому прикладі, нам непотрібно саме значення - отож ми
-ігноруємо його за допомогою <em>пустого ідентифікатора</em> <code>_</code>.</p>
+			<td class="docs"><p>Необов&rsquo;язкове друге значення, отримане під час запиту значення
+за ключем з мапи, покаже чи присутній даний ключ в мапі.
+Це стає в нагоді для перевірки існування ключів ( особливо
+ключів <em>з нульовим значенням</em> (наприклад <code>0</code> або <code>&quot;&quot;</code>)).
+В цьому прикладі перевірки існування, нам непотрібно значення,
+а отже, ми ігноруємо його за допомогою <em>пустого ідентифікатора</em> <code>_</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -156,8 +156,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Декларувати та ініалізувати мапу в один
-рядок можна використовуючи наступний синтаксис.</p>
+			<td class="docs"><p>Використовуючи наступний синтаксис ми можемо ініціалізувати мапу
+одним рядком.</p>
 </td>
 			<td class="code">
 			
