@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/WTvRHvAO1_A"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/7DYlD-ij8Wp"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -94,7 +94,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>for</code> без умови буде відбуватись постійно аж
-допоки программа не перерве його, за допомогою
+допоки програма не перерве його, за допомогою
 ключових слів <code>break</code> (що перериває цикл) або
 <code>return</code> (що повертає значення з функції).</p>
 </td>

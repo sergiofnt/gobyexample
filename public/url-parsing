@@ -24,8 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>URLи надаютть <a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">однаковий шлях для локації ресурсів</a>.
-І ось як ми розбираємо URL на складові.</p>
+			<td class="docs"><p><em>Уніфікований локатор ресурсів</em>, більш відомий
+за своєю англомовною абревіатурою - URL, надаює змогу
+визначати <a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">локацію ресурсі</a> у інтернеті (і не тільки). Використовуючи Go - ми маємо змогу розбити URL на
+частинки та отримати їх автоматично.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -36,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/9xDJbXwFv2-"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/ifbQqZ8FDG-"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -66,20 +68,21 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми озбиратимемо цей приклад URL, він включає схему,
+			<td class="docs"><p>Наш приклад представляє собою URL, що міститить: схему,
 інфо аутентифікації, хост, порт, шлях,
-параметри запиту і фрагмент запиту (якір).</p>
+параметри запиту і фрагмент запиту.</p>
 </td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;postgres://user:pass@host.com:5432/path?k=v#f&quot;</span>
+			<div class="highlight"><pre>    <span class="nx">s</span> <span class="o">:=</span> <span class="s">&quot;postgres://user:pass@host.com:5432/path?k=1&amp;k=2#f&quot;</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Розібр URL дозволяє перевірити наявність помилки.</p>
+			<td class="docs"><p>Метод розбору <code>url.Parse</code> також повертає &ldquo;<a href="./errors">помилку</a>&rdquo;, що
+дозволяє перевірити - чи виникли проблеми під час розбору URL.</p>
 </td>
 			<td class="code leading">
 			
@@ -93,7 +96,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Отримати доступ до схеми (і інших складових) надзвичайно просто.</p>
+			<td class="docs"><p>Отримати доступ до &ldquo;Схеми&rdquo; (і інших складових) дуже просто.
+Достатньо звернутись до поля структури <a href="https://golang.org/pkg/net/url/#URL"><code>URL</code></a>.</p>
 </td>
 			<td class="code leading">
 			
@@ -105,7 +109,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>User</code> збрерігає усю інфомарцію щодо аутентифікації;
-Зверніться до <code>Username</code> та <code>Password</code> для отримання
+Зверніться до &ldquo;під-полів&rdquo; <code>Username</code> та <code>Password</code> для отримання
 індивідуальних значень.</p>
 </td>
 			<td class="code leading">
@@ -120,9 +124,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Host</code> складається як з імени хоста так і порту,
-якщо він присутній. СКористайтесь <code>SplitHostPort</code>
-щоб розбити ці значення на складові.</p>
+			<td class="docs"><p><code>Host</code> складається як з імени хоста, так і порту,
+якщо він присутній. Скористайтесь <code>SplitHostPort</code>
+для отримання складових значення.</p>
 </td>
 			<td class="code leading">
 			
@@ -136,7 +140,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>А таким чином ми звернемось до <code>шляху</code> та фрагмента після <code>#</code>.</p>
+			<td class="docs"><p>А таким чином ми звернемось до <code>шляху</code> та <code>фрагмента</code> після <code>#</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -149,11 +153,11 @@
 	
 		<tr>
 			<td class="docs"><p>Щоб отримати параметри запиту в рядку у форматі
-<code>k=v</code> скористайтесь <code>RawQuery</code>. Також ви маєте змогу
-розпарсити парметри запиту у мапу. Розібрані парарметри
-запиту в мапі зберігаються як ключ-рядок до значення
-що зберігається в зрізі рядків, отож звертайтесь за індексом
-<code>[0]</code> якщо вам потрібно буде тільки перше значення.</p>
+<code>k=v</code> скористайтесь полем структури URL - <code>RawQuery</code>.
+Також можливо - розложити парметри запиту у мапу. Р
+Самі парарметри запиту збережені у мапі у вигляді <code>ключ-рядок</code>
+де значення зберігається в зрізі рядків, отож звертайтесь до значення
+за індексом <code>[0]</code> (якщо вам потрібно буде тільки перше значення).</p>
 </td>
 			<td class="code">
 			
@@ -172,8 +176,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Запуск нашої програми покаже різноманітні
-шматочки нашого URL що ми розібрали.</p>
+			<td class="docs"><p>Запустіть нашу програму, і отримайте
+розібраний на шматочки URL.</p>
 </td>
 			<td class="code">
 			
@@ -187,9 +191,9 @@
 <span class="go">5432</span>
 <span class="go">/path</span>
 <span class="go">f</span>
-<span class="go">k=v</span>
-<span class="go">map[k:[v]]</span>
-<span class="go">v</span>
+<span class="go">k=1&amp;k=2</span>
+<span class="go">map[k:[1 2]]</span>
+<span class="go">1</span>
 </pre></div>
 
 			</td>

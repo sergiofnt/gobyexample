@@ -25,7 +25,7 @@
 		
 		<tr>
 			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/Змінні_середовища">Змінніні середовища</a>
-це універсальний спосіб <a href="https://www.12factor.net/uk/config">передачі конфігурацій программам, що працююь у середовищі Unix</a>.
+це універсальний спосіб <a href="https://www.12factor.net/uk/config">передачі конфігурацій програмам, що працююь у середовищі Unix</a>.
 Давайте розглянемо як створювати, отримувати та показувати ці змінні.</p>
 </td>
 			<td class="code empty leading">
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/KtSNDLmKP6p"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/VPeNPyjOdsO"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
