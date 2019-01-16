@@ -24,10 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Go пропонує відмінну підтримку для формутування рядків
-традиційним для багатьох - <a href="https://en.wikipedia.org/wiki/Printf_format_string"><code>printf</code></a> шляхом.
-Нижче ми розглянемо часто вживані приклади форматування
-рядків в Go.</p>
+			<td class="docs"><p>В Go реалізована хороша підтримка строкового форматування
+( традиційно таке форматування слідує канонам мови
+програмування <a href="https://en.wikipedia.org/wiki/Printf_format_string"><code>С</code></a> ).
+Розглянемо найбільш часто вживані приклади строкового форматування.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/6uczSYq_eQE"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/zd2rAwAebSC"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -79,9 +79,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Go пропонує кілька друкуючих &ldquo;дієслів&rdquo; розроблених
-для фомратування значень Go. Наприклад, <code>%v</code> дозволяє
-сформатувати та надрукувати примірник нашої структури <code>point</code>.</p>
+			<td class="docs"><p>Працюючи з форматуванням рядків ми спершу маємо зрозуміти
+поняття &ldquo;дієслова&rdquo;, яким є спеціалізований ключ або комбінація
+ключів. Такі ключі вживаються для заміни/перетворення значення в
+рядку. Наприклад, <code>%v</code> дозволяє сформатувати та надрукувати приклад
+нашої структури <code>point</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -93,7 +95,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Якщо значення це структура, <code>%+v</code>варіація покаже поля структури.</p>
+			<td class="docs"><p>Якщо значення є структурою, <code>%+v</code>варіація покаже її поля.</p>
 </td>
 			<td class="code leading">
 			
@@ -104,8 +106,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>А варіація <code>%#v</code> сформатує відображення значення синтаксисом Go,
-включаючи код що продукуватиме це значення.</p>
+			<td class="docs"><p>Варіація <code>%#v</code> відформатує відображення значення синтаксисом Go,
+включаючи код який продукуватиме це значення.</p>
 </td>
 			<td class="code leading">
 			
@@ -116,7 +118,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Тип значення можна отримати з <code>%T</code>.</p>
+			<td class="docs"><p>Тип значення можна отримати за допомогою дієслова <code>%T</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -139,7 +141,7 @@
 	
 		<tr>
 			<td class="docs"><p>Існує багато варіцій форматування для цілих чисел.
-Використання <code>%d</code> призведе до стандартного, десятичного  форматування.</p>
+Використання <code>%d</code> призведе до стандартного - десятичного форматування.</p>
 </td>
 			<td class="code leading">
 			
@@ -150,7 +152,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Відображення у двійковій системі числення.</p>
+			<td class="docs"><p>Так наприклад відображувати значення у двійковій системі числення.</p>
 </td>
 			<td class="code leading">
 			
@@ -161,7 +163,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Код <code>%c</code> надрукує відповідний числу символ.</p>
+			<td class="docs"><p>Код <code>%c</code> надрукує відповідний числу (ascii) символ.</p>
 </td>
 			<td class="code leading">
 			
@@ -172,7 +174,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>%x</code> надає відображення в шіснадцятковій системі числення.</p>
+			<td class="docs"><p><code>%x</code> надасть відображення в шіснадцятковій системі числення.</p>
 </td>
 			<td class="code leading">
 			
@@ -184,7 +186,7 @@
 	
 		<tr>
 			<td class="docs"><p>Також є кілька налаштувань для форматування чисел з плаваючою
-комою. Найбільш базове - <code>%f</code>.</p>
+комою. Найбільш базовим з нах є <code>%f</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -196,7 +198,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>%e</code> та <code>%E</code> форматують число з плаваючою комою
-у кількох різних виглядах <a href="https://uk.wikipedia.org/wiki/%D0%95%D0%BA%D1%81%D0%BF%D0%BE%D0%BD%D0%B5%D0%BD%D1%86%D1%96%D0%B0%D0%BB%D1%8C%D0%BD%D0%B8%D0%B9_%D0%B7%D0%B0%D0%BF%D0%B8%D1%81">експоненціального</a> запису.</p>
+у кількох різних варіантах <a href="https://uk.wikipedia.org/wiki/Експоненціальний_запис">експоненціального (або, як його ще називають, &ldquo;наукового&rdquo;)</a> запису.</p>
 </td>
 			<td class="code leading">
 			
@@ -231,20 +233,20 @@
 	
 		<tr>
 			<td class="docs"><p>Так само, як і з чілими числами, <code>%x</code> трансформує
-рядок у шістнадцятирічне відображення, з друком двох символів
+рядок у шістнадцяткове відображення, з друком двох символів
 на байт вхідного параметру.</p>
 </td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;шістнадцятирюй&quot;</span><span class="p">)</span>
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%x\n&quot;</span><span class="p">,</span> <span class="s">&quot;лишенько!&quot;</span><span class="p">)</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб надрукувати адресу пам’яті вказівника (саме так
-буде відображено вказівник) використайте <code>%p</code>.</p>
+			<td class="docs"><p>Щоб надрукувати адресу пам’яті вказівника
+(а так відображаються вказівники) використайте <code>%p</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -255,11 +257,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Коли форматуєте строки вам часто потрібно буде контролювати
-точність та довжину фінального числа. Щоб вказати довжину
-цілого числа, скористайтесь ичслом після символа <code>%</code> у дієслові.
+			<td class="docs"><p>Коли форматуєте рядки - вам інколи необхідно буде контролювати
+точність та довжину фінального &ldquo;числа&rdquo;. Щоб вказати довжину
+цілого числа, скористайтесь числом після символа <code>%</code> у дієслові.
 За стандартними налаштуваннями результатом буде вирівняне
-по правій стороні і видбите пробілами число.</p>
+по правій стороні і відбите пробілами число.</p>
 </td>
 			<td class="code leading">
 			
@@ -270,10 +272,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>You can also specify the width of printed floats,
-though usually you&rsquo;ll also want to restrict the
-decimal precision at the same time with the
-width.precision syntax.</p>
+			<td class="docs"><p>Ви такою можете вказати довжину чисел після коми для
+десяткових чисел, хоча зазвичай вам також знадобиться
+обмежити точність образунку числа після коми водночас до
+точності кількості знаків.</p>
 </td>
 			<td class="code leading">
 			
@@ -284,7 +286,7 @@ width.precision syntax.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Для вирівнювання вліво, використайте прапорець <code>-</code> після <code>%</code>.</p>
+			<td class="docs"><p>Для вирівнювання вліво, скористайтесь прапорцем <code>-</code> після <code>%</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -295,9 +297,9 @@ width.precision syntax.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Можливо вам забажається сформатцвати рядок схожим чином,
-наприклад, для положення в табличному виводі.
-Вирівняти направо можна наступним чином.</p>
+			<td class="docs"><p>Можливо вам забажається відформатувати не тілкьи сисла,
+а й рядок схожим чином, наприклад, для положення в табличному
+виводі. Вирівняти по правій стороні можна наступним чином.</p>
 </td>
 			<td class="code leading">
 			
@@ -309,7 +311,8 @@ width.precision syntax.</p>
 	
 		<tr>
 			<td class="docs"><p>Вирівняти по лівій стороні можна за допомогою, вже
-знайомого цілим числам, прапорця <code>-</code> що ставиться після <code>%</code>.</p>
+знайомого нам за попереднім прикладом з числам, прапорцем <code>-</code>,
+що ставиться після <code>%</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -320,9 +323,9 @@ width.precision syntax.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>До поки ми бачили <code>Printf</code>, що друкує форматовану рядок
+			<td class="docs"><p>Допоки ми бачили <code>Printf</code>, що друкує форматовану рядок
 до <code>os.Stdout</code>. <code>Sprintf</code> сформатує та поверне рядок без
-друку його кудинебудь.</p>
+його друку.</p>
 </td>
 			<td class="code leading">
 			
@@ -334,8 +337,9 @@ width.precision syntax.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ви можете сформатувати+надрукувати до <code>io.Writers</code>
-напротивагу <code>os.Stdout</code> використовуючи <code>Fprintf</code>.</p>
+			<td class="docs"><p>Ви можете сформатувати та надрукувати до <code>io.Writers</code>
+(на противагу <code>os.Stdout</code> в яке проходить друк з Printf)
+скориставшись <code>Fprintf</code>.</p>
 </td>
 			<td class="code">
 			
@@ -369,8 +373,8 @@ width.precision syntax.</p>
 <span class="go">1.234000E+08</span>
 <span class="go">&quot;рядок&quot;</span>
 <span class="go">&quot;\&quot;рядок\&quot;&quot;</span>
-<span class="go">d188d196d181d182d0bdd0b0d0b4d186d18fd182d0b8d180d18ed0b9</span>
-<span class="go">0xc4200160c0</span>
+<span class="go">d0bbd0b8d188d0b5d0bdd18cd0bad0be21</span>
+<span class="go">0xc0000160b0</span>
 <span class="go">|    12|   345|</span>
 <span class="go">|  1.20|  3.45|</span>
 <span class="go">|1.20  |3.45  |</span>
