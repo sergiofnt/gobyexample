@@ -32,7 +32,7 @@
 
 Ця варіація проекту **gobyexample** розгортується автоматично на сервера [linode](https://linode.com) безпосередньо зі сховища артефактів (див гілку "**gobyexample.com.ua**")
 
-Оригінальний сайт розгортувався на AWS S3 наступним чином.
+Оригінальний сайт розгортувався на AWS S3 наступним чином:
 
 ```bash
 > gem install aws-sdk
@@ -49,7 +49,6 @@
 Go's Гофер є авторським правом [Renée French](http://reneefrench.blogspot.com/) та ліцензовано за
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/).
 
-
 ### Інші переклади
 
 Переклади "Go by Example" від волонтерів доступні в наступних версіях:
@@ -63,4 +62,4 @@ Go's Гофер є авторським правом [Renée French](http://rene
 ### Дякуємо
 
 Дякуюємо [Jeremy Ashkenas](https://github.com/jashkenas)
-за [Docco](http://jashkenas.github.com/docco/), що надихнув на цей проект.
+за [Docco](http://jashkenas.github.com/docco/), що надихнули на цей проект.
