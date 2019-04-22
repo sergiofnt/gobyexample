@@ -1,6 +1,9 @@
 language: go
 
-go: "1.10"
+go: "1.12"
 
-script: ./tests.sh
-after_success: ./deploy.sh
+script:
+- ./tests.sh
+
+after_success:
+- ./deploy.sh
