@@ -25,7 +25,7 @@
 		
 		<tr>
 			<td class="docs"><p>Часто нам необхідно сконвертувати часло з рядкового
-значення і ось як це робити в Go.</p>
+значення у (власне) число - і ось як це робити в Go.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/SS40ZerZbqi"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/TCgPbTJ_HVq"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -44,7 +44,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Конвертація з рядків в числа є можливою завдяки пакету
+			<td class="docs"><p>Конвертація з рядків в числа можлива завдяки пакету
 <code>strconv</code>.</p>
 </td>
 			<td class="code leading">
@@ -67,9 +67,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>64</code> щш ви бачите у фунції <code>ParseFloat</code> вказує на те
+			<td class="docs"><p><code>64</code> (що ви бачите у фунції <code>ParseFloat</code>) вказує на те,
 до скількох бітів точності ми будемо конвернувати
-це число.</p>
+це число, тобто фінальне число буде nage float64</p>
 </td>
 			<td class="code leading">
 			
@@ -81,9 +81,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>0</code> в <code>ParseInt</code> вказує на те, що тип визначатиметься
-базуючись на фомарті у рядку, а <code>64</code> це вимога до
-результату поміститсть у 64 біти.</p>
+			<td class="docs"><p><code>0</code> в <code>ParseInt</code> говорить нам, що тип визначатиметься
+базуючись на форматі рядку, а <code>64</code> це вимога до
+результату поміститсть у відведені 64 біти.</p>
 </td>
 			<td class="code leading">
 			
@@ -95,7 +95,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>ParseInt</code> може розпізнати навіть шістнадцяткові числа.</p>
+			<td class="docs"><p><code>ParseInt</code> може розпізнати не тільки сисла 10чної системи,
+ось приклад шістнадцяткового числа.</p>
 </td>
 			<td class="code leading">
 			
@@ -107,7 +108,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Як бачите <code>ParseUint</code> також доступний.</p>
+			<td class="docs"><p>Як бачимо - <code>ParseUint</code> також доступний.</p>
 </td>
 			<td class="code leading">
 			
@@ -120,7 +121,7 @@
 	
 		<tr>
 			<td class="docs"><p><code>Atoi</code> зручно використовувати для конвертації
-числа за основою 10 (десятичного) в ціле число.</p>
+чисел за основою 10 (десятичного) у цілі.</p>
 </td>
 			<td class="code leading">
 			
@@ -166,8 +167,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Далі ми розглянемо іще один з вид роботи з
-текстом : розбір URLs на складові.</p>
+			<td class="docs"><p>Далі ми розглянемо ще один тип роботи з текстом:
+розбір URL на складові.</p>
 </td>
 			<td class="code empty">
 			
