@@ -8,6 +8,10 @@ script:
 after_success:
 - ./deploy.sh
 
+# Only Ukrainian Branch if for CI/CD
+branches: { only: [ 'ukrainian' ] }
+
+# Notifications settings.
 notifications:
   email: false
   webhooks:
