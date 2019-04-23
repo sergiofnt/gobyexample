@@ -24,8 +24,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><em>Функції</em> центральна тема в Go. Ми будмо знайомитись з
-функціями в кількох різних прикладах.</p>
+			<td class="docs"><p><em>Функції</em> - це базова складова мови Go. Ми будемо знайомитись з
+ними за допомогою кількох різних прикладів.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/GwwkoG541Em"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/fUetTM9jbOM"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,23 +55,13 @@
 	
 		<tr>
 			<td class="docs"><p>Ось функція, що приймає два цілих числа (<code>int</code>)
-та повертає їх суму (також, як ціле число <code>int</code>).</p>
+та повертає їх суму (також, як ціле число <code>int</code>).
+Go потребує чітко вказувати тип що повертається.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">plus</span><span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="kt">int</span> <span class="p">{</span>
-</pre></div>
-
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"><p>Go потребує чітко вказувати що повертається,
-самостійно воно не поверне значення останнбого виразу.</p>
-</td>
-			<td class="code leading">
-			
-			<div class="highlight"><pre>    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -79,8 +69,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>За виключенням, коли ми вказуємо яку змінну повернути,
-(як у випадку з змінною summ).</p>
+			<td class="docs"><p>За виключенням, коли ми вказуємо можемо додатково вказати зміну
+для повернення, (зверніть увагу на приклад з змінною summ).</p>
 </td>
 			<td class="code leading">
 			
@@ -95,9 +85,8 @@
 	
 		<tr>
 			<td class="docs"><p>Коли у вас кілька послідовних параметрів одного типу,
-дозволяється пропускати тип вказавша його лише
-для останнього аргумента (що має той же тип як
-і попередні аргументи).</p>
+дозволяється пропускати тип - вказуючи його лише
+для останнього аргумента.</p>
 </td>
 			<td class="code leading">
 			
@@ -114,18 +103,7 @@
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
-</pre></div>
-
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"><p>Як ви і очікували викликаємо функцію
-<code>name(args)</code>.</p>
-</td>
-			<td class="code leading">
-			
-			<div class="highlight"><pre>    <span class="nx">res</span> <span class="o">:=</span> <span class="nx">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="nx">res</span> <span class="o">:=</span> <span class="nx">plus</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;1+2 =&quot;</span><span class="p">,</span> <span class="nx">res</span><span class="p">)</span>
 </pre></div>
 
@@ -173,9 +151,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>У функцій Go є ще кілька особливостей, одна
-з них можливість повертати кілька значень,
-з нею ми познайомимось в наступному прикладі.</p>
+			<td class="docs"><p>У функцій Go - є ще кілька цікавих особливостей, одна
+з них можливість повертати не одне, а кілька значень.
+Ми познайомимось з цією особливістю у наступному прикладі.</p>
 </td>
 			<td class="code empty">
 			
