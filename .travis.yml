@@ -8,13 +8,16 @@ script:
 after_success:
 - ./deploy.sh
 
-
 notifications:
   email: false
-  webhooks: 
+  webhooks:
     urls:
-    - https://fathomless-fjord-24024.herokuapp.com/notify    
+      - https://fathomless-fjord-24024.herokuapp.com/notify
   slack:
-    secure: drOIwJcbnCZlYKWuoaDKz9mzvAIhOSQIsa01ZeFm05qpxTDNo2DWcwQISny36IMlYTlS4pWWAja1z27I4413XGQFNIB3VSk8MPieJ8Ux4MTE6+g7y7qz33npRwH9dnCaYUy5wpLrj9qr4JE2sxFqiMqSO/OZRFkaSpMxB5UGcR4vgSod7gHjtjzSeWIoh6pg18o29OXBsd5z8Six8gN6eo8O/W8cyc4swkvq7audhmLlJgG5QSCtUEqmiApXd0/tKn7NQzvgE5CDW9VMxxrEWEK8mc9EHz4J+jTlngcnC1ix8KeLa3PAtld7Ho779zKyoXyidLK1RIxJz3jBRhj2JhZV14A+wu8eeO65eoc5h2E+VCZG0C0My54YxHgu0/OZkzmUibeyW6AlTUDtlHf3MIogiJQ8JBpVkh39BY0VEqqUmcMOxKmpxFnSLgfiqi9TnClnM1cw5BE60XCrQIfsh307ybXXZ7gyULYYvqI8MT4Eyfhc/fJvvJVQ/3QJsxrnekGEkM3+RBAjzfSVHVozoOC0pA4hU2SNsh8zoc6om4TXp6rFDvHedu1wCqj8A77eVK5o4PdFkOdFQjZqZAtkuQ/i6dK3e5+vU8OLLwid46aNJG1+RNOo9p0m5DUR+Ywpgmib2WqqUQODIr3TMDvZZsiU5aDI3AOT8tpjmfVD+hI=
+    rooms:
+      - made-ua:XGUkOpb0PsEuqmm0CvHaNfPk#builds
     template:
-    - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
+      - '*%{repository_slug}@%{branch}*<%{compare_url}|#%{commit}> (_%{author}_) - <%{build_url}|Travis CI: Build #%{build_number}>'
+      - '*Title:* %{commit_message}'
+      - '----------------------------------------------------------------------- '
+      - '(`%{build_id}` is `%{result}`) _%{message}_ in `%{elapsed_time}`'
