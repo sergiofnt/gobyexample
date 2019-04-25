@@ -24,10 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Нерідко вимагається взнати скільки пройшло в
-секундах, мілісекундах або наносекундах з моменту
+			<td class="docs"><p>Нерідко потірбно взнати час що пройшов з моменту
 <a href="https://uk.wikipedia.org/wiki/Час_Unix">початку часу Unix</a>.
-І ось як ми це робимо в Go.</p>
+Цей час можна представити в секундах, мілісекундах,
+або наносекундах - і ось як ми це робимо в Go.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/wV0Dw2elDLo"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/u10eAWrK2ga"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -67,9 +67,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Використайте <code>time.Now</code> з <code>Unix</code> або <code>UnixNano</code> для
-отрмання часу з моменту початку Unix часу для отримання
-секунд або наносекунд відповідно.</p>
+			<td class="docs"><p>Для отрмання секунд або наносекунд з моменту початку Unix
+скористаємось методом <code>Unix</code> або <code>UnixNano</code> обєкта <code>time.Now</code>
+відповідно.</p>
 </td>
 			<td class="code leading">
 			
@@ -83,8 +83,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Зауважте що не існує <code>UnixMillis</code>, отож щоб отримати мілісекунди
-вам необзідно буде ділити наносекунди.</p>
+			<td class="docs"><p>Зауважте - не існує <code>UnixMillis</code>, а отже, щоб отримати
+час в мілісекундах - необхідно поділити наносекунди
+на 100 000 (кількість наносекунд в мілісекунді).</p>
 </td>
 			<td class="code leading">
 			
@@ -98,8 +99,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Є можливим конвернувати цілочисельні секунди або наносекунди
-з моменту початку епохі Unix у відповідний <code>time</code>.</p>
+			<td class="docs"><p>Дозволяється конвернувати цілочисельні секунди
+або наносекунди у відповідний <code>time</code>.</p>
 </td>
 			<td class="code">
 			
@@ -132,8 +133,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Далі ми роглянемо ще один задачу по темі часу: розбір часу
-і його форматування.</p>
+			<td class="docs"><p>Далі ми роглянемо ще одину задачу на тему часу:
+його розбір та форматування.</p>
 </td>
 			<td class="code empty">
 			
