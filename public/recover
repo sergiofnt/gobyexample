@@ -24,12 +24,12 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Фукнція <em>recover</em> (або відновлення) може бути корисна
-лише працюючи в парі з <em>defer</em> щоб перехоплювати <em>panic</em>
-та відновлювати контроль виконання.</p>
+			<td class="docs"><p>Фукнція <em>recover</em> (або відновлення) використовується лише
+в парі з <em>defer</em>, її призначення перехоплювати <em>panic</em>
+та відновлювати потік виконання програми.</p>
 </td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/3s4X-C8lMYL"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/nWlSb7wHa4i"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -47,7 +47,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Основна мета цієї функції викликати паніку.</p>
+			<td class="docs"><p>Основна мета цієї функції - викликати <code>паніку</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -61,7 +61,7 @@
 	
 		<tr>
 			<td class="docs"><p>Паніка буде викликана в цій функції, і наша ціль
-перехопити цей стан та акуратно завершити роботу.</p>
+перехопити панічний стан та спокійно завершити роботу.</p>
 </td>
 			<td class="code leading">
 			
@@ -73,8 +73,8 @@
 	
 		<tr>
 			<td class="docs"><p>Перехоплення <em>panic</em>&lsquo;и та <em>recover</em> відбувається
-за допомогою відкладеного виклику який, як ви вже
-знаєте відбувається останньою дією виклику функції.</p>
+за допомогою <code>відкладеного</code> виклику, який, як ви вже
+знаєте, відбувається по завершенню виконання функції.</p>
 </td>
 			<td class="code leading">
 			
@@ -89,7 +89,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Момент в який програма за<em>panic</em>&lsquo;ує.</p>
+			<td class="docs"><p>Момент <em>panic</em>&lsquo;и програми.</p>
 </td>
 			<td class="code leading">
 			
@@ -129,7 +129,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Запуск программи покаже як вона опрацювала
+			<td class="docs"><p>Запуск программи покаже - як вона опрацювала
 сигнал <em>panic</em>&lsquo;и та відновала свою роботу.</p>
 </td>
 			<td class="code leading">
@@ -143,10 +143,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Власне <em>panic</em>&lsquo;а була перехоплена в момент коли вона мала б
-рівнем вище в main, і єдиний шлях зробити це є використання
-відкладення виклику функції що буде перевіряти чи потрібно
-функції робитит відновлення.</p>
+			<td class="docs"><p>Власне <em>panic</em>&lsquo;а була перехоплена в момент її
+переходу на вище в <code>main</code>, але в фукнції в якій було
+викликано паніку - було налаштовано відкладений виклик
+на перехоплюваня будь якої паніки та спокійне завершення роботи.</p>
 </td>
 			<td class="code empty">
 			
