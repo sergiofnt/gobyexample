@@ -24,9 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>У попередньому прикладі ми бачили як керувати простим
-лічильником використовуючи <a href="atomic-counters">атомарні лічильники</a>.
-В разі більш складних випадків ми можемо використовувати  <a href="https://uk.wikipedia.org/wiki/%D0%9C%27%D1%8E%D1%82%D0%B5%D0%BA%D1%81"><em>м’ютекси</em></a>
+			<td class="docs"><p>У попередньому прикладі ми розглянули як керувати простим
+лічильником за допомогою <a href="atomic-counters">атомарних лічильників</a>.
+У більш складних випадках ми можемо скористатись <a href="https://uk.wikipedia.org/wiki/М%27ютекс"><em>м’ютексами</em></a>
 для безпечного доступу до даних в горутинах.</p>
 </td>
 			<td class="code empty leading">
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/34ez0W4u_4O"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/jSW_tnU9syc"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -83,7 +83,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>А цей <code>mutex</code> сихнронізуватиме доступ до <code>state</code>.</p>
+			<td class="docs"><p>А це - <code>mutex</code>, що керуватиме сихнронізацією доступу до <code>state</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -94,7 +94,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми будемо слідкувати скільки операцій запису та
+			<td class="docs"><p>Ми будемо слідкувати - скільки операцій запису та
 читання ми робитимемо.</p>
 </td>
 			<td class="code leading">
@@ -107,9 +107,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось ми запускаємо 100 горутин для запуску повторних
-зчитувань даних стану нашої мапи раз в мілісекунду
-в кожній горутині.</p>
+			<td class="docs"><p>Ось ми запускаємо 100 горутин - які повторно читатимуть дані
+стану нашої мапи раз в мілісекунду у кожній горутині.</p>
 </td>
 			<td class="code leading">
 			
@@ -125,10 +124,10 @@
 		<tr>
 			<td class="docs"><p>Для кожного читання ми: генеруємо ключ для
 доступа, замикаємо (<code>Lock()</code>) м’ютекс
-щоб впевнитись в унікальному доступі до <code>state</code>,
+(щоб впевнитись в унікальному доступі до <code>state</code>),
 чичтаємо значення обраного ключа,
-відімкнути (<code>Unlock()</code>) м’ютекс, і зібльшуємо
-на одиницю лічильник <code>readOps</code>.</p>
+відмикаємо (<code>Unlock()</code>) м’ютекс, і зібльшуємо
+лічильник <code>readOps</code> на одиницю.</p>
 </td>
 			<td class="code leading">
 			
@@ -143,7 +142,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Чекаємо мілісекунду до наступного читання.</p>
+			<td class="docs"><p>Чекаємо мілісекунду на наступну ітерацію.</p>
 </td>
 			<td class="code leading">
 			
@@ -158,8 +157,8 @@
 	
 		<tr>
 			<td class="docs"><p>Ми також стартуємо 10 горутин, для записів,
-використовуючи цей же шаблон
-(що ми використали для читанння).</p>
+використовуючи такий же шаблон, що ми використали
+для читанння.</p>
 </td>
 			<td class="code leading">
 			
@@ -182,8 +181,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дамо 10 горутинам працювати з <code>state</code> та
-<code>mutex</code> рівно 1 секунду.</p>
+			<td class="docs"><p>Дамо рівно 1 секунду нашим горутинам попрацювати з <code>state</code> та
+<code>mutex</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -194,8 +193,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Прочитаємо звіти щодо наших автоманих операцій читання
-та запису.</p>
+			<td class="docs"><p>Нарешті прочитаємо звіти, щодо наших автоманих операцій
+читання та запису.</p>
 </td>
 			<td class="code leading">
 			
@@ -209,7 +208,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>І покажемо як же <code>state</code> став виглядати після того всього.</p>
+			<td class="docs"><p>І покажемо як же <code>state</code> став виглядати після усіх наших операцій.</p>
 </td>
 			<td class="code">
 			
@@ -227,9 +226,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Запуск программи показує що ми приблизно запустили
+			<td class="docs"><p>Запуск программи покаже - що ми приблизно запустили
 біля 90 000 операцій всього що працювали з нашою
-<code>mutex</code>-синхронізованою мапою <code>state</code>.</p>
+<code>mutex</code>- синхронізованою мапою <code>state</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -243,8 +242,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>В наступному прикладі ми спробуємо керувати станом
-лише за допомогою горутин та канналів.</p>
+			<td class="docs"><p>В наступному прикладі ми спробуємо керувати станом,
+лише, за допомогою горутин та канналів.</p>
 </td>
 			<td class="code empty">
 			
