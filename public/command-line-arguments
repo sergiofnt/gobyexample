@@ -24,10 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/%D0%86%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%BD%D0%BE%D0%B3%D0%BE_%D1%80%D1%8F%D0%B4%D0%BA%D0%B0#%D0%A4%D0%BE%D1%80%D0%BC%D0%B0%D1%82_%D0%BA%D0%BE%D0%BC%D0%B0%D0%BD%D0%B4%D0%B8"><em>Аргументи командного рядка</em></a> це загальноприйнятий спосіб
+			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/Інтерфейс_командного_рядка#Формат_команди"><em>Аргументи командного рядка</em></a> це загальноприйнятий спосіб
 запуску програм з командний інтерфейсом. Наприклад,
 <code>go run hello.go</code> використовує <code>run</code> і  <code>hello.go</code>
-як аргументи для программи <code>go</code>.</p>
+як аргументи для програми <code>go</code>.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/qez-UuhVm8P"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/EAg5EhhiQJu"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -69,8 +69,8 @@
 		<tr>
 			<td class="docs"><p><code>os.Args</code> надає доступ для незмінених аргументів
 командного рядка. Зауважте що першим значенням у
-цьому зрізі буде шлях до самої программи, а <code>os.Args[1:]</code>
-буде утримувати вже аргументи до программи</p>
+цьому зрізі буде шлях до самої програми, а <code>os.Args[1:]</code>
+буде утримувати вже аргументи до програми</p>
 </td>
 			<td class="code leading">
 			

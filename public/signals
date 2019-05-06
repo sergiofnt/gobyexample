@@ -39,7 +39,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/LHo5LHQ3XGI"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/-cL7a0PkP6D"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -99,7 +99,7 @@
 		<tr>
 			<td class="docs"><p>Ця горутинка виконує блокуюче отримання для сигналів.
 Як тільки такий сигнал буде їй передано - вона надрукує
-нотифікацію і повідомить программу що їй пора завершуватись.</p>
+нотифікацію і повідомить програму що їй пора завершуватись.</p>
 </td>
 			<td class="code leading">
 			
@@ -115,7 +115,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Программи чекатиме тут допоки вона не отримає очікуваний
+			<td class="docs"><p>Програми чекатиме тут допоки вона не отримає очікуваний
 сигнал (як визначено горутинкою вище що має надіслати в
    <code>done</code> значення) і завершує роботу.</p>
 </td>
@@ -135,7 +135,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Як тільки ми запустимо цю программу вона заблокується
+			<td class="docs"><p>Як тільки ми запустимо цю програму вона заблокується
 і буде очікувати сигнал. Натискаючи <code>ctrl-C</code>
 (який показано тут як <code>^C</code>) ми можемо передати сигнал <code>SIGINT</code>,
 що змусить програму надрукувати <code>interrupt</code> і завершити роботу.</p>

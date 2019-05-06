@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/cUhgQU33FjG"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/MzfJv0w9o0g"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -78,7 +78,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Завершити з программу з статусом 3.</p>
+			<td class="docs"><p>Завершити з програму з статусом 3.</p>
 </td>
 			<td class="code leading">
 			
@@ -138,7 +138,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Зауважте що <code>!</code> з нашої программи ніколи не
+			<td class="docs"><p>Зауважте що <code>!</code> з нашої програми ніколи не
 буде надруковано.</p>
 </td>
 			<td class="code empty">
