@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/8Byiy-MBtp5"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/-LYUAODQVgD"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -53,7 +53,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"></td>
+			<td class="docs"><p>Ось - ми визначимо наш тип.</p>
+</td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="kd">type</span> <span class="nx">rect</span> <span class="kd">struct</span> <span class="p">{</span>
@@ -65,7 +66,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ця структура <code>area</code> має метод з <em>отримувачем</em> типу <code>*rect</code>*.</p>
+			<td class="docs"><p>Функція <code>area</code> (площа) являє собою метод типу <code>rect</code>,
+або як кажуть з отримувачем типу <em><code>rect</code></em>.</p>
 </td>
 			<td class="code leading">
 			
@@ -80,7 +82,8 @@
 		<tr>
 			<td class="docs"><p>Методи можуть визначатись для отримувачів типу
 вказівник або значення. Ось приклад метода з
-отримувачем типу значення.</p>
+отримувачем типу значення. Методи з таким типом не
+змінюють значення стуктури.</p>
 </td>
 			<td class="code leading">
 			
@@ -118,7 +121,7 @@
 		<tr>
 			<td class="docs"><p>Go автоматично визначає чи потрібне конвернування між
 значеннями та вказівниками для виклику методів. Можливо
-ви захочете використати отримувач вказівника щоб уникнути
+вам заманеться використати отримувач-вказівник, щоб уникнути
 копіювання даних при виклиці методу або для зміни даних
 в структурі.</p>
 </td>
@@ -152,9 +155,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>В наступному прикладі ми оглянемо <em>інтерфейси</em>
-- механізм Go для групування та іменування
-споріднених множин методів що називається.</p>
+			<td class="docs"><p>В наступному прикладі ми розглянемо <em>інтерфейси</em> - механізм Go,
+для австрації, групування та іменування споріднених множин
+методів.</p>
 </td>
 			<td class="code empty">
 			
