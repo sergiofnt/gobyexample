@@ -24,7 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Go&rsquo;шний <em>select</em> (вибір) довзовляє вам очікувати на операція з кількома каналами. Комбінування горутин та каналів з <em>select</em> це дуже потужна особливість Go.</p>
+			<td class="docs"><p>Go&rsquo;шний <em>select</em> (вибір) дозволяє вам очікувати операцій з
+кількомх каналів. Комбінування горутин та каналів з <em>select</em>
+це надзвичайно корисна особливість Go.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -35,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/fBDhZVClTqD"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/PcTKmngKSik"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -64,7 +66,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Наприклад ми хочемо обирати поміж двох каналів.</p>
+			<td class="docs"><p>Наприклад - ми хочемо обирати поміж двох каналів.</p>
 </td>
 			<td class="code leading">
 			
@@ -77,8 +79,8 @@
 	
 		<tr>
 			<td class="docs"><p>Кожен канал отримає значення після якогось проміжку часу,
-симулючи, скажімо, блокуючі виклики від сторонніх сервісів
-що виконуються одночасних г орутинах.</p>
+так ми симулюємо, скажімо, блокуючі виклики від сторонніх
+сервісів, що виконуються одночасних горутинах.</p>
 </td>
 			<td class="code leading">
 			
@@ -96,9 +98,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми використаємо <code>select</code> для очікування обох значень
-одночасно, друкуючи повідомлення на екран щойно ми
-їх отримаємо.</p>
+			<td class="docs"><p>Ми застосуємо <code>select</code> для очікування обох значень
+одночасно, передавши повідомлення на екран - відразу
+по-отриманні.</p>
 </td>
 			<td class="code">
 			
@@ -121,8 +123,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Ми отримаємо спочатку значення <code>&quot;один&quot;</code>,
-а вже потім <code>&quot;два&quot;</code> - так як і задумувалось.</p>
+			<td class="docs"><p>Ми отримаємо спочатку значення <code>один</code>,
+а вже потім <code>два</code> - так як і задумувалось.</p>
 </td>
 			<td class="code leading">
 			
@@ -135,8 +137,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Зауважте що час виконання близько 2 секунд оскільки
-і для 1шої, і для 2гої секунди команда &ldquo;Sleep&rdquo; (спати)
+			<td class="docs"><p>Зауважте, що час виконання близько 2 секунд - оскільки
+і для 1-шої, і для 2-гої секунди команда <code>Sleep</code> (спати)
 виконується одночасно.</p>
 </td>
 			<td class="code">
