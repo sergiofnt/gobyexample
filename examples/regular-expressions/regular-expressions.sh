@@ -13,5 +13,4 @@ p([a-z]+)ch
 a <fruit>
 a PEACH
 
-# Радимо перевірити повну документацію з пакету
-# [`regexp`](http://golang.org/pkg/regexp/).
+# Радимо, зачінити документацію пакету [`regexp`](http://golang.org/pkg/regexp/).
