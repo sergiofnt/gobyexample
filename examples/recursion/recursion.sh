@@ -1,2 +1,2 @@
-$ go run recursion.go 
+$ go run recursion.go
 5040
