@@ -35,7 +35,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/2kyGUkmP6Ja"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/RNbu60eny93"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,7 +54,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Базовий приклад інтерфейсу для геометричних фігур.</p>
+			<td class="docs"><p>Базовий приклад інтерфейсу геометричних фігур.</p>
 </td>
 			<td class="code leading">
 			
@@ -68,7 +68,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Задля прикладу ми реалізуємо цей інтефейс для типів
+			<td class="docs"><p>Задля прикладу - ми реалізуємо цей інтефейс для типів
 <code>rect</code> (квадрат) та <code>circle</code> (круг).</p>
 </td>
 			<td class="code leading">
@@ -85,10 +85,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб релізувати інтерфейс в Go, нам лише потрібно
-створити усі методи в цьому інтерфейсі. Як у
-прикладі де ми імплементуємо <code>geometry</code> для
-<code>rect</code> (квадрата).</p>
+			<td class="docs"><p>Щоб реaлізувати інтерфейс в Go, нам лише потрібно
+створити усі методи отписані цим інтерфейсом. Для прикладу
+ми реалізуємо <code>geometry</code> для типу <code>rect</code> (квадрата).</p>
 </td>
 			<td class="code leading">
 			
@@ -104,7 +103,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>І реалізація для <code>circle</code> (круга).</p>
+			<td class="docs"><p>А також для типу  <code>circle</code> (круга).</p>
 </td>
 			<td class="code leading">
 			
@@ -148,9 +147,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Обидві структури <code>circle</code> (круг) і <code>rect</code> (квадрат)
-реалізуються інтерфейс <code>geometry</code> отож ми можемо викостати
-їх зразки як аргумент до фукнції <code>measure</code>.</p>
+			<td class="docs"><p>Обидві типи структур - <code>circle</code> (круг) і <code>rect</code> (квадрат)
+реалізують інтерфейс <code>geometry</code>, отож ми можемо використати
+їх інстанси як аргумент фукнції <code>measure</code>.</p>
 </td>
 			<td class="code">
 			
