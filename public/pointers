@@ -25,8 +25,8 @@
 		
 		<tr>
 			<td class="docs"><p>Go дозволяє використовувати <a href="https://uk.wikipedia.org/wiki/Вказівник"><em>вказівники</em></a>,
-що робить можливим в межах програми
-передачу за посиланням значеннь та записів.</p>
+що дає можливість передачі значень та записів в межах програми
+за посиланням в межах програми.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/Xy3jUgE1fZc"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/DNPq8S5_Xbg"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,11 +55,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми спробуємо показати вказівників вказівники порівнюючи її
-з роботою зі значенням - на прикладі двох функцій -
-<code>zeroval</code> та <code>zeroptr</code>. <code>zeroval</code> отримує аргумент типу <code>int</code>
-(ціле число), отож аргумент буде передано функції &ldquo;за значенням&rdquo;.
-<code>zeroval</code> отримує лише копію <code>ival</code> з якою функцію викликали.</p>
+			<td class="docs"><p>Ми спробуємо продемонструвати роботу вказівників - порівнюючи їх
+з роботою значеннь - на прикладі двох функцій: <code>zeroval</code> та <code>zeroptr</code>.
+<code>zeroval</code> отримує аргумент типу <code>int</code>
+(ціле число), тобто аргумент буде передано функції - &ldquo;за значенням&rdquo;.
+<code>zeroval</code> отримує лише копію <code>ival</code> з якою викликали функцію.</p>
 </td>
 			<td class="code leading">
 			
@@ -72,12 +72,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функція <code>zeroptr</code> аргументом потребує <code>*int</code>
-(це означає вказівник на ціле число), тобто прийматими
-лише вказівник на цей тип даних. <code>*iptr</code>, в тілі функції,
-розіменовує вказівник з його адреси до значення в цій адресі.
-Присвоєння значення розіменованому вказівнику - змінює
-значення у адресі за посиланням.</p>
+			<td class="docs"><p>Функція <code>zeroptr</code> аргументом потребує <code>*int</code> - (вказівник на
+ціле число), тобто прийматиме лише вказівник на цей тип даних.
+<code>*iptr</code>, в тілі функції, розіменовує вказівник з його адреси
+до значення в цій адресі. Присвоєння значення розіменованому
+вказівнику - змінює значення у адресі за посиланням.</p>
 </td>
 			<td class="code leading">
 			
@@ -135,7 +134,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Або скориставшись дієсловом форматування <code>%p</code>.</p>
+			<td class="docs"><p>Або скориставшись дієсловом форматування - <code>%p</code>.</p>
 </td>
 			<td class="code">
 			

@@ -24,13 +24,12 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>У попередньому прикладі ми розглянули
-<a href="spawning-processes">запуск сторонніх процесів</a>.
-Ми робимо це коли хочемо, щоб запущений процес
-був доступний нашому Go процесу. Але інколи, все чого ми
-бажаєм - це лише повністю замінити поточний Goпроцес
-іншим (можливо навіть не &ldquo;Go-процесом&rdquo;). Ми скористаємось
-реалізацією Go класичного системного виклику <a href="http://en.wikipedia.org/wiki/Exec_(operating_system)">exec</a>.</p>
+			<td class="docs"><p>Тепер, коли ми розглянули
+<a href="spawning-processes">запуск сторонніх процесів</a>, ми знаємо, що ми це робимо
+коли необщідно, щоб запущений процес був доступний нашому Go процесу.
+Інколи, все чого ми бажаємо - це лише повністю замінити поточний Go-процес
+іншим (можливо, навіть - не &ldquo;Go-процесом&rdquo;), для цього ми скорастаємось реалізацією
+одного з системних викликів - <a href="http://en.wikipedia.org/wiki/Exec_(operating_system)">exec</a>.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -41,7 +40,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/ULO5yApbYMQ"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/8dj7PIKInuu"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -71,9 +70,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Для прикладу, ми виконаємо <code>ls</code>. Go потребує абсолютний
-шлях до програми що ми хочемо виконати, отож ми скористаємось
-<code>exec.LookPath</code> задля пошуку (і можливо ми знайдемо її як <code>/bin/ls</code>).</p>
+			<td class="docs"><p>Спробуємо виконати <code>ls</code> у нашому прикладі. Go необхідно абсолютний
+шлях до програми, яку ми хочемо виконати - отож ми скористаємось
+<code>exec.LookPath</code> щоб знайти її (і можливо ми знайдемо її як <code>/bin/ls</code>).</p>
 </td>
 			<td class="code leading">
 			
@@ -87,9 +86,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Exec</code> потребує аргументу у вигляді <a href="slices"><code>зрізу</code></a>
-(напротивагу одному великому рядку). Ми надамо <code>ls</code>
-кілька звичайних (для цієї команди) аргументів.</p>
+			<td class="docs"><p>Параметри передаються в <code>Exec</code> у вигляді <a href="slices"><code>зрізу</code></a>
+(напротивагу одному рядку). Ми забезпечимо <code>ls</code>
+кількома звичайними (для цієї команди) аргументами.</p>
 </td>
 			<td class="code leading">
 			
@@ -100,9 +99,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Exec</code> також необхідно мати для використання
-<a href="environment-variables">змінні оточення</a>. Ми ж надамо йому
-наше поточне середовище.</p>
+			<td class="docs"><p><code>Exec</code> також потребує <a href="environment-variables">змінні оточення</a>
+і ми ж надамо йому наше поточне середовище.</p>
 </td>
 			<td class="code leading">
 			
@@ -113,8 +111,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось власне виклик <code>syscall.Exec</code>. Якщо виклик успішний, виконання нашого процесу завершиться і буде замінено процесом <code>/bin/ls -a -l -h</code>.
-Якщо виникне помилка то ми отримаємо <a href="panic">паніку</a> з текстом помилки.</p>
+			<td class="docs"><p>А ось - і власне виклик <code>syscall.Exec</code>. Якщо виклик успішний,
+виконання нашого процесу завершиться і буде замінено процесом <code>/bin/ls -h -o</code>,
+а якщо виникне помилка - то ми отримаємо <a href="panic">паніку</a> з текстом помилки.</p>
 </td>
 			<td class="code">
 			
