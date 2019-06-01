@@ -1,6 +1,6 @@
 $ go run structs.go
-{Bob 20}
 {Alice 30}
+{Bob 20}
 {Fred 0}
 &{Ann 40}
 Sean

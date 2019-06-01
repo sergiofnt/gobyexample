@@ -24,9 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><em>Структури</em> в Go це типізовані колекції полів,
-корисні для групування даних разом задля формування
-записів.</p>
+			<td class="docs"><p>Стректури в Go - це колекції полів з визначиним типом.
+Нaдзвичайну користність структур можна оцінити не тільки для
+групування даних, а й тому що вони служать основним рушієм мови
+що орієнтується на данні - на структури.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/f5L15h32i8g"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/XHNFZqvXQBj"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -55,7 +56,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ця структура <code>person</code> має поля для імені (<code>name</code>) та віку (<code>age</code>).</p>
+			<td class="docs"><p>Структура <code>person</code> має поля для імені (<code>name</code>) та віку (<code>age</code>).</p>
 </td>
 			<td class="code leading">
 			
@@ -79,18 +80,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Наступний синтаксис створить нову структуру.</p>
-</td>
-			<td class="code leading">
-			
-			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">})</span>
-</pre></div>
-
-			</td>
-		</tr>
-	
-		<tr>
-			<td class="docs"><p>Дозволяється іменувати поля при ініціалізації структури.</p>
+			<td class="docs"><p>Наступний синтаксис створить нову структуру.
+Дозволяється іменувати поля при ініціалізації структури.</p>
 </td>
 			<td class="code leading">
 			
@@ -101,8 +92,19 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Пропущені поля будуть створені відповідно нульового
-значення типу пропущеного поля.</p>
+			<td class="docs"><p>А можна і уникнути, іменованої ініціалізації.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">person</span><span class="p">{</span><span class="s">&quot;Bob&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">})</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Пропущені поля будуть створені відповідно нульового.
+значення типу поля, що ми оминаємо</p>
 </td>
 			<td class="code leading">
 			
@@ -137,7 +139,7 @@
 	
 		<tr>
 			<td class="docs"><p>Дозволяється використовувати крапки з вказівниками структур,
-вказівники, в такому разі, автоматично розіменовані.</p>
+вказівники, в такому разі, автоматично розіменовуються.</p>
 </td>
 			<td class="code leading">
 			
@@ -149,8 +151,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дані у структурі можна змінювати ( тобто вони <code>mutable</code>,
-такі що дозволяється змінбвати).</p>
+			<td class="docs"><p>Дані у структурі можна змінювати (тобто вони <code>mutable</code>,
+такі що дозволяється змінювати).</p>
 </td>
 			<td class="code">
 			
@@ -171,8 +173,8 @@
 			<td class="code">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go run structs.go
-<span class="go">{Bob 20}</span>
 <span class="go">{Alice 30}</span>
+<span class="go">{Bob 20}</span>
 <span class="go">{Fred 0}</span>
 <span class="go">&amp;{Ann 40}</span>
 <span class="go">Sean</span>

@@ -24,11 +24,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Інколи, нашій Go програмі необхідно запустит інший, не &ldquo;Go&rdquo;
-процес. Наприклад, підсвітка синтаксису на цьому сайті
-<a href="https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go">реалізована</a>
-пстороннім процесом <a href="http://pygments.org/"><code>pygmentize</code></a> запущеним
-з Go програми. Давайте розглянумо кілька прикладів запуску
+			<td class="docs"><p>Інколи, необхідно запускати інші процеси. Наприклад, підсвітка
+синтаксису на цьому сайті <a href="https://github.com/mmcgrana/gobyexample/blob/master/tools/generate.go">реалізована</a>
+стороннім процесом <a href="http://pygments.org/"><code>pygmentize</code></a> запущеним
+з Go програми. Давайте розглянемо кілька прикладів запуску
 процесів з Go.</p>
 </td>
 			<td class="code empty leading">
@@ -40,7 +39,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/LkaWY0V08UX"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/hT9Yo0e1K6G"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -84,11 +83,11 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>.Output</code> - інша функція, яка бере на себе управління
-загальними випадками запуску процесу, очікування його
+			<td class="docs"><p><code>.Output</code> - інший метод, який бере на себе управління
+загальними випадками запуску процесу, очікує його
 завершення та отримання виводу. Якщо помилок не було,
 <a href="slices">зріз</a> <code>dateOut</code> буде наповнено байтами відповіді
-проце <code>date</code>, який ми щойно викликали.</p>
+процесу <code>date</code>, який ми викликали.</p>
 </td>
 			<td class="code leading">
 			
@@ -104,8 +103,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Тепер ми готові розглянути приклад, більш просунутого використання,
-де ми перенаправимо дані у <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення"><code>поток введення</code></a> зовнішнього процесу та
+			<td class="docs"><p>Тепер ми готові розглянути більш просунутий приклад,
+де ми перенаправимо дані у <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення"><code>потік введення</code></a> зовнішнього процесу та
 отримаємо результати з його <a href="https://uk.wikipedia.org/wiki/Стандартні_потоки#Стандартне_введення"><code>потоку виведення</code></a>.</p>
 </td>
 			<td class="code leading">
@@ -137,10 +136,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ми оминули перевірку на помилки у попередньому прикладі,
+			<td class="docs"><p>Ми пропустили перевірку на помилки у попередньому прикладі,
 але ви можете використовувати звичайний прийом <code>if err != nil</code>
-для цього. Ми вже скористались з результатом отриманим з <code>StdoutPipe</code>,
-у схожий спосіб, ви можете отримати відповідь що надходить з <code>StderrPipe</code>.</p>
+для цього. Ми вже скористались результатом отриманим з <code>StdoutPipe</code>,
+у схожим чином, ви можете отримати відповідь що надходить з <code>StderrPipe</code>.</p>
 </td>
 			<td class="code leading">
 			
