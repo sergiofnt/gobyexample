@@ -26,7 +26,7 @@
 		<tr>
 			<td class="docs"><p>У Go існує підтримка <em>повернення кількох значень</em> з функцій.
 Ця особилвість часто ідіоматично використовується в Go,
-для повернення результату роботи та помилки з функції.</p>
+для повернення функцією результату роботи та помилки .</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +37,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/tDEsDKvxXvc"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/4-ZXAAfCRJG"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -60,8 +60,26 @@
 </td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">vals</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">vals1</span><span class="p">()</span> <span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span>
+<span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Конструкція <code>(a int, b int)</code> - цією декларацією функція
+показує, що вона зобов’‎язується повернути два змінні (а та b)
+вже задекларовані в тілі функції. Зауважте що непотрібно декларувати
+типи змінних, це відбувається під час виконання коду.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">vals2</span><span class="p">()</span> <span class="p">(</span><span class="nx">a</span> <span class="kt">int</span><span class="p">,</span> <span class="nx">b</span> <span class="kt">int</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">a</span> <span class="p">=</span> <span class="mi">4</span>
+    <span class="nx">b</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="k">return</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -80,13 +98,27 @@
 	
 		<tr>
 			<td class="docs"><p>В цьому прикладі - ми декларуємо дві різні змінні шляхом
-присвоєння результату функції (що повертає два значення).</p>
+присвоєння результата функції (що повертає два значення).</p>
 </td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre>    <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="nx">vals</span><span class="p">()</span>
+			<div class="highlight"><pre>    <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">:=</span> <span class="nx">vals1</span><span class="p">()</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>А тепер ми декларуємо дві змінні отримані з функції що сама
+проводить повернення іменованих значень.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span> <span class="o">:=</span> <span class="nx">vals2</span><span class="p">()</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">d</span><span class="p">)</span>
 </pre></div>
 
 			</td>
@@ -98,8 +130,8 @@
 </td>
 			<td class="code">
 			
-			<div class="highlight"><pre>    <span class="nx">_</span><span class="p">,</span> <span class="nx">c</span> <span class="o">:=</span> <span class="nx">vals</span><span class="p">()</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">c</span><span class="p">)</span>
+			<div class="highlight"><pre>    <span class="nx">_</span><span class="p">,</span> <span class="nx">e</span> <span class="o">:=</span> <span class="nx">vals1</span><span class="p">()</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -117,6 +149,8 @@
 			<div class="highlight"><pre><span class="gp">$</span> go run multiple-return-values.go
 <span class="go">3</span>
 <span class="go">7</span>
+<span class="go">4</span>
+<span class="go">0</span>
 <span class="go">7</span>
 </pre></div>
 
@@ -125,8 +159,7 @@
 	
 		<tr>
 			<td class="docs"><p>Приймання змінної кількості аргументів, це
-ще одна приємна особливість Go.
-Ми розберемо її в наступному прикладі.</p>
+ще одна приємна особливість Go.</p>
 </td>
 			<td class="code empty">
 			

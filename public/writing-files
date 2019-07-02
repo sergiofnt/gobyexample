@@ -24,8 +24,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Запис файлів Go слідує схожим шаблонам що і читання, з яким ми вже
-познайомились раніше.</p>
+			<td class="docs"><p>Створення/Запис файлів у Go - слідує вже знайомим нам
+шаблонам розгялнутим в <a href="reading-files">Читання файлів</a>.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -36,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/c9Tzp2Wrknh"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/vH90CHEDlYz"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -62,11 +62,7 @@
 			<td class="docs"></td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">check</span><span class="p">(</span><span class="nx">e</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-        <span class="nb">panic</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
 </pre></div>
 
 			</td>
@@ -76,42 +72,44 @@
 			<td class="docs"></td>
 			<td class="code leading">
 			
-			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Для початку роботи, ось так можна записати
-невеличкий шматок рядку (у вигляді байтів) до файлу.</p>
+			<td class="docs"><p>Почнемо з запису невеличкого зрізу байтів до файлу.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">d1</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;привіт\ngo\n&quot;</span><span class="p">)</span>
     <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">WriteFile</span><span class="p">(</span><span class="s">&quot;/tmp/dat1&quot;</span><span class="p">,</span> <span class="nx">d1</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб записати в файл багато даних, спочатку нам потрібно його
-видкрити.</p>
+			<td class="docs"><p>Щоб записати до файлу деякі данні, нам необхідно його спочатку відкрити.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="s">&quot;/tmp/dat2&quot;</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Це ідиоматично вірно -відкладувати закриття <code>Close</code> негайно
-після відкриття файлу.</p>
+			<td class="docs"><p>Зверніть увагу, на ідіоматично вірний відкладений виклик <code>Close</code>,
+що ми ініціюємо відразу після відкриття.</p>
 </td>
 			<td class="code leading">
 			
@@ -122,33 +120,38 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ви можемо <code>Write</code> байтовий зріз наступним чином.</p>
+			<td class="docs"><p>Запишемо, за допомогою методу <code>Write</code> ще один зріз байтів.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">d2</span> <span class="o">:=</span> <span class="p">[]</span><span class="kt">byte</span><span class="p">{</span><span class="mi">115</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">109</span><span class="p">,</span> <span class="mi">101</span><span class="p">,</span> <span class="mi">10</span><span class="p">}</span>
     <span class="nx">n2</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Write</span><span class="p">(</span><span class="nx">d2</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Вам також доcтупний метод <code>WriteString</code>.</p>
+			<td class="docs"><p><code>WriteString</code> дозволить записати рядок.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">n3</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;writes\n&quot;</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n3</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n3</span><span class="p">)</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Виконайте <code>Sync</code> щоб надіслати буфер до файлу.</p>
+			<td class="docs"><p>Виконання<code>Sync</code> - надішле буфер до файлу.</p>
 </td>
 			<td class="code leading">
 			
@@ -160,23 +163,26 @@
 	
 		<tr>
 			<td class="docs"><p>Пакет <code>bufio</code> надає можливість буферизованих
-записів на додачу до буферизованого читання,
-з яким ми вже зустрічались.</p>
+записів, надодачу до буферизованого читання
+(яке вже було нами розглянуто).</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">w</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">NewWriter</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
     <span class="nx">n4</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">w</span><span class="p">.</span><span class="nx">WriteString</span><span class="p">(</span><span class="s">&quot;buffered\n&quot;</span><span class="p">)</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;Записано %d байт\n&quot;</span><span class="p">,</span> <span class="nx">n4</span><span class="p">)</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Щоб впевнитись в тому, що всі операції над буферами
-були відправлені до використаного записника,
-скористайтесь <code>Flush</code>.</p>
+			<td class="docs"><p>Щоб впевнитись у тому, що усі буфери в які ми записували
+наші данні було відправлено до джерела запису,
+виконайте метод <code>Flush</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -201,21 +207,21 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Спобуйте запустити наш код.</p>
+			<td class="docs"><p>Запустіть наш код.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go run writing-files.go
-<span class="go">записано 5 байт</span>
-<span class="go">записано 7 байт</span>
-<span class="go">записано 9 байт</span>
+<span class="go">Записано 5 байт</span>
+<span class="go">Записано 7 байт</span>
+<span class="go">Записано 9 байт</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Перевірте зміст файлів що були записані.</p>
+			<td class="docs"><p>Перевірте зміст записаних файлів.</p>
 </td>
 			<td class="code leading">
 			
@@ -241,8 +247,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Далі, ми розглянемо як застосовувати деякі ідей вводу/виводу,
-що ми щойно побачили, на прикладі <code>stdin</code> та <code>stdout</code> потоків.</p>
+			<td class="docs"><p>Далі, ми розглянемо як застосовувати потоки вводу/виводу,
+на прикладі - створення програми &ldquo;рядкового фільтра&rdquo;.</p>
 </td>
 			<td class="code empty">
 			

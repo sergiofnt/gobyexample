@@ -24,9 +24,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Одними з базових типів задач що використовуються Go-програмами є
-запис та читання файлів. І в першу чергу, ми познайомимось
-з читанням файлів.</p>
+			<td class="docs"><p>Однією з базових операцій у програмуванні є читання та запис файлів.
+Зараз ми познайомимось, з тим - як читати файли у Go.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +36,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/NtydUavEDvm"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/QotiyEpHEtw"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -61,23 +60,6 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Читання файлів потребує доволі немало викликів ддля обробки помилок.
-Ми скористаємось допоміжною функцією яка оброблятиме помилки і
-спросить задачу нашої рохробки.</p>
-</td>
-			<td class="code leading">
-			
-			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">check</span><span class="p">(</span><span class="nx">e</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="nx">e</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-        <span class="nb">panic</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-			</td>
-		</tr>
-	
-		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
 			
@@ -88,13 +70,25 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Мабуть найбільш проста задача повязана з читанням
-це завантаження файлу в пам’ять.</p>
+			<td class="docs"><p>Завантаження файлу у пам&rsquo;ять - найбільш проста задача
+пов&rsquo;язана з читанням.</p>
 </td>
 			<td class="code leading">
 			
+			<div class="highlight"><pre>    <span class="kd">var</span> <span class="nx">err</span> <span class="kt">error</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
 			<div class="highlight"><pre>    <span class="nx">dat</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">ReadFile</span><span class="p">(</span><span class="s">&quot;/tmp/dat&quot;</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Print</span><span class="p">(</span><span class="nb">string</span><span class="p">(</span><span class="nx">dat</span><span class="p">))</span>
 </pre></div>
 
@@ -102,30 +96,34 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Але зазвичай вам потрібно трошка більше контролю
-над тим як і які частини файлу будуть читатись.
-Для таких задач, почніть з <code>Open</code> (відкривання) файлу
-щоб отримати значення <code>os.File</code>.</p>
+			<td class="docs"><p>Але, зазвичай, нам необхідно більше контролю над процесом
+чатання з файлів: напирклад - як і що читати?
+Почніть з відкриття ( метод <code>Open</code>) файлу для отримання
+дексриптору <code>os.File</code>.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">f</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">os</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;/tmp/dat&quot;</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Прочитайте деякі байти з початку файлу, наприклад перші 5
-байтів. Але зауважте що якільки байт було прочитано
-насправді.</p>
+			<td class="docs"><p>Прочитаємо деякі байти розташовані на початку файлу,
+наприклад перші 5 байт, але зауважте - скільки байт
+було прочитано насправді.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">b1</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
     <span class="nx">n1</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Read</span><span class="p">(</span><span class="nx">b1</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d байт: %s\n&quot;</span><span class="p">,</span> <span class="nx">n1</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b1</span><span class="p">))</span>
 </pre></div>
 
@@ -133,16 +131,30 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ви також можете <code>Seek</code> (перемотати) до первного положення в файлі
-і <code>Read</code> (прочитати) звідти.</p>
+			<td class="docs"><p>Метод <code>Seek</code> дозволяє переносити вказівник читання/запису
+(або <em>перемотувати</em>)  до певної позиції у файлі,
+а метод <code>Read</code> дозволить прочитати з цього місця.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">o2</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Seek</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
-    <span class="nx">b2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">b2</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="nx">n2</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Read</span><span class="p">(</span><span class="nx">b2</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d байт @ %d: %s\n&quot;</span><span class="p">,</span> <span class="nx">n2</span><span class="p">,</span> <span class="nx">o2</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b2</span><span class="p">))</span>
 </pre></div>
 
@@ -150,17 +162,21 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Пакет <code>io</code> надає перну функціональність, що може стати в нагоді
-під час &ldquo;читання&rdquo;. Наприклад, читання як в прикладі зверху, може
-бути надійніше впроваджено з <code>ReadAtLeast</code>.</p>
+			<td class="docs"><p>Пакет <code>io</code> пропонує вам певний функціонал, що стане в нагоді
+під час &ldquo;читання&rdquo;. Наприклад, прикладі зверху, може
+бути надійніше імплементовано з <code>ReadAtLeast</code>.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">o3</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Seek</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">b3</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
     <span class="nx">n3</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">io</span><span class="p">.</span><span class="nx">ReadAtLeast</span><span class="p">(</span><span class="nx">f</span><span class="p">,</span> <span class="nx">b3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%d байт @ %d: %s\n&quot;</span><span class="p">,</span> <span class="nx">n3</span><span class="p">,</span> <span class="nx">o3</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b3</span><span class="p">))</span>
 </pre></div>
 
@@ -168,29 +184,32 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Використання <code>Seek(0, 0)</code> доволяє ставновлючати вказівник читання
-на початок файлу, назразок &ldquo;перемотки на початок касети&rdquo;.</p>
+			<td class="docs"><p>Скористайтесь <code>Seek(0, 0)</code> для повернення вказівника читання
+до початоку файла (назразок &ldquo;перемотки касети на початок&rdquo;).</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">_</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">f</span><span class="p">.</span><span class="nx">Seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Пакунок <code>bufio</code> впроваджує буферизоване читання
-що може бути корисне як для еффективнсоті (з багатьма
-невелики зчитуваннями), так і завдяки додатковим методам
-що воно реалізує.</p>
+			<td class="docs"><p>Пакет <code>bufio</code> впроваджує буферизоване читання,
+що є більш ефективним - завдяки багатьом невеликим
+зчитуванням і додатковими методам які реалізує пакет.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">r4</span> <span class="o">:=</span> <span class="nx">bufio</span><span class="p">.</span><span class="nx">NewReader</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span>
     <span class="nx">b4</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">r4</span><span class="p">.</span><span class="nx">Peek</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-    <span class="nx">check</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
     <span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;5 байт: %s\n&quot;</span><span class="p">,</span> <span class="nb">string</span><span class="p">(</span><span class="nx">b4</span><span class="p">))</span>
 </pre></div>
 
@@ -198,8 +217,9 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Закривайте файл коли ви з ним закінчили (зазвичай це
-роблять відразу після відкриття за допомогою <code>defer</code>).</p>
+			<td class="docs"><p>Закривайте файл - у разі, якщо ви з ним закінчили
+працювати (зазвичай це роблять відразу по-відкритті
+використовуючи <a href="defer">відкладені виклики</a>).</p>
 </td>
 			<td class="code leading">
 			
@@ -224,29 +244,32 @@
 	<table>
 		
 		<tr>
-			<td class="docs"></td>
+			<td class="docs"><p>Спочатку створемо файл, з якм ми будемо працювати надалі.</p>
+</td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;hello&quot;</span> &gt; /tmp/dat
 <span class="gp">$</span> <span class="nb">echo</span> <span class="s2">&quot;go&quot;</span> &gt;&gt;   /tmp/dat
-<span class="gp">$</span> go run reading-files.go
-<span class="go">hello</span>
-<span class="go">go</span>
-<span class="go">5 байт: hello</span>
-<span class="go">2 байт @ 6: go</span>
-<span class="go">2 байт @ 6: go</span>
-<span class="go">5 байт: hello</span>
 </pre></div>
 
 			</td>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Далі, ми побачимо як записувати файли.</p>
+			<td class="docs"><p>Запустимо нашу програму.</p>
 </td>
-			<td class="code empty">
+			<td class="code">
 			
-			
+			<div class="highlight"><pre><span class="gp">$</span> go run reading-files.go
+<span class="go">hello</span>
+<span class="go">go</span>
+<span class="go">5 байт: hello</span>
+<span class="go">2 байт @ 6: go</span>
+<span class="go">2 байт @ 6: go</span>
+<span class="go">5 байт: hello</span>
+<span class="go"> </span>
+</pre></div>
+
 			</td>
 		</tr>
 	

@@ -24,9 +24,9 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/Інтерфейс_командного_рядка#Формат_команди"><em>Аргументи командного рядка</em></a> це загальноприйнятий спосіб
-запуску програм з командний інтерфейсом. Наприклад,
-<code>go run hello.go</code> використовує <code>run</code> і  <code>hello.go</code>
+			<td class="docs"><p><a href="https://uk.wikipedia.org/wiki/Інтерфейс_командного_рядка#Формат_команди"><em>Аргументи командного рядка</em></a>
+це загальноприйнятий спосіб запуску програм з командним інтерфейсом.
+Наприклад, <code>go run hello.go</code> використовує <code>run</code> та <code>hello.go</code>
 як аргументи для програми <code>go</code>.</p>
 </td>
 			<td class="code empty leading">
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/EAg5EhhiQJu"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/hXNeX2Jrzdr"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -70,7 +70,7 @@
 			<td class="docs"><p><code>os.Args</code> надає доступ для незмінених аргументів
 командного рядка. Зауважте що першим значенням у
 цьому зрізі буде шлях до самої програми, а <code>os.Args[1:]</code>
-буде утримувати вже аргументи до програми</p>
+зберігатиме передані аргументи.</p>
 </td>
 			<td class="code leading">
 			
@@ -83,7 +83,8 @@
 	
 		<tr>
 			<td class="docs"><p>Ви можете отримати значення індивідуальних аргументів
-використовуючи звичайний синтаксис доступа по індексу.</p>
+використовуючи звичайний синтаксис доступа по індексу
+до елементів зрізу.</p>
 </td>
 			<td class="code leading">
 			
@@ -111,13 +112,23 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>щоб проексперементувати з аргементами командного рядка,
-спершу скомпілюємо двійковий файл з <code>go build</code>.</p>
+			<td class="docs"><p>Для експерементів з аргементами командного рядка,
+спершу скомпілюємо файл за допомогою <code>go build</code>.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="gp">$</span> go build command-line-arguments.go
-<span class="gp">$</span> ./command-line-arguments a b c d
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Запустимо нашу програму передавши їй якісь аргументи.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="gp">$</span> ./command-line-arguments a b c d
 <span class="go">[./command-line-arguments a b c d]</span>
 <span class="go">[a b c d]</span>
 <span class="go">c</span>
@@ -128,7 +139,7 @@
 	
 		<tr>
 			<td class="docs"><p>У наступному прикладі ми познайомимось з прапорцями - більш
-просунутим концептом передачі параметрів командному рядку.</p>
+просунутим концептом передачі параметрів у командному рядку.</p>
 </td>
 			<td class="code empty">
 			

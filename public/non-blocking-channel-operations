@@ -24,7 +24,7 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Базові надсилання та отримання на каналах є блокуючими операціями.
+			<td class="docs"><p>Базові надсилання та отримання на каналах це блокуючі операції.
 Однак, ми можемо використовувати <code>select</code> з умовою <code>default</code>
 для реалізації <em>не блокуючих відправлень</em>, і навіть для
 не-блокуючих різнонаправлених <code>select</code>ів.</p>
@@ -38,7 +38,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/L2TanYIOL7m"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/oYpYnMJgj-d"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -68,10 +68,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Ось не болкуюче приймання. Якщо значення доступне
+			<td class="docs"><p>Ось неблокуюче отримання. Якщо значення доступне
 в каналі <code>messages</code> тоді <code>select</code> підбере умову
-<code>&lt;-messages</code> <code>case</code> з цим значенням. Ні?
-негайно буде обрана стандартна умова <code>default</code>.</p>
+<nobr><code>&lt;-messages</code></nobr> в <code>case</code> з цим значенням. А якщо значення
+не доступне - то негайно буде обрана стандартна умова <code>default</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -87,10 +87,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Не блокуючі надсилання працюють схожим чином, тут
+			<td class="docs"><p>Неблокуючі надсилання працюють схожим чином, тут
 <code>msg</code> не може бути надіслано до каналу <code>messages</code>,
 тому що цей канал не є буферезованим і тому що немає
-отримувача. Тому відбудеться стандартна умова <code>default</code>.</p>
+отримувача. Саме тому відбудеться стандартна умова <code>default</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -108,9 +108,9 @@
 	
 		<tr>
 			<td class="docs"><p>Над стандартною умовою <code>default</code> дозволяється мати
-більше однієї умови, для імплементації різнонаправлених
+більш ніж одну умови, для імплементації різнонаправлених
 <code>select</code>ів, умови яких будуть чекати отримання як
-<code>messages</code>, так і  <code>signals</code>.</p>
+<code>messages</code>, так і <code>signals</code>.</p>
 </td>
 			<td class="code">
 			
