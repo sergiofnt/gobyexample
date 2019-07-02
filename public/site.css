@@ -27,16 +27,11 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style:none;
-	list-style:decimal;
+	list-style:none; 
 }
 li a {
 	display: inline-block;
 	padding:2px;
-}
-a.translated {
-	background: #D2413A;
-	color:#fff !important;
 }
 
 p.warning {

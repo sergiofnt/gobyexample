@@ -17,9 +17,6 @@
 <body>
 	<div class="example" id="writing-files">
 	<h2><a href="./">Go за Прикладом</a>: Запис файлів</h2>
-
-	<p class="warning">Work in Progress / Сайт в процесі розробки</p>
-
 	
 	<table>
 		
@@ -36,7 +33,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/vH90CHEDlYz"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/3GD-vrdFyyj"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -84,7 +81,7 @@
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">d1</span> <span class="o">:=</span> <span class="p">[]</span><span class="nb">byte</span><span class="p">(</span><span class="s">&quot;привіт\ngo\n&quot;</span><span class="p">)</span>
-    <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">WriteFile</span><span class="p">(</span><span class="s">&quot;/tmp/dat1&quot;</span><span class="p">,</span> <span class="nx">d1</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
+    <span class="nx">err</span> <span class="p">=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nx">WriteFile</span><span class="p">(</span><span class="s">&quot;/tmp/dat1&quot;</span><span class="p">,</span> <span class="nx">d1</span><span class="p">,</span> <span class="mo">0644</span><span class="p">)</span>
     <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
         <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
     <span class="p">}</span>
