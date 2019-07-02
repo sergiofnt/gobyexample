@@ -20,9 +20,7 @@ git checkout -f gobyexample.com.ua
 cd .. && tools/build && cd public
 
 # ls -lah
-echo -e "Sources Normalization"
-sed -i.back s/class=\"translated\"//g index.html
-sed -i.back s/list-style:decimal\;//g site.css
+echo -e "Sources Normalization"  
 unlink index.html.back
 unlink site.css.back
 
