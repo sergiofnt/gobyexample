@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: Не Блокуючі Операції на Каналах</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+</head>
+<body>
+	<div class="example" id="non-blocking-channel-operations">
+	<h2><a href="./">Go за Прикладом</a>: Не Блокуючі Операції на Каналах</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Базові надсилання та отримання на каналах це блокуючі операції.
+Однак, ми можемо використовувати <code>select</code> з умовою <code>default</code>
+для реалізації <em>не блокуючих відправлень</em>, і навіть для
+не-блокуючих різнонаправлених <code>select</code>ів.</p>
+</td>
+			<td class="code empty leading">
+			
+			
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/oYpYnMJgj-d"><img title="Run code" src="play.png" class="run" /></a>
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="s">&quot;fmt&quot;</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">messages</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">string</span><span class="p">)</span>
+    <span class="nx">signals</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">(</span><span class="kd">chan</span> <span class="kt">bool</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ось неблокуюче отримання. Якщо значення доступне
+в каналі <code>messages</code> тоді <code>select</code> підбере умову
+<nobr><code>&lt;-messages</code></nobr> в <code>case</code> з цим значенням. А якщо значення
+не доступне - то негайно буде обрана стандартна умова <code>default</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">messages</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;отримане повідомлення&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;жодних повідомлень не отримано&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Неблокуючі надсилання працюють схожим чином, тут
+<code>msg</code> не може бути надіслано до каналу <code>messages</code>,
+тому що цей канал не є буферезованим і тому що немає
+отримувача. Саме тому відбудеться стандартна умова <code>default</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">msg</span> <span class="o">:=</span> <span class="s">&quot;привіт&quot;</span>
+    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">messages</span> <span class="o">&lt;-</span> <span class="nx">msg</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;надіслано повідомлення&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;жодних повідомлень не надіслано&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Над стандартною умовою <code>default</code> дозволяється мати
+більш ніж одну умови, для імплементації різнонаправлених
+<code>select</code>ів, умови яких будуть чекати отримання як
+<code>messages</code>, так і <code>signals</code>.</p>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="k">select</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nx">msg</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">messages</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;отримано повідомлення&quot;</span><span class="p">,</span> <span class="nx">msg</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nx">sig</span> <span class="o">:=</span> <span class="o">&lt;-</span><span class="nx">signals</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;отриманий сигнал&quot;</span><span class="p">,</span> <span class="nx">sig</span><span class="p">)</span>
+    <span class="k">default</span><span class="p">:</span>
+        <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;жодної активності&quot;</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run non-blocking-channel-operations.go
+<span class="go">жодних повідомлень не отримано</span>
+<span class="go">жодних повідомлень не надіслано</span>
+<span class="go">жодної активності</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+	</table>
+	
+
+
+	<p class="next">
+		Наступний приклад: <a href="closing-channels">Закриття каналів</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/non-blocking-channel-operations">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+</div>
+</body>
+</html>
