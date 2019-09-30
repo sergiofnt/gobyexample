@@ -15,12 +15,12 @@ git config --global user.email "butuzov@made.ua"
 git config --global user.name "Oleg Butuzov"
 git init
 git remote add -f origin "https://$GH"
-git checkout -f gobyexample.com.ua
+git checkout -f gh-pages
 
 cd .. && tools/build && cd public
 
 # ls -lah
-echo -e "Sources Normalization"  
+echo -e "Sources Normalization"
 unlink index.html.back
 unlink site.css.back
 
@@ -32,8 +32,8 @@ COMMIT=$(git status | grep "nothing to commit, working tree clean")
 echo $COMMIT
 
 if [[ -z $COMMIT ]]; then
-	echo "Updating pages @ gobyexample.com.ua branch"
+	echo "Updating Github Pages"
 	git add --all
 	git commit -m "Travis CI | ${MSG}"
-	git push "https://${GITHUB_TOKEN}@${GH}" gobyexample.com.ua
+	git push "https://${GITHUB_TOKEN}@${GH}" gh-pages
 fi
