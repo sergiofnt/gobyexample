@@ -66,7 +66,7 @@ Temporary Files and Directories
 Command-Line Subcommands
 Змінні середовища|Environment Variables
 HTTP Clients
-HTTP Servers
+HTTP-Сервери|HTTP Servers
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
 Сигнали|Signals
