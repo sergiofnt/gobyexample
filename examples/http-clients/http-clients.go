@@ -1,7 +1,6 @@
-// The Go standard library comes with excellent support
-// for HTTP clients and servers in the `net/http`
-// package. In this example we'll use it to issue simple
-// HTTP requests.
+// Стандартна бібліотека Go поставляється з чудовою підтримкою
+// HTTP клієнтів і серверів. Дана підтримка забезпечується пакетом `net/http`.
+// Даний приклад продемонструє створення простого HTTP запиту.
 package main
 
 import (
@@ -12,21 +11,22 @@ import (
 
 func main() {
 
-    // Issue an HTTP GET request to a server. `http.Get` is a
-    // convenient shortcut around creating an `http.Client`
-    // object and calling its `Get` method; it uses the
-    // `http.DefaultClient` object which has useful default
-    // settings.
+    // Створити *HTTP* запит з методом *GET*. `http.Get` являється
+    // зручною обгорткою для створення *HTTP*-клієнта, і відправки *GET* запиту.
+    // Дана обгортка використовує `http.DefaultClient` під капотом,
+    // що має підходящі стандартні налаштування.
     resp, err := http.Get("http://gobyexample.com")
     if err != nil {
         panic(err)
     }
+    // Необхідно також не забувати _відкласти_ закриття рідера(Reader)
+    // за допомогою [`defer`](./defer), для того щоб не допустити *витік ресурсів*.
     defer resp.Body.Close()
 
-    // Print the HTTP response status.
+    // Вивести *HTTP* статус відповіді.
     fmt.Println("Response status:", resp.Status)
 
-    // Print the first 5 lines of the response body.
+    // Вивести перші 5 ліній з тіла відповіді
     scanner := bufio.NewScanner(resp.Body)
     for i := 0; scanner.Scan() && i < 5; i++ {
         fmt.Println(scanner.Text())
