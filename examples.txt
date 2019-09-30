@@ -46,6 +46,7 @@ Stateful Goroutines
 Форматування Рядків|String Formatting
 Регулярні вирази|Regular Expressions
 JSON
+XML
 Час|Time
 Epoch
 Форматування Часу|Time Formatting / Parsing
@@ -57,9 +58,15 @@ SHA1 Хеші|SHA1 Hashes
 Читання файлів|Reading Files
 Запис файлів|Writing Files
 Рядкові Фільтри|Line Filters
+File Paths
+Directories
+Temporary Files and Directories
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
+Command-Line Subcommands
 Змінні середовища|Environment Variables
+HTTP Clients
+HTTP Servers
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
 Сигнали|Signals
