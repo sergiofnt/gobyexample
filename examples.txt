@@ -65,8 +65,8 @@ Temporary Files and Directories
 Командний Рядок - Прапорці|Command-Line Flags
 Command-Line Subcommands
 Змінні середовища|Environment Variables
-HTTP Clients
-HTTP-Сервери|HTTP Servers
+HTTP Клієнти|HTTP Clients
+HTTP Сервери|HTTP Servers
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
 Сигнали|Signals
