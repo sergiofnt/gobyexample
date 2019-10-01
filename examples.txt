@@ -63,7 +63,7 @@ Directories
 Temporary Files and Directories
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
-Command-Line Subcommands
+Командний Рядок - Додаткові команди|Command-Line Subcommands
 Змінні середовища|Environment Variables
 HTTP Clients
 HTTP Servers
