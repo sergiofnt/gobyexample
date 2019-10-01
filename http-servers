@@ -21,11 +21,11 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Написання <em>HTTP</em>-серверу не являється складною задачою,
-якщо використовувати пакет <code>net/http</code>.</p>
+			<td class="docs"><p>Написання HTTP-серверу не є складною задачою,
+за умови використання пакет <code>net/http</code>.</p>
 </td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/DZcxZ5DwCmR"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/yUgXyKjcOR1"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -46,10 +46,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Фундаментальним концептом в серверах <code>net/http</code> являються обробники(<em>handlers</em>)
-Обробник - об&rsquo;єкт, що імплементує <code>http.Handler</code> інтерфейс.
-Зазвичай для написання обробника використовується адаптер <code>http.HandlerFunc</code>
-для функції з відповідною сигнатурою.</p>
+			<td class="docs"><p>Фундаментальним концептом у серверах <code>net/http</code> є обробники (handlers)
+Обробник - це об&rsquo;єкт, що імплементує інтерфейс <code>http.Handler</code>.
+Зазвичай, для написання обробника використовується адаптер <code>http.HandlerFunc</code>
+з функціює відповідної сигнатури.</p>
 </td>
 			<td class="code leading">
 			
@@ -60,10 +60,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Функції що використовуються як обробники приймають
-<code>http.ResponseWriter</code> і <code>http.Request</code> як аргументи.
-<code>http.ResponseWriter</code> використовується для запису <em>HTTP-відповіді</em>
-В даному прикладі відповіддю являється стрічка &ldquo;hello\n&rdquo;.</p>
+			<td class="docs"><p>Функції що використовуються як обробники - приймають
+<code>http.ResponseWriter</code> і вказівник на <code>http.Request</code> як аргументи.
+<code>http.ResponseWriter</code> використовується для запису HTTP-відповіді
+В цьому прикладі - відповіддю є рядок &ldquo;hello\n&rdquo;.</p>
 </td>
 			<td class="code leading">
 			
@@ -85,8 +85,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>В даному обробнику проводиться вичитування всіх HTTP-заголовків,
-і передавання їх в якості відповіді запитуючій стороні.</p>
+			<td class="docs"><p>В даному обробнику проводиться зчитування HTTP-заголовків,
+і передавання їх як відповідь клієнту.</p>
 </td>
 			<td class="code leading">
 			
@@ -112,10 +112,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Дані стрічки реєструють маршрути, які необхідно обслуговувати серверу,
+			<td class="docs"><p>Дані рядки реєструють маршрути, які потрібно обслужити серверу,
 за допомогою функції <code>http.HandleFunc</code>. Ця функція
 встановлює маршрутизатор по замовчуванню і обробник який буде виконано,
-якщо буде виявлено запит по вказаних маршрутах.</p>
+якщо буде зроблено запит по вказаних маршрутах.</p>
 </td>
 			<td class="code leading">
 			
@@ -127,7 +127,7 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Запускає <em>HTTP</em>-сервер. В якості порту на якому очікуються з&rsquo;єднання
+			<td class="docs"><p>Запускаємо HTTP-сервер. В якості порту, на якому очікуються з&rsquo;єднання
 встановлено &ldquo;:8090&rdquo;. Другий параметр вказує на те, що потрібно використовувати
 маршрутизатор по замовчуванню, який було заздалегідь встановлено.</p>
 </td>
@@ -158,10 +158,21 @@
 		<tr>
 			<td class="docs"><p>Зробити запит до маршруту &ldquo;hello&rdquo;</p>
 </td>
-			<td class="code">
+			<td class="code leading">
 			
 			<div class="highlight"><pre><span class="gp">$</span> curl localhost:8090/hello
 <span class="go">hello</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Завершимо наш сервер</p>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="gp">$</span> <span class="nb">kill</span> -9 <span class="nv">$!</span>
 </pre></div>
 
 			</td>
