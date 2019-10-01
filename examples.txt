@@ -59,14 +59,14 @@ SHA1 Хеші|SHA1 Hashes
 Запис файлів|Writing Files
 Рядкові Фільтри|Line Filters
 File Paths
-Directories
+Директорії|Directories
 Temporary Files and Directories
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
 Command-Line Subcommands
 Змінні середовища|Environment Variables
-HTTP клієнти|HTTP Clients
-HTTP Servers
+HTTP Клієнти|HTTP Clients
+HTTP Сервери|HTTP Servers
 Запуск сторонніх процесів|Spawning Processes
 Заміна поточного процесу новим|Exec'ing Processes
 Сигнали|Signals
