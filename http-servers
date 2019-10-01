@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
-	<title>Go за Прикладом: HTTP Servers</title>
+	<title>Go за Прикладом: HTTP-Сервери</title>
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
@@ -16,16 +16,16 @@
 </head>
 <body>
 	<div class="example" id="http-servers">
-	<h2><a href="./">Go за Прикладом</a>: HTTP Servers</h2>
+	<h2><a href="./">Go за Прикладом</a>: HTTP-Сервери</h2>
 	
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Writing a basic HTTP server is easy using the
-<code>net/http</code> package.</p>
+			<td class="docs"><p>Написання <em>HTTP</em>-серверу не являється складною задачою,
+якщо використовувати пакет <code>net/http</code>.</p>
 </td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/lNuS9ysZmxH"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/DZcxZ5DwCmR"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -46,11 +46,10 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>A fundamental concept in <code>net/http</code> servers is
-<em>handlers</em>. A handler is an object implementing the
-<code>http.Handler</code> interface. A common way to write
-a handler is by using the <code>http.HandlerFunc</code> adapter
-on functions with the appropriate signature.</p>
+			<td class="docs"><p>Фундаментальним концептом в серверах <code>net/http</code> являються обробники(<em>handlers</em>)
+Обробник - об&rsquo;єкт, що імплементує <code>http.Handler</code> інтерфейс.
+Зазвичай для написання обробника використовується адаптер <code>http.HandlerFunc</code>
+для функції з відповідною сигнатурою.</p>
 </td>
 			<td class="code leading">
 			
@@ -61,11 +60,10 @@ on functions with the appropriate signature.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Functions serving as handlers take a
-<code>http.ResponseWriter</code> and a <code>http.Request</code> as
-arguments. The response writer is used to fill in the
-HTTP response. Here our simple response is just
-&ldquo;hello\n&rdquo;.</p>
+			<td class="docs"><p>Функції що використовуються як обробники приймають
+<code>http.ResponseWriter</code> і <code>http.Request</code> як аргументи.
+<code>http.ResponseWriter</code> використовується для запису <em>HTTP-відповіді</em>
+В даному прикладі відповіддю являється стрічка &ldquo;hello\n&rdquo;.</p>
 </td>
 			<td class="code leading">
 			
@@ -87,9 +85,8 @@ HTTP response. Here our simple response is just
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>This handler does something a little more
-sophisticated by reading all the HTTP request
-headers and echoing them into the response body.</p>
+			<td class="docs"><p>В даному обробнику проводиться вичитування всіх HTTP-заголовків,
+і передавання їх в якості відповіді запитуючій стороні.</p>
 </td>
 			<td class="code leading">
 			
@@ -115,10 +112,10 @@ headers and echoing them into the response body.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We register our handlers on server routes using the
-<code>http.HandleFunc</code> convenience function. It sets up
-the <em>default router</em> in the <code>net/http</code> package and
-takes a function as an argument.</p>
+			<td class="docs"><p>Дані стрічки реєструють маршрути, які необхідно обслуговувати серверу,
+за допомогою функції <code>http.HandleFunc</code>. Ця функція
+встановлює маршрутизатор по замовчуванню і обробник який буде виконано,
+якщо буде виявлено запит по вказаних маршрутах.</p>
 </td>
 			<td class="code leading">
 			
@@ -130,9 +127,9 @@ takes a function as an argument.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Finally, we call the <code>ListenAndServe</code> with the port
-and a handler. <code>nil</code> tells it to use the default
-router we&rsquo;ve just set up.</p>
+			<td class="docs"><p>Запускає <em>HTTP</em>-сервер. В якості порту на якому очікуються з&rsquo;єднання
+встановлено &ldquo;:8090&rdquo;. Другий параметр вказує на те, що потрібно використовувати
+маршрутизатор по замовчуванню, який було заздалегідь встановлено.</p>
 </td>
 			<td class="code">
 			
@@ -148,7 +145,7 @@ router we&rsquo;ve just set up.</p>
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Run the server in the background.</p>
+			<td class="docs"><p>Запустити сервер в фоновому режимі</p>
 </td>
 			<td class="code leading">
 			
@@ -159,7 +156,7 @@ router we&rsquo;ve just set up.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Access the <code>/hello</code> route.</p>
+			<td class="docs"><p>Зробити запит до маршруту &ldquo;hello&rdquo;</p>
 </td>
 			<td class="code">
 			
