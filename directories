@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
-	<title>Go за Прикладом: Directories</title>
+	<title>Go за Прикладом: Директорії</title>
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
@@ -16,13 +16,13 @@
 </head>
 <body>
 	<div class="example" id="directories">
-	<h2><a href="./">Go за Прикладом</a>: Directories</h2>
+	<h2><a href="./">Go за Прикладом</a>: Директорії</h2>
 	
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Go has several useful functions for working with
-<em>directories</em> in the file system.</p>
+			<td class="docs"><p>Go має декілька корисних функцій для роботи з
+<em>директоріями</em> в файловій системі.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -33,7 +33,7 @@
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/-7kWq0PmATF"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/iXHU5PReBrN"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -80,8 +80,8 @@
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Create a new sub-directory in the current working
-directory.</p>
+			<td class="docs"><p>Створити нову директорію, під назвою <em>subdir</em> в поточній.
+Другим параметром являється налаштування <a href="https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation">доступу</a> до директорії.</p>
 </td>
 			<td class="code leading">
 			
@@ -93,10 +93,10 @@ directory.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>When creating temporary directories, it&rsquo;s good
-practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
-will delete a whole directory tree (similarly to
-<code>rm -rf</code>).</p>
+			<td class="docs"><p>При створенні тимчасової директорії, непоганою ідеєю являється
+<em>відкласти</em> її видалення за допомогою <a href="./defer"><code>defer</code></a>.
+<code>os.RemoveAll</code> видалить директорію <em>subdir</em> повністю (разом з вкладеними директоріями) -
+аналогічно з <code>rm -rf subdir</code> в UNIX-подібних системах.</p>
 </td>
 			<td class="code leading">
 			
@@ -107,7 +107,7 @@ will delete a whole directory tree (similarly to
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Helper function to create a new empty file.</p>
+			<td class="docs"><p>Допоміжна функція для створення тимчасового файлу.</p>
 </td>
 			<td class="code leading">
 			
@@ -131,9 +131,8 @@ will delete a whole directory tree (similarly to
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We can create a hierarchy of directories, including
-parents with <code>MkdirAll</code>. This is similar to the
-command-line <code>mkdir -p</code>.</p>
+			<td class="docs"><p>Також можливо створити повну ієрархію директорій за допомогою <code>MkdirAll</code>.
+Дана команда являється аналогічною до команди <code>mkdir -p subdir/parent/child</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -157,8 +156,8 @@ command-line <code>mkdir -p</code>.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>ReadDir</code> lists directory contents, returning a
-slice of <code>os.FileInfo</code> objects.</p>
+			<td class="docs"><p><code>ReadDir</code> зчитує зміст директорії <em>parent</em>,
+і повертає <a href="./slice">зріз</a> об&rsquo;єктів <code>os.FileInfo</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -183,8 +182,8 @@ slice of <code>os.FileInfo</code> objects.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Chdir</code> lets us change the current working directory,
-similarly to <code>cd</code>.</p>
+			<td class="docs"><p><code>Chdir</code> дозволяє змінити поточну робочу директорію,
+подібно до <code>cd</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -196,8 +195,8 @@ similarly to <code>cd</code>.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-when listing the <em>current</em> directory.</p>
+			<td class="docs"><p>Дана команда поверне <a href="./slice">зріз</a> об&rsquo;єктів <code>os.FileInfo</code> для поточної директорії,
+якою на даний момент являється <code>subdir/parent/child</code></p>
 </td>
 			<td class="code leading">
 			
@@ -222,7 +221,7 @@ when listing the <em>current</em> directory.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>cd</code> back to where we started.</p>
+			<td class="docs"><p><code>cd</code> Повернутись на стартову позицію.</p>
 </td>
 			<td class="code leading">
 			
@@ -234,10 +233,10 @@ when listing the <em>current</em> directory.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We can also visit a directory <em>recursively</em>,
-including all its sub-directories. <code>Walk</code> accepts
-a callback function to handle every file or
-directory visited.</p>
+			<td class="docs"><p>Також ми можемо обійти директорію <em>рекурсивно</em>,
+включаючи всі вкладені директорії.
+<code>Walk</code> другим параметром приймає функцію зворотного виклику,
+яка буде викликана для кожного <em>відвіданого</em> файлу та директорії.</p>
 </td>
 			<td class="code leading">
 			
@@ -250,8 +249,8 @@ directory visited.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>visit</code> is called for every file or directory found
-recursively by <code>filepath.Walk</code>.</p>
+			<td class="docs"><p><code>visit</code> - функція яка буде викликана для кожного файлу чи директорії
+знайденого в процесі обходу <em>subdir</em>.</p>
 </td>
 			<td class="code">
 			
