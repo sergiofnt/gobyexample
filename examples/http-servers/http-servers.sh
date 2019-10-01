@@ -1,6 +1,6 @@
-# Run the server in the background.
+# Запустити сервер в фоновому режимі
 $ go run http-servers.go &
 
-# Access the `/hello` route.
+# Зробити запит до маршруту "hello"
 $ curl localhost:8090/hello
 hello
