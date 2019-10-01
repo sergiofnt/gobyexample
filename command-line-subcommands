@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
-	<title>Go за Прикладом: Command-Line Subcommands</title>
+	<title>Go за Прикладом: Командний Рядок - Додаткові команди</title>
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
@@ -16,17 +16,18 @@
 </head>
 <body>
 	<div class="example" id="command-line-subcommands">
-	<h2><a href="./">Go за Прикладом</a>: Command-Line Subcommands</h2>
+	<h2><a href="./">Go за Прикладом</a>: Командний Рядок - Додаткові команди</h2>
 	
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Some command-line tools, like the <code>go</code> tool or <code>git</code>
-have many <em>subcommands</em>, each with its own set of
-flags. For example, <code>go build</code> and <code>go get</code> are two
-different subcommands of the <code>go</code> tool.
-The <code>flag</code> package lets us easily define simple
-subcommands that have their own flags.</p>
+			<td class="docs"><p>Деякі з утиліт командного рядку, як то <code>go</code> чи <code>git</code>,
+мають великий вибір додаткових команд, а також власний набір
+прапорців/параметрів. Наприклад <code>go build</code> і <code>go get</code>
+являються додатковими командами для <code>go</code>-утиліти.
+Для роботи з прапорцями/параметрами в
+стандартній бібліотеці <code>go</code> є пакет <code>flag</code>, який дозволяє
+з легкістю визначати команди а також їх параметри.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -37,7 +38,7 @@ subcommands that have their own flags.</p>
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/gtgSAg76N4I"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/GHoh6oyzKld"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -69,14 +70,23 @@ subcommands that have their own flags.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We declare a subcommand using the <code>NewFlagSet</code>
-function, and proceed to define new flags specific
-for this subcommand.</p>
+			<td class="docs"><p>Тут, за допомогою функції <code>NewFlagSet</code>, визначається нова команда.</p>
 </td>
 			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="nx">fooCmd</span> <span class="o">:=</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">NewFlagSet</span><span class="p">(</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="nx">flag</span><span class="p">.</span><span class="nx">ExitOnError</span><span class="p">)</span>
-    <span class="nx">fooEnable</span> <span class="o">:=</span> <span class="nx">fooCmd</span><span class="p">.</span><span class="nx">Bool</span><span class="p">(</span><span class="s">&quot;enable&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&quot;enable&quot;</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Далі оголошуються два додаткові параметри <code>enable</code> і <code>name</code>
+з типами булеан и стрічка відповідно.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fooEnable</span> <span class="o">:=</span> <span class="nx">fooCmd</span><span class="p">.</span><span class="nx">Bool</span><span class="p">(</span><span class="s">&quot;enable&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="s">&quot;enable&quot;</span><span class="p">)</span>
     <span class="nx">fooName</span> <span class="o">:=</span> <span class="nx">fooCmd</span><span class="p">.</span><span class="nx">String</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">,</span> <span class="s">&quot;name&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -84,8 +94,8 @@ for this subcommand.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>For a different subcommand we can define different
-supported flags.</p>
+			<td class="docs"><p>Для різних команд можна задати різні параметри,
+які вони підтримують.</p>
 </td>
 			<td class="code leading">
 			
@@ -97,8 +107,7 @@ supported flags.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>The subcommand is expected as the first argument
-to the program.</p>
+			<td class="docs"><p>Очікується, що параметри будуть передані як перший аргумент при старті програми.</p>
 </td>
 			<td class="code leading">
 			
@@ -112,7 +121,7 @@ to the program.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Check which subcommand is invoked.</p>
+			<td class="docs"><p>Перевірити, яка команда була передана.</p>
 </td>
 			<td class="code leading">
 			
@@ -123,10 +132,10 @@ to the program.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>For every subcommand, we parse its own flags and
-have access to trailing positional arguments.</p>
+			<td class="docs"><p>Якщо була передана команда <code>foo</code>, виконати парсинг параметрів,
+а також вивести всі параметри які не були задіяні при парсингу вхідної стрічки.</p>
 </td>
-			<td class="code">
+			<td class="code leading">
 			
 			<div class="highlight"><pre>    <span class="k">case</span> <span class="s">&quot;foo&quot;</span><span class="p">:</span>
         <span class="nx">fooCmd</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
@@ -134,12 +143,34 @@ have access to trailing positional arguments.</p>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;  enable:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">fooEnable</span><span class="p">)</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;  name:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">fooName</span><span class="p">)</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;  tail:&quot;</span><span class="p">,</span> <span class="nx">fooCmd</span><span class="p">.</span><span class="nx">Args</span><span class="p">())</span>
-    <span class="k">case</span> <span class="s">&quot;bar&quot;</span><span class="p">:</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо була передана команда <code>bar</code>, виконати парсинг параметрів,
+а також вивести всі параметри які не були задіяні при парсингу вхідної стрічки.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="k">case</span> <span class="s">&quot;bar&quot;</span><span class="p">:</span>
         <span class="nx">barCmd</span><span class="p">.</span><span class="nx">Parse</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;subcommand &#39;bar&#39;&quot;</span><span class="p">)</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;  level:&quot;</span><span class="p">,</span> <span class="o">*</span><span class="nx">barLevel</span><span class="p">)</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;  tail:&quot;</span><span class="p">,</span> <span class="nx">barCmd</span><span class="p">.</span><span class="nx">Args</span><span class="p">())</span>
-    <span class="k">default</span><span class="p">:</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Якщо команда, що була передана - являється забороненою,
+вивести помилку і закінчити виконання.</p>
+</td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="k">default</span><span class="p">:</span>
         <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;expected &#39;foo&#39; or &#39;bar&#39; subcommands&quot;</span><span class="p">)</span>
         <span class="nx">os</span><span class="p">.</span><span class="nx">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="p">}</span>
@@ -164,7 +195,7 @@ have access to trailing positional arguments.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>First invoke the foo subcommand.</p>
+			<td class="docs"><p>Для початку викликати команду foo.</p>
 </td>
 			<td class="code leading">
 			
@@ -179,7 +210,7 @@ have access to trailing positional arguments.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Now try bar.</p>
+			<td class="docs"><p>Тепер викликати команду bar.</p>
 </td>
 			<td class="code leading">
 			
@@ -193,7 +224,7 @@ have access to trailing positional arguments.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>But bar won&rsquo;t accept foo&rsquo;s flags.</p>
+			<td class="docs"><p>Переконатись, що bar не приймає параметри визначенні в foo.</p>
 </td>
 			<td class="code leading">
 			
@@ -208,8 +239,8 @@ have access to trailing positional arguments.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Next we&rsquo;ll look at environment variables, another common
-way to parameterize programs.</p>
+			<td class="docs"><p>Далі будуть розглянуті змінні середовища,
+ще один поширений спосіб для заданя необхідних параметрів.</p>
 </td>
 			<td class="code empty">
 			
