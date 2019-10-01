@@ -59,7 +59,7 @@ SHA1 Хеші|SHA1 Hashes
 Запис файлів|Writing Files
 Рядкові Фільтри|Line Filters
 File Paths
-Directories
+Директорії|Directories
 Temporary Files and Directories
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
