@@ -21,11 +21,10 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Throughout program execution, we often want to create
-data that isn&rsquo;t needed after the program exits.
-<em>Temporary files and directories</em> are useful for this
-purpose since they don&rsquo;t pollute the file system over
-time.</p>
+			<td class="docs"><p>Під час виконання програми ми часто хочемо створити
+дані, які після закінчення програми можуть бути непотрібні.
+<em>Тимчасові файли та каталоги</em> гарно підходять для цієї задачі,
+оскільки вони не забруднюють файлову систему.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -36,7 +35,7 @@ time.</p>
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/pxE20wGTFjv"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/982i6LrG4Lu"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -83,11 +82,12 @@ time.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>The easiest way to create a temporary file is by
-calling <code>ioutil.TempFile</code>. It creates a file <em>and</em>
-opens it for reading and writing. We provide <code>&quot;&quot;</code>
-as the first argument, so <code>ioutil.TempFile</code> will
-create the file in the default location for our OS.</p>
+			<td class="docs"><p>Найпростіший спосіб створити тимчасовий файл
+- використати <code>ioutil.TempFile</code>.
+Він створює файл <em>та</em> відкриває його для читання
+і запису. Як перший аргумент ми передаємо <code>&quot;&quot;</code>,
+для того щоб <code>ioutil.TempFile</code> створив файл, розташування якого буде
+за замовчуванням для нашої ОС.</p>
 </td>
 			<td class="code leading">
 			
@@ -99,12 +99,12 @@ create the file in the default location for our OS.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Display the name of the temporary file. On
-Unix-based OSes the directory will likely be <code>/tmp</code>.
-The file name starts with the prefix given as the
-second argument to <code>ioutil.TempFile</code> and the rest
-is chosen automatically to ensure that concurrent
-calls will always create different file names.</p>
+			<td class="docs"><p>Відобразить ім&rsquo;я тимчасового файлу.
+У UNIX-подібних системах, каталог, швидше за все,
+буде <code>/tmp</code>. Ім&rsquo;я файлу починається з префіксу,
+який ми вказали у другому аргументі <code>ioutil.TempFile</code>,
+а решта генерується автоматично, щоб гарантувати, що
+паралельні виклики завжди створюватимуть різні імена файлів.</p>
 </td>
 			<td class="code leading">
 			
@@ -115,10 +115,9 @@ calls will always create different file names.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Clean up the file after we&rsquo;re done. The OS is
-likely to clean up temporary files by itself after
-some time, but it&rsquo;s good practice to do this
-explicitly.</p>
+			<td class="docs"><p>Видалимо файл після того, як ми закінчимо.
+ОС, швидше за все, очищає тимчасові файли
+самостійно через деякий час, але краще зробити це явно.</p>
 </td>
 			<td class="code leading">
 			
@@ -129,7 +128,7 @@ explicitly.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We can write some data to the file.</p>
+			<td class="docs"><p>Ми можемо записати деякі данні в файл.</p>
 </td>
 			<td class="code leading">
 			
@@ -141,11 +140,10 @@ explicitly.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>If we intend to write many temporary files, we may
-prefer to create a temporary <em>directory</em>.
-<code>ioutil.TempDir</code>&rsquo;s arguments are the same as
-<code>TempFile</code>&rsquo;s, but it returns a directory <em>name</em>
-rather than an open file.</p>
+			<td class="docs"><p>Якщо ми маємо намір створювати багато тимчасових файлів,
+ми можемо вважати що краще створити тимчасовий <em>каталог</em>.
+Аргументи <code>ioutil.TempDir</code> такі ж, як і у<code>TempFile</code>,
+але результатом буде ім&rsquo;я <em>каталогу</em>.</p>
 </td>
 			<td class="code leading">
 			
@@ -167,8 +165,8 @@ rather than an open file.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Now we can synthesize temporary file names by
-prefixing them with our temporary directory.</p>
+			<td class="docs"><p>Тепер ми можемо створити ім&rsquo;я файлу
+додавши префікс до тимчасового каталога.</p>
 </td>
 			<td class="code">
 			
