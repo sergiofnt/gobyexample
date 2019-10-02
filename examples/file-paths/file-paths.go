@@ -1,7 +1,7 @@
-// The `filepath` package provides functions to parse
-// and construct *file paths* in a way that is portable
-// between operating systems; `dir/file` on Linux vs.
-// `dir\file` on Windows, for example.
+// Пакет `filepath` забезпечує функції розбору,
+// та побудуви *шляхів до файлу* у спосіб, який є універсальним
+// між операційними системами. Наприклад: `dir/file` у UNIX-подібних
+// системах чи `dir\file` у Windows.
 package main
 
 import (
@@ -12,44 +12,41 @@ import (
 
 func main() {
 
-    // `Join` should be used to construct paths in a
-    // portable way. It takes any number of arguments
-    // and constructs a hierarchical path from them.
+    // `Join` можна використовувати для побудови шляхів.
+    // Функція приймає будь-яку кількість аргументів
+    // і будує з них ієрархічний шлях.
     p := filepath.Join("dir1", "dir2", "filename")
     fmt.Println("p:", p)
 
-    // You should always use `Join` instead of
-    // concatenating `/`s or `\`s manually. In addition
-    // to providing portability, `Join` will also
-    // normalize paths by removing superfluous separators
-    // and directory changes.
+    // Ви завжди повинні використовувати `Join` замість
+    // об'єднання `/` або `\` вручну. В додаток функція `Join`
+    // нормалізує шляхи, видаливши зайві роздільники та лишні каталоги.
     fmt.Println(filepath.Join("dir1//", "filename"))
     fmt.Println(filepath.Join("dir1/../dir1", "filename"))
 
-    // `Dir` and `Base` can be used to split a path to the
-    // directory and the file. Alternatively, `Split` will
-    // return both in the same call.
+    // `Dir` та `Base` можна використовувати для розділення шляху до
+    // каталога чи файла. Як варіант, `Split` буде
+    // повернути обидва значення в одному виклику.
     fmt.Println("Dir(p):", filepath.Dir(p))
     fmt.Println("Base(p):", filepath.Base(p))
 
-    // We can check whether a path is absolute.
+    // Також ми можемо перевірити, чи шлях абсолютний.
     fmt.Println(filepath.IsAbs("dir/file"))
     fmt.Println(filepath.IsAbs("/dir/file"))
 
     filename := "config.json"
 
-    // Some file names have extensions following a dot. We
-    // can split the extension out of such names with `Ext`.
+    // Деякі назви файлів мають розширення після крапки.
+    // Ми можемо дізнатись розширення файлу за допомогою `Ext`.
     ext := filepath.Ext(filename)
     fmt.Println(ext)
 
-    // To find the file's name with the extension removed,
-    // use `strings.TrimSuffix`.
+    // Щоб дізнатись ім'я файлу без його розширення,
+    // використовуйте `strings.TrimSuffix`.
     fmt.Println(strings.TrimSuffix(filename, ext))
 
-    // `Rel` finds a relative path between a *base* and a
-    // *target*. It returns an error if the target cannot
-    // be made relative to base.
+    // `Rel` знаходить шлях між *base* і *target*.
+    // Він повертає помилку, якщо це не можна зробити.
     rel, err := filepath.Rel("a/b", "a/b/t/file")
     if err != nil {
         panic(err)
