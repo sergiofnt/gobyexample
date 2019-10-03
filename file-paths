@@ -21,13 +21,13 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>The <code>filepath</code> package provides functions to parse
-and construct <em>file paths</em> in a way that is portable
-between operating systems; <code>dir/file</code> on Linux vs.
-<code>dir\file</code> on Windows, for example.</p>
+			<td class="docs"><p>Пакет <code>filepath</code> забезпечує функції розбору,
+та побудуви <em>шляхів до файлу</em> у спосіб, який є універсальним
+між операційними системами. Наприклад: <code>dir/file</code> у UNIX-подібних
+системах чи <code>dir\file</code> у Windows.</p>
 </td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/QIitbMNiFRx"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/PrNYhXYw1UY"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -59,9 +59,9 @@ between operating systems; <code>dir/file</code> on Linux vs.
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Join</code> should be used to construct paths in a
-portable way. It takes any number of arguments
-and constructs a hierarchical path from them.</p>
+			<td class="docs"><p><code>Join</code> можна використовувати для побудови шляхів.
+Функція приймає будь-яку кількість аргументів
+і будує з них ієрархічний шлях.</p>
 </td>
 			<td class="code leading">
 			
@@ -73,11 +73,9 @@ and constructs a hierarchical path from them.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>You should always use <code>Join</code> instead of
-concatenating <code>/</code>s or <code>\</code>s manually. In addition
-to providing portability, <code>Join</code> will also
-normalize paths by removing superfluous separators
-and directory changes.</p>
+			<td class="docs"><p>Ви завжди повинні використовувати <code>Join</code> замість
+об&rsquo;єднання <code>/</code> або <code>\</code> вручну. В додаток функція <code>Join</code>
+нормалізує шляхи, видаливши зайві роздільники та лишні каталоги.</p>
 </td>
 			<td class="code leading">
 			
@@ -89,9 +87,9 @@ and directory changes.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Dir</code> and <code>Base</code> can be used to split a path to the
-directory and the file. Alternatively, <code>Split</code> will
-return both in the same call.</p>
+			<td class="docs"><p><code>Dir</code> та <code>Base</code> можна використовувати для розділення шляху до
+каталога чи файла. Як варіант, <code>Split</code> буде
+повернути обидва значення в одному виклику.</p>
 </td>
 			<td class="code leading">
 			
@@ -103,7 +101,7 @@ return both in the same call.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>We can check whether a path is absolute.</p>
+			<td class="docs"><p>Також ми можемо перевірити, чи шлях абсолютний.</p>
 </td>
 			<td class="code leading">
 			
@@ -125,8 +123,8 @@ return both in the same call.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Some file names have extensions following a dot. We
-can split the extension out of such names with <code>Ext</code>.</p>
+			<td class="docs"><p>Деякі назви файлів мають розширення після крапки.
+Ми можемо дізнатись розширення файлу за допомогою <code>Ext</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -138,8 +136,8 @@ can split the extension out of such names with <code>Ext</code>.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>To find the file&rsquo;s name with the extension removed,
-use <code>strings.TrimSuffix</code>.</p>
+			<td class="docs"><p>Щоб дізнатись ім&rsquo;я файлу без його розширення,
+використовуйте <code>strings.TrimSuffix</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -150,9 +148,8 @@ use <code>strings.TrimSuffix</code>.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p><code>Rel</code> finds a relative path between a <em>base</em> and a
-<em>target</em>. It returns an error if the target cannot
-be made relative to base.</p>
+			<td class="docs"><p><code>Rel</code> знаходить шлях між <em>base</em> і <em>target</em>.
+Він повертає помилку, якщо це не можна зробити.</p>
 </td>
 			<td class="code leading">
 			
