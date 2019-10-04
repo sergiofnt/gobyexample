@@ -21,8 +21,8 @@
 	<table>
 		
 		<tr>
-			<td class="docs"><p>Go offers built-in support for XML and XML-like
-formats with the <code>encoding.xml</code> package.</p>
+			<td class="docs"><p>Go пропонує підтримку XML та XML-подібних
+форматів із пакетом <code>encoding.xml</code>.</p>
 </td>
 			<td class="code empty leading">
 			
@@ -33,7 +33,7 @@ formats with the <code>encoding.xml</code> package.</p>
 		<tr>
 			<td class="docs"></td>
 			<td class="code leading">
-			<a href="http://play.golang.org/p/qd9Ii_3AW0s"><img title="Run code" src="play.png" class="run" /></a>
+			<a href="http://play.golang.org/p/zIQiNsrIMcM"><img title="Run code" src="play.png" class="run" /></a>
 			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
 </pre></div>
 
@@ -54,13 +54,12 @@ formats with the <code>encoding.xml</code> package.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>This type will be mapped to XML. Similarly to the
-JSON examples, field tags contain directives for the
-encoder and decoder. Here we use some special features
-of the XML package: the <code>XMLName</code> field name dictates
-the name of the XML element representing this struct;
-<code>id,attr</code> means that the <code>Id</code> field is an XML
-<em>attribute</em> rather than a nested element.</p>
+			<td class="docs"><p>Цей тип буде відображено в XML. Аналогічно до
+прикладу з JSON, теги полів містять директиви для
+кодера та декодера. Тут ми використовуємо деякі особливості
+пакета XML: назва поля <code>XMLName</code> вказує на
+назви елемента в XML, що представляє цю структуру;
+<code>id,attr</code> означає, що поле <code>id</code> є <em>атрибутом</em> тега <code>plant</code>.</p>
 </td>
 			<td class="code leading">
 			
@@ -101,9 +100,8 @@ the name of the XML element representing this struct;
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Emit XML representing our plant; using
-<code>MarshalIndent</code> to produce a more
-human-readable output.</p>
+			<td class="docs"><p>Тепер можна сстворити XML, із структури <code>Plant</code>. Використовуйте
+<code>MarshalIndent</code> для отримання більш зрозумілого для людини результату.</p>
 </td>
 			<td class="code leading">
 			
@@ -115,8 +113,7 @@ human-readable output.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>To add a generic XML header to the output, append
-it explicitly.</p>
+			<td class="docs"><p>Щоб додати стандартний XML-заголовок до виводу, приєднайте його явно.</p>
 </td>
 			<td class="code leading">
 			
@@ -127,10 +124,9 @@ it explicitly.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>Use <code>Unmarhshal</code> to parse a stream of bytes with XML
-into a data structure. If the XML is malformed or
-cannot be mapped onto Plant, a descriptive error
-will be returned.</p>
+			<td class="docs"><p>Використовуйте <code>Unmarhshal</code> для розбору потоку
+байтів з XML в структуру даних. Помилка повертається, якщо XML неправильно
+сформований або не може бути перетворений в Plant.</p>
 </td>
 			<td class="code leading">
 			
@@ -156,8 +152,8 @@ will be returned.</p>
 		</tr>
 	
 		<tr>
-			<td class="docs"><p>The <code>parent&gt;child&gt;plant</code> field tag tells the encoder
-to nest all <code>plant</code>s under <code>&lt;parent&gt;&lt;child&gt;...</code></p>
+			<td class="docs"><p><code>parent&gt;child&gt;plant</code> тег вказує кодеру шлях
+<code>&lt;parent&gt;&lt;child&gt;...</code> за яким будуть розміщенні <code>plant</code>&rsquo;s</p>
 </td>
 			<td class="code leading">
 			
