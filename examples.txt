@@ -34,7 +34,7 @@ Select
 Worker Pools
 Обмеження Частоти Запитів|Rate Limiting
 Атомарні Лічильники|Atomic Counters
-Групи очікування|WaitGroups
+WaitGroups
 Mutexes
 Stateful Goroutines
 Сортування|Sorting
