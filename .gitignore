@@ -1,2 +1,8 @@
-.anvil
 *.pyc
+.idea
+.vscode
+public/*.html
+public/*.js
+public/*.png
+public/*.ico
+public/*.css

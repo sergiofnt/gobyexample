@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Запустити сервер в фоновому режимі
 $ go run http-servers.go &
 
@@ -7,3 +8,11 @@ hello
 
 # Завершимо наш сервер
 $ kill -9 $!
+=======
+# Run the server in the background.
+$ go run http-servers.go &
+
+# Access the `/hello` route.
+$ curl localhost:8090/hello
+hello
+>>>>>>> master

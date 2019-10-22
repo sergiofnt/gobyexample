@@ -27,7 +27,7 @@ body {
 	line-height: 1;
 }
 ol, ul {
-	list-style:none; 
+	list-style:none;
 }
 li a {
 	display: inline-block;
@@ -155,10 +155,15 @@ td.docs code {
 	padding:1px 2px;
 }
 
-img.run {
+img.run, img.copy  {
   height: 16px;
   width: 16px;
-  float: right
+  float: right;
+  cursor: pointer;
+}
+
+img.copy {
+    margin-right: 4px;
 }
 
 /* Syntax highlighting */

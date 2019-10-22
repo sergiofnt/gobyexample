@@ -12,7 +12,7 @@ import "fmt"
 // (ціле число), тобто аргумент буде передано функції - "за значенням".
 // `zeroval` отримує лише копію `ival` з якою викликали функцію.
 func zeroval(ival int) {
-    ival = 0
+	ival = 0
 }
 
 // Функція `zeroptr` аргументом потребує `*int` - (вказівник на
@@ -21,22 +21,22 @@ func zeroval(ival int) {
 // до значення в цій адресі. Присвоєння значення розіменованому
 // вказівнику - змінює значення у адресі за посиланням.
 func zeroptr(iptr *int) {
-    *iptr = 0
+	*iptr = 0
 }
 
 func main() {
-    i := 1
-    fmt.Println("initial:", i)
+	i := 1
+	fmt.Println("initial:", i)
 
-    zeroval(i)
-    fmt.Println("zeroval:", i)
+	zeroval(i)
+	fmt.Println("zeroval:", i)
 
-    zeroptr(&i)
-    fmt.Println("zeroptr:", i)
+	zeroptr(&i)
+	fmt.Println("zeroptr:", i)
 
-    // Адресу вказівника можна друкувати таким чином.
-    fmt.Println("pointer:", &i)
+	// Адресу вказівника можна друкувати таким чином.
+	fmt.Println("pointer:", &i)
 
-    // Або скориставшись дієсловом форматування - `%p`.
-    fmt.Printf("pointer: %p\n", &i)
+	// Або скориставшись дієсловом форматування - `%p`.
+	fmt.Printf("pointer: %p\n", &i)
 }

@@ -7,12 +7,12 @@ import "fmt"
 // Функція `fact` викликає сама себе допоки не досягне
 // базового випадку `fact(0)`, коли її виконання припиняється.
 func fact(n int) int {
-    if n == 0 {
-        return 1
-    }
-    return n * fact(n-1)
+	if n == 0 {
+		return 1
+	}
+	return n * fact(n-1)
 }
 
 func main() {
-    fmt.Println(fact(7))
+	fmt.Println(fact(7))
 }

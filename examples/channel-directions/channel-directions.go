@@ -11,22 +11,23 @@ import "fmt"
 // Ви отримаєте помилку компіляції, якщо спробуєте отримати
 // значення з цього каналу.
 func ping(pings chan<- string, msg string) {
-    pings <- msg
+	pings <- msg
 }
 
 // Функція `pong` прийме перший канал для надсилання
 // (`pings`), a другий для відправки (`pongs`) значень.
 func pong(pings <-chan string, pongs chan<- string) {
-    msg := <-pings
-    pongs <- msg
+	msg := <-pings
+	pongs <- msg
 }
 
 func main() {
-    pings := make(chan string, 1)
-    pongs := make(chan string, 1)
-    ping(pings, "передане повідомлення")
-    pong(pings, pongs)
 
-    // Блокуємо виконання і отримуємо наше повідомлення.
-    fmt.Println(<-pongs)
+	pings := make(chan string, 1)
+	pongs := make(chan string, 1)
+	ping(pings, "передане повідомлення")
+	pong(pings, pongs)
+
+	// Блокуємо виконання і отримуємо наше повідомлення.
+	fmt.Println(<-pongs)
 }

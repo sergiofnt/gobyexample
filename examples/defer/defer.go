@@ -7,8 +7,10 @@
 
 package main
 
-import "fmt"
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
 // Припустимо, нам потрібно створити файл, записати
 // до нього якусь інформацію, і коли ми закінчимо
@@ -16,32 +18,38 @@ import "os"
 // файлу, за допомогою інструкції `defer`.
 func main() {
 
-    // Після створення об'єкту `File` ( результат роботи `createFile` ),
-    // ми відкладуємо його закриття за допомогою `closeFile`.
-    // Виклик `closeFile` буде виконано по закінченні
-    // роботи функції `main`, але вже після того,
-    // як `writeFile` завершить свою роботу.
-    f := createFile("/tmp/defer.txt")
-    defer closeFile(f)
-    writeFile(f)
+	// Після створення об'єкту `File` ( результат роботи `createFile` ),
+	// ми відкладуємо його закриття за допомогою `closeFile`.
+	// Виклик `closeFile` буде виконано по закінченні
+	// роботи функції `main`, але вже після того,
+	// як `writeFile` завершить свою роботу.
+	f := createFile("/tmp/defer.txt")
+	defer closeFile(f)
+	writeFile(f)
 }
 
 func createFile(p string) *os.File {
-    fmt.Println("створєюмо")
-    f, err := os.Create(p)
-    if err != nil {
-        panic(err)
-    }
-    return f
+	fmt.Println("створєюмо")
+	f, err := os.Create(p)
+	if err != nil {
+		panic(err)
+	}
+	return f
 }
 
 func writeFile(f *os.File) {
-    fmt.Println("записуємо")
-    fmt.Fprintln(f, "дані")
+	fmt.Println("записуємо")
+	fmt.Fprintln(f, "дані")
 
 }
 
 func closeFile(f *os.File) {
-    fmt.Println("закриваємо")
-    f.Close()
+	fmt.Println("closing")
+	err := f.Close()
+	// Важливо виконувати перевірку на помилки, підчас завершення роботи
+	// з файлом, навіть у відкладеній функції.
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
 }

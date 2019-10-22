@@ -4,61 +4,63 @@
 
 package main
 
-import "fmt"
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 func main() {
 
-    // Розглянемо базовий приклад `switch`.
-    i := 2
-    fmt.Print("Напишемо ", i, " як ")
-    switch i {
-    case 1:
-        fmt.Println("один")
-    case 2:
-        fmt.Println("два")
-    case 3:
-        fmt.Println("три")
-    }
+	// Розглянемо базовий приклад `switch`.
+	i := 2
+	fmt.Print("Напишемо ", i, " як ")
+	switch i {
+	case 1:
+		fmt.Println("один")
+	case 2:
+		fmt.Println("два")
+	case 3:
+		fmt.Println("три")
+	}
 
-    // Дозволяється використовувати коми (",") - так ми розділяємо
-    // кілька умов в одній гілці `case`. Також існує умова `default` -
-    // вона відбудеться, за умови що жодна інша умова ще не виконалась.
-    switch time.Now().Weekday() {
-    case time.Saturday, time.Sunday:
-        fmt.Println("Це вихідні")
-    default:
-        fmt.Println("Це робочий день")
-    }
+	// Дозволяється використовувати коми (",") - так ми розділяємо
+	// кілька умов в одній гілці `case`. Також існує умова `default` -
+	// вона відбудеться, за умови що жодна інша умова ще не виконалась.
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		fmt.Println("Це вихідні")
+	default:
+		fmt.Println("Це робочий день")
+	}
 
-    // `switch` без виразу - предстввляє собою альтернативний спосіб
-    // реалізувати `if/else` логіку. Цей приклад демонструє,
-    // що гілки `case` не обмежуться [константами](constants).
-    t := time.Now()
-    switch {
-    case t.Hour() < 12:
-        fmt.Println("Над полудень")
-    default:
-        fmt.Println("По полудні")
-    }
+	// `switch` без виразу - предстввляє собою альтернативний спосіб
+	// реалізувати `if/else` логіку. Цей приклад демонструє,
+	// що гілки `case` не обмежуться [константами](constants).
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("Над полудень")
+	default:
+		fmt.Println("По полудні")
+	}
 
-    // Так само - як і в попередньому прикладі з `if`,
-    // оператор `switch` дозволяє декларувати змінну,
-    // яка буде доступна на усіх гілках перевірки умови.
-    // Наразі, ми демонструємо це - визначенням типу
-    // вхідної змінної (тип [`itnerface{}`](interfaces)
-    // дозволяє працювати з будь-яким типом даних).
-    whatAmI := func(i interface{}) {
-        switch t := i.(type) {
-        case bool:
-            fmt.Println("Я логічна змінна")
-        case int:
-            fmt.Println("Я ціле число")
-        default:
-            fmt.Printf("Незнаю нічого про тип %T\n", t)
-        }
-    }
-    whatAmI(true)
-    whatAmI(1)
-    whatAmI("Гей!")
+	// Так само - як і в попередньому прикладі з `if`,
+	// оператор `switch` дозволяє декларувати змінну,
+	// яка буде доступна на усіх гілках перевірки умови.
+	// Наразі, ми демонструємо це - визначенням типу
+	// вхідної змінної (тип [`itnerface{}`](interfaces)
+	// дозволяє працювати з будь-яким типом даних).
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("Я логічна змінна")
+		case int:
+			fmt.Println("Я ціле число")
+		default:
+			fmt.Printf("Незнаю нічого про тип %T\n", t)
+		}
+	}
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("Гей!")
 }

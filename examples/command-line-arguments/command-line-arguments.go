@@ -5,24 +5,26 @@
 
 package main
 
-import "os"
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
-    // `os.Args` надає доступ для незмінених аргументів
-    // командного рядка. Зауважте що першим значенням у
-    // цьому зрізі буде шлях до самої програми, а `os.Args[1:]`
-    // зберігатиме передані аргументи.
-    argsWithProg := os.Args
-    argsWithoutProg := os.Args[1:]
+	// `os.Args` надає доступ для незмінених аргументів
+	// командного рядка. Зауважте що першим значенням у
+	// цьому зрізі буде шлях до самої програми, а `os.Args[1:]`
+	// зберігатиме передані аргументи.
+	argsWithProg := os.Args
+	argsWithoutProg := os.Args[1:]
 
-    // Ви можете отримати значення індивідуальних аргументів
-    // використовуючи звичайний синтаксис доступа по індексу
-    // до елементів зрізу.
-    arg := os.Args[1]
+	// Ви можете отримати значення індивідуальних аргументів
+	// використовуючи звичайний синтаксис доступа по індексу
+	// до елементів зрізу.
+	arg := os.Args[1]
 
-    fmt.Println(argsWithProg)
-    fmt.Println(argsWithoutProg)
-    fmt.Println(arg)
+	fmt.Println(argsWithProg)
+	fmt.Println(argsWithoutProg)
+	fmt.Println(arg)
 }

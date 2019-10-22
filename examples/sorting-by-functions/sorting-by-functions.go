@@ -5,8 +5,10 @@
 
 package main
 
-import "sort"
-import "fmt"
+import (
+	"fmt"
+	"sort"
+)
 
 // Щоб відсортувати колекцію, використовуючи власні правилами в Go,
 // нам спочатку треба мати цю колекцію. Створюємо тип `byLength`
@@ -21,13 +23,13 @@ type byLength []string
 // реалізовує власну логіку сортування, яка (в нашому випадку)
 // полягає в порівнянні довжини рядків.
 func (s byLength) Len() int {
-    return len(s)
+	return len(s)
 }
 func (s byLength) Swap(i, j int) {
-    s[i], s[j] = s[j], s[i]
+	s[i], s[j] = s[j], s[i]
 }
 func (s byLength) Less(i, j int) bool {
-    return len(s[i]) < len(s[j])
+	return len(s[i]) < len(s[j])
 }
 
 // Після реалізації інтерфейсу `sort.Interface`, ми можемо
@@ -35,7 +37,7 @@ func (s byLength) Less(i, j int) bool {
 // сконвертувавши зріз у тип `byLength`, передавши його у
 // використання `sort.Sort` .
 func main() {
-    fruits := []string{"персик", "банан", "ківі"}
-    sort.Sort(byLength(fruits))
-    fmt.Println(fruits)
+	fruits := []string{"персик", "банан", "ківі"}
+	sort.Sort(byLength(fruits))
+	fmt.Println(fruits)
 }

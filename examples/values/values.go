@@ -8,16 +8,16 @@ import "fmt"
 
 func main() {
 
-    // Рядки можуть бути об’єднані поміж собою за допомогою
-    // оператора `+`.
-    fmt.Println("go" + "lang")
+	// Рядки можуть бути об’єднані поміж собою за допомогою
+	// оператора `+`.
+	fmt.Println("go" + "lang")
 
-    // Цілі числа та числа з плваючою комою.
-    fmt.Println("1+1 =", 1+1)
-    fmt.Println("7.0/3.0 =", 7.0/3.0)
+	// Цілі числа та числа з плваючою комою.
+	fmt.Println("1+1 =", 1+1)
+	fmt.Println("7.0/3.0 =", 7.0/3.0)
 
-    // Логічний тип та логічні оператор.
-    fmt.Println(true && false)
-    fmt.Println(true || false)
-    fmt.Println(!true)
+	// Логічний тип та логічні оператор.
+	fmt.Println(true && false)
+	fmt.Println(true || false)
+	fmt.Println(!true)
 }

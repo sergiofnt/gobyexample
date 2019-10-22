@@ -55,6 +55,9 @@ $ ./command-line-flags -wat
 flag provided but not defined: -wat
 Usage of ./command-line-flags:
 ...
+<<<<<<< HEAD
 
 # Далі, ми розглядемо змінні середовища, інший
 # загальноприйнятий метод передачі параметрів програмам.
+=======
+>>>>>>> master

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Запуск цієї програми покаже що підчас першої операції
 # час сплив, а друга операцію завершилась вчасно.
 $ go run timeouts.go
@@ -10,3 +11,10 @@ $ go run timeouts.go
 # ассинхроності. Надалі ми розглянемо ще два приклади,
 # що використовують данні примітиви: [хронометри](timers)
 # та [маятники](tickers).
+=======
+# Running this program shows the first operation timing
+# out and the second succeeding.
+$ go run timeouts.go 
+timeout 1
+result 2
+>>>>>>> master

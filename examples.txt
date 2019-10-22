@@ -34,6 +34,7 @@ Select
 Worker Pools
 Обмеження Частоти Запитів|Rate Limiting
 Атомарні Лічильники|Atomic Counters
+WaitGroups
 Mutexes
 Stateful Goroutines
 Сортування|Sorting
@@ -61,6 +62,7 @@ SHA1 Хеші|SHA1 Hashes
 File Paths
 Директорії|Directories
 Temporary Files and Directories
+Testing
 Командний Рядок - Аргументи|Command-Line Arguments
 Командний Рядок - Прапорці|Command-Line Flags
 Командний Рядок - Додаткові команди|Command-Line Subcommands
