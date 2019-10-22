@@ -4,22 +4,6 @@ set -eo pipefail
 
 paths=$(ls examples/*/*.go)
 
-gbe_to_4spaces() {
-  local os=$(tr [A-Z] [a-z] <<< "`uname`")
-  case $os in
-    darwin*)
-      sed -i '' -e 's/	/    /g' $1
-      ;;
-    linux*)
-      sed -i -e 's/	/    /g' $1
-      ;;
-    *)
-      echo "$os is not supported."
-      echo "Add a proper 'sed' command for your platform to ./tools/format"
-      return 1
-      ;;
-  esac
-}
 
 #SHA=$(which sha1sum)
 
@@ -41,10 +25,12 @@ for path in $paths; do
 	hash_old=$(awk 'NR==1{print $1}' $hash_file)
 
 	if [[ $hash_new != $hash_old ]]; then
-		echo "Generating updated version of $path"
-		gofmt -w=true $path
-		gbe_to_4spaces $path
-		go run tools/measurer/measure.go
-		go run tools/generator/generate.go
+
+        printf "Updating %s\n" $path
+
+        tools/format
+        go run tools/measure/measure.go
+        go run tools/generate/generate.go
+
 	fi
 done

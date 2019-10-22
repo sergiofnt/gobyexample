@@ -166,11 +166,13 @@ func resetURLHashFile(codehash, code, sourcePath string) string {
 
 func parseSegs(sourcePath string) ([]*Seg, string) {
 	var lines []string
+	var source []string
 	// Convert tabs to spaces for uniform rendering.
 	for _, line := range readLines(sourcePath) {
 		lines = append(lines, strings.Replace(line, "\t", "    ", -1))
+		source = append(source, line)
 	}
-	filecontent := strings.Join(lines, "\n")
+	filecontent := strings.Join(source, "\n")
 	segs := []*Seg{}
 	lastSeen := ""
 	for _, line := range lines {
@@ -282,7 +284,10 @@ func parseExamples() []*Example {
 				}
 			}
 
+			// hash normalization.
 			newCodeHash := sha1Sum(example.GoCode)
+			// newCodeHash := sha1Sum(strings.ReplaceAll(example.GoCode, "    ", "\t"))
+
 			if example.GoCodeHash != newCodeHash {
 				example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
 			}
@@ -333,6 +338,7 @@ func main() {
 	if len(os.Args) > 1 {
 		siteDir = os.Args[1]
 	}
+
 	ensureDir(siteDir)
 
 	copyFile("templates/site.css", siteDir+"/site.css")
