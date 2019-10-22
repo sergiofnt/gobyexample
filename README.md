@@ -26,19 +26,6 @@
 > tools/build-loop
 ```
 
-### Publishing
-
-Ця варіація проекту **gobyexample** розгортується автоматично на сервера [linode](https://linode.com) безпосередньо зі сховища артефактів (див гілку "**gobyexample.com.ua**")
-
-Оригінальний сайт розгортувався на AWS S3 наступним чином:
-
-```console
-$ gem install aws-sdk
-$ export AWS_ACCESS_KEY_ID=...
-$ export AWS_SECRET_ACCESS_KEY=...
-$ tools/upload
-```
-
 ### Ліцензія
 
 Ця робота є авторським правом Mark McGranaghan та ліцензована за
