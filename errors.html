@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'interfaces';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'goroutines';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'interfaces';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'goroutines';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -282,12 +289,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/errors">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"errors\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('func f1(arg int) (int, error) {\u000A');codeLines.push('    if arg == 42 {\u000A');codeLines.push('        return -1, errors.New(\"can\'t work with 42\")\u000A    }\u000A');codeLines.push('    return arg + 3, nil\u000A}\u000A');codeLines.push('type argError struct {\u000A    arg  int\u000A    prob string\u000A}\u000A');codeLines.push('func (e *argError) Error() string {\u000A    return fmt.Sprintf(\"%d - %s\", e.arg, e.prob)\u000A}\u000A');codeLines.push('func f2(arg int) (int, error) {\u000A    if arg == 42 {\u000A');codeLines.push('        return -1, &argError{arg, \"can\'t work with it\"}\u000A    }\u000A    return arg + 3, nil\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    for _, i := range []int{7, 42} {\u000A        if r, e := f1(i); e != nil {\u000A            fmt.Println(\"f1 failed:\", e)\u000A        } else {\u000A            fmt.Println(\"f1 worked:\", r)\u000A        }\u000A    }\u000A    for _, i := range []int{7, 42} {\u000A        if r, e := f2(i); e != nil {\u000A            fmt.Println(\"f2 failed:\", e)\u000A        } else {\u000A            fmt.Println(\"f2 worked:\", r)\u000A        }\u000A    }\u000A');codeLines.push('    _, e := f2(42)\u000A    if ae, ok := e.(*argError); ok {\u000A        fmt.Println(ae.arg)\u000A        fmt.Println(ae.prob)\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"errors\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('func f1(arg int) (int, error) {\u000A');codeLines.push('    if arg == 42 {\u000A');codeLines.push('        return -1, errors.New(\"can\'t work with 42\")\u000A    }\u000A');codeLines.push('    return arg + 3, nil\u000A}\u000A');codeLines.push('type argError struct {\u000A    arg  int\u000A    prob string\u000A}\u000A');codeLines.push('func (e *argError) Error() string {\u000A    return fmt.Sprintf(\"%d - %s\", e.arg, e.prob)\u000A}\u000A');codeLines.push('func f2(arg int) (int, error) {\u000A    if arg == 42 {\u000A');codeLines.push('        return -1, &argError{arg, \"can\'t work with it\"}\u000A    }\u000A    return arg + 3, nil\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    for _, i := range []int{7, 42} {\u000A        if r, e := f1(i); e != nil {\u000A            fmt.Println(\"f1 failed:\", e)\u000A        } else {\u000A            fmt.Println(\"f1 worked:\", r)\u000A        }\u000A    }\u000A    for _, i := range []int{7, 42} {\u000A        if r, e := f2(i); e != nil {\u000A            fmt.Println(\"f2 failed:\", e)\u000A        } else {\u000A            fmt.Println(\"f2 worked:\", r)\u000A        }\u000A    }\u000A');codeLines.push('    _, e := f2(42)\u000A    if ae, ok := e.(*argError); ok {\u000A        fmt.Println(ae.arg)\u000A        fmt.Println(ae.prob)\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

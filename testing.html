@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'temporary-files-and-directories';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'command-line-arguments';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'temporary-files-and-directories';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'command-line-arguments';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -226,12 +233,11 @@ when executing <code>go test -v</code>.</p>
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/testing">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"testing\"\u000A)\u000A');codeLines.push('func IntMin(a, b int) int {\u000A    if a \x3C b {\u000A        return a\u000A    } else {\u000A        return b\u000A    }\u000A}\u000A');codeLines.push('func TestIntMinBasic(t *testing.T) {\u000A    ans := IntMin(2, -2)\u000A    if ans != -2 {\u000A');codeLines.push('        t.Errorf(\"IntMin(2, -2) = %d; want -2\", ans)\u000A    }\u000A}\u000A');codeLines.push('func TestIntMinTableDriven(t *testing.T) {\u000A    var tests = []struct {\u000A        a, b int\u000A        want int\u000A    }{\u000A        {0, 1, 0},\u000A        {1, 0, 0},\u000A        {2, -2, -2},\u000A        {0, -1, -1},\u000A        {-1, 0, -1},\u000A    }\u000A');codeLines.push('    for _, tt := range tests {\u000A');codeLines.push('        testname := fmt.Sprintf(\"%d,%d\", tt.a, tt.b)\u000A        t.Run(testname, func(t *testing.T) {\u000A            ans := IntMin(tt.a, tt.b)\u000A            if ans != tt.want {\u000A                t.Errorf(\"got %d, want %d\", ans, tt.want)\u000A            }\u000A        })\u000A    }\u000A}\u000A');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"testing\"\u000A)\u000A');codeLines.push('func IntMin(a, b int) int {\u000A    if a \x3C b {\u000A        return a\u000A    } else {\u000A        return b\u000A    }\u000A}\u000A');codeLines.push('func TestIntMinBasic(t *testing.T) {\u000A    ans := IntMin(2, -2)\u000A    if ans != -2 {\u000A');codeLines.push('        t.Errorf(\"IntMin(2, -2) = %d; want -2\", ans)\u000A    }\u000A}\u000A');codeLines.push('func TestIntMinTableDriven(t *testing.T) {\u000A    var tests = []struct {\u000A        a, b int\u000A        want int\u000A    }{\u000A        {0, 1, 0},\u000A        {1, 0, 0},\u000A        {2, -2, -2},\u000A        {0, -1, -1},\u000A        {-1, 0, -1},\u000A    }\u000A');codeLines.push('    for _, tt := range tests {\u000A');codeLines.push('        testname := fmt.Sprintf(\"%d,%d\", tt.a, tt.b)\u000A        t.Run(testname, func(t *testing.T) {\u000A            ans := IntMin(tt.a, tt.b)\u000A            if ans != tt.want {\u000A                t.Errorf(\"got %d, want %d\", ans, tt.want)\u000A            }\u000A        })\u000A    }\u000A}\u000A');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

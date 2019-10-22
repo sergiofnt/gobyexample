@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'rate-limiting';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'waitgroups';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'rate-limiting';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'waitgroups';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -232,12 +239,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/atomic-counters">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync/atomic\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var ops uint64\u000A');codeLines.push('    for i := 0; i \x3C 50; i++ {\u000A        go func() {\u000A            for {\u000A');codeLines.push('                atomic.AddUint64(&ops, 1)\u000A');codeLines.push('                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    time.Sleep(time.Second)\u000A');codeLines.push('    opsFinal := atomic.LoadUint64(&ops)\u000A    fmt.Println(\"ops:\", opsFinal)\u000A');codeLines.push('}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync/atomic\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var ops uint64\u000A');codeLines.push('    for i := 0; i \x3C 50; i++ {\u000A        go func() {\u000A            for {\u000A');codeLines.push('                atomic.AddUint64(&ops, 1)\u000A');codeLines.push('                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    time.Sleep(time.Second)\u000A');codeLines.push('    opsFinal := atomic.LoadUint64(&ops)\u000A    fmt.Println(\"ops:\", opsFinal)\u000A');codeLines.push('}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

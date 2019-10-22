@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'regular-expressions';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'xml';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'regular-expressions';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'xml';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -383,12 +390,11 @@ JSON скористається для збереження розкодован
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/json">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/json\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('type response1 struct {\u000A    Page   int\u000A    Fruits []string\u000A}\u000A');codeLines.push('type response2 struct {\u000A    Page   int      `json:\"page\"`\u000A    Fruits []string `json:\"fruits\"`\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    bolB, _ := json.Marshal(true)\u000A    fmt.Println(string(bolB))\u000A');codeLines.push('    intB, _ := json.Marshal(1)\u000A    fmt.Println(string(intB))\u000A');codeLines.push('    fltB, _ := json.Marshal(2.34)\u000A    fmt.Println(string(fltB))\u000A');codeLines.push('    strB, _ := json.Marshal(\"gopher\")\u000A    fmt.Println(string(strB))\u000A');codeLines.push('    slcD := []string{\"apple\", \"peach\", \"pear\"}\u000A    slcB, _ := json.Marshal(slcD)\u000A    fmt.Println(string(slcB))\u000A');codeLines.push('    mapD := map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    mapB, _ := json.Marshal(mapD)\u000A    fmt.Println(string(mapB))\u000A');codeLines.push('    res1D := &response1{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res1B, _ := json.Marshal(res1D)\u000A    fmt.Println(string(res1B))\u000A');codeLines.push('    res2D := &response2{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res2B, _ := json.Marshal(res2D)\u000A    fmt.Println(string(res2B))\u000A');codeLines.push('    byt := []byte(`{\"num\":6.13,\"strs\":[\"a\",\"b\"]}`)\u000A');codeLines.push('    var dat map[string]interface{}\u000A');codeLines.push('    if err := json.Unmarshal(byt, &dat); err != nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(dat)\u000A');codeLines.push('    num := dat[\"num\"].(float64)\u000A    fmt.Println(num)\u000A');codeLines.push('    strs := dat[\"strs\"].([]interface{})\u000A    str1 := strs[0].(string)\u000A    fmt.Println(str1)\u000A');codeLines.push('    str := `{\"page\": 1, \"fruits\": [\"apple\", \"peach\"]}`\u000A    res := response2{}\u000A    json.Unmarshal([]byte(str), &res)\u000A    fmt.Println(res)\u000A    fmt.Println(res.Fruits[0])\u000A');codeLines.push('    enc := json.NewEncoder(os.Stdout)\u000A    d := map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    enc.Encode(d)\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"encoding/json\"\u000A    \"fmt\"\u000A    \"os\"\u000A)\u000A');codeLines.push('type response1 struct {\u000A    Page   int\u000A    Fruits []string\u000A}\u000A');codeLines.push('type response2 struct {\u000A    Page   int      `json:\"page\"`\u000A    Fruits []string `json:\"fruits\"`\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    bolB, _ := json.Marshal(true)\u000A    fmt.Println(string(bolB))\u000A');codeLines.push('    intB, _ := json.Marshal(1)\u000A    fmt.Println(string(intB))\u000A');codeLines.push('    fltB, _ := json.Marshal(2.34)\u000A    fmt.Println(string(fltB))\u000A');codeLines.push('    strB, _ := json.Marshal(\"gopher\")\u000A    fmt.Println(string(strB))\u000A');codeLines.push('    slcD := []string{\"apple\", \"peach\", \"pear\"}\u000A    slcB, _ := json.Marshal(slcD)\u000A    fmt.Println(string(slcB))\u000A');codeLines.push('    mapD := map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    mapB, _ := json.Marshal(mapD)\u000A    fmt.Println(string(mapB))\u000A');codeLines.push('    res1D := &response1{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res1B, _ := json.Marshal(res1D)\u000A    fmt.Println(string(res1B))\u000A');codeLines.push('    res2D := &response2{\u000A        Page:   1,\u000A        Fruits: []string{\"apple\", \"peach\", \"pear\"}}\u000A    res2B, _ := json.Marshal(res2D)\u000A    fmt.Println(string(res2B))\u000A');codeLines.push('    byt := []byte(`{\"num\":6.13,\"strs\":[\"a\",\"b\"]}`)\u000A');codeLines.push('    var dat map[string]interface{}\u000A');codeLines.push('    if err := json.Unmarshal(byt, &dat); err != nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(dat)\u000A');codeLines.push('    num := dat[\"num\"].(float64)\u000A    fmt.Println(num)\u000A');codeLines.push('    strs := dat[\"strs\"].([]interface{})\u000A    str1 := strs[0].(string)\u000A    fmt.Println(str1)\u000A');codeLines.push('    str := `{\"page\": 1, \"fruits\": [\"apple\", \"peach\"]}`\u000A    res := response2{}\u000A    json.Unmarshal([]byte(str), &res)\u000A    fmt.Println(res)\u000A    fmt.Println(res.Fruits[0])\u000A');codeLines.push('    enc := json.NewEncoder(os.Stdout)\u000A    d := map[string]int{\"apple\": 5, \"lettuce\": 7}\u000A    enc.Encode(d)\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

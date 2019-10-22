@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'channel-directions';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'timeouts';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'channel-directions';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'timeouts';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -180,12 +187,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/select">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    c1 := make(chan string)\u000A    c2 := make(chan string)\u000A');codeLines.push('    go func() {\u000A        time.Sleep(1 * time.Second)\u000A        c1 \x3C- \"один\"\u000A    }()\u000A    go func() {\u000A        time.Sleep(2 * time.Second)\u000A        c2 \x3C- \"два\"\u000A    }()\u000A');codeLines.push('    for i := 0; i \x3C 2; i++ {\u000A        select {\u000A        case msg1 := \x3C-c1:\u000A            fmt.Println(\"отримано\", msg1)\u000A        case msg2 := \x3C-c2:\u000A            fmt.Println(\"отримано\", msg2)\u000A        }\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    c1 := make(chan string)\u000A    c2 := make(chan string)\u000A');codeLines.push('    go func() {\u000A        time.Sleep(1 * time.Second)\u000A        c1 \x3C- \"один\"\u000A    }()\u000A    go func() {\u000A        time.Sleep(2 * time.Second)\u000A        c2 \x3C- \"два\"\u000A    }()\u000A');codeLines.push('    for i := 0; i \x3C 2; i++ {\u000A        select {\u000A        case msg1 := \x3C-c1:\u000A            fmt.Println(\"отримано\", msg1)\u000A        case msg2 := \x3C-c2:\u000A            fmt.Println(\"отримано\", msg2)\u000A        }\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

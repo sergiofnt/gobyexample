@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'sha1-hashes';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'reading-files';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'sha1-hashes';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'reading-files';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -183,12 +190,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/base64-encoding">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    b64 \"encoding/base64\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    data := \"abc123!?$*&()\'-=@~\"\u000A');codeLines.push('    sEnc := b64.StdEncoding.EncodeToString([]byte(data))\u000A    fmt.Println(sEnc)\u000A');codeLines.push('    sDec, _ := b64.StdEncoding.DecodeString(sEnc)\u000A    fmt.Println(string(sDec))\u000A');codeLines.push('    uEnc := b64.URLEncoding.EncodeToString([]byte(data))\u000A    fmt.Println(uEnc)\u000A    uDec, _ := b64.URLEncoding.DecodeString(uEnc)\u000A    fmt.Println(string(uDec))\u000A');codeLines.push('}\u000A');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    b64 \"encoding/base64\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    data := \"abc123!?$*&()\'-=@~\"\u000A');codeLines.push('    sEnc := b64.StdEncoding.EncodeToString([]byte(data))\u000A    fmt.Println(sEnc)\u000A');codeLines.push('    sDec, _ := b64.StdEncoding.DecodeString(sEnc)\u000A    fmt.Println(string(sDec))\u000A');codeLines.push('    uEnc := b64.URLEncoding.EncodeToString([]byte(data))\u000A    fmt.Println(uEnc)\u000A    uDec, _ := b64.URLEncoding.DecodeString(uEnc)\u000A    fmt.Println(string(uDec))\u000A');codeLines.push('}\u000A');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

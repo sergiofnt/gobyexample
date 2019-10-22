@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'waitgroups';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'stateful-goroutines';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'waitgroups';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'stateful-goroutines';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -280,12 +287,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/mutexes">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math/rand\"\u000A    \"sync\"\u000A    \"sync/atomic\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var state = make(map[int]int)\u000A');codeLines.push('    var mutex = &sync.Mutex{}\u000A');codeLines.push('    var readOps uint64\u000A    var writeOps uint64\u000A');codeLines.push('    for r := 0; r \x3C 100; r++ {\u000A        go func() {\u000A            total := 0\u000A            for {\u000A');codeLines.push('                key := rand.Intn(5)\u000A                mutex.Lock()\u000A                total += state[key]\u000A                mutex.Unlock()\u000A                atomic.AddUint64(&readOps, 1)\u000A');codeLines.push('                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    for w := 0; w \x3C 10; w++ {\u000A        go func() {\u000A            for {\u000A                key := rand.Intn(5)\u000A                val := rand.Intn(100)\u000A                mutex.Lock()\u000A                state[key] = val\u000A                mutex.Unlock()\u000A                atomic.AddUint64(&writeOps, 1)\u000A                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    time.Sleep(time.Second)\u000A');codeLines.push('    readOpsFinal := atomic.LoadUint64(&readOps)\u000A    fmt.Println(\"readOps:\", readOpsFinal)\u000A    writeOpsFinal := atomic.LoadUint64(&writeOps)\u000A    fmt.Println(\"writeOps:\", writeOpsFinal)\u000A');codeLines.push('    mutex.Lock()\u000A    fmt.Println(\"state:\", state)\u000A    mutex.Unlock()\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math/rand\"\u000A    \"sync\"\u000A    \"sync/atomic\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var state = make(map[int]int)\u000A');codeLines.push('    var mutex = &sync.Mutex{}\u000A');codeLines.push('    var readOps uint64\u000A    var writeOps uint64\u000A');codeLines.push('    for r := 0; r \x3C 100; r++ {\u000A        go func() {\u000A            total := 0\u000A            for {\u000A');codeLines.push('                key := rand.Intn(5)\u000A                mutex.Lock()\u000A                total += state[key]\u000A                mutex.Unlock()\u000A                atomic.AddUint64(&readOps, 1)\u000A');codeLines.push('                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    for w := 0; w \x3C 10; w++ {\u000A        go func() {\u000A            for {\u000A                key := rand.Intn(5)\u000A                val := rand.Intn(100)\u000A                mutex.Lock()\u000A                state[key] = val\u000A                mutex.Unlock()\u000A                atomic.AddUint64(&writeOps, 1)\u000A                time.Sleep(time.Millisecond)\u000A            }\u000A        }()\u000A    }\u000A');codeLines.push('    time.Sleep(time.Second)\u000A');codeLines.push('    readOpsFinal := atomic.LoadUint64(&readOps)\u000A    fmt.Println(\"readOps:\", readOpsFinal)\u000A    writeOpsFinal := atomic.LoadUint64(&writeOps)\u000A    fmt.Println(\"writeOps:\", writeOpsFinal)\u000A');codeLines.push('    mutex.Lock()\u000A    fmt.Println(\"state:\", state)\u000A    mutex.Unlock()\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

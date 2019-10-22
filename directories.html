@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'file-paths';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'temporary-files-and-directories';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'file-paths';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'temporary-files-and-directories';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -326,12 +333,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/directories">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"io/ioutil\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e != nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    err := os.Mkdir(\"subdir\", 0755)\u000A    check(err)\u000A');codeLines.push('    defer os.RemoveAll(\"subdir\")\u000A');codeLines.push('    createEmptyFile := func(name string) {\u000A        d := []byte(\"\")\u000A        check(ioutil.WriteFile(name, d, 0644))\u000A    }\u000A');codeLines.push('    createEmptyFile(\"subdir/file1\")\u000A');codeLines.push('    err = os.MkdirAll(\"subdir/parent/child\", 0755)\u000A    check(err)\u000A');codeLines.push('    createEmptyFile(\"subdir/parent/file2\")\u000A    createEmptyFile(\"subdir/parent/file3\")\u000A    createEmptyFile(\"subdir/parent/child/file4\")\u000A');codeLines.push('    c, err := ioutil.ReadDir(\"subdir/parent\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent\")\u000A    for _, entry := range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err = os.Chdir(\"subdir/parent/child\")\u000A    check(err)\u000A');codeLines.push('    c, err = ioutil.ReadDir(\".\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent/child\")\u000A    for _, entry := range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err = os.Chdir(\"../../..\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Visiting subdir\")\u000A    err = filepath.Walk(\"subdir\", visit)\u000A}\u000A');codeLines.push('func visit(p string, info os.FileInfo, err error) error {\u000A    if err != nil {\u000A        return err\u000A    }\u000A    fmt.Println(\" \", p, info.IsDir())\u000A    return nil\u000A}\u000A');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"io/ioutil\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e != nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    err := os.Mkdir(\"subdir\", 0755)\u000A    check(err)\u000A');codeLines.push('    defer os.RemoveAll(\"subdir\")\u000A');codeLines.push('    createEmptyFile := func(name string) {\u000A        d := []byte(\"\")\u000A        check(ioutil.WriteFile(name, d, 0644))\u000A    }\u000A');codeLines.push('    createEmptyFile(\"subdir/file1\")\u000A');codeLines.push('    err = os.MkdirAll(\"subdir/parent/child\", 0755)\u000A    check(err)\u000A');codeLines.push('    createEmptyFile(\"subdir/parent/file2\")\u000A    createEmptyFile(\"subdir/parent/file3\")\u000A    createEmptyFile(\"subdir/parent/child/file4\")\u000A');codeLines.push('    c, err := ioutil.ReadDir(\"subdir/parent\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent\")\u000A    for _, entry := range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err = os.Chdir(\"subdir/parent/child\")\u000A    check(err)\u000A');codeLines.push('    c, err = ioutil.ReadDir(\".\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Listing subdir/parent/child\")\u000A    for _, entry := range c {\u000A        fmt.Println(\" \", entry.Name(), entry.IsDir())\u000A    }\u000A');codeLines.push('    err = os.Chdir(\"../../..\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Visiting subdir\")\u000A    err = filepath.Walk(\"subdir\", visit)\u000A}\u000A');codeLines.push('func visit(p string, info os.FileInfo, err error) error {\u000A    if err != nil {\u000A        return err\u000A    }\u000A    fmt.Println(\" \", p, info.IsDir())\u000A    return nil\u000A}\u000A');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

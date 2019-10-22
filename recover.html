@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'defer';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'collection-functions';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'defer';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'collection-functions';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -183,12 +190,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/recover">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func errorFunc() {\u000A    panic(\"Паніка без причини\")\u000A}\u000A');codeLines.push('func normalFunc() {\u000A');codeLines.push('    defer func() {\u000A        if r := recover(); r != nil {\u000A            fmt.Println(\"Опрацювання паніки:\", r)\u000A        }\u000A    }()\u000A');codeLines.push('    errorFunc()\u000A');codeLines.push('    fmt.Println(\"Нормальний вихід\")\u000A}\u000A');codeLines.push('func main() {\u000A    normalFunc()\u000A    fmt.Println(\"Повернення з функції normalFunc.\")\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func errorFunc() {\u000A    panic(\"Паніка без причини\")\u000A}\u000A');codeLines.push('func normalFunc() {\u000A');codeLines.push('    defer func() {\u000A        if r := recover(); r != nil {\u000A            fmt.Println(\"Опрацювання паніки:\", r)\u000A        }\u000A    }()\u000A');codeLines.push('    errorFunc()\u000A');codeLines.push('    fmt.Println(\"Нормальний вихід\")\u000A}\u000A');codeLines.push('func main() {\u000A    normalFunc()\u000A    fmt.Println(\"Повернення з функції normalFunc.\")\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>

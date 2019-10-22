@@ -6,32 +6,39 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-    if (window.location.host == "gobyexample.com.ua") {
-        urls = window.location.href.split("/")
-    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	getLocation = (href) => {
+		var l = document.createElement("a");
+		l.href = href;
+		return l;
 	}
 
-	if (window.location.host == "butuzov.github.io") {
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js',      new Date());
-		gtag('config', 'UA-75170058-3');
-	}
+	var link = getLocation(window.location.href);
 
+	switch (link.hostname) {
+		case 'gobyexample.com.ua':
+			window.location.href = "https://butuzov.github.io/gobyexample" + link.pathname.replace(/\/+$/,'')
+		break;
+		case 'butuzov.github.io':
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js',      new Date());
+			gtag('config', 'UA-75170058-3');
+		break;
+	}
 	</script>
-    <script>
-      onkeydown = (e) => {
-          
-          if (e.key == "ArrowLeft") {
-              window.location.href = 'worker-pools';
-          }
-          
-          
-          if (e.key == "ArrowRight") {
-              window.location.href = 'atomic-counters';
-          }
-          
-      }
+	<script>
+	onkeydown = (e) => {
+	
+		if (e.key == "ArrowLeft") {
+			window.location.href = 'worker-pools';
+		}
+	
+	
+		if (e.key == "ArrowRight") {
+			window.location.href = 'atomic-counters';
+		}
+	
+	}
   </script>
 </head>
 <body>
@@ -257,12 +264,11 @@
 Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/rate-limiting">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
 </p>
 
-    <script>
-      var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    requests := make(chan int, 5)\u000A    for i := 1; i \x3C= 5; i++ {\u000A        requests \x3C- i\u000A    }\u000A    close(requests)\u000A');codeLines.push('    limiter := time.Tick(200 * time.Millisecond)\u000A');codeLines.push('    for req := range requests {\u000A        \x3C-limiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A');codeLines.push('    burstyLimiter := make(chan time.Time, 3)\u000A');codeLines.push('    for i := 0; i \x3C 3; i++ {\u000A        burstyLimiter \x3C- time.Now()\u000A    }\u000A');codeLines.push('    go func() {\u000A        for t := range time.Tick(200 * time.Millisecond) {\u000A            burstyLimiter \x3C- t\u000A        }\u000A    }()\u000A');codeLines.push('    burstyRequests := make(chan int, 5)\u000A    for i := 1; i \x3C= 5; i++ {\u000A        burstyRequests \x3C- i\u000A    }\u000A    close(burstyRequests)\u000A    for req := range burstyRequests {\u000A        \x3C-burstyLimiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
-    </script>
-    <script src="site.js" async></script>
-
+<script>
+var codeLines = [];
+codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    requests := make(chan int, 5)\u000A    for i := 1; i \x3C= 5; i++ {\u000A        requests \x3C- i\u000A    }\u000A    close(requests)\u000A');codeLines.push('    limiter := time.Tick(200 * time.Millisecond)\u000A');codeLines.push('    for req := range requests {\u000A        \x3C-limiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A');codeLines.push('    burstyLimiter := make(chan time.Time, 3)\u000A');codeLines.push('    for i := 0; i \x3C 3; i++ {\u000A        burstyLimiter \x3C- time.Now()\u000A    }\u000A');codeLines.push('    go func() {\u000A        for t := range time.Tick(200 * time.Millisecond) {\u000A            burstyLimiter \x3C- t\u000A        }\u000A    }()\u000A');codeLines.push('    burstyRequests := make(chan int, 5)\u000A    for i := 1; i \x3C= 5; i++ {\u000A        burstyRequests \x3C- i\u000A    }\u000A    close(burstyRequests)\u000A    for req := range burstyRequests {\u000A        \x3C-burstyLimiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
+</script>
+<script src="site.js" async></script>
 </div>
 </body>
 </html>
