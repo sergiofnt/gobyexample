@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-eqiv="content-type" content="text/html;charset=utf-8" />
+	<title>Go за Прикладом: File Paths</title>
+	<link rel=stylesheet href="site.css" />
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
+	<script type="text/javascript">
+	if (window.location.host == "gobyexample.com.ua") {
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js',      new Date());
+		gtag('config', 'UA-75170058-3');
+	}
+	</script>
+    <script>
+      onkeydown = (e) => {
+          
+          if (e.key == "ArrowLeft") {
+              window.location.href = 'line-filters';
+          }
+          
+          
+          if (e.key == "ArrowRight") {
+              window.location.href = 'directories';
+          }
+          
+      }
+  </script>
+</head>
+<body>
+	<div class="example" id="file-paths">
+	<h2><a href="./">Go за Прикладом</a>: File Paths</h2>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"><p>Пакет <code>filepath</code> забезпечує функції розбору,
+та побудуви <em>шляхів до файлу</em> у спосіб, який є універсальним
+між операційними системами. Наприклад: <code>dir/file</code> у UNIX-подібних
+системах чи <code>dir\file</code> у Windows.</p>
+</td>
+			<td class="code leading">
+			<a href="http://play.golang.org/p/PrNYhXYw1UY"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+			<div class="highlight"><pre><span class="kn">package</span> <span class="nx">main</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kn">import</span> <span class="p">(</span>
+    <span class="s">&quot;fmt&quot;</span>
+    <span class="s">&quot;path/filepath&quot;</span>
+    <span class="s">&quot;strings&quot;</span>
+<span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre><span class="kd">func</span> <span class="nx">main</span><span class="p">()</span> <span class="p">{</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Join</code> можна використовувати для побудови шляхів.
+Функція приймає будь-яку кількість аргументів
+і будує з них ієрархічний шлях.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">p</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="s">&quot;dir1&quot;</span><span class="p">,</span> <span class="s">&quot;dir2&quot;</span><span class="p">,</span> <span class="s">&quot;filename&quot;</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;p:&quot;</span><span class="p">,</span> <span class="nx">p</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Ви завжди повинні використовувати <code>Join</code> замість
+об&rsquo;єднання <code>/</code> або <code>\</code> вручну. В додаток функція <code>Join</code>
+нормалізує шляхи, видаливши зайві роздільники та лишні каталоги.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="s">&quot;dir1//&quot;</span><span class="p">,</span> <span class="s">&quot;filename&quot;</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">filepath</span><span class="p">.</span><span class="nx">Join</span><span class="p">(</span><span class="s">&quot;dir1/../dir1&quot;</span><span class="p">,</span> <span class="s">&quot;filename&quot;</span><span class="p">))</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Dir</code> та <code>Base</code> можна використовувати для розділення шляху до
+каталога чи файла. Як варіант, <code>Split</code> буде
+повернути обидва значення в одному виклику.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Dir(p):&quot;</span><span class="p">,</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Dir</span><span class="p">(</span><span class="nx">p</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;Base(p):&quot;</span><span class="p">,</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Base</span><span class="p">(</span><span class="nx">p</span><span class="p">))</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Також ми можемо перевірити, чи шлях абсолютний.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">filepath</span><span class="p">.</span><span class="nx">IsAbs</span><span class="p">(</span><span class="s">&quot;dir/file&quot;</span><span class="p">))</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">filepath</span><span class="p">.</span><span class="nx">IsAbs</span><span class="p">(</span><span class="s">&quot;/dir/file&quot;</span><span class="p">))</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">filename</span> <span class="o">:=</span> <span class="s">&quot;config.json&quot;</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Деякі назви файлів мають розширення після крапки.
+Ми можемо дізнатись розширення файлу за допомогою <code>Ext</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">ext</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Ext</span><span class="p">(</span><span class="nx">filename</span><span class="p">)</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">ext</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p>Щоб дізнатись ім&rsquo;я файлу без його розширення,
+використовуйте <code>strings.TrimSuffix</code>.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">strings</span><span class="p">.</span><span class="nx">TrimSuffix</span><span class="p">(</span><span class="nx">filename</span><span class="p">,</span> <span class="nx">ext</span><span class="p">))</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"><p><code>Rel</code> знаходить шлях між <em>base</em> і <em>target</em>.
+Він повертає помилку, якщо це не можна зробити.</p>
+</td>
+			<td class="code leading">
+			
+			<div class="highlight"><pre>    <span class="nx">rel</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Rel</span><span class="p">(</span><span class="s">&quot;a/b&quot;</span><span class="p">,</span> <span class="s">&quot;a/b/t/file&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">rel</span><span class="p">)</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre>    <span class="nx">rel</span><span class="p">,</span> <span class="nx">err</span> <span class="p">=</span> <span class="nx">filepath</span><span class="p">.</span><span class="nx">Rel</span><span class="p">(</span><span class="s">&quot;a/b&quot;</span><span class="p">,</span> <span class="s">&quot;a/c/t/file&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+        <span class="nb">panic</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="nx">rel</span><span class="p">)</span>
+<span class="p">}</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+	</table>
+	
+	<table>
+		
+		<tr>
+			<td class="docs"></td>
+			<td class="code">
+			
+			<div class="highlight"><pre><span class="gp">$</span> go run file-paths.go
+<span class="go">p: dir1/dir2/filename</span>
+<span class="go">dir1/filename</span>
+<span class="go">dir1/filename</span>
+<span class="go">Dir(p): dir1/dir2</span>
+<span class="go">Base(p): filename</span>
+<span class="go">false</span>
+<span class="go">true</span>
+<span class="go">.json</span>
+<span class="go">config</span>
+<span class="go">t/file</span>
+<span class="go">../c/t/file</span>
+</pre></div>
+
+			</td>
+		</tr>
+	
+	</table>
+	
+
+
+	<p class="next">
+		Наступний приклад: <a href="directories.html">Директорії</a>.
+	</p>
+
+<p class="footer">
+Автор <a href="https://twitter.com/mmcgrana">@mmcgrana</a> | Переклад <a href="https://twitter.com/butuzov">@butuzov</a> | <a href="https://github.com/butuzov/gobyexample/blob/ukrainian/examples/file-paths">source</a> | <a href="https://github.com/butuzov/gobyexample#license">ліцензія</a>
+</p>
+
+    <script>
+      var codeLines = [];
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"path/filepath\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    p := filepath.Join(\"dir1\", \"dir2\", \"filename\")\u000A    fmt.Println(\"p:\", p)\u000A');codeLines.push('    fmt.Println(filepath.Join(\"dir1//\", \"filename\"))\u000A    fmt.Println(filepath.Join(\"dir1/../dir1\", \"filename\"))\u000A');codeLines.push('    fmt.Println(\"Dir(p):\", filepath.Dir(p))\u000A    fmt.Println(\"Base(p):\", filepath.Base(p))\u000A');codeLines.push('    fmt.Println(filepath.IsAbs(\"dir/file\"))\u000A    fmt.Println(filepath.IsAbs(\"/dir/file\"))\u000A');codeLines.push('    filename := \"config.json\"\u000A');codeLines.push('    ext := filepath.Ext(filename)\u000A    fmt.Println(ext)\u000A');codeLines.push('    fmt.Println(strings.TrimSuffix(filename, ext))\u000A');codeLines.push('    rel, err := filepath.Rel(\"a/b\", \"a/b/t/file\")\u000A    if err != nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(rel)\u000A');codeLines.push('    rel, err = filepath.Rel(\"a/b\", \"a/c/t/file\")\u000A    if err != nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(rel)\u000A}\u000A');codeLines.push('');
+    </script>
+    <script src="site.js" async></script>
+
+</div>
+</body>
+</html>
