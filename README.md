@@ -1,7 +1,7 @@
  # Go за прикладом [![Build Status](https://travis-ci.org/butuzov/gobyexample.svg?branch=ukrainian)](https://travis-ci.org/butuzov/gobyexample)
 
 
-Наповнення та інструментарій для [Go за Прикладом](https://gobyexample.com.ua), сайту що навчає Go за допомогою анотованих прикладів.
+Наповнення та інструментарій для [Go за Прикладом](https://butuzov.github.io/gobyexample/), сайту що навчає Go за допомогою анотованих прикладів.
 
 ### Загальне
 
@@ -59,7 +59,7 @@ Go's Гофер є авторським правом [Renée French](http://rene
 * [Італійська](http://gobyexample.it) за авторства [Go Italian community](https://github.com/golangit/gobyexample-it)
 * [Корейська](https://mingrammer.com/gobyexample/) за авторства [mingrammer](https://github.com/mingrammer)
 * [Іспанська](http://goconejemplos.com) за авторства [Спільноти Go у Мексиці](https://github.com/dabit/gobyexample)
-* [Українська](http://gobyexample.com.ua/) за авторства [butuzov](https://github.com/butuzov/gobyexample)
+* [Українська](https://butuzov.github.io/gobyexample/) за авторства [butuzov](https://github.com/butuzov/gobyexample)
 
 ### Дякуємо
 
