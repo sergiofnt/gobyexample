@@ -6,12 +6,18 @@
 	<link rel=stylesheet href="site.css" />
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-75170058-3"></script>
 	<script type="text/javascript">
-	if (window.location.host == "gobyexample.com.ua") {
+    if (window.location.host == "gobyexample.com.ua") {
+        urls = window.location.href.split("/")
+    	window.location.href = "https://butuzov.github.io/gobyexample/" + urls[urls.length - 1]
+	}
+
+	if (window.location.host == "butuzov.github.io") {
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js',      new Date());
 		gtag('config', 'UA-75170058-3');
 	}
+
 	</script>
     <script>
       onkeydown = (e) => {
