@@ -39,14 +39,14 @@ Go's Гофер є авторським правом [Renée French](http://rene
 Переклади "Go by Example" від волонтерів доступні в наступних версіях:
 
 
-* [Китайська](https://gobyexample.xgwang.me/) за авторства [xg-wang](https://github.com/xg-wang/gobyexample)
-* [Чеська](http://gobyexamples.sweb.cz/) за авторства [martinkunc](https://github.com/martinkunc/gobyexample-cz)
-* [Японська](http://spinute.org/go-by-example) за авторства [spinute](https://github.com/spinute)
-* [Французька](http://le-go-par-l-exemple.keiruaprod.fr) за авторства [keirua](https://github.com/keirua/gobyexample)
-* [Італійська](http://gobyexample.it) за авторства [Go Italian community](https://github.com/golangit/gobyexample-it)
-* [Корейська](https://mingrammer.com/gobyexample/) за авторства [mingrammer](https://github.com/mingrammer)
-* [Іспанська](http://goconejemplos.com) за авторства [Спільноти Go у Мексиці](https://github.com/dabit/gobyexample)
-* [Українська](https://butuzov.github.io/gobyexample/) за авторства [butuzov](https://github.com/butuzov/gobyexample)
+* [Chinese](https://gobyexample.xgwang.me/) by [xg-wang](https://github.com/xg-wang/gobyexample)
+* [Czech](http://gobyexamples.sweb.cz/) by [martinkunc](https://github.com/martinkunc/gobyexample-cz)
+* [French](http://le-go-par-l-exemple.keiruaprod.fr) by [keirua](https://github.com/keirua/gobyexample)
+* [Italian](http://gobyexample.it) by the [Go Italian community](https://github.com/golangit/gobyexample-it)
+* [Japanese](http://spinute.org/go-by-example) by [spinute](https://github.com/spinute)
+* [Korean](https://mingrammer.com/gobyexample/) by [mingrammer](https://github.com/mingrammer)
+* [Spanish](http://goconejemplos.com) by the [Go Mexico community](https://github.com/dabit/gobyexample)
+* [Ukrainian](http://butuzov.github.io/gobyexample/) by [butuzov](https://github.com/butuzov/gobyexample)
 
 ### Дякуємо
 
