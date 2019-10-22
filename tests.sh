@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Testing Examples
-for file in $(find examples -name \*.sh | grep -v "exit.sh" | grep -v "panic.sh" | grep -v "signals.sh" ); do  # from tests.
+for file in $(find examples -name \*.sh | grep -vE "(panic|exit|signals|main_test).sh" ); do  # from tests.
 
 
 	cd $(dirname $file)
